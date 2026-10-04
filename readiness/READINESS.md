@@ -34,3 +34,7 @@ The authoritative clinician-approved form scope is implemented; see [v0.7 mappin
 ## Bounded original-4B engineering smoke
 
 Three engineering-only adapter steps, reload, inference and adapter-layer fusion were observed; no clinical training or model promotion. Untuned export/import succeeded; smoke full export stopped at critical memory pressure, preventing the matched control-versus-smoke comparison. See [stage table and exact review-ingestion commands](../docs/pipeline4b-smoke.md). The offline restart helper now separates form 0.7 from extraction schema 0.6; use the updated guide and a new versioned bundle. Offline/hosting/clinical success remains unclaimed.
+
+## v0.8 partial review and recovered engineering export
+
+See [scoped clinician decisions, diagnostics and recovery](../docs/clinician-partial-v08.md). The new form has separate optional chronic history and preserves all production safeguards. The engineering-only adapter now has a verified export path; this supersedes the prior export blocker, not the clinical-data/quality gates. Production remains qwen3:1.7b/source-id-v06-1. The existing live process was not restarted; a fresh process reads v0.8. No hosting/offline/clinical success is claimed.

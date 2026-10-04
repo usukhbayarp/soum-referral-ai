@@ -1,0 +1,31 @@
+{
+  "tensor_count": 398,
+  "changed_tensor_count": 2,
+  "changed_tensors": [
+    {
+      "name": "blk.35.attn_q.weight",
+      "control_sha256": "774d40bdac9c509107d418abee03b52c94f5f8153f491b4c7ec035564a1d596f",
+      "smoke_sha256": "15c48ad078ff6ebab6a61a66390fade7c925f06da36503a444eb3cfebb4acbc9",
+      "tensor_type": "12"
+    },
+    {
+      "name": "blk.35.attn_v.weight",
+      "control_sha256": "d70cfd36bbb513339742a49c299c72a9ad2eae7979484d8916178b7aeed3815f",
+      "smoke_sha256": "91cd459f23eceff1e6425e79e815adc5342263181b3f69866d0d834fe324f1dd",
+      "tensor_type": "14"
+    }
+  ],
+  "files": [
+    {
+      "path": ".runtime/pipeline4b/control-Q4_K_M.gguf",
+      "bytes": 2497280320,
+      "sha256": "8392d13c0aac3c5d4ff52a888ee85815b1b42835ea9b45468741151dfa306ca0"
+    },
+    {
+      "path": ".runtime/recovery-v08/smoke-Q4_K_M.gguf",
+      "bytes": 2497280320,
+      "sha256": "e365c076159cefc9e7e254cfa5d619075d6f2f913d3d3219d0062a1dda456aeb"
+    }
+  ],
+  "interpretation": "Quantized weight bytes only; not an answer change or clinical-quality claim"
+}

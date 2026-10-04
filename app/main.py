@@ -22,7 +22,7 @@ from .core import (
 
 STATIC = Path(__file__).parent / "static"
 # Form presentation evolves independently of the unchanged model contract.
-FORM = json.loads((ROOT / "config/referral.v0.7.json").read_text())
+FORM = json.loads((ROOT / "config/referral.v0.8.json").read_text())
 if SCHEMA["version"] != FORM["extraction_schema_version"]:
     FORM = SCHEMA  # Explicit legacy contract selection retains its own form.
 

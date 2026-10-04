@@ -1,0 +1,31 @@
+{
+  "checks": [
+    {
+      "name": "model.layers.35.self_attn.q_proj.weight",
+      "shape": [
+        4096,
+        2560
+      ],
+      "dtype": "mlx.core.bfloat16",
+      "max_abs_delta": 3.0517578125e-05,
+      "fusion_formula_equal": true,
+      "control_base_tensor_equal": true
+    },
+    {
+      "name": "model.layers.35.self_attn.v_proj.weight",
+      "shape": [
+        1024,
+        2560
+      ],
+      "dtype": "mlx.core.bfloat16",
+      "max_abs_delta": 3.0517578125e-05,
+      "fusion_formula_equal": true,
+      "control_base_tensor_equal": true
+    }
+  ],
+  "patch_sha256": "11913ead56097d1ecc15f86d16aee8803f956ca44b363ec5a2789432b0108a25",
+  "mlx_peak_memory_bytes": 173473808,
+  "elapsed_seconds": 3.5891093750251457,
+  "adapter_sha256": "3da1742d66975bb357f902ba4f9fc7e3b76ea2f0aa52de2ec70d514952097ca1",
+  "clinical_candidate_eligible": false
+}

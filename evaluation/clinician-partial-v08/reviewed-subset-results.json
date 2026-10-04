@@ -1,0 +1,1358 @@
+{
+  "review_version": "clinician-partial-20261004-1",
+  "quality_claim": "Partial reviewed development diagnostics only; neither held-out nor clinical validation",
+  "medication_A_v2": [
+    {
+      "model": "1.7B",
+      "case_id": "DEV-002",
+      "artifact": "evaluation/medication-v1/run-v2/report.json",
+      "artifact_sha256": "0696b38bfca35bd36bbdc7b734f3794733423fc380575ffbe0920af4d14d42aa",
+      "source_and_frozen_contract_match": true,
+      "reviewed_unit_coverage": 5,
+      "total_units": 33,
+      "excluded_units": [
+        "U1",
+        "U2",
+        "U3",
+        "U4",
+        "U5",
+        "U6",
+        "U7",
+        "U8",
+        "U9",
+        "U10",
+        "U14",
+        "U15",
+        "U16",
+        "U17",
+        "U18",
+        "U19",
+        "U20",
+        "U22",
+        "U24",
+        "U25",
+        "U26",
+        "U27",
+        "U28",
+        "U29",
+        "U30",
+        "U31",
+        "U32",
+        "U33"
+      ],
+      "counts": {
+        "denominator": 5,
+        "correct": 0,
+        "incorrect": 5,
+        "unscorable": 0
+      },
+      "items": [
+        {
+          "unit": "U11",
+          "expected": "regular_medication",
+          "actual": "planned_or_prescribed_treatment",
+          "status": "incorrect"
+        },
+        {
+          "unit": "U12",
+          "expected": "regular_medication",
+          "actual": "explicitly_not_administered",
+          "status": "incorrect"
+        },
+        {
+          "unit": "U13",
+          "expected": "allergy_statement",
+          "actual": "mixed_or_unclear",
+          "status": "incorrect"
+        },
+        {
+          "unit": "U21",
+          "expected": "administered_treatment",
+          "actual": "planned_or_prescribed_treatment",
+          "status": "incorrect"
+        },
+        {
+          "unit": "U23",
+          "expected": "explicitly_not_administered",
+          "actual": "mixed_or_unclear",
+          "status": "incorrect"
+        }
+      ],
+      "detail_attributes": "unscorable: A-v2 emits roles, not drug-dose-route-time associations or generated allergy statements"
+    },
+    {
+      "model": "1.7B",
+      "case_id": "dev-003",
+      "artifact": "evaluation/medication-v1/run-v2/report.json",
+      "artifact_sha256": "0696b38bfca35bd36bbdc7b734f3794733423fc380575ffbe0920af4d14d42aa",
+      "source_and_frozen_contract_match": true,
+      "reviewed_unit_coverage": 7,
+      "total_units": 7,
+      "excluded_units": [],
+      "counts": {
+        "denominator": 7,
+        "correct": 0,
+        "incorrect": 7,
+        "unscorable": 0
+      },
+      "items": [
+        {
+          "unit": "U1",
+          "expected": "other",
+          "actual": "regular_medication",
+          "status": "incorrect"
+        },
+        {
+          "unit": "U2",
+          "expected": "other",
+          "actual": "mixed_or_unclear",
+          "status": "incorrect"
+        },
+        {
+          "unit": "U3",
+          "expected": "other",
+          "actual": "planned_or_prescribed_treatment",
+          "status": "incorrect"
+        },
+        {
+          "unit": "U4",
+          "expected": "other",
+          "actual": "explicitly_not_administered",
+          "status": "incorrect"
+        },
+        {
+          "unit": "U7",
+          "expected": "other",
+          "actual": "allergy_statement",
+          "status": "incorrect"
+        },
+        {
+          "unit": "U5",
+          "expected": "allergy_statement",
+          "actual": "administered_treatment",
+          "status": "incorrect"
+        },
+        {
+          "unit": "U6",
+          "expected": "explicitly_not_administered",
+          "actual": "historical_medication",
+          "status": "incorrect"
+        }
+      ],
+      "detail_attributes": "unscorable: A-v2 emits roles, not drug-dose-route-time associations or generated allergy statements"
+    },
+    {
+      "model": "1.7B",
+      "case_id": "dev-004",
+      "artifact": "evaluation/medication-v1/run-v2/report.json",
+      "artifact_sha256": "0696b38bfca35bd36bbdc7b734f3794733423fc380575ffbe0920af4d14d42aa",
+      "source_and_frozen_contract_match": true,
+      "reviewed_unit_coverage": 2,
+      "total_units": 5,
+      "excluded_units": [
+        "U1",
+        "U2",
+        "U5"
+      ],
+      "counts": {
+        "denominator": 2,
+        "correct": 0,
+        "incorrect": 2,
+        "unscorable": 0
+      },
+      "items": [
+        {
+          "unit": "U3",
+          "expected": "other",
+          "actual": "mixed_or_unclear",
+          "status": "incorrect"
+        },
+        {
+          "unit": "U4",
+          "expected": "other",
+          "actual": "planned_or_prescribed_treatment",
+          "status": "incorrect"
+        }
+      ],
+      "detail_attributes": "unscorable: A-v2 emits roles, not drug-dose-route-time associations or generated allergy statements"
+    },
+    {
+      "model": "1.7B",
+      "case_id": "probe-med-001",
+      "artifact": "evaluation/medication-v1/run-v2/report.json",
+      "artifact_sha256": "0696b38bfca35bd36bbdc7b734f3794733423fc380575ffbe0920af4d14d42aa",
+      "source_and_frozen_contract_match": true,
+      "reviewed_unit_coverage": 0,
+      "total_units": 6,
+      "excluded_units": [
+        "U1",
+        "U2",
+        "U3",
+        "U4",
+        "U5",
+        "U6"
+      ],
+      "counts": {
+        "denominator": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "unscorable": 0
+      },
+      "items": [],
+      "detail_attributes": "unscorable: A-v2 emits roles, not drug-dose-route-time associations or generated allergy statements"
+    },
+    {
+      "model": "original-4B",
+      "case_id": "DEV-002",
+      "artifact": "evaluation/original4b-v07/run-v2/report.json",
+      "artifact_sha256": "d2e3caf01f3b2b9420e26588885069fe1ad93eaaf7cc15d99daded4bb28fb01f",
+      "source_and_frozen_contract_match": true,
+      "reviewed_unit_coverage": 5,
+      "total_units": 33,
+      "excluded_units": [
+        "U1",
+        "U2",
+        "U3",
+        "U4",
+        "U5",
+        "U6",
+        "U7",
+        "U8",
+        "U9",
+        "U10",
+        "U14",
+        "U15",
+        "U16",
+        "U17",
+        "U18",
+        "U19",
+        "U20",
+        "U22",
+        "U24",
+        "U25",
+        "U26",
+        "U27",
+        "U28",
+        "U29",
+        "U30",
+        "U31",
+        "U32",
+        "U33"
+      ],
+      "counts": {
+        "denominator": 5,
+        "correct": 2,
+        "incorrect": 3,
+        "unscorable": 0
+      },
+      "items": [
+        {
+          "unit": "U11",
+          "expected": "regular_medication",
+          "actual": "administered_treatment",
+          "status": "incorrect"
+        },
+        {
+          "unit": "U12",
+          "expected": "regular_medication",
+          "actual": "other",
+          "status": "incorrect"
+        },
+        {
+          "unit": "U13",
+          "expected": "allergy_statement",
+          "actual": "allergy_statement",
+          "status": "correct"
+        },
+        {
+          "unit": "U21",
+          "expected": "administered_treatment",
+          "actual": "administered_treatment",
+          "status": "correct"
+        },
+        {
+          "unit": "U23",
+          "expected": "explicitly_not_administered",
+          "actual": "other",
+          "status": "incorrect"
+        }
+      ],
+      "detail_attributes": "unscorable: A-v2 emits roles, not drug-dose-route-time associations or generated allergy statements"
+    },
+    {
+      "model": "original-4B",
+      "case_id": "dev-003",
+      "artifact": "evaluation/original4b-v07/run-v2/report.json",
+      "artifact_sha256": "d2e3caf01f3b2b9420e26588885069fe1ad93eaaf7cc15d99daded4bb28fb01f",
+      "source_and_frozen_contract_match": true,
+      "reviewed_unit_coverage": 7,
+      "total_units": 7,
+      "excluded_units": [],
+      "counts": {
+        "denominator": 7,
+        "correct": 7,
+        "incorrect": 0,
+        "unscorable": 0
+      },
+      "items": [
+        {
+          "unit": "U1",
+          "expected": "other",
+          "actual": "other",
+          "status": "correct"
+        },
+        {
+          "unit": "U2",
+          "expected": "other",
+          "actual": "other",
+          "status": "correct"
+        },
+        {
+          "unit": "U3",
+          "expected": "other",
+          "actual": "other",
+          "status": "correct"
+        },
+        {
+          "unit": "U4",
+          "expected": "other",
+          "actual": "other",
+          "status": "correct"
+        },
+        {
+          "unit": "U7",
+          "expected": "other",
+          "actual": "other",
+          "status": "correct"
+        },
+        {
+          "unit": "U5",
+          "expected": "allergy_statement",
+          "actual": "allergy_statement",
+          "status": "correct"
+        },
+        {
+          "unit": "U6",
+          "expected": "explicitly_not_administered",
+          "actual": "explicitly_not_administered",
+          "status": "correct"
+        }
+      ],
+      "detail_attributes": "unscorable: A-v2 emits roles, not drug-dose-route-time associations or generated allergy statements"
+    },
+    {
+      "model": "original-4B",
+      "case_id": "dev-004",
+      "artifact": "evaluation/original4b-v07/run-v2/report.json",
+      "artifact_sha256": "d2e3caf01f3b2b9420e26588885069fe1ad93eaaf7cc15d99daded4bb28fb01f",
+      "source_and_frozen_contract_match": true,
+      "reviewed_unit_coverage": 2,
+      "total_units": 5,
+      "excluded_units": [
+        "U1",
+        "U2",
+        "U5"
+      ],
+      "counts": {
+        "denominator": 2,
+        "correct": 2,
+        "incorrect": 0,
+        "unscorable": 0
+      },
+      "items": [
+        {
+          "unit": "U3",
+          "expected": "other",
+          "actual": "other",
+          "status": "correct"
+        },
+        {
+          "unit": "U4",
+          "expected": "other",
+          "actual": "other",
+          "status": "correct"
+        }
+      ],
+      "detail_attributes": "unscorable: A-v2 emits roles, not drug-dose-route-time associations or generated allergy statements"
+    },
+    {
+      "model": "original-4B",
+      "case_id": "probe-med-001",
+      "artifact": "evaluation/original4b-v07/run-v2/report.json",
+      "artifact_sha256": "d2e3caf01f3b2b9420e26588885069fe1ad93eaaf7cc15d99daded4bb28fb01f",
+      "source_and_frozen_contract_match": true,
+      "reviewed_unit_coverage": 0,
+      "total_units": 6,
+      "excluded_units": [
+        "U1",
+        "U2",
+        "U3",
+        "U4",
+        "U5",
+        "U6"
+      ],
+      "counts": {
+        "denominator": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "unscorable": 0
+      },
+      "items": [],
+      "detail_attributes": "unscorable: A-v2 emits roles, not drug-dose-route-time associations or generated allergy statements"
+    },
+    {
+      "model": "converted-control",
+      "case_id": "DEV-002",
+      "artifact": "evaluation/pipeline4b-smoke/comparison/report.json",
+      "artifact_sha256": "5a34b9e72ccce531b11661e1fc3b7bbe6bec94e1aacd99780fd4f5ffb146e761",
+      "source_and_frozen_contract_match": true,
+      "reviewed_unit_coverage": 5,
+      "total_units": 33,
+      "excluded_units": [
+        "U1",
+        "U2",
+        "U3",
+        "U4",
+        "U5",
+        "U6",
+        "U7",
+        "U8",
+        "U9",
+        "U10",
+        "U14",
+        "U15",
+        "U16",
+        "U17",
+        "U18",
+        "U19",
+        "U20",
+        "U22",
+        "U24",
+        "U25",
+        "U26",
+        "U27",
+        "U28",
+        "U29",
+        "U30",
+        "U31",
+        "U32",
+        "U33"
+      ],
+      "counts": {
+        "denominator": 5,
+        "correct": 3,
+        "incorrect": 2,
+        "unscorable": 0
+      },
+      "items": [
+        {
+          "unit": "U11",
+          "expected": "regular_medication",
+          "actual": "administered_treatment",
+          "status": "incorrect"
+        },
+        {
+          "unit": "U12",
+          "expected": "regular_medication",
+          "actual": "explicitly_not_administered",
+          "status": "incorrect"
+        },
+        {
+          "unit": "U13",
+          "expected": "allergy_statement",
+          "actual": "allergy_statement",
+          "status": "correct"
+        },
+        {
+          "unit": "U21",
+          "expected": "administered_treatment",
+          "actual": "administered_treatment",
+          "status": "correct"
+        },
+        {
+          "unit": "U23",
+          "expected": "explicitly_not_administered",
+          "actual": "explicitly_not_administered",
+          "status": "correct"
+        }
+      ],
+      "detail_attributes": "unscorable: A-v2 emits roles, not drug-dose-route-time associations or generated allergy statements"
+    },
+    {
+      "model": "converted-control",
+      "case_id": "dev-003",
+      "artifact": "evaluation/pipeline4b-smoke/comparison/report.json",
+      "artifact_sha256": "5a34b9e72ccce531b11661e1fc3b7bbe6bec94e1aacd99780fd4f5ffb146e761",
+      "source_and_frozen_contract_match": true,
+      "reviewed_unit_coverage": 7,
+      "total_units": 7,
+      "excluded_units": [],
+      "counts": {
+        "denominator": 7,
+        "correct": 7,
+        "incorrect": 0,
+        "unscorable": 0
+      },
+      "items": [
+        {
+          "unit": "U1",
+          "expected": "other",
+          "actual": "other",
+          "status": "correct"
+        },
+        {
+          "unit": "U2",
+          "expected": "other",
+          "actual": "other",
+          "status": "correct"
+        },
+        {
+          "unit": "U3",
+          "expected": "other",
+          "actual": "other",
+          "status": "correct"
+        },
+        {
+          "unit": "U4",
+          "expected": "other",
+          "actual": "other",
+          "status": "correct"
+        },
+        {
+          "unit": "U7",
+          "expected": "other",
+          "actual": "other",
+          "status": "correct"
+        },
+        {
+          "unit": "U5",
+          "expected": "allergy_statement",
+          "actual": "allergy_statement",
+          "status": "correct"
+        },
+        {
+          "unit": "U6",
+          "expected": "explicitly_not_administered",
+          "actual": "explicitly_not_administered",
+          "status": "correct"
+        }
+      ],
+      "detail_attributes": "unscorable: A-v2 emits roles, not drug-dose-route-time associations or generated allergy statements"
+    },
+    {
+      "model": "converted-control",
+      "case_id": "dev-004",
+      "artifact": "evaluation/pipeline4b-smoke/comparison/report.json",
+      "artifact_sha256": "5a34b9e72ccce531b11661e1fc3b7bbe6bec94e1aacd99780fd4f5ffb146e761",
+      "source_and_frozen_contract_match": true,
+      "reviewed_unit_coverage": 2,
+      "total_units": 5,
+      "excluded_units": [
+        "U1",
+        "U2",
+        "U5"
+      ],
+      "counts": {
+        "denominator": 2,
+        "correct": 2,
+        "incorrect": 0,
+        "unscorable": 0
+      },
+      "items": [
+        {
+          "unit": "U3",
+          "expected": "other",
+          "actual": "other",
+          "status": "correct"
+        },
+        {
+          "unit": "U4",
+          "expected": "other",
+          "actual": "other",
+          "status": "correct"
+        }
+      ],
+      "detail_attributes": "unscorable: A-v2 emits roles, not drug-dose-route-time associations or generated allergy statements"
+    },
+    {
+      "model": "converted-control",
+      "case_id": "probe-med-001",
+      "artifact": "evaluation/pipeline4b-smoke/comparison/report.json",
+      "artifact_sha256": "5a34b9e72ccce531b11661e1fc3b7bbe6bec94e1aacd99780fd4f5ffb146e761",
+      "source_and_frozen_contract_match": true,
+      "reviewed_unit_coverage": 0,
+      "total_units": 6,
+      "excluded_units": [
+        "U1",
+        "U2",
+        "U3",
+        "U4",
+        "U5",
+        "U6"
+      ],
+      "counts": {
+        "denominator": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "unscorable": 0
+      },
+      "items": [],
+      "detail_attributes": "unscorable: A-v2 emits roles, not drug-dose-route-time associations or generated allergy statements"
+    }
+  ],
+  "structured_B_v2": [
+    {
+      "model": "1.7B",
+      "case_id": "DEV-002",
+      "contract": "B-v2 structured association task, separate from A",
+      "artifact": "evaluation/medication-v1/run-v2/report.json",
+      "compatible": true,
+      "counts": {
+        "denominator": 13,
+        "correct": 4,
+        "incorrect": 9,
+        "unscorable": 0
+      },
+      "items": [
+        {
+          "fact": "U11.role",
+          "status": "correct"
+        },
+        {
+          "fact": "U11.dose",
+          "status": "correct"
+        },
+        {
+          "fact": "U11.frequency",
+          "status": "correct"
+        },
+        {
+          "fact": "U11.time",
+          "status": "incorrect"
+        },
+        {
+          "fact": "U11.route",
+          "status": "incorrect"
+        },
+        {
+          "fact": "U21.role",
+          "status": "incorrect"
+        },
+        {
+          "fact": "U21.dose",
+          "status": "incorrect"
+        },
+        {
+          "fact": "U21.frequency",
+          "status": "incorrect"
+        },
+        {
+          "fact": "U21.time",
+          "status": "incorrect"
+        },
+        {
+          "fact": "U21.route",
+          "status": "incorrect"
+        },
+        {
+          "fact": "patient_attribution",
+          "status": "correct"
+        },
+        {
+          "fact": "today_dose_not_asked",
+          "status": "incorrect"
+        },
+        {
+          "fact": "no_other_treatment",
+          "status": "incorrect"
+        }
+      ],
+      "note": "Missing structured fact is incorrect; unavailable/invalid whole output unscorable. Only explicit reviewed facts scored."
+    },
+    {
+      "model": "1.7B",
+      "case_id": "dev-003",
+      "contract": "B-v2 structured association task, separate from A",
+      "artifact": "evaluation/medication-v1/run-v2/report.json",
+      "compatible": true,
+      "counts": {
+        "denominator": 3,
+        "correct": 0,
+        "incorrect": 3,
+        "unscorable": 0
+      },
+      "items": [
+        {
+          "fact": "no_invented_medication_rows",
+          "status": "incorrect"
+        },
+        {
+          "fact": "U5",
+          "status": "incorrect"
+        },
+        {
+          "fact": "U6",
+          "status": "incorrect"
+        }
+      ],
+      "note": "Missing structured fact is incorrect; unavailable/invalid whole output unscorable. Only explicit reviewed facts scored."
+    },
+    {
+      "model": "original-4B",
+      "case_id": "DEV-002",
+      "contract": "B-v2 structured association task, separate from A",
+      "artifact": "evaluation/original4b-v07/run-v2/report.json",
+      "compatible": true,
+      "counts": {
+        "denominator": 13,
+        "correct": 10,
+        "incorrect": 3,
+        "unscorable": 0
+      },
+      "items": [
+        {
+          "fact": "U11.role",
+          "status": "correct"
+        },
+        {
+          "fact": "U11.dose",
+          "status": "correct"
+        },
+        {
+          "fact": "U11.frequency",
+          "status": "correct"
+        },
+        {
+          "fact": "U11.time",
+          "status": "incorrect"
+        },
+        {
+          "fact": "U11.route",
+          "status": "correct"
+        },
+        {
+          "fact": "U21.role",
+          "status": "correct"
+        },
+        {
+          "fact": "U21.dose",
+          "status": "correct"
+        },
+        {
+          "fact": "U21.frequency",
+          "status": "correct"
+        },
+        {
+          "fact": "U21.time",
+          "status": "correct"
+        },
+        {
+          "fact": "U21.route",
+          "status": "correct"
+        },
+        {
+          "fact": "patient_attribution",
+          "status": "correct"
+        },
+        {
+          "fact": "today_dose_not_asked",
+          "status": "incorrect"
+        },
+        {
+          "fact": "no_other_treatment",
+          "status": "incorrect"
+        }
+      ],
+      "note": "Missing structured fact is incorrect; unavailable/invalid whole output unscorable. Only explicit reviewed facts scored."
+    },
+    {
+      "model": "original-4B",
+      "case_id": "dev-003",
+      "contract": "B-v2 structured association task, separate from A",
+      "artifact": "evaluation/original4b-v07/run-v2/report.json",
+      "compatible": true,
+      "counts": {
+        "denominator": 3,
+        "correct": 3,
+        "incorrect": 0,
+        "unscorable": 0
+      },
+      "items": [
+        {
+          "fact": "no_invented_medication_rows",
+          "status": "correct"
+        },
+        {
+          "fact": "U5",
+          "status": "correct"
+        },
+        {
+          "fact": "U6",
+          "status": "correct"
+        }
+      ],
+      "note": "Missing structured fact is incorrect; unavailable/invalid whole output unscorable. Only explicit reviewed facts scored."
+    }
+  ],
+  "full_form_source_assignment": [
+    {
+      "model": "qwen3:1.7b",
+      "prompt": "source-id-v06-1",
+      "artifact": "evaluation/recovery-v06/baseline-1.7b-other/report.json",
+      "case_id": "dev-003",
+      "source_match": true,
+      "counts": {
+        "denominator": 7,
+        "correct": 0,
+        "incorrect": 7,
+        "unscorable": 0
+      },
+      "items": [
+        {
+          "unit": "U1",
+          "expected_category": "history",
+          "actual_categories": [
+            "identity_source",
+            "initial_source",
+            "examination"
+          ],
+          "status": "incorrect",
+          "missing_expected_category": true,
+          "extra_categories": [
+            "identity_source",
+            "initial_source",
+            "examination"
+          ]
+        },
+        {
+          "unit": "U2",
+          "expected_category": "history",
+          "actual_categories": [
+            "identity_source"
+          ],
+          "status": "incorrect",
+          "missing_expected_category": true,
+          "extra_categories": [
+            "identity_source"
+          ]
+        },
+        {
+          "unit": "U3",
+          "expected_category": "history",
+          "actual_categories": [
+            "identity_source"
+          ],
+          "status": "incorrect",
+          "missing_expected_category": true,
+          "extra_categories": [
+            "identity_source"
+          ]
+        },
+        {
+          "unit": "U4",
+          "expected_category": "examination",
+          "actual_categories": [
+            "identity_source"
+          ],
+          "status": "incorrect",
+          "missing_expected_category": true,
+          "extra_categories": [
+            "identity_source"
+          ]
+        },
+        {
+          "unit": "U5",
+          "expected_category": "allergies",
+          "actual_categories": [
+            "identity_source"
+          ],
+          "status": "incorrect",
+          "missing_expected_category": true,
+          "extra_categories": [
+            "identity_source"
+          ]
+        },
+        {
+          "unit": "U6",
+          "expected_category": "treatment_source",
+          "actual_categories": [
+            "identity_source"
+          ],
+          "status": "incorrect",
+          "missing_expected_category": true,
+          "extra_categories": [
+            "identity_source"
+          ]
+        },
+        {
+          "unit": "U7",
+          "expected_category": "investigations",
+          "actual_categories": [
+            "identity_source"
+          ],
+          "status": "incorrect",
+          "missing_expected_category": true,
+          "extra_categories": [
+            "identity_source"
+          ]
+        }
+      ]
+    },
+    {
+      "model": "qwen3:1.7b",
+      "prompt": "source-id-v06-1",
+      "artifact": "evaluation/recovery-v06/baseline-1.7b-other/report.json",
+      "case_id": "dev-004",
+      "source_match": true,
+      "counts": {
+        "denominator": 2,
+        "correct": 0,
+        "incorrect": 1,
+        "unscorable": 1
+      },
+      "items": [
+        {
+          "unit": "U4",
+          "expected_category": "investigations",
+          "actual_categories": [
+            "history",
+            "current_source",
+            "investigations",
+            "pain_change"
+          ],
+          "status": "incorrect",
+          "missing_expected_category": false,
+          "extra_categories": [
+            "history",
+            "current_source",
+            "pain_change"
+          ]
+        },
+        {
+          "unit": "U3",
+          "expected_category": "vital_measurements_phase_unspecified",
+          "actual_categories": [
+            "requested_action",
+            "diagnosis",
+            "initial_source",
+            "examination"
+          ],
+          "status": "unscorable",
+          "missing_expected_category": true,
+          "extra_categories": [
+            "requested_action",
+            "diagnosis",
+            "initial_source",
+            "examination"
+          ]
+        }
+      ]
+    },
+    {
+      "model": "qwen3:1.7b",
+      "prompt": "grouped-source-id-v06-1",
+      "artifact": "evaluation/recovery-v06/grouped-1.7b/report.json",
+      "case_id": "DEV-002",
+      "source_match": true,
+      "counts": {
+        "denominator": 5,
+        "correct": 0,
+        "incorrect": 5,
+        "unscorable": 0
+      },
+      "items": [
+        {
+          "unit": "U11",
+          "expected_category": "regular_medication",
+          "actual_categories": [
+            "identity_source",
+            "history",
+            "regular_medication",
+            "treatment_source",
+            "allergies",
+            "pain_change",
+            "initial_source",
+            "current_source",
+            "examination",
+            "investigations"
+          ],
+          "status": "incorrect",
+          "missing_expected_category": false,
+          "extra_categories": [
+            "identity_source",
+            "history",
+            "treatment_source",
+            "allergies",
+            "pain_change",
+            "initial_source",
+            "current_source",
+            "examination",
+            "investigations"
+          ]
+        },
+        {
+          "unit": "U12",
+          "expected_category": "regular_medication",
+          "actual_categories": [
+            "identity_source",
+            "history",
+            "investigations"
+          ],
+          "status": "incorrect",
+          "missing_expected_category": true,
+          "extra_categories": [
+            "identity_source",
+            "history",
+            "investigations"
+          ]
+        },
+        {
+          "unit": "U13",
+          "expected_category": "allergies",
+          "actual_categories": [
+            "identity_source",
+            "history",
+            "investigations"
+          ],
+          "status": "incorrect",
+          "missing_expected_category": true,
+          "extra_categories": [
+            "identity_source",
+            "history",
+            "investigations"
+          ]
+        },
+        {
+          "unit": "U21",
+          "expected_category": "treatment_source",
+          "actual_categories": [
+            "identity_source",
+            "history",
+            "medical_history",
+            "regular_medication",
+            "treatment_source",
+            "allergies",
+            "pain_change",
+            "initial_source",
+            "current_source",
+            "examination",
+            "investigations"
+          ],
+          "status": "incorrect",
+          "missing_expected_category": false,
+          "extra_categories": [
+            "identity_source",
+            "history",
+            "medical_history",
+            "regular_medication",
+            "allergies",
+            "pain_change",
+            "initial_source",
+            "current_source",
+            "examination",
+            "investigations"
+          ]
+        },
+        {
+          "unit": "U23",
+          "expected_category": "treatment_source",
+          "actual_categories": [
+            "identity_source",
+            "history",
+            "medical_history",
+            "regular_medication",
+            "treatment_source",
+            "allergies",
+            "pain_change",
+            "investigations"
+          ],
+          "status": "incorrect",
+          "missing_expected_category": false,
+          "extra_categories": [
+            "identity_source",
+            "history",
+            "medical_history",
+            "regular_medication",
+            "allergies",
+            "pain_change",
+            "investigations"
+          ]
+        }
+      ]
+    },
+    {
+      "model": "qwen3:1.7b",
+      "prompt": "grouped-source-id-v06-1",
+      "artifact": "evaluation/recovery-v06/grouped-1.7b/report.json",
+      "case_id": "dev-003",
+      "source_match": true,
+      "counts": {
+        "denominator": 7,
+        "correct": 0,
+        "incorrect": 7,
+        "unscorable": 0
+      },
+      "items": [
+        {
+          "unit": "U1",
+          "expected_category": "history",
+          "actual_categories": [
+            "identity_source",
+            "pain_change",
+            "initial_source",
+            "examination",
+            "investigations",
+            "referral",
+            "referral_type_source",
+            "requested_action",
+            "plan"
+          ],
+          "status": "incorrect",
+          "missing_expected_category": true,
+          "extra_categories": [
+            "identity_source",
+            "pain_change",
+            "initial_source",
+            "examination",
+            "investigations",
+            "referral",
+            "referral_type_source",
+            "requested_action",
+            "plan"
+          ]
+        },
+        {
+          "unit": "U2",
+          "expected_category": "history",
+          "actual_categories": [
+            "history",
+            "pain_change",
+            "initial_source",
+            "examination",
+            "investigations",
+            "referral",
+            "referral_type_source",
+            "requested_action",
+            "plan"
+          ],
+          "status": "incorrect",
+          "missing_expected_category": false,
+          "extra_categories": [
+            "pain_change",
+            "initial_source",
+            "examination",
+            "investigations",
+            "referral",
+            "referral_type_source",
+            "requested_action",
+            "plan"
+          ]
+        },
+        {
+          "unit": "U3",
+          "expected_category": "history",
+          "actual_categories": [
+            "history",
+            "initial_source",
+            "examination",
+            "investigations",
+            "referral",
+            "referral_type_source",
+            "requested_action",
+            "plan"
+          ],
+          "status": "incorrect",
+          "missing_expected_category": false,
+          "extra_categories": [
+            "initial_source",
+            "examination",
+            "investigations",
+            "referral",
+            "referral_type_source",
+            "requested_action",
+            "plan"
+          ]
+        },
+        {
+          "unit": "U4",
+          "expected_category": "examination",
+          "actual_categories": [
+            "history",
+            "initial_source",
+            "examination",
+            "investigations",
+            "referral",
+            "referral_type_source",
+            "requested_action",
+            "plan"
+          ],
+          "status": "incorrect",
+          "missing_expected_category": false,
+          "extra_categories": [
+            "history",
+            "initial_source",
+            "investigations",
+            "referral",
+            "referral_type_source",
+            "requested_action",
+            "plan"
+          ]
+        },
+        {
+          "unit": "U5",
+          "expected_category": "allergies",
+          "actual_categories": [
+            "medical_history",
+            "initial_source",
+            "examination",
+            "investigations",
+            "referral",
+            "referral_type_source",
+            "requested_action",
+            "plan"
+          ],
+          "status": "incorrect",
+          "missing_expected_category": true,
+          "extra_categories": [
+            "medical_history",
+            "initial_source",
+            "examination",
+            "investigations",
+            "referral",
+            "referral_type_source",
+            "requested_action",
+            "plan"
+          ]
+        },
+        {
+          "unit": "U6",
+          "expected_category": "treatment_source",
+          "actual_categories": [
+            "medical_history",
+            "initial_source",
+            "examination",
+            "investigations",
+            "referral",
+            "referral_type_source",
+            "requested_action",
+            "plan"
+          ],
+          "status": "incorrect",
+          "missing_expected_category": true,
+          "extra_categories": [
+            "medical_history",
+            "initial_source",
+            "examination",
+            "investigations",
+            "referral",
+            "referral_type_source",
+            "requested_action",
+            "plan"
+          ]
+        },
+        {
+          "unit": "U7",
+          "expected_category": "investigations",
+          "actual_categories": [
+            "diagnosis",
+            "initial_source",
+            "examination",
+            "investigations",
+            "referral",
+            "referral_type_source",
+            "requested_action",
+            "plan"
+          ],
+          "status": "incorrect",
+          "missing_expected_category": false,
+          "extra_categories": [
+            "diagnosis",
+            "initial_source",
+            "examination",
+            "referral",
+            "referral_type_source",
+            "requested_action",
+            "plan"
+          ]
+        }
+      ]
+    },
+    {
+      "model": "qwen3:1.7b",
+      "prompt": "grouped-source-id-v06-1",
+      "artifact": "evaluation/recovery-v06/grouped-1.7b/report.json",
+      "case_id": "dev-004",
+      "source_match": true,
+      "counts": {
+        "denominator": 2,
+        "correct": 0,
+        "incorrect": 1,
+        "unscorable": 1
+      },
+      "items": [
+        {
+          "unit": "U4",
+          "expected_category": "investigations",
+          "actual_categories": [
+            "history",
+            "medical_history",
+            "diagnosis",
+            "comorbid",
+            "pain_change",
+            "current_source",
+            "examination",
+            "attached"
+          ],
+          "status": "incorrect",
+          "missing_expected_category": true,
+          "extra_categories": [
+            "history",
+            "medical_history",
+            "diagnosis",
+            "comorbid",
+            "pain_change",
+            "current_source",
+            "examination",
+            "attached"
+          ]
+        },
+        {
+          "unit": "U3",
+          "expected_category": "vital_measurements_phase_unspecified",
+          "actual_categories": [
+            "history",
+            "medical_history",
+            "diagnosis",
+            "comorbid",
+            "pain_change",
+            "current_source",
+            "examination",
+            "pending_results",
+            "plan"
+          ],
+          "status": "unscorable",
+          "missing_expected_category": true,
+          "extra_categories": [
+            "history",
+            "medical_history",
+            "diagnosis",
+            "comorbid",
+            "pain_change",
+            "current_source",
+            "examination",
+            "pending_results",
+            "plan"
+          ]
+        }
+      ]
+    }
+  ],
+  "excluded": [
+    "All original dev-004 home-use clarification facts; they were not in the original source",
+    "probe-med-001 whole-case labels remain unreviewed",
+    "All unlisted facts, mixed-unit remainder, and unavailable full-form predictions for original-4B/control",
+    "Full-form dev-004 observation phase: clinician approved measurements, not initial/current timing",
+    "A-v2 cannot score generated patient attribution or drug-dose-route-time associations"
+  ],
+  "training_exported": false
+}

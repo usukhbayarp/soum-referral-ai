@@ -1,0 +1,38 @@
+{
+  "command": [
+    "/opt/anaconda3/bin/python",
+    "-m",
+    "scripts.mlx_python",
+    "scripts.sparse_adapter_export",
+    "patches"
+  ],
+  "samples": [
+    {
+      "seconds": 2.0322410840308294,
+      "rss_kib": 224144,
+      "pressure_level": "1",
+      "system_free_percent": 56
+    },
+    {
+      "seconds": 4.051332834060304,
+      "rss_kib": 399456,
+      "pressure_level": "1",
+      "system_free_percent": 57
+    },
+    {
+      "seconds": 6.070877999998629,
+      "rss_kib": 345328,
+      "pressure_level": "1",
+      "system_free_percent": 54
+    },
+    {
+      "seconds": 8.094638667069376,
+      "rss_kib": 443536,
+      "pressure_level": "1",
+      "system_free_percent": 48
+    }
+  ],
+  "stop_reason": null,
+  "exit_code": 0,
+  "elapsed_seconds": 10.100927709019743
+}

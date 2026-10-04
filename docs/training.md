@@ -1,6 +1,7 @@
 # Optional fine-tuning: clinical training pending
 
-The later [original-4B engineering smoke](pipeline4b-smoke.md) verified three optimizer steps, reload and adapter-layer fusion. Untuned 4B export/import succeeded; smoke full export stopped at critical memory pressure; no reviewed-data clinical experiment has run. The production-contract workflow below remains separate from experimental A-v2.
+Latest: [v0.8 partial review and recovered export](clinician-partial-v08.md). Partial annotations are evaluation-only and rejected by whole-note training export. The proposed home/pre-encounter contract is not active; resolve representation and obtain separate fully reviewed training data before a quality pilot.
+The earlier [original-4B engineering smoke](pipeline4b-smoke.md) verified three optimizer steps, reload and adapter-layer fusion. Untuned 4B export/import succeeded; smoke full export initially stopped at critical memory pressure and was subsequently recovered through two-tensor fusion and sparse HF replacement. No reviewed-data clinical experiment has run. The production-contract workflow below remains separate from experimental A-v2.
 
 Prerequisites: clinically reviewed train/development examples, a preserved held-out test set grouped by underlying case, a saved baseline, and a tiny verified training-to-serving experiment. Keep the base Ollama artifact installed for rollback. A tuned candidate must preserve the exact source-ID extraction contract and pass the same validators and review UI.
 

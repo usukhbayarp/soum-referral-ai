@@ -1,0 +1,21 @@
+{
+  "results": [
+    {
+      "fixture": "normal",
+      "pages": 2,
+      "sha256": "d71bc7ae6be90d0f85a230a2f5d1df9643f44229fa2698dd85dd8844306948c0",
+      "text_checks": "passed",
+      "clinical_review": "not claimed; fictional print mechanics"
+    },
+    {
+      "fixture": "long",
+      "pages": 3,
+      "sha256": "c71acf6ca282bcd30bad49014690cee3258e7f9443d84a15671a788ac16ec613",
+      "text_checks": "passed",
+      "clinical_review": "not claimed; fictional print mechanics"
+    }
+  ],
+  "visual_inspection": "All 5 rendered pages inspected: legible text, no overlap/clipping, long chronic-history last line retained, manual attribution and blank signature retained.",
+  "ui_runtime": "isolated 127.0.0.1:8001; existing demo not restarted",
+  "inference": "none; fictional manual fixtures"
+}

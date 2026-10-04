@@ -1,0 +1,32 @@
+{
+  "status": "proposal only; NOT consumed by an active training runner",
+  "quality_training_authorized_now": false,
+  "target_contract": "medication-role-contract-2-proposed; requires clinician approval before exporter/runner extension",
+  "source_revision": "52a5ab34fa604bc8af6d3ce0cac0cab10b7eb495",
+  "prerequisites": [
+    "approved representation",
+    "separate fully clinician-reviewed training/development families",
+    "reserved final-test families",
+    "token-length and capacity preflight",
+    "matched untuned control"
+  ],
+  "partial_whole_notes_allowed": false,
+  "budget": {
+    "batch_size": 1,
+    "rank": 2,
+    "last_layers": 1,
+    "keys": [
+      "self_attn.q_proj",
+      "self_attn.v_proj"
+    ],
+    "learning_rate": 1e-05,
+    "initial_passes": 1,
+    "max_optimizer_steps": 20,
+    "stop_at": "first completed pass or 20 steps, whichever comes first",
+    "max_sequence_without_new_capacity_test": 1663,
+    "truncate": false,
+    "max_nonzero_checkpoints_evaluated": 4,
+    "include_step_zero": true
+  },
+  "interpretation": "Measured short-sequence capacity supports a conservative diagnostic pilot only, not a claim of adequate task training."
+}

@@ -1,5 +1,7 @@
 # Soum Referral AI / Сум
 
+Latest milestone: [v0.8 partial clinician review and export recovery](docs/clinician-partial-v08.md). Production model/prompt remain unchanged; partial reviews are evaluation-only.
+
 A local Mongolian referral-documentation prototype for the World Bank Small AI for Development hackathon.
 
 **Fictional data only. The clinician-designed v0.7 form is experimental, not an approved Mongolian national referral form or a replacement for 13А.** No diagnoses, treatment recommendations, referral eligibility decisions, or urgency assessments are generated. The model proposes source-unit classifications; the doctor must correct them before export. Incorrect classifications and omissions have been observed. This is not clinically validated.
@@ -81,7 +83,7 @@ Read [evaluation/report.md](evaluation/report.md), [docs/verification.md](docs/v
 
 This is a localhost application, not a deployed service. [Container packaging](docs/deployment.md) is prepared: the web image builds, Compose validates, and an offline container imports the application. Web and Ollama share a network namespace to retain strict loopback-only inference; hosted disclosure and explicit allowed hosts are required. `/api/health` is liveness; `/api/ready` checks runtime/local-model availability without loading the model. These new endpoints require a deliberate app restart; the existing demo was left running.
 
-The optional MLX environment, pinned 1.7B base/tokenizer, untuned 1.7B export-to-Ollama control and reviewed-data training skeleton are prepared. **No clinical fine-tuning has run.** A later three-step, unreviewed engineering-only original-4B adapter smoke succeeded; the untuned control exported/imported successfully, while smoke export stopped at critical memory pressure. See [bounded pipeline verification](docs/pipeline4b-smoke.md). Read [measured preparation results](docs/preparation-20261004.md) and [the later experiment runbook](docs/training.md). Original baseline tags/artifacts remain available. Provider, budget, compute allocation, access controls and operational retention policy are pending; see [TASKS.md](TASKS.md).
+The optional MLX environment, pinned 1.7B base/tokenizer, untuned 1.7B export-to-Ollama control and reviewed-data training skeleton are prepared. **No clinical fine-tuning has run.** A later three-step, unreviewed engineering-only original-4B adapter smoke succeeded; the untuned control and subsequently recovered smoke export both reached Ollama; the adapter remains engineering-only. See [bounded pipeline verification](docs/pipeline4b-smoke.md) and [subsequent recovery](docs/clinician-partial-v08.md). Read [measured preparation results](docs/preparation-20261004.md) and [the later experiment runbook](docs/training.md). Original baseline tags/artifacts remain available. Provider, budget, compute allocation, access controls and operational retention policy are pending; see [TASKS.md](TASKS.md).
 
 ## Licenses and primary references
 

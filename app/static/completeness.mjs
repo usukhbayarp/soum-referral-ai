@@ -17,7 +17,7 @@ export function rowsOf(state) {
 }
 export function completeness(state, config) {
   const text = (id) => state.fields[id]?.text.trim() || "";
-  const v07 = config.version === "experimental-0.7";
+  const v07 = ["experimental-0.7", "experimental-0.8"].includes(config.version);
   const warnings = [];
   const warn = (id, message) => warnings.push({id, message});
   const labels = Object.fromEntries(config.fields.map(f => [f.id,f.label]));

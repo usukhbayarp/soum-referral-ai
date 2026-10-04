@@ -47,6 +47,7 @@ export function sourceChanged(state, note, config) {
     if (old.status === "manual") {
       // A source edit stays in this case. Retain work, but require explicit review.
       old.needsReconciliation = Boolean(old.text.trim() || (old.meaning && old.meaning !== "unreviewed"));
+      old.reconciliationReason = "source";
       old.evidenceCurrent = false;
       old.suggestion = null;
     } else {
@@ -74,7 +75,7 @@ export function isCurrent(state, ticket) {
     ticket.request === state.request
   );
 }
-export function acceptResponse(state, ticket, result) {
+export function acceptResponse(state, ticket, result, config = {}) {
   if (!isCurrent(state, ticket)) return false;
   state.units = result.units;
   for (const [id, value] of Object.entries(result.fields)) {
@@ -86,7 +87,8 @@ export function acceptResponse(state, ticket, result) {
         meaning: "unreviewed",
         evidenceCurrent: true,
         suggestion: null,
-        needsReconciliation: false,
+        needsReconciliation: Boolean(value.text?.trim() && config.proposal_review_required?.includes(id)),
+        reconciliationReason: config.proposal_review_required?.includes(id) ? "category" : null,
       };
     } else {
       // A fresh extraction is a separate proposal, never support for retained edits.
@@ -143,6 +145,7 @@ export function reconcileField(state, id) {
   if (!state.fields[id].needsReconciliation) return;
   invalidate(state);
   state.fields[id].needsReconciliation = false;
+  state.fields[id].reconciliationReason = null;
 }
 export function pendingReconciliations(state) {
   return Object.entries(state.fields)

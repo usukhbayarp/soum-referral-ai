@@ -1,0 +1,157 @@
+{
+  "command": [
+    ".runtime/preparation/converter-env/bin/python",
+    "-m",
+    "scripts.mlx_python",
+    "--script",
+    ".runtime/preparation/llama.cpp/convert_hf_to_gguf.py",
+    ".runtime/recovery-v08/smoke-hf",
+    "--outfile",
+    ".runtime/recovery-v08/smoke-f16.gguf",
+    "--outtype",
+    "f16"
+  ],
+  "samples": [
+    {
+      "seconds": 2.0408693338977173,
+      "rss_kib": 226432,
+      "pressure_level": "1",
+      "system_free_percent": 51
+    },
+    {
+      "seconds": 4.059759291936643,
+      "rss_kib": 236992,
+      "pressure_level": "1",
+      "system_free_percent": 54
+    },
+    {
+      "seconds": 6.078822999959812,
+      "rss_kib": 334496,
+      "pressure_level": "1",
+      "system_free_percent": 54
+    },
+    {
+      "seconds": 8.098505417001434,
+      "rss_kib": 646448,
+      "pressure_level": "1",
+      "system_free_percent": 54
+    },
+    {
+      "seconds": 10.12948395893909,
+      "rss_kib": 1573344,
+      "pressure_level": "1",
+      "system_free_percent": 40
+    },
+    {
+      "seconds": 12.150368749978952,
+      "rss_kib": 550528,
+      "pressure_level": "1",
+      "system_free_percent": 42
+    },
+    {
+      "seconds": 14.173888374934904,
+      "rss_kib": 602304,
+      "pressure_level": "1",
+      "system_free_percent": 41
+    },
+    {
+      "seconds": 16.203047083923593,
+      "rss_kib": 602496,
+      "pressure_level": "1",
+      "system_free_percent": 41
+    },
+    {
+      "seconds": 18.221028416999616,
+      "rss_kib": 602688,
+      "pressure_level": "1",
+      "system_free_percent": 42
+    },
+    {
+      "seconds": 20.23945841693785,
+      "rss_kib": 427360,
+      "pressure_level": "1",
+      "system_free_percent": 42
+    },
+    {
+      "seconds": 22.365022874902934,
+      "rss_kib": 307696,
+      "pressure_level": "2",
+      "system_free_percent": 38
+    },
+    {
+      "seconds": 24.391243874910288,
+      "rss_kib": 291008,
+      "pressure_level": "2",
+      "system_free_percent": 37
+    },
+    {
+      "seconds": 26.423269916907884,
+      "rss_kib": 291152,
+      "pressure_level": "2",
+      "system_free_percent": 41
+    },
+    {
+      "seconds": 28.460642833961174,
+      "rss_kib": 296192,
+      "pressure_level": "2",
+      "system_free_percent": 43
+    },
+    {
+      "seconds": 30.49321591691114,
+      "rss_kib": 306784,
+      "pressure_level": "2",
+      "system_free_percent": 44
+    },
+    {
+      "seconds": 32.51430374989286,
+      "rss_kib": 298112,
+      "pressure_level": "2",
+      "system_free_percent": 45
+    },
+    {
+      "seconds": 34.557807458913885,
+      "rss_kib": 291120,
+      "pressure_level": "2",
+      "system_free_percent": 45
+    },
+    {
+      "seconds": 36.60842537495773,
+      "rss_kib": 298944,
+      "pressure_level": "1",
+      "system_free_percent": 46
+    },
+    {
+      "seconds": 38.63035166694317,
+      "rss_kib": 302128,
+      "pressure_level": "1",
+      "system_free_percent": 50
+    },
+    {
+      "seconds": 40.65316066693049,
+      "rss_kib": 300224,
+      "pressure_level": "1",
+      "system_free_percent": 49
+    },
+    {
+      "seconds": 42.67302970890887,
+      "rss_kib": 326864,
+      "pressure_level": "1",
+      "system_free_percent": 50
+    },
+    {
+      "seconds": 44.6969717919128,
+      "rss_kib": 298448,
+      "pressure_level": "1",
+      "system_free_percent": 50
+    },
+    {
+      "seconds": 46.836460749967955,
+      "rss_kib": 274944,
+      "pressure_level": "1",
+      "system_free_percent": 50
+    }
+  ],
+  "stop_reason": null,
+  "exit_code": 0,
+  "elapsed_seconds": 48.84267154196277
+}

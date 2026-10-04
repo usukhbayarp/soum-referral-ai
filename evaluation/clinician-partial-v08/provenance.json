@@ -1,0 +1,30 @@
+{
+  "source_repository": "Qwen/Qwen3-4B-MLX-4bit",
+  "source_revision": "52a5ab34fa604bc8af6d3ce0cac0cab10b7eb495",
+  "tokenizer_revision": "52a5ab34fa604bc8af6d3ce0cac0cab10b7eb495",
+  "quantization": {
+    "bits": 4,
+    "group_size": 128,
+    "mode": "affine"
+  },
+  "reused_versions": {
+    "mlx": "0.30.6",
+    "mlx-lm": "0.30.7",
+    "transformers": "5.2.0",
+    "huggingface-hub": "1.4.1"
+  },
+  "llama_cpp_revision": "11fe02151f79c41d0d4af7da708755d73b9c0da6",
+  "adapter_sha256": "3da1742d66975bb357f902ba4f9fc7e3b76ea2f0aa52de2ec70d514952097ca1",
+  "adapter_optimizer_steps_this_milestone": 0,
+  "output_precision": "BF16 HF; F16 GGUF; Q4_K_M",
+  "serving_template_sha256": "ae370d884f108d16e7cc8fd5259ebc5773a0afa6e078b11f4ed7e39a27e0dfc4",
+  "readline_workaround": "scripts.mlx_python reused; no packages installed",
+  "source_files": {
+    "evaluation/medication-v1/cases.json": "a82bfdea3233bfb9ef08dd252d79577c07ae0a2f3ed4606e4facdbef897232a8",
+    "evaluation/clinician-partial-v08/annotations.json": "0a194c9110ba8f693aa5bc94acd326f430528aa979867bf5b46b93ff1466c923",
+    "evaluation/clinician-partial-v08/dev004-clarified-draft.json": "059ea52aa435fdf1d6e4de349534c77f36bf1a13e338e4a11f108f6ee985e71a",
+    "training/engineering4b-fixture.json": "d9a9696175eeaa72d24b31ad0bf198a410badb14558089b0b906558f15cb557e"
+  },
+  "initial_target_failure": "targeted-watchdog.json used full-model loader before targeted method was replaced with two-layer-only loading; preserved failure, no full revised export then",
+  "public_data": "Only existing fictional cases, scoped clinician decisions, and explicitly unconfirmed fictional addendum draft"
+}

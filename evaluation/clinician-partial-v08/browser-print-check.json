@@ -1,0 +1,16 @@
+[
+  {
+    "mode": "normal",
+    "status": "pass",
+    "inference": "none; manual fictional layout fixture",
+    "signature": "blank",
+    "pdf": "normal.pdf"
+  },
+  {
+    "mode": "long",
+    "status": "pass",
+    "inference": "none; manual fictional layout fixture",
+    "signature": "blank",
+    "pdf": "long.pdf"
+  }
+]

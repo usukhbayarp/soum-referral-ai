@@ -1,0 +1,97 @@
+{
+  "command": [
+    ".venv/bin/python",
+    "-m",
+    "scripts.sparse_adapter_export",
+    "export"
+  ],
+  "samples": [
+    {
+      "seconds": 2.059591874945909,
+      "rss_kib": 29088,
+      "pressure_level": "1",
+      "system_free_percent": 43
+    },
+    {
+      "seconds": 4.08288537489716,
+      "rss_kib": 29616,
+      "pressure_level": "1",
+      "system_free_percent": 42
+    },
+    {
+      "seconds": 6.122441332903691,
+      "rss_kib": 31120,
+      "pressure_level": "1",
+      "system_free_percent": 41
+    },
+    {
+      "seconds": 8.15781420795247,
+      "rss_kib": 31104,
+      "pressure_level": "1",
+      "system_free_percent": 41
+    },
+    {
+      "seconds": 10.202130166930147,
+      "rss_kib": 33296,
+      "pressure_level": "1",
+      "system_free_percent": 41
+    },
+    {
+      "seconds": 12.243441374972463,
+      "rss_kib": 48384,
+      "pressure_level": "1",
+      "system_free_percent": 42
+    },
+    {
+      "seconds": 14.285651916987263,
+      "rss_kib": 41856,
+      "pressure_level": "1",
+      "system_free_percent": 43
+    },
+    {
+      "seconds": 16.31939387496095,
+      "rss_kib": 36864,
+      "pressure_level": "1",
+      "system_free_percent": 44
+    },
+    {
+      "seconds": 18.350546749890782,
+      "rss_kib": 39952,
+      "pressure_level": "1",
+      "system_free_percent": 44
+    },
+    {
+      "seconds": 20.409029291942716,
+      "rss_kib": 40832,
+      "pressure_level": "1",
+      "system_free_percent": 44
+    },
+    {
+      "seconds": 22.525312416953966,
+      "rss_kib": 39312,
+      "pressure_level": "1",
+      "system_free_percent": 43
+    },
+    {
+      "seconds": 24.565265582990833,
+      "rss_kib": 39824,
+      "pressure_level": "1",
+      "system_free_percent": 44
+    },
+    {
+      "seconds": 26.65242108295206,
+      "rss_kib": 34544,
+      "pressure_level": "1",
+      "system_free_percent": 44
+    },
+    {
+      "seconds": 28.680846499977633,
+      "rss_kib": 33632,
+      "pressure_level": "1",
+      "system_free_percent": 43
+    }
+  ],
+  "stop_reason": null,
+  "exit_code": 0,
+  "elapsed_seconds": 30.687341457931325
+}

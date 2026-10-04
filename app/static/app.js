@@ -82,7 +82,7 @@ function updateApproval() {
   const pending = pendingReconciliations(state);
   if (pending.length)
     $("unresolved").append(
-      ` Эх өөрчлөгдсөн: хадгалсан ${pending.length} талбарыг шинэ эхтэй тулгаж дахин хянана уу.`);
+      ` Эх эсвэл ангиллыг дахин хянах шаардлагатай: ${pending.length} талбарыг шинэ эхтэй тулгаж дахин хянана уу.`);
   $("approve").disabled = !canApprove(state, {
     busy,
     reviewed: $("reviewed").checked,
@@ -142,11 +142,11 @@ function refreshField(id) {
     reconciliation.append(
       node(
         "p",
-        "Эх өөрчлөгдсөн. Гараар оруулсан утгыг хадгалсан; шинэ эхтэй тулгаж хянах хүртэл батлах боломжгүй.",
+        state.fields[id].reconciliationReason === "category" ? "Түүхийн талбарын утга өөрчлөгдсөн. Эхийн саналыг одоогийн өвчний түүх мөн эсэхийг шалгана; архаг түүх рүү автоматаар шилжүүлээгүй." : "Эх өөрчлөгдсөн. Гараар оруулсан утгыг хадгалсан; шинэ эхтэй тулгаж хянах хүртэл батлах боломжгүй.",
         "hint",
       ),
     );
-    const review = node("button", "Хадгалсан утгыг шинэ эхтэй тулгаж хянасан");
+    const review = node("button", state.fields[id].reconciliationReason === "category" ? "Түүхийн утга ба ангиллыг эхтэй тулгаж хянасан" : "Хадгалсан утгыг шинэ эхтэй тулгаж хянасан");
     review.type = "button";
     review.addEventListener("click", () => {
       reconcileField(state, id);
@@ -198,6 +198,7 @@ function renderFields() {
     badge.id = field.id + "-status";
     head.append(badge);
     section.append(head);
+    if (field.help) section.append(node("p", field.help, "hint"));
     if (field.required)
       section.append(
         node(
@@ -341,7 +342,7 @@ async function extract() {
     if (data.request_id !== String(ticket.request))
       throw new Error("Хариуны дугаар тохирохгүй.");
     if (data.schema_version !== (config.extraction_schema_version || config.version) || data.prompt_version !== config.prompt_version) throw new Error("Хариуны загвар / prompt хувилбар тохирохгүй. Дахин ачаална уу.");
-    if (!acceptResponse(state, ticket, data)) {
+    if (!acceptResponse(state, ticket, data, config)) {
       if (ticket.caseId === state.caseId && ticket.request === state.request)
         status(
           "Хуучин хариуг хэрэглэлгүй орхилоо. Таны шинэ тэмдэглэл, засвар хэвээр үлдсэн.",

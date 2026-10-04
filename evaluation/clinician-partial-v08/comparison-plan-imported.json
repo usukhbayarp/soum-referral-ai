@@ -1,0 +1,32 @@
+{
+  "contract": "medication-representation-1",
+  "prompt_version": "medication-A-2",
+  "case_ids": [
+    "DEV-002",
+    "dev-003",
+    "dev-004",
+    "probe-med-001"
+  ],
+  "max_requests": 8,
+  "max_requests_per_case": 2,
+  "timeout_seconds": 60,
+  "settings": {
+    "think": false,
+    "temperature": 0,
+    "seed": 42,
+    "num_ctx": 16384,
+    "num_predict": 1600
+  },
+  "models": [
+    {
+      "tag": "soum-qwen3-4b-control:mlx128-52a5ab34",
+      "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6"
+    },
+    {
+      "tag": "soum-qwen3-4b-pipeline-test:step3-sparse-v08",
+      "digest": "7eaab334438b28c63290c3e526d12aeacc937810a6504482cbfe40cb55405bbe"
+    }
+  ],
+  "serving_template_sha256": "ae370d884f108d16e7cc8fd5259ebc5773a0afa6e078b11f4ed7e39a27e0dfc4",
+  "purpose": "engineering mechanics only; compare control and saved step-3 adapter, not a quality-training experiment"
+}

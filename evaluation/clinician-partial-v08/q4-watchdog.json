@@ -1,0 +1,110 @@
+{
+  "command": [
+    ".runtime/preparation/llama.cpp/build/bin/llama-quantize",
+    ".runtime/recovery-v08/smoke-f16.gguf",
+    ".runtime/recovery-v08/smoke-Q4_K_M.gguf",
+    "Q4_K_M",
+    "4"
+  ],
+  "samples": [
+    {
+      "seconds": 2.0325726669980213,
+      "rss_kib": 2627472,
+      "pressure_level": "1",
+      "system_free_percent": 51
+    },
+    {
+      "seconds": 4.055566624971107,
+      "rss_kib": 901744,
+      "pressure_level": "1",
+      "system_free_percent": 42
+    },
+    {
+      "seconds": 6.0801922919927165,
+      "rss_kib": 901776,
+      "pressure_level": "1",
+      "system_free_percent": 40
+    },
+    {
+      "seconds": 8.103674624930136,
+      "rss_kib": 901776,
+      "pressure_level": "2",
+      "system_free_percent": 39
+    },
+    {
+      "seconds": 10.131058124941774,
+      "rss_kib": 901728,
+      "pressure_level": "2",
+      "system_free_percent": 38
+    },
+    {
+      "seconds": 12.172152249957435,
+      "rss_kib": 901776,
+      "pressure_level": "2",
+      "system_free_percent": 37
+    },
+    {
+      "seconds": 14.214115291950293,
+      "rss_kib": 514384,
+      "pressure_level": "2",
+      "system_free_percent": 34
+    },
+    {
+      "seconds": 16.25615620892495,
+      "rss_kib": 183888,
+      "pressure_level": "2",
+      "system_free_percent": 33
+    },
+    {
+      "seconds": 18.29091874998994,
+      "rss_kib": 183040,
+      "pressure_level": "2",
+      "system_free_percent": 34
+    },
+    {
+      "seconds": 20.322136666974984,
+      "rss_kib": 183200,
+      "pressure_level": "2",
+      "system_free_percent": 36
+    },
+    {
+      "seconds": 22.362071709008887,
+      "rss_kib": 183216,
+      "pressure_level": "2",
+      "system_free_percent": 37
+    },
+    {
+      "seconds": 24.399413083912805,
+      "rss_kib": 183184,
+      "pressure_level": "2",
+      "system_free_percent": 37
+    },
+    {
+      "seconds": 26.433343500015326,
+      "rss_kib": 183248,
+      "pressure_level": "2",
+      "system_free_percent": 37
+    },
+    {
+      "seconds": 28.46304533397779,
+      "rss_kib": 165744,
+      "pressure_level": "2",
+      "system_free_percent": 35
+    },
+    {
+      "seconds": 30.500778166926466,
+      "rss_kib": 171952,
+      "pressure_level": "2",
+      "system_free_percent": 35
+    },
+    {
+      "seconds": 32.53557904192712,
+      "rss_kib": 171904,
+      "pressure_level": "2",
+      "system_free_percent": 34
+    }
+  ],
+  "stop_reason": null,
+  "exit_code": 0,
+  "elapsed_seconds": 34.54046745900996
+}
