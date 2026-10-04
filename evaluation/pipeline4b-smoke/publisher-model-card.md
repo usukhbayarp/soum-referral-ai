@@ -29,7 +29,7 @@ Qwen3 is the latest generation of large language models in Qwen series, offering
 - Number of Paramaters (Non-Embedding): 3.6B
 - Number of Layers: 36
 - Number of Attention Heads (GQA): 32 for Q and 8 for KV
-- Context Length: 32,768 natively and [131,072 tokens with YaRN](#processing-long-texts). 
+- Context Length: 32,768 natively and [131,072 tokens with YaRN](#processing-long-texts).
 
 
 For more details, including benchmark evaluation, hardware requirements, and inference performance, please refer to our [blog](https://qwenlm.github.io/blog/qwen3/), [GitHub](https://github.com/QwenLM/Qwen3), and [Documentation](https://qwen.readthedocs.io/en/latest/).
@@ -49,7 +49,7 @@ Install or upgrade both packages:
 pip install --upgrade transformers mlx_lm
 ```
 
-The following contains a code snippet illustrating how to use the model generate content based on given inputs. 
+The following contains a code snippet illustrating how to use the model generate content based on given inputs.
 
 ```python
 from mlx_lm import load, generate
@@ -78,7 +78,7 @@ print(response)
 ## Switching Between Thinking and Non-Thinking Mode
 
 > [!TIP]
-> The `enable_thinking` switch is also available in APIs created by SGLang and vLLM. 
+> The `enable_thinking` switch is also available in APIs created by SGLang and vLLM.
 > Please refer to our documentation for [SGLang](https://qwen.readthedocs.io/en/latest/deployment/sglang.html#thinking-non-thinking-modes) and [vLLM](https://qwen.readthedocs.io/en/latest/deployment/vllm.html#thinking-non-thinking-modes) users.
 
 ### `enable_thinking=True`
@@ -276,8 +276,8 @@ YaRN is currently supported by several inference frameworks, e.g., `transformers
 
 > [!NOTE]
 > All the notable open-source frameworks implement static YaRN, which means the scaling factor remains constant regardless of input length, **potentially impacting performance on shorter texts.**
-> We advise adding the `rope_scaling` configuration only when processing long contexts is required. 
-> It is also recommended to modify the `factor` as needed. For example, if the typical context length for your application is 65,536 tokens, it would be better to set `factor` as 2.0. 
+> We advise adding the `rope_scaling` configuration only when processing long contexts is required.
+> It is also recommended to modify the `factor` as needed. For example, if the typical context length for your application is 65,536 tokens, it would be better to set `factor` as 2.0.
 
 > [!NOTE]
 > The default `max_position_embeddings` in `config.json` is set to 40,960. This allocation includes reserving 32,768 tokens for outputs and 8,192 tokens for typical prompts, which is sufficient for most scenarios involving short text processing. If the average context length does not exceed 32,768 tokens, we do not recommend enabling YaRN in this scenario, as it may potentially degrade model performance.
@@ -308,12 +308,12 @@ If you find our work helpful, feel free to give us a cite.
 
 ```
 @misc{qwen3technicalreport,
-      title={Qwen3 Technical Report}, 
+      title={Qwen3 Technical Report},
       author={Qwen Team},
       year={2025},
       eprint={2505.09388},
       archivePrefix={arXiv},
       primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2505.09388}, 
+      url={https://arxiv.org/abs/2505.09388},
 }
 ```

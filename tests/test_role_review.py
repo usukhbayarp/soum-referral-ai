@@ -8,7 +8,7 @@ def case(note='Эмийн харшлыг асуугаагүй.',split='train',fa
 def registry(rows):return [{'underlying_case_id':r['underlying_case_id'],'split':r['split']} for r in rows]+[{'underlying_case_id':'reserved-family','split':'test'}]
 
 def test_exact_source_offsets_roles_and_review_provenance():
- r=case();rr.validate([r],registry([r]));r['source_note']+=' '; 
+ r=case();rr.validate([r],registry([r]));r['source_note']+=' ';
  with pytest.raises(ValueError,match='Source hash'):rr.validate([r],registry([r]))
  r=case();r['labels']={}
  with pytest.raises(ValueError,match='every source unit'):rr.validate([r],registry([r]))
