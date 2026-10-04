@@ -174,3 +174,23 @@ def test_fixed_development_cases_and_production_defaults_unchanged():
             cwd=ROOT,
         )
         assert (ROOT / path).read_bytes() == baseline
+
+
+def test_single_revision_retains_schema_source_and_settings():
+    note = load_cases()[0]["source_note"]
+    for c in ["A", "B"]:
+        first, m1 = request(c, note, 1)
+        second, m2 = request(c, note, 2)
+        assert m1 == m2
+        assert (
+            first["format"] == second["format"]
+            and first["options"] == second["options"]
+        )
+        assert (
+            json.loads(first["messages"][1]["content"])["paragraphs"]
+            == json.loads(second["messages"][1]["content"])["paragraphs"]
+        )
+    assert (
+        request("A", note, 2)[0]["messages"][1]
+        == request("B", note, 2)[0]["messages"][1]
+    )

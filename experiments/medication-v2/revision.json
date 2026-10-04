@@ -1,0 +1,9 @@
+{
+ "revision": 2,
+ "limit": "The single development-only prompt revision for each candidate; no further revisions in this comparison.",
+ "reason": "V1 mislabeled regular and historical medication as encounter administration, lost allergy negatives, and B confused route/frequency and altered quotes. Clarify both candidates in Mongolian, with shared translated role definitions and B field/quote-copy instructions.",
+ "unchanged": ["four original notes", "expected-facts.json", "output schemas", "paragraph grouping and offsets", "unit namespace", "model digest", "runtime settings", "1600 output-token limit", "60-second timeout"],
+ "not_isolated": "This changes instruction language and specificity together; it cannot isolate language from prompt detail or model comprehension.",
+ "few_shot_examples": false,
+ "repeatability": "V1 DEV-002 repeated once per candidate; v2 runs each selected case once."
+}

@@ -131,9 +131,13 @@ def schema(candidate, ids):
     )
 
 
-def request(candidate, note):
+def request(candidate, note, revision=1):
     view, mapping = model_view(note)
-    payload = {"role_definitions": ROLES, **view}
+    prompt_dir = ROOT / f"experiments/medication-v{revision}"
+    payload = {
+        "role_definitions": json.loads((prompt_dir / "roles.json").read_text()),
+        **view,
+    }
     return {
         "model": MODEL,
         "stream": False,
@@ -144,7 +148,7 @@ def request(candidate, note):
         "messages": [
             {
                 "role": "system",
-                "content": (DIR / f"{candidate}.txt").read_text().strip(),
+                "content": (prompt_dir / f"{candidate}.txt").read_text().strip(),
             },
             {"role": "user", "content": json.dumps(payload, ensure_ascii=False)},
         ],
@@ -334,7 +338,8 @@ def load_cases():
     return cases
 
 
-async def run(destination):
+async def run(destination, revision=1):
+    prompt_dir = ROOT / f"experiments/medication-v{revision}"
     cases = load_cases()
     destination.mkdir(parents=True, exist_ok=False)
     adapter = OllamaAdapter(model=MODEL)
@@ -349,12 +354,13 @@ async def run(destination):
         "settings": {"think": False, "stream": False, "keep_alive": "5m", **SETTINGS},
         "request_timeout_seconds": 60,
         "contract": "medication-representation-1",
+        "prompt_revision": revision,
         "hashes": {
             str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest()
             for p in [
-                DIR / "A.txt",
-                DIR / "B.txt",
-                DIR / "roles.json",
+                prompt_dir / "A.txt",
+                prompt_dir / "B.txt",
+                prompt_dir / "roles.json",
                 DATA / "cases.json",
                 DATA / "expected-facts.json",
                 Path(__file__),
@@ -379,13 +385,14 @@ async def run(destination):
         for i, c in enumerate(cases):
             for candidate in ["A", "B"] if i % 2 == 0 else ["B", "A"]:
                 sequence.append((candidate, c, False))
-        sequence += [("A", cases[0], True), ("B", cases[0], True)]
+        if revision == 1:
+            sequence += [("A", cases[0], True), ("B", cases[0], True)]
         for candidate, case, repeat in sequence:
-            req, mapping = request(candidate, case["source_note"])
+            req, mapping = request(candidate, case["source_note"], revision)
             wire = client.build_request("POST", "/api/chat", json=req)
             entry = {
                 "candidate": candidate,
-                "prompt_version": f"medication-{candidate}-1",
+                "prompt_version": f"medication-{candidate}-{revision}",
                 "case_id": case["case_id"],
                 "repeat": repeat,
                 "request": req,
@@ -443,5 +450,6 @@ async def run(destination):
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
     p.add_argument("--output", type=Path, required=True)
+    p.add_argument("--revision", type=int, choices=[1, 2], default=1)
     args = p.parse_args()
-    asyncio.run(run(args.output))
+    asyncio.run(run(args.output, args.revision))
