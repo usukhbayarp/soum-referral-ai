@@ -1,6 +1,6 @@
 # Optional fine-tuning: clinical training pending
 
-The later [original-4B engineering smoke](pipeline4b-smoke.md) verified three optimizer steps, reload and adapter-layer fusion. Full 4B export remains disk-blocked; no reviewed-data clinical experiment has run. The production-contract workflow below remains separate from experimental A-v2.
+The later [original-4B engineering smoke](pipeline4b-smoke.md) verified three optimizer steps, reload and adapter-layer fusion. Untuned 4B export/import succeeded; smoke full export stopped at critical memory pressure; no reviewed-data clinical experiment has run. The production-contract workflow below remains separate from experimental A-v2.
 
 Prerequisites: clinically reviewed train/development examples, a preserved held-out test set grouped by underlying case, a saved baseline, and a tiny verified training-to-serving experiment. Keep the base Ollama artifact installed for rollback. A tuned candidate must preserve the exact source-ID extraction contract and pass the same validators and review UI.
 
@@ -139,4 +139,4 @@ Next prerequisites: explicit clinician review and corrections, representation/co
 
 ## Later bounded original-4B verification
 
-[Observed engineering-only smoke and disk-blocked stages](pipeline4b-smoke.md): three real optimizer steps, saved adapter reload, adapter inference and adapter-layer fusion succeeded using the official pinned MLX 4-bit source. This does not validate clinical training or the complete 4B training-to-Ollama route. New private A-v2 correction/export/preflight tooling preserves the frozen role task; it does not repurpose the production 19-category dataset schema. No reviewed-data experiment has run.
+[Observed engineering-only smoke, untuned control and blocked smoke export](pipeline4b-smoke.md): three real optimizer steps, saved adapter reload, adapter inference and adapter-layer fusion succeeded using the official pinned MLX 4-bit source. This does not validate clinical training or the complete 4B training-to-Ollama route. New private A-v2 correction/export/preflight tooling preserves the frozen role task; it does not repurpose the production 19-category dataset schema. No reviewed-data experiment has run.

@@ -33,4 +33,4 @@ The authoritative clinician-approved form scope is implemented; see [v0.7 mappin
 
 ## Bounded original-4B engineering smoke
 
-Three engineering-only adapter steps, reload, inference and adapter-layer fusion were observed; no clinical training or model promotion. Full export and fair matched-control comparison remain disk-blocked. See [stage table and exact review-ingestion commands](../docs/pipeline4b-smoke.md). The offline restart helper now separates form 0.7 from extraction schema 0.6; use the updated guide and a new versioned bundle. Offline/hosting/clinical success remains unclaimed.
+Three engineering-only adapter steps, reload, inference and adapter-layer fusion were observed; no clinical training or model promotion. Untuned export/import succeeded; smoke full export stopped at critical memory pressure, preventing the matched control-versus-smoke comparison. See [stage table and exact review-ingestion commands](../docs/pipeline4b-smoke.md). The offline restart helper now separates form 0.7 from extraction schema 0.6; use the updated guide and a new versioned bundle. Offline/hosting/clinical success remains unclaimed.

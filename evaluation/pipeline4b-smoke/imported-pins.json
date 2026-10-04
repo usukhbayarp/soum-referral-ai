@@ -1,0 +1,64 @@
+{
+  "purpose": "engineering-smoke-only",
+  "training_repository": "Qwen/Qwen3-4B-MLX-4bit",
+  "training_revision": "52a5ab34fa604bc8af6d3ce0cac0cab10b7eb495",
+  "upstream_family": "Qwen/Qwen3-4B",
+  "upstream_weight_revision_used_by_publisher": null,
+  "tokenizer_repository": "Qwen/Qwen3-4B-MLX-4bit",
+  "tokenizer_revision": "52a5ab34fa604bc8af6d3ce0cac0cab10b7eb495",
+  "quantization": {
+    "bits": 4,
+    "group_size": 128,
+    "mode": "affine"
+  },
+  "versions": {
+    "mlx": "0.30.6",
+    "mlx-lm": "0.30.7",
+    "transformers": "5.2.0",
+    "huggingface-hub": "1.4.1"
+  },
+  "llama_cpp_revision": "11fe02151f79c41d0d4af7da708755d73b9c0da6",
+  "serving_template_sha256": "ae370d884f108d16e7cc8fd5259ebc5773a0afa6e078b11f4ed7e39a27e0dfc4",
+  "output_precision": "bfloat16 dequantized HF planned (actual base scales BF16); llama.cpp F16 GGUF before Q4_K_M",
+  "final_quantization": "Q4_K_M",
+  "contract": "medication-representation-1",
+  "prompt_version": "medication-A-2",
+  "comparison_models": [
+    {
+      "tag": "soum-qwen3-4b-original:q4_k_m-bc640142",
+      "digest": "afefb6cebde01e54ec2207c28172a3abafea0dcaa990cf542c765d6ea6b4fe1d"
+    },
+    {
+      "tag": "soum-qwen3-4b-control:mlx128-52a5ab34",
+      "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6"
+    },
+    {
+      "tag": "soum-qwen3-4b-pipeline-test:step3-52a5ab34",
+      "digest": null
+    }
+  ],
+  "comparison_cases": [
+    "DEV-002",
+    "dev-003",
+    "dev-004",
+    "probe-med-001"
+  ],
+  "comparison_max_requests": 12,
+  "comparison_timeout_seconds": 60,
+  "clinical_candidate_eligible": false,
+  "limits": {
+    "batch_size": 1,
+    "steps": 3,
+    "last_layers": 1,
+    "rank": 2,
+    "keys": [
+      "self_attn.q_proj",
+      "self_attn.v_proj"
+    ]
+  },
+  "license": "Apache-2.0 (actual repository LICENSE verified; card license_link points to 14B)",
+  "checkpoint_config_differences": "Official MLX max_position_embeddings 65536 / max_window_layers 28 vs separately inspected HF metadata; 36 layers / hidden 2560 match original 4B",
+  "training_chat_template_sha256": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8",
+  "template_policy": "ollama-qwen3-single-turn-1; NonThinkingTokenizer exact-prefix check, completed on actual official MLX tokenizer",
+  "smoke_import_blocked": "critical memory pressure during HF export; no serving artifact"
+}

@@ -1,0 +1,305 @@
+{
+  "label_status": "provisional, unreviewed development; not clinical accuracy",
+  "clinical_candidate_eligible": false,
+  "definitions": {
+    "missing_relevant_units": "expected role is non-other, predicted other",
+    "extra_relevant_units": "expected other, predicted non-other; unsupported category, not invented source text",
+    "wrong_roles": "any predicted role differs from provisional expected role",
+    "allergy_or_negation_confusions": "wrong role involving allergy_statement or explicitly_not_administered on either side",
+    "empty_selections": "structurally valid output assigns other to every unit"
+  },
+  "runs": [
+    {
+      "case_id": "DEV-002",
+      "model": {
+        "tag": "soum-qwen3-4b-original:q4_k_m-bc640142",
+        "digest": "afefb6cebde01e54ec2207c28172a3abafea0dcaa990cf542c765d6ea6b4fe1d"
+      },
+      "wall_seconds": 25.111413292004727,
+      "error": null,
+      "structurally_valid": true,
+      "token_counts": {
+        "prompt_eval_count": 2983,
+        "eval_count": 271
+      },
+      "wrong_roles": {
+        "U6": {
+          "expected": "other",
+          "actual": "historical_medication"
+        },
+        "U10": {
+          "expected": "other",
+          "actual": "regular_medication"
+        },
+        "U11": {
+          "expected": "regular_medication",
+          "actual": "administered_treatment"
+        },
+        "U12": {
+          "expected": "regular_medication",
+          "actual": "other"
+        },
+        "U23": {
+          "expected": "explicitly_not_administered",
+          "actual": "other"
+        }
+      },
+      "missing_relevant_units": [
+        "U12",
+        "U23"
+      ],
+      "extra_relevant_units": [
+        "U6",
+        "U10"
+      ],
+      "allergy_or_negation_confusions": [
+        "U23"
+      ],
+      "empty_selections": false
+    },
+    {
+      "case_id": "DEV-002",
+      "model": {
+        "tag": "soum-qwen3-4b-control:mlx128-52a5ab34",
+        "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6"
+      },
+      "wall_seconds": 28.57017270801589,
+      "error": null,
+      "structurally_valid": true,
+      "token_counts": {
+        "prompt_eval_count": 2983,
+        "eval_count": 316
+      },
+      "wrong_roles": {
+        "U6": {
+          "expected": "other",
+          "actual": "historical_medication"
+        },
+        "U10": {
+          "expected": "other",
+          "actual": "regular_medication"
+        },
+        "U11": {
+          "expected": "regular_medication",
+          "actual": "administered_treatment"
+        },
+        "U12": {
+          "expected": "regular_medication",
+          "actual": "explicitly_not_administered"
+        }
+      },
+      "missing_relevant_units": [],
+      "extra_relevant_units": [
+        "U6",
+        "U10"
+      ],
+      "allergy_or_negation_confusions": [
+        "U12"
+      ],
+      "empty_selections": false
+    },
+    {
+      "case_id": "dev-003",
+      "model": {
+        "tag": "soum-qwen3-4b-original:q4_k_m-bc640142",
+        "digest": "afefb6cebde01e54ec2207c28172a3abafea0dcaa990cf542c765d6ea6b4fe1d"
+      },
+      "wall_seconds": 10.929514208924957,
+      "error": null,
+      "structurally_valid": true,
+      "token_counts": {
+        "prompt_eval_count": 1651,
+        "eval_count": 57
+      },
+      "wrong_roles": {},
+      "missing_relevant_units": [],
+      "extra_relevant_units": [],
+      "allergy_or_negation_confusions": [],
+      "empty_selections": false
+    },
+    {
+      "case_id": "dev-003",
+      "model": {
+        "tag": "soum-qwen3-4b-control:mlx128-52a5ab34",
+        "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6"
+      },
+      "wall_seconds": 11.143768000067212,
+      "error": null,
+      "structurally_valid": true,
+      "token_counts": {
+        "prompt_eval_count": 1651,
+        "eval_count": 66
+      },
+      "wrong_roles": {},
+      "missing_relevant_units": [],
+      "extra_relevant_units": [],
+      "allergy_or_negation_confusions": [],
+      "empty_selections": false
+    },
+    {
+      "case_id": "dev-004",
+      "model": {
+        "tag": "soum-qwen3-4b-original:q4_k_m-bc640142",
+        "digest": "afefb6cebde01e54ec2207c28172a3abafea0dcaa990cf542c765d6ea6b4fe1d"
+      },
+      "wall_seconds": 10.350731707992963,
+      "error": null,
+      "structurally_valid": true,
+      "token_counts": {
+        "prompt_eval_count": 1708,
+        "eval_count": 43
+      },
+      "wrong_roles": {
+        "U1": {
+          "expected": "mixed_or_unclear",
+          "actual": "regular_medication"
+        }
+      },
+      "missing_relevant_units": [],
+      "extra_relevant_units": [],
+      "allergy_or_negation_confusions": [],
+      "empty_selections": false
+    },
+    {
+      "case_id": "dev-004",
+      "model": {
+        "tag": "soum-qwen3-4b-control:mlx128-52a5ab34",
+        "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6"
+      },
+      "wall_seconds": 10.567314750049263,
+      "error": null,
+      "structurally_valid": true,
+      "token_counts": {
+        "prompt_eval_count": 1708,
+        "eval_count": 50
+      },
+      "wrong_roles": {
+        "U1": {
+          "expected": "mixed_or_unclear",
+          "actual": "regular_medication"
+        }
+      },
+      "missing_relevant_units": [],
+      "extra_relevant_units": [],
+      "allergy_or_negation_confusions": [],
+      "empty_selections": false
+    },
+    {
+      "case_id": "probe-med-001",
+      "model": {
+        "tag": "soum-qwen3-4b-original:q4_k_m-bc640142",
+        "digest": "afefb6cebde01e54ec2207c28172a3abafea0dcaa990cf542c765d6ea6b4fe1d"
+      },
+      "wall_seconds": 11.626513082999736,
+      "error": null,
+      "structurally_valid": true,
+      "token_counts": {
+        "prompt_eval_count": 1754,
+        "eval_count": 62
+      },
+      "wrong_roles": {
+        "U1": {
+          "expected": "mixed_or_unclear",
+          "actual": "regular_medication"
+        },
+        "U4": {
+          "expected": "mixed_or_unclear",
+          "actual": "allergy_statement"
+        }
+      },
+      "missing_relevant_units": [],
+      "extra_relevant_units": [],
+      "allergy_or_negation_confusions": [
+        "U4"
+      ],
+      "empty_selections": false
+    },
+    {
+      "case_id": "probe-med-001",
+      "model": {
+        "tag": "soum-qwen3-4b-control:mlx128-52a5ab34",
+        "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6"
+      },
+      "wall_seconds": 11.737943583051674,
+      "error": null,
+      "structurally_valid": true,
+      "token_counts": {
+        "prompt_eval_count": 1754,
+        "eval_count": 73
+      },
+      "wrong_roles": {
+        "U1": {
+          "expected": "mixed_or_unclear",
+          "actual": "regular_medication"
+        },
+        "U4": {
+          "expected": "mixed_or_unclear",
+          "actual": "explicitly_not_administered"
+        }
+      },
+      "missing_relevant_units": [],
+      "extra_relevant_units": [],
+      "allergy_or_negation_confusions": [
+        "U4"
+      ],
+      "empty_selections": false
+    }
+  ],
+  "agreements": [
+    {
+      "case_id": "DEV-002",
+      "pair": [
+        "soum-qwen3-4b-original:q4_k_m-bc640142",
+        "soum-qwen3-4b-control:mlx128-52a5ab34"
+      ],
+      "exact_output_agreement": false,
+      "changed_roles": {
+        "U12": [
+          "other",
+          "explicitly_not_administered"
+        ],
+        "U23": [
+          "other",
+          "explicitly_not_administered"
+        ]
+      },
+      "clinical_correctness": "not inferred from agreement"
+    },
+    {
+      "case_id": "dev-003",
+      "pair": [
+        "soum-qwen3-4b-original:q4_k_m-bc640142",
+        "soum-qwen3-4b-control:mlx128-52a5ab34"
+      ],
+      "exact_output_agreement": true,
+      "changed_roles": {},
+      "clinical_correctness": "not inferred from agreement"
+    },
+    {
+      "case_id": "dev-004",
+      "pair": [
+        "soum-qwen3-4b-original:q4_k_m-bc640142",
+        "soum-qwen3-4b-control:mlx128-52a5ab34"
+      ],
+      "exact_output_agreement": true,
+      "changed_roles": {},
+      "clinical_correctness": "not inferred from agreement"
+    },
+    {
+      "case_id": "probe-med-001",
+      "pair": [
+        "soum-qwen3-4b-original:q4_k_m-bc640142",
+        "soum-qwen3-4b-control:mlx128-52a5ab34"
+      ],
+      "exact_output_agreement": false,
+      "changed_roles": {
+        "U4": [
+          "allergy_statement",
+          "explicitly_not_administered"
+        ]
+      },
+      "clinical_correctness": "not inferred from agreement"
+    }
+  ],
+  "stop_reason": null
+}

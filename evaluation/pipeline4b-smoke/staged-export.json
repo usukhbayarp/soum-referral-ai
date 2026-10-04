@@ -1,0 +1,142 @@
+{
+  "purpose": "engineering-only",
+  "stages": [
+    {
+      "stage": "control-hf",
+      "command": [
+        "/opt/anaconda3/bin/python",
+        "-m",
+        "scripts.mlx_python",
+        "scripts.mlx_export4b",
+        "--kind",
+        "control",
+        "--output",
+        "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/pipeline4b/control-temporary-60llz6wf/hf",
+        "--report",
+        "/Users/usukhbayar.purevdorj/Documents/hackathon/evaluation/pipeline4b-smoke/control-hf.json"
+      ],
+      "samples": [
+        {
+          "seconds": 2.04,
+          "rss_kib": 104208,
+          "pressure_level": "1",
+          "free_disk_bytes": 43178127360
+        },
+        {
+          "seconds": 4.05,
+          "rss_kib": 233296,
+          "pressure_level": "1",
+          "free_disk_bytes": 43178123264
+        },
+        {
+          "seconds": 6.11,
+          "rss_kib": 322560,
+          "pressure_level": "1",
+          "free_disk_bytes": 43177996288
+        },
+        {
+          "seconds": 8.14,
+          "rss_kib": 387056,
+          "pressure_level": "1",
+          "free_disk_bytes": 43177349120
+        },
+        {
+          "seconds": 10.16,
+          "rss_kib": 382272,
+          "pressure_level": "2",
+          "free_disk_bytes": 43175759872
+        },
+        {
+          "seconds": 12.19,
+          "rss_kib": 776496,
+          "pressure_level": "2",
+          "free_disk_bytes": 43175493632
+        },
+        {
+          "seconds": 14.29,
+          "rss_kib": 377024,
+          "pressure_level": "2",
+          "free_disk_bytes": 41029566464
+        },
+        {
+          "seconds": 16.32,
+          "rss_kib": 2473072,
+          "pressure_level": "2",
+          "free_disk_bytes": 37285322752
+        },
+        {
+          "seconds": 18.34,
+          "rss_kib": 1326080,
+          "pressure_level": "2",
+          "free_disk_bytes": 36119584768
+        },
+        {
+          "seconds": 20.37,
+          "rss_kib": 1871344,
+          "pressure_level": "2",
+          "free_disk_bytes": 34932416512
+        },
+        {
+          "seconds": 22.39,
+          "rss_kib": 35712,
+          "pressure_level": "1",
+          "free_disk_bytes": 34632990720
+        },
+        {
+          "seconds": 24.4,
+          "rss_kib": 1086736,
+          "pressure_level": "1",
+          "free_disk_bytes": 33515765760
+        },
+        {
+          "seconds": 26.43,
+          "rss_kib": 2117360,
+          "pressure_level": "1",
+          "free_disk_bytes": 32505057280
+        },
+        {
+          "seconds": 28.44,
+          "rss_kib": 2544448,
+          "pressure_level": "1",
+          "free_disk_bytes": 32049295360
+        },
+        {
+          "seconds": 30.46,
+          "rss_kib": 106576,
+          "pressure_level": "1",
+          "free_disk_bytes": 31894163456
+        },
+        {
+          "seconds": 32.49,
+          "rss_kib": 103072,
+          "pressure_level": "1",
+          "free_disk_bytes": 31893430272
+        }
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 34.49298366694711
+    },
+    {
+      "stage": "control-f16",
+      "command": [
+        "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/preparation/converter-env/bin/python",
+        "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/preparation/llama.cpp/convert_hf_to_gguf.py",
+        "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/pipeline4b/control-temporary-60llz6wf/hf",
+        "--outfile",
+        "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/pipeline4b/control-temporary-60llz6wf/f16.gguf",
+        "--outtype",
+        "f16"
+      ],
+      "samples": [],
+      "exit_code": -11,
+      "elapsed_seconds": 2.0430691660149023
+    }
+  ],
+  "started_epoch": 1791106489.2538722,
+  "free_bytes_before": 43178323968,
+  "temporary_cleanup_policy": "Only freshly created HF/F16 intermediates, after hashes and successful Q4 verification; preserve failed intermediates.",
+  "control": {
+    "scratch": "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/pipeline4b/control-temporary-60llz6wf",
+    "temporary": true
+  }
+}

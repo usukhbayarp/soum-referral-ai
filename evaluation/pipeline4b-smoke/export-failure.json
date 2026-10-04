@@ -1,0 +1,20 @@
+{
+  "code_sha256": {
+    "scripts/mlx_export4b.py": "8d549c1ef187d399408056c176ed49443ff0655f8802e7c956bd3670866045dd",
+    "scripts/staged_export4b.py": "b494034aa47d0af79f46314d88d6f996aaffb2664028593edd3e901554301b6c"
+  },
+  "failure_stage": "smoke-hf",
+  "reason": "macOS memory pressure level 4 at 12.16 seconds; owned process stopped by watchdog",
+  "recovery_observation": {
+    "pressure_level": 1,
+    "ollama_resident_models": []
+  },
+  "smoke_export_retried": false,
+  "initial_converter_failure": {
+    "command_report": "staged-export.json",
+    "exit_code": -11,
+    "stderr": "empty",
+    "workaround": "existing scripts.mlx_python disables optional readline; identical converter revision succeeded"
+  },
+  "comparison_plan_change": "Smoke HF export blocked. Run only original predeclared official/control subset: 8 requests, omit four smoke calls; no replacement cases or retries."
+}

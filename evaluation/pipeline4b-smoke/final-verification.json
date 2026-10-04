@@ -1,0 +1,43 @@
+{
+  "checked_utc": "2026-10-04T09:43:25.190895+00:00",
+  "python_tests_passed": 102,
+  "javascript_tests_passed": 29,
+  "existing_warning": "Starlette uses deprecated AnyIO BlockingPortal alias",
+  "syntax_checks": "passed",
+  "production_and_historical_paths_unchanged": [
+    "app",
+    "config",
+    "experiments",
+    "evaluation/medication-v1",
+    "evaluation/original4b-v07",
+    "evaluation/dev002-v06"
+  ],
+  "live_config": {
+    "version": "experimental-0.7",
+    "extraction_schema_version": "experimental-0.6",
+    "model": "qwen3:1.7b",
+    "prompt_version": "source-id-v06-1"
+  },
+  "live_health_status": 200,
+  "app_or_ollama_restarted": false,
+  "existing_tags_preserved": true,
+  "new_tags": {
+    "soum-qwen3-4b-control:mlx128-52a5ab34": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6"
+  },
+  "comparison_requests": 8,
+  "all_comparison_responses_complete": true,
+  "comparison_wall_seconds": 120.03737133310642,
+  "smoke_export": "stopped on critical memory pressure; no retry",
+  "smoke_serving_inference": "not attempted; no imported artifact",
+  "clinical_candidate_promoted": false,
+  "reviewed_data_received": false,
+  "offline_test_run": false,
+  "free_disk_bytes": 24148492288,
+  "pressure_level": "1",
+  "current_code_sha256": {
+    "scripts/mlx_export4b.py": "8d549c1ef187d399408056c176ed49443ff0655f8802e7c956bd3670866045dd",
+    "scripts/staged_export4b.py": "80d524b6214e12ba0ec5163fc2dcb99f0c5c8cfc7260ffcde211b8ca4dfa54ad",
+    "scripts/pipeline4b_compare.py": "2242cbead59293f229296ff11b1e0241f7eb588bfba2ead3f517a6f279d32c9f",
+    "scripts/pipeline4b_summary.py": "58ce6fe64592f607590861163eee5cfbb4bbab415a8986989b5a3b6d94a011c6"
+  }
+}

@@ -22,7 +22,7 @@ PY
 /opt/anaconda3/bin/python -m scripts.mlx_python mlx_lm convert --hf-path .runtime/pipeline4b/base --mlx-path .runtime/pipeline4b/control-hf --dequantize --dtype bfloat16
 /opt/anaconda3/bin/python -m scripts.mlx_python mlx_lm fuse --model .runtime/pipeline4b/base --adapter-path .runtime/pipeline4b/smoke --save-path .runtime/pipeline4b/smoke-hf --dequantize
 for name in control smoke; do
-  .runtime/preparation/converter-env/bin/python .runtime/preparation/llama.cpp/convert_hf_to_gguf.py ".runtime/pipeline4b/$name-hf" --outfile ".runtime/pipeline4b/$name-f16.gguf" --outtype f16
+  .runtime/preparation/converter-env/bin/python -m scripts.mlx_python --script .runtime/preparation/llama.cpp/convert_hf_to_gguf.py ".runtime/pipeline4b/$name-hf" --outfile ".runtime/pipeline4b/$name-f16.gguf" --outtype f16
   .runtime/preparation/llama.cpp/build/bin/llama-quantize ".runtime/pipeline4b/$name-f16.gguf" ".runtime/pipeline4b/$name-Q4_K_M.gguf" Q4_K_M 4
 done
 .venv/bin/python -m scripts.import_candidate --gguf .runtime/pipeline4b/control-Q4_K_M.gguf --tag soum-qwen3-4b-control:mlx128-52a5ab34 --output .runtime/pipeline4b/control-import

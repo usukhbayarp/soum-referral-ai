@@ -6,13 +6,17 @@ from pathlib import Path
 import httpx
 from scripts.medication_experiment import request,load_cases,validate_envelope,validate_output,ROOT
 
-async def run(pins_path,output):
+async def run(pins_path,output,allow_missing_smoke=False):
  pins=json.loads(pins_path.read_text());models=pins['comparison_models']
- if len(models)!=3 or any(not m.get('digest') for m in models):raise ValueError('Pin all three actual imported digests before comparison')
+ if len(models)!=3:raise ValueError('Declare all three comparison identities')
  if 'pipeline-test' not in models[2]['tag']:raise ValueError('Smoke tag must remain explicitly pipeline-test')
+ skipped=[]
+ if allow_missing_smoke and models[2].get('digest') is None:
+  skipped=[models[2]];models=models[:2]
+ if any(not m.get('digest') for m in models):raise ValueError('Pin every available imported digest before comparison')
  cases=load_cases();assert [c['case_id'] for c in cases]==['DEV-002','dev-003','dev-004','probe-med-001']
  if output.exists():raise FileExistsError(output)
- output.mkdir(parents=True);report={'purpose':'engineering-only, unreviewed development','max_requests':12,'runs':[],'finished':False}
+ output.mkdir(parents=True);report={'purpose':'engineering-only, unreviewed development','max_requests':12,'runs':[],'finished':False,'not_attempted_models':skipped,'all_three_models_available':not skipped}
  def save():(output/'report.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
  async with httpx.AsyncClient(base_url='http://127.0.0.1:11434',trust_env=False,timeout=60) as c:
   tags={m['name']:m['digest'] for m in (await c.get('/api/tags')).json()['models']}
@@ -32,9 +36,10 @@ async def run(pins_path,output):
  for case in cases:
   runs=[r for r in report['runs'] if r['case_id']==case['case_id']]
   for left,right in [(0,1),(1,2)]:
+   if right>=len(runs):continue
    a,b=runs[left].get('validation'),runs[right].get('validation')
    report['agreements'].append({'case_id':case['case_id'],'pair':[models[left]['tag'],models[right]['tag']],'exact_output_agreement':a['output']==b['output'] if a and b else None,'changed_roles':{k:[a['output'][k],b['output'][k]] for k in a['output'] if a['output'][k]!=b['output'][k]} if a and b else None,'clinical_correctness':'not inferred from agreement'})
  report['finished']=True;save()
 
 if __name__=='__main__':
- p=argparse.ArgumentParser(description=__doc__);p.add_argument('--pins',type=Path,required=True);p.add_argument('--output',type=Path,required=True);a=p.parse_args();asyncio.run(run(a.pins,a.output))
+ p=argparse.ArgumentParser(description=__doc__);p.add_argument('--pins',type=Path,required=True);p.add_argument('--output',type=Path,required=True);p.add_argument('--allow-missing-smoke',action='store_true',help='Explicitly record a blocked smoke import and run only the predeclared official/control subset');a=p.parse_args();asyncio.run(run(a.pins,a.output,a.allow_missing_smoke))

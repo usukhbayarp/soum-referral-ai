@@ -1,0 +1,343 @@
+{
+  "purpose": "engineering-only",
+  "stages": [
+    {
+      "stage": "control-f16",
+      "command": [
+        "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/preparation/converter-env/bin/python",
+        "-m",
+        "scripts.mlx_python",
+        "--script",
+        "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/preparation/llama.cpp/convert_hf_to_gguf.py",
+        "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/pipeline4b/control-temporary-60llz6wf/hf",
+        "--outfile",
+        "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/pipeline4b/control-temporary-nse1cnk5/f16.gguf",
+        "--outtype",
+        "f16"
+      ],
+      "samples": [
+        {
+          "seconds": 2.05,
+          "rss_kib": 231008,
+          "pressure_level": "1",
+          "free_disk_bytes": 32695992320
+        },
+        {
+          "seconds": 4.08,
+          "rss_kib": 316928,
+          "pressure_level": "1",
+          "free_disk_bytes": 32694312960
+        },
+        {
+          "seconds": 6.1,
+          "rss_kib": 644768,
+          "pressure_level": "1",
+          "free_disk_bytes": 32692428800
+        },
+        {
+          "seconds": 8.12,
+          "rss_kib": 1515328,
+          "pressure_level": "1",
+          "free_disk_bytes": 32689672192
+        },
+        {
+          "seconds": 10.14,
+          "rss_kib": 679392,
+          "pressure_level": "1",
+          "free_disk_bytes": 31653994496
+        },
+        {
+          "seconds": 12.16,
+          "rss_kib": 735424,
+          "pressure_level": "1",
+          "free_disk_bytes": 31200542720
+        },
+        {
+          "seconds": 14.17,
+          "rss_kib": 731600,
+          "pressure_level": "1",
+          "free_disk_bytes": 30795743232
+        },
+        {
+          "seconds": 16.19,
+          "rss_kib": 693264,
+          "pressure_level": "1",
+          "free_disk_bytes": 30388359168
+        },
+        {
+          "seconds": 18.21,
+          "rss_kib": 580128,
+          "pressure_level": "1",
+          "free_disk_bytes": 29984608256
+        },
+        {
+          "seconds": 20.23,
+          "rss_kib": 360064,
+          "pressure_level": "1",
+          "free_disk_bytes": 29523288064
+        },
+        {
+          "seconds": 22.27,
+          "rss_kib": 309120,
+          "pressure_level": "1",
+          "free_disk_bytes": 29102690304
+        },
+        {
+          "seconds": 24.28,
+          "rss_kib": 302528,
+          "pressure_level": "1",
+          "free_disk_bytes": 28613320704
+        },
+        {
+          "seconds": 26.31,
+          "rss_kib": 301184,
+          "pressure_level": "1",
+          "free_disk_bytes": 28209381376
+        },
+        {
+          "seconds": 28.33,
+          "rss_kib": 288112,
+          "pressure_level": "1",
+          "free_disk_bytes": 27855392768
+        },
+        {
+          "seconds": 30.35,
+          "rss_kib": 286576,
+          "pressure_level": "1",
+          "free_disk_bytes": 27451588608
+        },
+        {
+          "seconds": 32.38,
+          "rss_kib": 284432,
+          "pressure_level": "1",
+          "free_disk_bytes": 26948177920
+        },
+        {
+          "seconds": 34.4,
+          "rss_kib": 299312,
+          "pressure_level": "1",
+          "free_disk_bytes": 26461065216
+        },
+        {
+          "seconds": 36.42,
+          "rss_kib": 289296,
+          "pressure_level": "1",
+          "free_disk_bytes": 26052800512
+        },
+        {
+          "seconds": 38.43,
+          "rss_kib": 297520,
+          "pressure_level": "1",
+          "free_disk_bytes": 25649037312
+        },
+        {
+          "seconds": 40.45,
+          "rss_kib": 299424,
+          "pressure_level": "1",
+          "free_disk_bytes": 25176862720
+        },
+        {
+          "seconds": 42.47,
+          "rss_kib": 316848,
+          "pressure_level": "1",
+          "free_disk_bytes": 24610402304
+        }
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 44.4711567920167
+    },
+    {
+      "stage": "control-q4",
+      "command": [
+        "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/preparation/llama.cpp/build/bin/llama-quantize",
+        "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/pipeline4b/control-temporary-nse1cnk5/f16.gguf",
+        "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/pipeline4b/control-Q4_K_M.gguf",
+        "Q4_K_M",
+        "4"
+      ],
+      "samples": [
+        {
+          "seconds": 2.04,
+          "rss_kib": 2456240,
+          "pressure_level": "1",
+          "free_disk_bytes": 24604008448
+        },
+        {
+          "seconds": 4.07,
+          "rss_kib": 1831904,
+          "pressure_level": "1",
+          "free_disk_bytes": 24271495168
+        },
+        {
+          "seconds": 6.1,
+          "rss_kib": 948320,
+          "pressure_level": "1",
+          "free_disk_bytes": 24108814336
+        },
+        {
+          "seconds": 8.11,
+          "rss_kib": 591088,
+          "pressure_level": "1",
+          "free_disk_bytes": 23974596608
+        },
+        {
+          "seconds": 10.14,
+          "rss_kib": 502000,
+          "pressure_level": "1",
+          "free_disk_bytes": 23840374784
+        },
+        {
+          "seconds": 12.16,
+          "rss_kib": 198800,
+          "pressure_level": "1",
+          "free_disk_bytes": 23722934272
+        },
+        {
+          "seconds": 14.18,
+          "rss_kib": 181568,
+          "pressure_level": "1",
+          "free_disk_bytes": 23600705536
+        },
+        {
+          "seconds": 16.21,
+          "rss_kib": 175616,
+          "pressure_level": "1",
+          "free_disk_bytes": 23476801536
+        },
+        {
+          "seconds": 18.23,
+          "rss_kib": 175632,
+          "pressure_level": "2",
+          "free_disk_bytes": 23357857792
+        },
+        {
+          "seconds": 20.25,
+          "rss_kib": 173744,
+          "pressure_level": "2",
+          "free_disk_bytes": 23238963200
+        },
+        {
+          "seconds": 22.27,
+          "rss_kib": 171984,
+          "pressure_level": "2",
+          "free_disk_bytes": 23121240064
+        },
+        {
+          "seconds": 24.28,
+          "rss_kib": 171824,
+          "pressure_level": "2",
+          "free_disk_bytes": 22970138624
+        },
+        {
+          "seconds": 26.3,
+          "rss_kib": 171792,
+          "pressure_level": "2",
+          "free_disk_bytes": 22852698112
+        },
+        {
+          "seconds": 28.33,
+          "rss_kib": 171776,
+          "pressure_level": "2",
+          "free_disk_bytes": 22700486656
+        },
+        {
+          "seconds": 30.35,
+          "rss_kib": 171744,
+          "pressure_level": "2",
+          "free_disk_bytes": 22579482624
+        },
+        {
+          "seconds": 32.38,
+          "rss_kib": 171776,
+          "pressure_level": "2",
+          "free_disk_bytes": 22462033920
+        },
+        {
+          "seconds": 34.4,
+          "rss_kib": 171792,
+          "pressure_level": "2",
+          "free_disk_bytes": 22337794048
+        },
+        {
+          "seconds": 36.42,
+          "rss_kib": 171776,
+          "pressure_level": "2",
+          "free_disk_bytes": 22186201088
+        }
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 38.430761666968465
+    },
+    {
+      "stage": "smoke-hf",
+      "command": [
+        "/opt/anaconda3/bin/python",
+        "-m",
+        "scripts.mlx_python",
+        "scripts.mlx_export4b",
+        "--kind",
+        "smoke",
+        "--output",
+        "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/pipeline4b/smoke-temporary-8_dx5z41/hf",
+        "--report",
+        "/Users/usukhbayar.purevdorj/Documents/hackathon/evaluation/pipeline4b-smoke/smoke-hf.json"
+      ],
+      "samples": [
+        {
+          "seconds": 2.06,
+          "rss_kib": 140080,
+          "pressure_level": "1",
+          "free_disk_bytes": 30170406912
+        },
+        {
+          "seconds": 4.08,
+          "rss_kib": 310544,
+          "pressure_level": "1",
+          "free_disk_bytes": 30170431488
+        },
+        {
+          "seconds": 6.09,
+          "rss_kib": 430464,
+          "pressure_level": "1",
+          "free_disk_bytes": 30170447872
+        },
+        {
+          "seconds": 8.11,
+          "rss_kib": 537632,
+          "pressure_level": "1",
+          "free_disk_bytes": 30152474624
+        },
+        {
+          "seconds": 10.14,
+          "rss_kib": 2757616,
+          "pressure_level": "2",
+          "free_disk_bytes": 27630563328
+        },
+        {
+          "seconds": 12.16,
+          "rss_kib": 490752,
+          "pressure_level": "4",
+          "free_disk_bytes": 26689429504
+        }
+      ],
+      "elapsed_seconds": 12.821017208043486
+    }
+  ],
+  "started_epoch": 1791106663.608976,
+  "free_bytes_before": 32700674048,
+  "temporary_cleanup_policy": "Only freshly created HF/F16 intermediates, after hashes and successful Q4 verification; preserve failed intermediates.",
+  "control": {
+    "scratch": "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/pipeline4b/control-temporary-nse1cnk5",
+    "temporary": true,
+    "reused_hf_preserved": "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/pipeline4b/control-temporary-60llz6wf/hf",
+    "f16_sha256": "fe45a8f4e64a3babf20e9f51cf06bb529653d6246973b98cfba8cada48fb229b",
+    "f16_bytes": 8051284800,
+    "q4_sha256": "8392d13c0aac3c5d4ff52a888ee85815b1b42835ea9b45468741151dfa306ca0",
+    "q4_bytes": 2497280320,
+    "temporary_intermediates_removed_after_verification": true
+  },
+  "smoke": {
+    "scratch": "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/pipeline4b/smoke-temporary-8_dx5z41",
+    "temporary": true
+  }
+}
