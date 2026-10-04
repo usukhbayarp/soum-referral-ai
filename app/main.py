@@ -21,6 +21,10 @@ from .core import (
 )
 
 STATIC = Path(__file__).parent / "static"
+# Form presentation evolves independently of the unchanged model contract.
+FORM = json.loads((ROOT / "config/referral.v0.7.json").read_text())
+if SCHEMA["version"] != FORM["extraction_schema_version"]:
+    FORM = SCHEMA  # Explicit legacy contract selection retains its own form.
 
 
 class ExtractRequest(BaseModel):
@@ -161,7 +165,8 @@ def create_app(adapter=None, gate=None):
     @app.get("/api/config")
     async def config():
         return {
-            **SCHEMA,
+            **FORM,
+            "extraction_schema_version": SCHEMA["version"],
             "model": app.state.adapter.model,
             "prompt_version": PROMPT_VERSION,
             "output_schema_version": OUTPUT_SCHEMA_VERSION,

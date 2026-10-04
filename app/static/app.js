@@ -8,6 +8,7 @@ import {
   acceptResponse,
   failResponse,
   replaceReferral,
+  hasReferralContent,
   reconcileField,
   pendingReconciliations,
   canApprove,
@@ -181,12 +182,12 @@ function renderTreatmentRows(section) {
 }
 function renderFields() {
   $("fields").replaceChildren();
-  let group, previous;
+  let group, previous, subgroup, previousSubgroup;
   for (const field of config.fields) {
     if (previous !== field.section) {
       group = node("div", undefined, "form-section");
       group.append(node("h2", `${field.section} ${config.sections.find(s=>s.id===field.section).label}`));
-      $("fields").append(group); previous = field.section;
+      $("fields").append(group); previous = field.section; previousSubgroup = undefined; subgroup = null;
     }
     const section = node("section", undefined, "field"),
       head = node("div", undefined, "field-header"),
@@ -259,7 +260,12 @@ function renderFields() {
       area.id = field.id + "-" + suffix;
       section.append(area);
     }
-    group.append(section);
+    if (field.display_group !== previousSubgroup) {
+      subgroup = field.display_group ? node("fieldset", undefined, "field-group") : null;
+      if (subgroup) { subgroup.append(node("legend", field.display_group)); group.append(subgroup); }
+      previousSubgroup = field.display_group;
+    }
+    (subgroup || group).append(section);
     refreshField(field.id);
   }
   updateApproval();
@@ -334,7 +340,7 @@ async function extract() {
       throw new Error(errors[data.error] || "Ялгалт амжилтгүй боллоо.");
     if (data.request_id !== String(ticket.request))
       throw new Error("Хариуны дугаар тохирохгүй.");
-    if (data.schema_version !== config.version || data.prompt_version !== config.prompt_version) throw new Error("Хариуны загвар / prompt хувилбар тохирохгүй. Дахин ачаална уу.");
+    if (data.schema_version !== (config.extraction_schema_version || config.version) || data.prompt_version !== config.prompt_version) throw new Error("Хариуны загвар / prompt хувилбар тохирохгүй. Дахин ачаална уу.");
     if (!acceptResponse(state, ticket, data)) {
       if (ticket.caseId === state.caseId && ticket.request === state.request)
         status(
@@ -379,8 +385,13 @@ function printView() {
   for (const group of printSections(state,config)) {
     if (!group.fields.length) continue;
     cell.append(node("h2",`${group.id} ${group.label}`));
-    let compact=null;
+    let compact=null, previousSubgroup;
     for (const field of group.fields) {
+      if (field.display_group !== previousSubgroup) {
+        compact=null;
+        if (field.display_group) cell.append(node("h3",field.display_group));
+        previousSubgroup=field.display_group;
+      }
       const section=node("section",undefined,"print-field");
       section.append(node("strong",`${field.label}${field.manual?" *":""}: `));
       if(field.rows) field.rows.forEach(text=>section.append(node("p",text,"print-treatment-row")));
@@ -493,3 +504,8 @@ try {
   for (const id of ["example", "new-referral", "reset", "note"])
     $(id).disabled = true;
 }
+
+// Drafts are memory-only; warn before a navigation/reload discards a current case.
+window.addEventListener("beforeunload", (event) => {
+  if (state && hasReferralContent(state)) { event.preventDefault(); event.returnValue = ""; }
+});

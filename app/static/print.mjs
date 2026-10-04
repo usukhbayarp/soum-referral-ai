@@ -42,6 +42,7 @@ export function printSections(state, config) {
         if (!text && !meaning && !['signature', 'reviewer', 'review_time', 'stamp'].includes(f.id)) return [];
         return [{
           id: f.id,
+          display_group: f.display_group,
           label: labels[f.id] || f.label,
           text: text || (meaning ? '' : 'Бөглөөгүй'),
           meaning,

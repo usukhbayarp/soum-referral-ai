@@ -17,11 +17,13 @@ export function rowsOf(state) {
 }
 export function completeness(state, config) {
   const text = (id) => state.fields[id]?.text.trim() || "";
+  const v07 = config.version === "experimental-0.7";
   const warnings = [];
   const warn = (id, message) => warnings.push({id, message});
   const labels = Object.fromEntries(config.fields.map(f => [f.id,f.label]));
   const need = (id) => { if (!text(id)) warn(id, `${labels[id]} — дутуу / эмч хянана`); };
-  for (const id of ["patient", "sending_facility", "sending_clinician", "phone", "receiving", "referral", "requested_action", "history", "diagnosis", "current_condition", "current_time", "allergies"]) need(id);
+  for (const id of ["patient", "sending_facility", "sending_clinician", "phone", "receiving", "referral", "history", "diagnosis", "current_condition", "current_time", "allergies"]) need(id);
+  if (!v07) need("requested_action");
   if (!text("patient") && text("identifier")) {
     const i = warnings.findIndex(w=>w.id==="patient"); if(i>=0) warnings.splice(i,1);
   }
@@ -44,14 +46,26 @@ export function completeness(state, config) {
   });
   for (const prefix of ["initial","current"]) {
     const used=text(prefix+"_oxygen_used");
-    if (used === "Хэрэглэсэн") { need(prefix+"_oxygen_device"); need(prefix+"_oxygen_flow"); }
+    if (v07) {
+      if (used === "Дэмжлэгтэй") {
+        if (!text(prefix+"_oxygen_device") && !text(prefix+"_oxygen_flow") && !text(prefix+"_fio2")) warn(prefix+"_oxygen_used", "Хүчилтөрөгчийн дэмжлэгийн баримтжуулсан дэлгэрэнгүйг хянана");
+      } else if (used !== "Өрөөний агаарт") warn(prefix+"_oxygen_used", "Хүчилтөрөгчийн дэмжлэг эхэд бичээгүй / тодруулаагүй — өрөөний агаарт гэж дүгнээгүй");
+      if (used === "Өрөөний агаарт" && ["_oxygen_device","_oxygen_flow","_fio2"].some(k=>text(prefix+k))) warn(prefix+"_oxygen_used", "Өрөөний агаарт гэсэн сонголт ба дэмжлэгийн дэлгэрэнгүй зөрүүтэй байж болно — хянана");
+    } else if (used === "Хэрэглэсэн") { need(prefix+"_oxygen_device"); need(prefix+"_oxygen_flow"); }
     else if (used !== "Хэрэглээгүй") warn(prefix+"_oxygen_used", "Хүчилтөрөгчийн хэрэглээг эмч хянана; эхийн саналаас автоматаар дүгнээгүй");
   }
   const inv=text("investigation_review");
   if (!inv || inv.includes("дутуу") || inv.startsWith("Тодорхойгүй")) warn("investigation_review", "Шинжилгээ: хийгдсэн / хийгдээгүй / чанарын / тоон / хүлээгдэж буйг эмч ялгаж, хамаарах огноо, хариу, нэгжийг шалгана");
   if (text("pending_status") === "Байгаа") { need("pending_owner"); need("pending_method"); }
   else if(text("pending_status") !== "Байхгүй гэж эхэд тэмдэглэсэн") warn("pending_status", "Хүлээгдэж буй хариу байгаа эсэхийг эмч хянана");
-  for(const [trigger, detail] of [["transport_needed","transport"],["agreement_needed","agreement"]]) {
+  if (v07) {
+    if (text("transport_needed") === "Зохион байгуулсан") { need("transport"); need("transport_staff"); }
+    if (text("transport_needed") === "Тодорхойгүй") warn("transport_needed", "Тээвэрлэлтийн зохион байгуулалт тодорхойгүй — хянана");
+    if (text("transport_needed") === "Хамаарахгүй" && (text("transport") || text("transport_staff"))) warn("transport_needed", "Тээвэрлэлтийн сонголт ба дэлгэрэнгүйг тулгаж хянана");
+    // Optional agreement stays visible if entered; absence is not a universal warning.
+    if (text("agreement_needed") === "Шаардлагатай") need("agreement");
+    if (text("agreement_needed") === "Тодорхойгүй") warn("agreement_needed", "Урьдчилан тохиролцох шаардлага тодорхойгүй — хянана");
+  } else for(const [trigger, detail] of [["transport_needed","transport"],["agreement_needed","agreement"]]) {
     if(text(trigger)==="Шаардлагатай") need(detail);
     else if(text(trigger)!=="Хамаарахгүй") warn(trigger, `${labels[trigger]} — эмч тодруулна`);
   }

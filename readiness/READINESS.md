@@ -26,3 +26,7 @@ Regression/unit checks validate the harness and packaging only; they are not off
 ## v0.6 update
 
 See [implementation and development results](../docs/v06.md). The clinician-designed template is integrated but remains unofficial, experimental and unapproved by receiving clinicians. DEV-002 is AI-generated, fictional, development-only and unreviewed. One receiving doctor reported unclear treatment information and contacting sending doctors for clarification: **one qualitative interview**, not measured prevalence or proven patient-outcome impact. Sending-clinic digital-note availability and hardware remain unverified. The prior network-disconnected restart → extraction → edit → approval → print test remains **unproven**; prepare a new version-recorded bundle. No hosting/training started.
+
+## v0.7 update
+
+The authoritative clinician-approved form scope is implemented; see [v0.7 mapping and checks](../docs/v07.md). It remains experimental/unofficial. Existing 19-category extraction limitations remain disclosed; no experimental extractor or serving-model replacement is activated. The original Qwen3-4B comparison is a fictional, unreviewed development mechanics experiment, separate from the form release. Offline restart, hosted deployment, clinical validation and time saved remain unclaimed. Required videos remain **exactly three separate videos, each ≤60 seconds: Team Intro, Demo, Teach**. Paid deployment and submission remain pending user action.

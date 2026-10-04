@@ -472,3 +472,7 @@ select { width: 100%; padding: 9px; margin: 6px 0; border: 1px solid #aebdb5; ba
   #print-view .print-treatment-row { padding: 6px; margin: 4px 0; }
   #print-view .print-legend, #print-view .print-warnings { font-size: 9pt; }
 }
+
+.field-group { margin: 1rem 0; border: 1px solid #cbd5e1; border-radius: 6px; padding: .6rem; }
+.field-group legend { font-weight: 700; }
+@media print { #print-view h3 { font-size: 11pt; margin: 8pt 0 3pt; break-after: avoid; } }

@@ -1,0 +1,27 @@
+{
+  "status": "fictional print mechanics only; browser acknowledgement simulated, clinician signature/review unfilled",
+  "checks": [
+    "ID on every page",
+    "normal source facts/negatives/units and time-only values retained",
+    "manual attribution without original-evidence duplication",
+    "three stress treatment rows individually unbroken",
+    "long-text final line retained"
+  ],
+  "visual_inspection": "Normal pages 1–2 and stress page 2 inspected: legible Mongolian, no observed clipping; remaining stress pages checked by text/row assertions.",
+  "results": [
+    {
+      "fixture": "normal_after",
+      "pages": 2,
+      "sha256": "efa0865626e75ee54dba376fda28fec7b010e9fffc94361b03344d564231cc7e",
+      "status": "pass",
+      "pdf": ".runtime/v07-print/normal-after.pdf"
+    },
+    {
+      "fixture": "stress_after",
+      "pages": 3,
+      "sha256": "a767441ca694efee8da1ecf2b87ae18a6404dd34efd11575ecf3c7c18b1b9d14",
+      "status": "pass",
+      "pdf": ".runtime/v07-ui/v07-multipage.pdf"
+    }
+  ]
+}
