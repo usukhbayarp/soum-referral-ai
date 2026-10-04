@@ -1,0 +1,88 @@
+# Soum Referral AI / Сум
+
+A local Mongolian referral-documentation prototype for the World Bank Small AI for Development hackathon.
+
+**Fictional data only. The schema is provisional, not an approved Mongolian national referral form.** No diagnoses, treatment recommendations, referral eligibility decisions, or urgency assessments are generated. The model proposes source-unit classifications; the doctor must correct them before export. Incorrect classifications and omissions have been observed. This is not clinically validated.
+
+## Run locally
+
+Tested on Apple M4, macOS 15.1, Python 3.12.12, Ollama 0.34.0. The existing Ollama installation was reused. No training stack is installed in the project.
+
+```sh
+python3.12 -m venv .venv
+.venv/bin/python -m pip install -r requirements-lock.txt
+# Start the installed Ollama application, or run this if it is not already running:
+# OLLAMA_HOST=127.0.0.1:11434 OLLAMA_NO_CLOUD=1 ollama serve
+ollama pull qwen3:1.7b
+.venv/bin/python -m uvicorn app.main:app --host 127.0.0.1 --port 8000 --workers 1 --no-access-log
+```
+
+Open **http://127.0.0.1:8000**. On Windows use `.venv\Scripts\python.exe` in place of `.venv/bin/python`. Windows/Linux execution and performance have not been verified. Lock file includes development/test packages; `requirements.txt` has the four pinned direct runtime dependencies.
+
+Use “Зохиомол жишээ” to load a fictional, **unreviewed** example. Extract, inspect the original alongside fields, click evidence IDs, correct fields, acknowledge unresolved information, approve, then print/save PDF. Missing facts may stay missing. Each edit revokes approval. Reset removes note, field, evidence and print content from application memory/DOM; previously exported files remain separately. No secure erasure claim is made for browser/OS memory or swap.
+
+## Architecture and extraction contract
+
+`Browser → FastAPI → replaceable OllamaAdapter → loopback Ollama → source IDs → strict validation → source text → doctor review`.
+
+- The browser holds its own draft in memory; the backend has no shared patient state, accounts or database. Shared state is only a concurrency gate and immutable configuration.
+- `config/referral.v0.1.json`: versioned, replaceable field definitions and **provisional workflow** required flags. Empty required fields are allowed after explicit acknowledgement; these rules have no clinical authority.
+- `config/extraction.source-id-2.txt`: active bilingual prompt. Version 1 remains for baseline provenance.
+- `config/output.source-id-1.json`: common output JSON schema. Inference restricts integer IDs to each request's units; validation rejects wrong types, unknown/duplicate IDs, extra/missing/duplicate fields, malformed or incomplete output. A failure is never silently converted into an empty assignment.
+- `app/core.py`: `sentence-lines-1` segmentation. Split on newlines or `. ! ?` followed by whitespace/end; trim boundary whitespace, keep original Unicode code-point offsets and exact text. Decimal points remain intact. This is deterministic, **not a clinical sentence parser**. Abbreviations can split unexpectedly. The browser handles offsets using Unicode code points too.
+- A valid ID proves only that text exists. It does **not** establish correct categorization, completeness, truth, or absence of contradictions. No confidence percentages or general contradiction detector exist. Multiple excerpts are retained in source order, including incompatible statements when selected; the original note always remains available.
+- UI statuses distinguish extracted/awaiting review, model did not find/review source, failed extraction/evidence, and doctor-entered/edited. Explicit negatives/unknown/not assessed remain verbatim when selected. Administrative fields are manual only.
+- Original evidence remains accessible after edits. Starting another extraction does not replace doctor-entered values; new evidence is attached separately. Changing the source clears obsolete extracted values/evidence, preserves manual values for re-review, and revokes approval. Use Reset for a new patient/case. A revision/request ticket prevents late replies from applying after any edit/reset.
+- Approval is a browser workflow safeguard, not an authenticated signature or tamper-proof record. Print content is constructed only after approval; unapproved printing shows a blocker.
+
+## Runtime configuration
+
+```sh
+REFERRAL_MODEL=qwen3:1.7b OLLAMA_BASE_URL=http://127.0.0.1:11434 INFERENCE_TIMEOUT=120 \
+  .venv/bin/python -m uvicorn app.main:app --host 127.0.0.1 --port 8000 --workers 1 --no-access-log
+```
+
+Set `REFERRAL_MODEL` to another **installed local GGUF Ollama model**, including a future tuned model. UI/schema/approval stay unchanged. No automatic pulls, cloud fallbacks, or model choice by request are allowed. Roll back by resetting the variable to `qwen3:1.7b`; keep that model installed. Comparison supports `--models` too.
+
+Verified `/api/chat` settings: `think:false`, `stream:false`, schema object in `format`, temperature 0, seed 42, `num_ctx:16384`, `num_predict:1600`, `keep_alive:0`. Models unload after each call to reduce memory pressure. These are reproducibility settings, not a claim of optimal generation quality. Exact runtime, model digest, artifact bytes, quantization, templates, timings and contract hashes are recorded in evaluation results. Ollama's `1.7b` tag reports ~2.03 billion total parameters in GGUF metadata; do not confuse the tag/size label with an independently verified parameter count.
+
+The cached `qwen3:4b` is actually **Qwen3-4B-Thinking-2507** per local GGUF metadata. It loaded, but its template differs from 1.7B and opens a thinking block. The API accepted `think:false` and returned no separate thinking text in measured runs; internal non-thinking semantics for this variant are unverified. Do not treat it as an interchangeable standard Qwen3-4B baseline.
+
+## Privacy and limits
+
+- Application code never stores/logs interactive notes or model outputs. No localStorage/sessionStorage, cookies, analytics, remote fonts, scripts, or UI assets. HTTP responses have `Cache-Control: no-store` and a restrictive CSP. Text uses DOM text nodes/textarea values, never HTML insertion.
+- Model endpoint must be HTTP loopback; HTTP proxy environment variables are ignored by the client. Only installed local GGUF entries are accepted. Ollama was observed listening on `127.0.0.1:11434`.
+- **One Uvicorn worker only:** one active inference, two waiting, 15-second queue wait, 120-second inference timeout by default. Per-process limits do not provide distributed hosting limits. A canceled browser request may run until the bounded inference timeout; it cannot overwrite a newer draft.
+- Input: 3,000 Unicode characters, 80 units, 32 KiB HTTP body, 10-second body receive timeout, conservative 12,000-byte assembled-prompt budget. Oversize notes are rejected, not truncated. Output: 1,600 generated tokens, 64 KiB runtime envelope, 24 KiB model content; incomplete generation is rejected. The conservative prompt budget reserves room within the 16,384-token context; maximum-length behavior still needs device-specific evaluation.
+- Manual fields over 6,000 characters remain visible but block approval with an explicit warning.
+- The comparison CLI is an **explicit exception to non-persistence**: it writes only the bundled fictional development fixtures' outputs. Do not adapt it to real notes or commit private data.
+- Browser extensions, system swap, print spooler and Ollama's own logging behavior are outside application control. Do not enable debug prompt logging. This milestone is for fictional data, not clinical deployment.
+
+## Verification and evaluation
+
+```sh
+.venv/bin/python -m pytest -q
+node --test tests/state.test.mjs
+.venv/bin/python -m scripts.compare
+.venv/bin/python -m scripts.compare --models qwen3:1.7b soum-tuned:latest
+.venv/bin/python -m scripts.dataset evaluation/fixtures/development.json
+```
+
+Set `EXTRACTION_PROMPT_VERSION=source-id-1` to reproduce the first prompt baseline, or leave its default `source-id-2` for the current contract.
+
+Run comparisons while interactive extraction is idle: they are sequential within the runner but do not share the web process's queue. Each model is unloaded before advancing. Results are timestamped and preserved, including failures and abstentions. The runner intentionally uses fixed development cases, never held-out tests.
+
+Read [evaluation/report.md](evaluation/report.md), [docs/verification.md](docs/verification.md), [docs/clinician-review.md](docs/clinician-review.md), and [docs/training.md](docs/training.md). There are **zero reviewed labels** today. Valid JSON is not accuracy. The true network-disconnected restart demonstration remains pending; no network disconnection was performed.
+
+## Hosting and next milestones
+
+This is a localhost application, not a deployed service. `APP_ALLOWED_HOSTS` permits a future explicit host allowlist; Ollama remains loopback. No provider, credentials, compute allocation, public access controls, distributed queue or retention policy has been selected. See [TASKS.md](TASKS.md). No accounts, audio, OCR, hospital integration or fine-tuning are included.
+
+## Licenses and primary references
+
+Application code: [MIT](LICENSE). Model weights remain under their own licenses; see [THIRD_PARTY.md](THIRD_PARTY.md).
+
+- [Ollama chat API](https://docs.ollama.com/api/chat): structured format, thinking switch, token settings and completion metadata.
+- [Ollama structured outputs](https://docs.ollama.com/capabilities/structured-outputs).
+- [Ollama Qwen3:1.7b artifact](https://ollama.com/library/qwen3:1.7b).
+- [Ollama FAQ](https://docs.ollama.com/faq): localhost binding, model residency and cloud configuration.

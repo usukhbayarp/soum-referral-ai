@@ -1,0 +1,72 @@
+{
+  "title": "SourceUnitAssignments",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "history",
+    "examination",
+    "investigations",
+    "diagnosis",
+    "medication",
+    "allergies",
+    "referral"
+  ],
+  "properties": {
+    "history": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "uniqueItems": true,
+      "maxItems": 80
+    },
+    "examination": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "uniqueItems": true,
+      "maxItems": 80
+    },
+    "investigations": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "uniqueItems": true,
+      "maxItems": 80
+    },
+    "diagnosis": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "uniqueItems": true,
+      "maxItems": 80
+    },
+    "medication": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "uniqueItems": true,
+      "maxItems": 80
+    },
+    "allergies": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "uniqueItems": true,
+      "maxItems": 80
+    },
+    "referral": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "uniqueItems": true,
+      "maxItems": 80
+    }
+  }
+}

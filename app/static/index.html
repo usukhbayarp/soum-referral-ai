@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="mn">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Сум • Илгээх бичгийн бэлтгэл</title>
+    <link rel="icon" href="/static/favicon.svg" />
+    <link rel="stylesheet" href="/static/style.css" />
+    <script type="module" src="/static/app.js"></script>
+  </head>
+  <body>
+    <div class="workspace">
+      <header>
+        <div class="brand">
+          <span class="brand-mark">С</span>
+          <div>
+            <strong>СУМ / SOUM</strong
+            ><small>Эмчийн хяналттай баримт бичгийн бэлтгэл</small>
+          </div>
+        </div>
+        <span class="badge">ТУРШИЛТ • ЗОХИОМОЛ ӨГӨГДӨЛ</span>
+      </header>
+      <main>
+        <div class="intro">
+          <div>
+            <p class="eyebrow">ЭХ БАРИМТААС → ЭМЧИЙН ХЯНАЛТ → ХЭВЛЭХ</p>
+            <h1>Илгээх бичгийн бэлтгэл</h1>
+            <p>
+              Тэмдэглэлд байгаа мэдээллийг ангилна. Эцсийн агуулгыг эмч хянаж
+              батална.
+            </p>
+          </div>
+          <div class="model">
+            <span class="dot"></span
+            ><span id="model">Тохиргоо ачаалж байна…</span
+            ><small>Дотоод төхөөрөмж дээр</small>
+          </div>
+        </div>
+        <aside class="notice">
+          <strong>Зөвхөн баримт бичгийн туршилт.</strong> Онош, эмчилгээ, илгээх
+          эсэх, яаралтай байдлын зөвлөмж гаргахгүй. Энэ нь үндэсний батлагдсан
+          маягт биш. Бодит өвчтөний мэдээлэл бүү оруул.
+        </aside>
+        <div class="columns">
+          <section class="panel source-panel">
+            <div class="panel-title">
+              <h2><span>01</span> Эх тэмдэглэл</h2>
+              <button id="example" class="quiet">Зохиомол жишээ</button>
+            </div>
+            <label for="note">Эмнэлзүйн тэмдэглэлээ оруулах</label
+            ><textarea
+              id="note"
+              rows="12"
+              autocomplete="off"
+              spellcheck="false"
+              placeholder="Зөвхөн зохиомол Монгол тэмдэглэл…"
+            ></textarea>
+            <div class="source-meta">
+              <span id="count">0 / 3000 тэмдэгт</span
+              ><span>Автоматаар хадгалахгүй</span>
+            </div>
+            <div class="actions">
+              <button id="extract" class="primary" disabled>
+                Эхээс мэдээлэл ялгах</button
+              ><button id="reset" class="quiet">Цэвэрлэх</button>
+            </div>
+            <p id="status" role="status" aria-live="polite">
+              Тохиргоог ачаалж байна.
+            </p>
+            <details open>
+              <summary>Эх нотолгоо • сонгосон хэсэг</summary>
+              <p class="hint">
+                Баруун талын эхийн дугаар дээр дарж тухайн хэсгийг хараарай. Зөв
+                дугаар нь ангилал зөв, бүрэн гэсэн баталгаа биш.
+              </p>
+              <pre id="source-view" tabindex="0"></pre>
+            </details>
+          </section>
+          <section class="panel">
+            <div class="panel-title">
+              <h2><span>02</span> Хянах, засварлах</h2>
+              <span id="schema-version" class="small-label"></span>
+            </div>
+            <p class="hint">
+              Үгүй, тодорхойгүй, үнэлээгүй гэсэн тэмдэглэгээг хэвээр хадгална.
+              Зөрүүтэй хэсгүүдийг эмч өөрөө шалгана.
+            </p>
+            <div id="fields"></div>
+          </section>
+        </div>
+        <section class="panel approval">
+          <div>
+            <h2><span>03</span> Эмчийн баталгаажуулалт</h2>
+            <p id="unresolved"></p>
+            <p class="hint">
+              Дутуу мэдээллийг зохиож нөхөх шаардлагагүй. Шийдээгүй зүйлс
+              хэвлэмэл хувилбарт тэмдэглэгдэнэ.
+            </p>
+          </div>
+          <div class="approval-controls">
+            <label class="check"
+              ><input id="reviewed" type="checkbox" /> Би эх тэмдэглэл, бүх
+              талбар, үгүйсгэл, хугацаа болон зөрүүтэй хэсгүүдийг
+              хянасан.</label
+            ><label class="check"
+              ><input id="acknowledged" type="checkbox" /> Шийдээгүй / дутуу
+              талбаруудыг тэмдэглэсэн хэвээр экспортлохыг зөвшөөрч байна.</label
+            >
+            <div class="actions">
+              <button id="approve" class="primary" disabled>Хянаж батлах</button
+              ><button id="print" disabled>Хэвлэх / PDF</button>
+            </div>
+            <p id="approval-status" role="status">Баталгаажаагүй</p>
+          </div>
+        </section>
+        <footer>
+          Тэмдэглэл энэ хуудсанд түр байрлана. «Цэвэрлэх» нь хуудсын агуулгыг
+          арилгана. Экспортолсон PDF болон хэвлэмэл хувь тусдаа үлдэнэ — дундын
+          төхөөрөмж дээр өөрөө зохицуулна.
+        </footer>
+      </main>
+    </div>
+    <div id="print-blocker">
+      Баталгаажаагүй баримт. Эхлээд бүх талбарыг хянаж, шийдээгүй мэдээллийг
+      зөвшөөрөн батална уу.
+    </div>
+    <article id="print-view"></article>
+  </body>
+</html>

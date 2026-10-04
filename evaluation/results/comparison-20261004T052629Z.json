@@ -1,0 +1,1708 @@
+{
+  "created_utc": "2026-10-04T05:26:29.449833+00:00",
+  "quality_status": "UNREVIEWED: mechanics only, no clinical accuracy score",
+  "fixture_sha256": "6154cae0dad92ccfc2f8510d3616970eaf7abc279e9335780528721a41117184",
+  "schema_version": "provisional-0.1",
+  "prompt_version": "source-id-2",
+  "output_schema_version": "source-id-1",
+  "segmentation_version": "sentence-lines-1",
+  "settings": {
+    "think": false,
+    "stream": false,
+    "keep_alive": 0,
+    "temperature": 0,
+    "seed": 42,
+    "num_ctx": 16384,
+    "num_predict": 1600
+  },
+  "contract_sha256": {
+    "extraction.source-id-1.txt": "9a243858ee80af886ee30115977a3ae1b990b32de267c6bd5652ad2b0409d6b7",
+    "extraction.source-id-2.txt": "28d59b7bf6432851ea1ef62df70e12f0856d65f130c0c7d9976759f987835406",
+    "output.source-id-1.json": "ae3b6db1367e9a96f1eff69555d201dcf6085511b523baf27a92303f4de8d0f0",
+    "referral.v0.1.json": "78cd4e2d0296aaf97585e834d855b773d0159e1d4ea43a88ba1268b61462f742"
+  },
+  "models": [
+    {
+      "identifier": "qwen3:1.7b",
+      "metadata": {
+        "name": "qwen3:1.7b",
+        "model": "qwen3:1.7b",
+        "modified_at": "2026-10-04T06:22:10.288174805+01:00",
+        "size": 1359293444,
+        "digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen3",
+          "families": [
+            "qwen3"
+          ],
+          "parameter_size": "2.0B",
+          "quantization_level": "Q4_K_M",
+          "context_length": 40960,
+          "embedding_length": 2048
+        },
+        "capabilities": [
+          "completion",
+          "tools",
+          "thinking"
+        ]
+      },
+      "capabilities": [
+        "completion",
+        "tools",
+        "thinking"
+      ],
+      "model_info": {
+        "general.architecture": "qwen3",
+        "general.basename": "Qwen3",
+        "general.file_type": 15,
+        "general.parameter_count": 2031739904,
+        "general.quantization_version": 2,
+        "general.size_label": "1.7B",
+        "general.type": "model",
+        "qwen3.attention.head_count": 16,
+        "qwen3.attention.head_count_kv": 8,
+        "qwen3.attention.key_length": 128,
+        "qwen3.attention.layer_norm_rms_epsilon": 1e-06,
+        "qwen3.attention.value_length": 128,
+        "qwen3.block_count": 28,
+        "qwen3.context_length": 40960,
+        "qwen3.embedding_length": 2048,
+        "qwen3.feed_forward_length": 6144,
+        "qwen3.rope.freq_base": 1000000,
+        "tokenizer.ggml.add_bos_token": false,
+        "tokenizer.ggml.bos_token_id": 151643,
+        "tokenizer.ggml.eos_token_id": 151645,
+        "tokenizer.ggml.merges": null,
+        "tokenizer.ggml.model": "gpt2",
+        "tokenizer.ggml.padding_token_id": 151643,
+        "tokenizer.ggml.pre": "qwen2",
+        "tokenizer.ggml.token_type": null,
+        "tokenizer.ggml.tokens": null
+      },
+      "runtime_parameters": "repeat_penalty                 1\nstop                           \"<|im_start|>\"\nstop                           \"<|im_end|>\"\ntemperature                    0.6\ntop_k                          20\ntop_p                          0.95",
+      "template_sha256": "ae370d884f108d16e7cc8fd5259ebc5773a0afa6e078b11f4ed7e39a27e0dfc4",
+      "template": "\n{{- $lastUserIdx := -1 -}}\n{{- range $idx, $msg := .Messages -}}\n{{- if eq $msg.Role \"user\" }}{{ $lastUserIdx = $idx }}{{ end -}}\n{{- end }}\n{{- if or .System .Tools }}<|im_start|>system\n{{ if .System }}\n{{ .System }}\n{{- end }}\n{{- if .Tools }}\n\n# Tools\n\nYou may call one or more functions to assist with the user query.\n\nYou are provided with function signatures within <tools></tools> XML tags:\n<tools>\n{{- range .Tools }}\n{\"type\": \"function\", \"function\": {{ .Function }}}\n{{- end }}\n</tools>\n\nFor each function call, return a json object with function name and arguments within <tool_call></tool_call> XML tags:\n<tool_call>\n{\"name\": <function-name>, \"arguments\": <args-json-object>}\n</tool_call>\n{{- end -}}\n<|im_end|>\n{{ end }}\n{{- range $i, $_ := .Messages }}\n{{- $last := eq (len (slice $.Messages $i)) 1 -}}\n{{- if eq .Role \"user\" }}<|im_start|>user\n{{ .Content }}\n{{- if and $.IsThinkSet (eq $i $lastUserIdx) }}\n   {{- if $.Think -}}\n      {{- \" \"}}/think\n   {{- else -}}\n      {{- \" \"}}/no_think\n   {{- end -}}\n{{- end }}<|im_end|>\n{{ else if eq .Role \"assistant\" }}<|im_start|>assistant\n{{ if (and $.IsThinkSet (and .Thinking (or $last (gt $i $lastUserIdx)))) -}}\n<think>{{ .Thinking }}</think>\n{{ end -}}\n{{ if .Content }}{{ .Content }}\n{{- else if .ToolCalls }}<tool_call>\n{{ range .ToolCalls }}{\"name\": \"{{ .Function.Name }}\", \"arguments\": {{ .Function.Arguments }}}\n{{ end }}</tool_call>\n{{- end }}{{ if not $last }}<|im_end|>\n{{ end }}\n{{- else if eq .Role \"tool\" }}<|im_start|>user\n<tool_response>\n{{ .Content }}\n</tool_response><|im_end|>\n{{ end }}\n{{- if and (ne .Role \"assistant\") $last }}<|im_start|>assistant\n{{ if and $.IsThinkSet (not $.Think) -}}\n<think>\n\n</think>\n\n{{ end -}}\n{{ end }}\n{{- end }}",
+      "thinking_capabilities": {},
+      "cases": [
+        {
+          "case_id": "dev-001",
+          "clinician_review_status": "unreviewed",
+          "output": {
+            "fields": {
+              "history": {
+                "status": "extracted",
+                "text": "Сүүлийн 3 хоног ханиалгасан.\nХалуураагүй.",
+                "evidence": [
+                  {
+                    "id": 1,
+                    "start": 0,
+                    "end": 28,
+                    "text": "Сүүлийн 3 хоног ханиалгасан."
+                  },
+                  {
+                    "id": 2,
+                    "start": 29,
+                    "end": 41,
+                    "text": "Халуураагүй."
+                  }
+                ]
+              },
+              "examination": {
+                "status": "extracted",
+                "text": "Үзлэгт: халуун 36.7 °C, судасны цохилт 78/мин.",
+                "evidence": [
+                  {
+                    "id": 3,
+                    "start": 42,
+                    "end": 88,
+                    "text": "Үзлэгт: халуун 36.7 °C, судасны цохилт 78/мин."
+                  }
+                ]
+              },
+              "investigations": {
+                "status": "extracted",
+                "text": "Шинжилгээ хийгдээгүй.",
+                "evidence": [
+                  {
+                    "id": 7,
+                    "start": 211,
+                    "end": 232,
+                    "text": "Шинжилгээ хийгдээгүй."
+                  }
+                ]
+              },
+              "diagnosis": {
+                "status": "extracted",
+                "text": "Онош: амьсгалын дээд замын халдвар гэж тэмдэглэсэн.",
+                "evidence": [
+                  {
+                    "id": 4,
+                    "start": 89,
+                    "end": 140,
+                    "text": "Онош: амьсгалын дээд замын халдвар гэж тэмдэглэсэн."
+                  }
+                ]
+              },
+              "medication": {
+                "status": "extracted",
+                "text": "Парацетамол 500 мг нэг удаа уусан.",
+                "evidence": [
+                  {
+                    "id": 5,
+                    "start": 141,
+                    "end": 175,
+                    "text": "Парацетамол 500 мг нэг удаа уусан."
+                  }
+                ]
+              },
+              "allergies": {
+                "status": "extracted",
+                "text": "Эмийн харшилгүй гэж өвчтөн хэлсэн.",
+                "evidence": [
+                  {
+                    "id": 6,
+                    "start": 176,
+                    "end": 210,
+                    "text": "Эмийн харшилгүй гэж өвчтөн хэлсэн."
+                  }
+                ]
+              },
+              "referral": {
+                "status": "extracted",
+                "text": "Хүлээн авах эмчид: удаан үргэлжилсэн ханиалгын талаар зөвлөгөө хүссэн.",
+                "evidence": [
+                  {
+                    "id": 8,
+                    "start": 233,
+                    "end": 303,
+                    "text": "Хүлээн авах эмчид: удаан үргэлжилсэн ханиалгын талаар зөвлөгөө хүссэн."
+                  }
+                ]
+              }
+            },
+            "units": [
+              {
+                "id": 1,
+                "start": 0,
+                "end": 28,
+                "text": "Сүүлийн 3 хоног ханиалгасан."
+              },
+              {
+                "id": 2,
+                "start": 29,
+                "end": 41,
+                "text": "Халуураагүй."
+              },
+              {
+                "id": 3,
+                "start": 42,
+                "end": 88,
+                "text": "Үзлэгт: халуун 36.7 °C, судасны цохилт 78/мин."
+              },
+              {
+                "id": 4,
+                "start": 89,
+                "end": 140,
+                "text": "Онош: амьсгалын дээд замын халдвар гэж тэмдэглэсэн."
+              },
+              {
+                "id": 5,
+                "start": 141,
+                "end": 175,
+                "text": "Парацетамол 500 мг нэг удаа уусан."
+              },
+              {
+                "id": 6,
+                "start": 176,
+                "end": 210,
+                "text": "Эмийн харшилгүй гэж өвчтөн хэлсэн."
+              },
+              {
+                "id": 7,
+                "start": 211,
+                "end": 232,
+                "text": "Шинжилгээ хийгдээгүй."
+              },
+              {
+                "id": 8,
+                "start": 233,
+                "end": 303,
+                "text": "Хүлээн авах эмчид: удаан үргэлжилсэн ханиалгын талаар зөвлөгөө хүссэн."
+              }
+            ],
+            "model": "qwen3:1.7b",
+            "schema_version": "provisional-0.1",
+            "prompt_version": "source-id-2",
+            "output_schema_version": "source-id-1",
+            "segmentation_version": "sentence-lines-1",
+            "model_digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+            "settings": {
+              "think": false,
+              "temperature": 0,
+              "seed": 42,
+              "num_ctx": 16384,
+              "num_predict": 1600
+            },
+            "metrics": {
+              "total_duration": 6065716125,
+              "load_duration": 3643425750,
+              "prompt_eval_count": 1522,
+              "eval_count": 40
+            },
+            "raw_output": "{\"history\":[1,2],\"examination\":[3],\"investigations\":[7],\"diagnosis\":[4],\"medication\":[5],\"allergies\":[6],\"referral\":[8]}"
+          },
+          "validation_error": null,
+          "abstentions": [],
+          "latency_seconds": 6.103
+        },
+        {
+          "case_id": "dev-002",
+          "clinician_review_status": "unreviewed",
+          "output": {
+            "fields": {
+              "history": {
+                "status": "extracted",
+                "text": "Өчигдрөөс толгой өвдсөн гэж хэлсэн.",
+                "evidence": [
+                  {
+                    "id": 1,
+                    "start": 0,
+                    "end": 35,
+                    "text": "Өчигдрөөс толгой өвдсөн гэж хэлсэн."
+                  }
+                ]
+              },
+              "examination": {
+                "status": "not_found",
+                "text": "",
+                "evidence": []
+              },
+              "investigations": {
+                "status": "not_found",
+                "text": "",
+                "evidence": []
+              },
+              "diagnosis": {
+                "status": "not_found",
+                "text": "",
+                "evidence": []
+              },
+              "medication": {
+                "status": "not_found",
+                "text": "",
+                "evidence": []
+              },
+              "allergies": {
+                "status": "extracted",
+                "text": "Харшлын түүх тодорхойгүй.",
+                "evidence": [
+                  {
+                    "id": 3,
+                    "start": 64,
+                    "end": 89,
+                    "text": "Харшлын түүх тодорхойгүй."
+                  }
+                ]
+              },
+              "referral": {
+                "status": "not_found",
+                "text": "",
+                "evidence": []
+              }
+            },
+            "units": [
+              {
+                "id": 1,
+                "start": 0,
+                "end": 35,
+                "text": "Өчигдрөөс толгой өвдсөн гэж хэлсэн."
+              },
+              {
+                "id": 2,
+                "start": 36,
+                "end": 63,
+                "text": "Амин үзүүлэлт тэмдэглээгүй."
+              },
+              {
+                "id": 3,
+                "start": 64,
+                "end": 89,
+                "text": "Харшлын түүх тодорхойгүй."
+              },
+              {
+                "id": 4,
+                "start": 90,
+                "end": 104,
+                "text": "Онош бичээгүй."
+              }
+            ],
+            "model": "qwen3:1.7b",
+            "schema_version": "provisional-0.1",
+            "prompt_version": "source-id-2",
+            "output_schema_version": "source-id-1",
+            "segmentation_version": "sentence-lines-1",
+            "model_digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+            "settings": {
+              "think": false,
+              "temperature": 0,
+              "seed": 42,
+              "num_ctx": 16384,
+              "num_predict": 1600
+            },
+            "metrics": {
+              "total_duration": 4125523750,
+              "load_duration": 1571256709,
+              "prompt_eval_count": 1287,
+              "eval_count": 34
+            },
+            "raw_output": "{\"history\":[1],\"examination\":[],\"investigations\":[],\"diagnosis\":[],\"medication\":[],\"allergies\":[3],\"referral\":[]}"
+          },
+          "validation_error": null,
+          "abstentions": [
+            "examination",
+            "investigations",
+            "diagnosis",
+            "medication",
+            "referral"
+          ],
+          "latency_seconds": 4.17
+        },
+        {
+          "case_id": "dev-003",
+          "clinician_review_status": "unreviewed",
+          "output": {
+            "fields": {
+              "history": {
+                "status": "extracted",
+                "text": "Ханиалгагүй.\nХалуураагүй.\nАмьсгаадаагүй.\nУушгинд шуугиан сонсогдоогүй.",
+                "evidence": [
+                  {
+                    "id": 1,
+                    "start": 0,
+                    "end": 12,
+                    "text": "Ханиалгагүй."
+                  },
+                  {
+                    "id": 2,
+                    "start": 13,
+                    "end": 25,
+                    "text": "Халуураагүй."
+                  },
+                  {
+                    "id": 3,
+                    "start": 26,
+                    "end": 40,
+                    "text": "Амьсгаадаагүй."
+                  },
+                  {
+                    "id": 4,
+                    "start": 41,
+                    "end": 70,
+                    "text": "Уушгинд шуугиан сонсогдоогүй."
+                  }
+                ]
+              },
+              "examination": {
+                "status": "not_found",
+                "text": "",
+                "evidence": []
+              },
+              "investigations": {
+                "status": "extracted",
+                "text": "Эмийн харшилгүй.\nЭмчилгээ хийгээгүй.\nШинжилгээ хийгдээгүй.",
+                "evidence": [
+                  {
+                    "id": 5,
+                    "start": 71,
+                    "end": 87,
+                    "text": "Эмийн харшилгүй."
+                  },
+                  {
+                    "id": 6,
+                    "start": 88,
+                    "end": 107,
+                    "text": "Эмчилгээ хийгээгүй."
+                  },
+                  {
+                    "id": 7,
+                    "start": 108,
+                    "end": 129,
+                    "text": "Шинжилгээ хийгдээгүй."
+                  }
+                ]
+              },
+              "diagnosis": {
+                "status": "not_found",
+                "text": "",
+                "evidence": []
+              },
+              "medication": {
+                "status": "not_found",
+                "text": "",
+                "evidence": []
+              },
+              "allergies": {
+                "status": "not_found",
+                "text": "",
+                "evidence": []
+              },
+              "referral": {
+                "status": "not_found",
+                "text": "",
+                "evidence": []
+              }
+            },
+            "units": [
+              {
+                "id": 1,
+                "start": 0,
+                "end": 12,
+                "text": "Ханиалгагүй."
+              },
+              {
+                "id": 2,
+                "start": 13,
+                "end": 25,
+                "text": "Халуураагүй."
+              },
+              {
+                "id": 3,
+                "start": 26,
+                "end": 40,
+                "text": "Амьсгаадаагүй."
+              },
+              {
+                "id": 4,
+                "start": 41,
+                "end": 70,
+                "text": "Уушгинд шуугиан сонсогдоогүй."
+              },
+              {
+                "id": 5,
+                "start": 71,
+                "end": 87,
+                "text": "Эмийн харшилгүй."
+              },
+              {
+                "id": 6,
+                "start": 88,
+                "end": 107,
+                "text": "Эмчилгээ хийгээгүй."
+              },
+              {
+                "id": 7,
+                "start": 108,
+                "end": 129,
+                "text": "Шинжилгээ хийгдээгүй."
+              }
+            ],
+            "model": "qwen3:1.7b",
+            "schema_version": "provisional-0.1",
+            "prompt_version": "source-id-2",
+            "output_schema_version": "source-id-1",
+            "segmentation_version": "sentence-lines-1",
+            "model_digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+            "settings": {
+              "think": false,
+              "temperature": 0,
+              "seed": 42,
+              "num_ctx": 16384,
+              "num_predict": 1600
+            },
+            "metrics": {
+              "total_duration": 3945103042,
+              "load_duration": 1048972959,
+              "prompt_eval_count": 1376,
+              "eval_count": 44
+            },
+            "raw_output": "{\"history\":[1,2,3,4],\"examination\":[],\"investigations\":[5,6,7],\"diagnosis\":[],\"medication\":[],\"allergies\":[],\"referral\":[]}"
+          },
+          "validation_error": null,
+          "abstentions": [
+            "examination",
+            "diagnosis",
+            "medication",
+            "allergies",
+            "referral"
+          ],
+          "latency_seconds": 3.966
+        },
+        {
+          "case_id": "dev-004",
+          "clinician_review_status": "unreviewed",
+          "output": {
+            "fields": {
+              "history": {
+                "status": "extracted",
+                "text": "Өнөөдөр 09:00 цагт парацетамол 500 мг 1 шахмал уусан.",
+                "evidence": [
+                  {
+                    "id": 1,
+                    "start": 0,
+                    "end": 53,
+                    "text": "Өнөөдөр 09:00 цагт парацетамол 500 мг 1 шахмал уусан."
+                  }
+                ]
+              },
+              "examination": {
+                "status": "extracted",
+                "text": "Халуун 37.2 °C, АД 120/80 мм.муб, жин 62.5 кг.",
+                "evidence": [
+                  {
+                    "id": 3,
+                    "start": 136,
+                    "end": 182,
+                    "text": "Халуун 37.2 °C, АД 120/80 мм.муб, жин 62.5 кг."
+                  }
+                ]
+              },
+              "investigations": {
+                "status": "extracted",
+                "text": "Пенициллинд тууралт гардаг гэж тэмдэглэсэн.",
+                "evidence": [
+                  {
+                    "id": 5,
+                    "start": 203,
+                    "end": 246,
+                    "text": "Пенициллинд тууралт гардаг гэж тэмдэглэсэн."
+                  }
+                ]
+              },
+              "diagnosis": {
+                "status": "extracted",
+                "text": "Өмнөх тэмдэглэлд амоксициллин 250 мг өдөрт 3 удаа, 5 хоног хэрэглэсэн гэж бичсэн.",
+                "evidence": [
+                  {
+                    "id": 2,
+                    "start": 54,
+                    "end": 135,
+                    "text": "Өмнөх тэмдэглэлд амоксициллин 250 мг өдөрт 3 удаа, 5 хоног хэрэглэсэн гэж бичсэн."
+                  }
+                ]
+              },
+              "medication": {
+                "status": "extracted",
+                "text": "Өнөөдөр 09:00 цагт парацетамол 500 мг 1 шахмал уусан.\nӨмнөх тэмдэглэлд амоксициллин 250 мг өдөрт 3 удаа, 5 хоног хэрэглэсэн гэж бичсэн.",
+                "evidence": [
+                  {
+                    "id": 1,
+                    "start": 0,
+                    "end": 53,
+                    "text": "Өнөөдөр 09:00 цагт парацетамол 500 мг 1 шахмал уусан."
+                  },
+                  {
+                    "id": 2,
+                    "start": 54,
+                    "end": 135,
+                    "text": "Өмнөх тэмдэглэлд амоксициллин 250 мг өдөрт 3 удаа, 5 хоног хэрэглэсэн гэж бичсэн."
+                  }
+                ]
+              },
+              "allergies": {
+                "status": "extracted",
+                "text": "Өмнөх тэмдэглэлд амоксициллин 250 мг өдөрт 3 удаа, 5 хоног хэрэглэсэн гэж бичсэн.",
+                "evidence": [
+                  {
+                    "id": 2,
+                    "start": 54,
+                    "end": 135,
+                    "text": "Өмнөх тэмдэглэлд амоксициллин 250 мг өдөрт 3 удаа, 5 хоног хэрэглэсэн гэж бичсэн."
+                  }
+                ]
+              },
+              "referral": {
+                "status": "not_found",
+                "text": "",
+                "evidence": []
+              }
+            },
+            "units": [
+              {
+                "id": 1,
+                "start": 0,
+                "end": 53,
+                "text": "Өнөөдөр 09:00 цагт парацетамол 500 мг 1 шахмал уусан."
+              },
+              {
+                "id": 2,
+                "start": 54,
+                "end": 135,
+                "text": "Өмнөх тэмдэглэлд амоксициллин 250 мг өдөрт 3 удаа, 5 хоног хэрэглэсэн гэж бичсэн."
+              },
+              {
+                "id": 3,
+                "start": 136,
+                "end": 182,
+                "text": "Халуун 37.2 °C, АД 120/80 мм.муб, жин 62.5 кг."
+              },
+              {
+                "id": 4,
+                "start": 183,
+                "end": 202,
+                "text": "Глюкоз 5.6 ммоль/л."
+              },
+              {
+                "id": 5,
+                "start": 203,
+                "end": 246,
+                "text": "Пенициллинд тууралт гардаг гэж тэмдэглэсэн."
+              }
+            ],
+            "model": "qwen3:1.7b",
+            "schema_version": "provisional-0.1",
+            "prompt_version": "source-id-2",
+            "output_schema_version": "source-id-1",
+            "segmentation_version": "sentence-lines-1",
+            "model_digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+            "settings": {
+              "think": false,
+              "temperature": 0,
+              "seed": 42,
+              "num_ctx": 16384,
+              "num_predict": 1600
+            },
+            "metrics": {
+              "total_duration": 4652145625,
+              "load_duration": 1066529666,
+              "prompt_eval_count": 1411,
+              "eval_count": 86
+            },
+            "raw_output": "{\n  \"history\": [\n    1\n  ],\n  \"examination\": [\n    3\n  ],\n  \"investigations\": [\n    5\n  ],\n  \"diagnosis\": [\n    2\n  ],\n  \"medication\": [\n    2,\n    1\n  ],\n  \"allergies\": [\n    2\n  ],\n  \"referral\": []\n}"
+          },
+          "validation_error": null,
+          "abstentions": [
+            "referral"
+          ],
+          "latency_seconds": 4.672
+        },
+        {
+          "case_id": "dev-005",
+          "clinician_review_status": "unreviewed",
+          "output": {
+            "fields": {
+              "history": {
+                "status": "extracted",
+                "text": "2026-09-01: эмийн харшилгүй гэж тэмдэглэсэн.\n2026-09-03: пенициллин хэрэглэсний дараа тууралт гарсан гэж хэлсэн.\nӨглөө халуун 38.5 °C байсан.\nОрой халуун 36.8 °C болсон.\nЭхний тэмдэглэлд: хатгалгаа сэжигтэй.\nДараагийн тэмдэглэлд: хатгалгаа батлагдаагүй, онош тодорхойгүй.",
+                "evidence": [
+                  {
+                    "id": 1,
+                    "start": 0,
+                    "end": 44,
+                    "text": "2026-09-01: эмийн харшилгүй гэж тэмдэглэсэн."
+                  },
+                  {
+                    "id": 2,
+                    "start": 45,
+                    "end": 112,
+                    "text": "2026-09-03: пенициллин хэрэглэсний дараа тууралт гарсан гэж хэлсэн."
+                  },
+                  {
+                    "id": 3,
+                    "start": 113,
+                    "end": 141,
+                    "text": "Өглөө халуун 38.5 °C байсан."
+                  },
+                  {
+                    "id": 4,
+                    "start": 142,
+                    "end": 169,
+                    "text": "Орой халуун 36.8 °C болсон."
+                  },
+                  {
+                    "id": 5,
+                    "start": 170,
+                    "end": 207,
+                    "text": "Эхний тэмдэглэлд: хатгалгаа сэжигтэй."
+                  },
+                  {
+                    "id": 6,
+                    "start": 208,
+                    "end": 271,
+                    "text": "Дараагийн тэмдэглэлд: хатгалгаа батлагдаагүй, онош тодорхойгүй."
+                  }
+                ]
+              },
+              "examination": {
+                "status": "extracted",
+                "text": "Өглөө халуун 38.5 °C байсан.\nОрой халуун 36.8 °C болсон.",
+                "evidence": [
+                  {
+                    "id": 3,
+                    "start": 113,
+                    "end": 141,
+                    "text": "Өглөө халуун 38.5 °C байсан."
+                  },
+                  {
+                    "id": 4,
+                    "start": 142,
+                    "end": 169,
+                    "text": "Орой халуун 36.8 °C болсон."
+                  }
+                ]
+              },
+              "investigations": {
+                "status": "extracted",
+                "text": "Эхний тэмдэглэлд: хатгалгаа сэжигтэй.",
+                "evidence": [
+                  {
+                    "id": 5,
+                    "start": 170,
+                    "end": 207,
+                    "text": "Эхний тэмдэглэлд: хатгалгаа сэжигтэй."
+                  }
+                ]
+              },
+              "diagnosis": {
+                "status": "extracted",
+                "text": "Дараагийн тэмдэглэлд: хатгалгаа батлагдаагүй, онош тодорхойгүй.",
+                "evidence": [
+                  {
+                    "id": 6,
+                    "start": 208,
+                    "end": 271,
+                    "text": "Дараагийн тэмдэглэлд: хатгалгаа батлагдаагүй, онош тодорхойгүй."
+                  }
+                ]
+              },
+              "medication": {
+                "status": "extracted",
+                "text": "Эхний тэмдэглэлд: хатгалгаа сэжигтэй.",
+                "evidence": [
+                  {
+                    "id": 5,
+                    "start": 170,
+                    "end": 207,
+                    "text": "Эхний тэмдэглэлд: хатгалгаа сэжигтэй."
+                  }
+                ]
+              },
+              "allergies": {
+                "status": "extracted",
+                "text": "2026-09-01: эмийн харшилгүй гэж тэмдэглэсэн.",
+                "evidence": [
+                  {
+                    "id": 1,
+                    "start": 0,
+                    "end": 44,
+                    "text": "2026-09-01: эмийн харшилгүй гэж тэмдэглэсэн."
+                  }
+                ]
+              },
+              "referral": {
+                "status": "extracted",
+                "text": "Хүлээн авах эмчээс өмнөх тэмдэглэлийн зөрүүг тодруулахыг хүссэн.",
+                "evidence": [
+                  {
+                    "id": 7,
+                    "start": 272,
+                    "end": 336,
+                    "text": "Хүлээн авах эмчээс өмнөх тэмдэглэлийн зөрүүг тодруулахыг хүссэн."
+                  }
+                ]
+              }
+            },
+            "units": [
+              {
+                "id": 1,
+                "start": 0,
+                "end": 44,
+                "text": "2026-09-01: эмийн харшилгүй гэж тэмдэглэсэн."
+              },
+              {
+                "id": 2,
+                "start": 45,
+                "end": 112,
+                "text": "2026-09-03: пенициллин хэрэглэсний дараа тууралт гарсан гэж хэлсэн."
+              },
+              {
+                "id": 3,
+                "start": 113,
+                "end": 141,
+                "text": "Өглөө халуун 38.5 °C байсан."
+              },
+              {
+                "id": 4,
+                "start": 142,
+                "end": 169,
+                "text": "Орой халуун 36.8 °C болсон."
+              },
+              {
+                "id": 5,
+                "start": 170,
+                "end": 207,
+                "text": "Эхний тэмдэглэлд: хатгалгаа сэжигтэй."
+              },
+              {
+                "id": 6,
+                "start": 208,
+                "end": 271,
+                "text": "Дараагийн тэмдэглэлд: хатгалгаа батлагдаагүй, онош тодорхойгүй."
+              },
+              {
+                "id": 7,
+                "start": 272,
+                "end": 336,
+                "text": "Хүлээн авах эмчээс өмнөх тэмдэглэлийн зөрүүг тодруулахыг хүссэн."
+              }
+            ],
+            "model": "qwen3:1.7b",
+            "schema_version": "provisional-0.1",
+            "prompt_version": "source-id-2",
+            "output_schema_version": "source-id-1",
+            "segmentation_version": "sentence-lines-1",
+            "model_digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+            "settings": {
+              "think": false,
+              "temperature": 0,
+              "seed": 42,
+              "num_ctx": 16384,
+              "num_predict": 1600
+            },
+            "metrics": {
+              "total_duration": 4688397584,
+              "load_duration": 1066202792,
+              "prompt_eval_count": 1521,
+              "eval_count": 112
+            },
+            "raw_output": "{\n  \"history\": [\n    1,\n    2,\n    3,\n    4,\n    5,\n    6\n  ],\n  \"examination\": [\n    3,\n    4\n  ],\n  \"investigations\": [\n    5\n  ],\n  \"diagnosis\": [\n    6\n  ],\n  \"medication\": [\n    5\n  ],\n  \"allergies\": [\n    1\n  ],\n  \"referral\": [\n    7\n  ]\n}"
+          },
+          "validation_error": null,
+          "abstentions": [],
+          "latency_seconds": 4.702
+        }
+      ]
+    },
+    {
+      "identifier": "qwen3:4b",
+      "metadata": {
+        "name": "qwen3:4b",
+        "model": "qwen3:4b",
+        "modified_at": "2026-01-09T15:22:44.021666973Z",
+        "size": 2497293931,
+        "digest": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen3",
+          "families": [
+            "qwen3"
+          ],
+          "parameter_size": "4.0B",
+          "quantization_level": "Q4_K_M",
+          "context_length": 262144,
+          "embedding_length": 2560
+        },
+        "capabilities": [
+          "completion",
+          "tools",
+          "thinking"
+        ]
+      },
+      "capabilities": [
+        "completion",
+        "tools",
+        "thinking"
+      ],
+      "model_info": {
+        "general.architecture": "qwen3",
+        "general.basename": "Qwen3",
+        "general.file_type": 15,
+        "general.finetune": "Thinking",
+        "general.license": "apache-2.0",
+        "general.license.link": "https://huggingface.co/Qwen/Qwen3-4B-Thinking-2507/blob/main/LICENSE",
+        "general.parameter_count": 4022468096,
+        "general.quantization_version": 2,
+        "general.size_label": "4B",
+        "general.tags": null,
+        "general.type": "model",
+        "general.version": "2507",
+        "qwen3.attention.head_count": 32,
+        "qwen3.attention.head_count_kv": 8,
+        "qwen3.attention.key_length": 128,
+        "qwen3.attention.layer_norm_rms_epsilon": 1e-06,
+        "qwen3.attention.value_length": 128,
+        "qwen3.block_count": 36,
+        "qwen3.context_length": 262144,
+        "qwen3.embedding_length": 2560,
+        "qwen3.feed_forward_length": 9728,
+        "qwen3.rope.freq_base": 5000000,
+        "tokenizer.ggml.add_bos_token": false,
+        "tokenizer.ggml.bos_token_id": 151643,
+        "tokenizer.ggml.eos_token_id": 151645,
+        "tokenizer.ggml.merges": null,
+        "tokenizer.ggml.model": "gpt2",
+        "tokenizer.ggml.padding_token_id": 151643,
+        "tokenizer.ggml.pre": "qwen2",
+        "tokenizer.ggml.token_type": null,
+        "tokenizer.ggml.tokens": null
+      },
+      "runtime_parameters": "repeat_penalty                 1\nstop                           \"<|im_start|>\"\nstop                           \"<|im_end|>\"\ntemperature                    0.6\ntop_k                          20\ntop_p                          0.95",
+      "template_sha256": "2d54db2b9bb29ce7db54fea63a891f5859603813c555b1f88b5e0994652897f9",
+      "template": "{{- $lastUserIdx := -1 -}}\n{{- range $idx, $msg := .Messages -}}\n{{- if eq $msg.Role \"user\" }}{{ $lastUserIdx = $idx }}{{ end -}}\n{{- end }}\n{{- if or .System .Tools }}<|im_start|>system\n{{ if .System }}{{ .System }}\n\n{{ end }}\n{{- if .Tools }}# Tools\n\nYou may call one or more functions to assist with the user query.\n\nYou are provided with function signatures within <tools></tools> XML tags:\n<tools>\n{{- range .Tools }}\n{\"type\": \"function\", \"function\": {{ .Function }}}\n{{- end }}\n</tools>\n\nFor each function call, return a json object with function name and arguments within <tool_call></tool_call> XML tags:\n<tool_call>\n{\"name\": <function-name>, \"arguments\": <args-json-object>}\n</tool_call>\n{{- end -}}\n<|im_end|>\n{{ end }}\n{{- range $i, $_ := .Messages }}\n{{- $last := eq (len (slice $.Messages $i)) 1 -}}\n{{- if eq .Role \"user\" }}<|im_start|>user\n{{ .Content }}<|im_end|>\n{{ else if eq .Role \"assistant\" }}<|im_start|>assistant\n{{ if (and $.IsThinkSet (and .Thinking (or $last (gt $i $lastUserIdx)))) -}}\n<think>{{ .Thinking }}</think>\n{{ end -}}\n{{ if .Content }}{{ .Content }}{{ end }}\n{{- if .ToolCalls }}\n{{- range .ToolCalls }}\n<tool_call>\n{\"name\": \"{{ .Function.Name }}\", \"arguments\": {{ .Function.Arguments }}}\n</tool_call>\n{{- end }}\n{{- end }}{{ if not $last }}<|im_end|>\n{{ end }}\n{{- else if eq .Role \"tool\" }}<|im_start|>user\n<tool_response>\n{{ .Content }}\n</tool_response><|im_end|>\n{{ end }}\n{{- if and (ne .Role \"assistant\") $last }}<|im_start|>assistant\n<think>\n{{ end }}\n{{- end }}",
+      "thinking_capabilities": {},
+      "cases": [
+        {
+          "case_id": "dev-001",
+          "clinician_review_status": "unreviewed",
+          "output": {
+            "fields": {
+              "history": {
+                "status": "extracted",
+                "text": "Сүүлийн 3 хоног ханиалгасан.",
+                "evidence": [
+                  {
+                    "id": 1,
+                    "start": 0,
+                    "end": 28,
+                    "text": "Сүүлийн 3 хоног ханиалгасан."
+                  }
+                ]
+              },
+              "examination": {
+                "status": "extracted",
+                "text": "Үзлэгт: халуун 36.7 °C, судасны цохилт 78/мин.",
+                "evidence": [
+                  {
+                    "id": 3,
+                    "start": 42,
+                    "end": 88,
+                    "text": "Үзлэгт: халуун 36.7 °C, судасны цохилт 78/мин."
+                  }
+                ]
+              },
+              "investigations": {
+                "status": "extracted",
+                "text": "Шинжилгээ хийгдээгүй.",
+                "evidence": [
+                  {
+                    "id": 7,
+                    "start": 211,
+                    "end": 232,
+                    "text": "Шинжилгээ хийгдээгүй."
+                  }
+                ]
+              },
+              "diagnosis": {
+                "status": "extracted",
+                "text": "Онош: амьсгалын дээд замын халдвар гэж тэмдэглэсэн.",
+                "evidence": [
+                  {
+                    "id": 4,
+                    "start": 89,
+                    "end": 140,
+                    "text": "Онош: амьсгалын дээд замын халдвар гэж тэмдэглэсэн."
+                  }
+                ]
+              },
+              "medication": {
+                "status": "extracted",
+                "text": "Парацетамол 500 мг нэг удаа уусан.",
+                "evidence": [
+                  {
+                    "id": 5,
+                    "start": 141,
+                    "end": 175,
+                    "text": "Парацетамол 500 мг нэг удаа уусан."
+                  }
+                ]
+              },
+              "allergies": {
+                "status": "extracted",
+                "text": "Эмийн харшилгүй гэж өвчтөн хэлсэн.",
+                "evidence": [
+                  {
+                    "id": 6,
+                    "start": 176,
+                    "end": 210,
+                    "text": "Эмийн харшилгүй гэж өвчтөн хэлсэн."
+                  }
+                ]
+              },
+              "referral": {
+                "status": "extracted",
+                "text": "Хүлээн авах эмчид: удаан үргэлжилсэн ханиалгын талаар зөвлөгөө хүссэн.",
+                "evidence": [
+                  {
+                    "id": 8,
+                    "start": 233,
+                    "end": 303,
+                    "text": "Хүлээн авах эмчид: удаан үргэлжилсэн ханиалгын талаар зөвлөгөө хүссэн."
+                  }
+                ]
+              }
+            },
+            "units": [
+              {
+                "id": 1,
+                "start": 0,
+                "end": 28,
+                "text": "Сүүлийн 3 хоног ханиалгасан."
+              },
+              {
+                "id": 2,
+                "start": 29,
+                "end": 41,
+                "text": "Халуураагүй."
+              },
+              {
+                "id": 3,
+                "start": 42,
+                "end": 88,
+                "text": "Үзлэгт: халуун 36.7 °C, судасны цохилт 78/мин."
+              },
+              {
+                "id": 4,
+                "start": 89,
+                "end": 140,
+                "text": "Онош: амьсгалын дээд замын халдвар гэж тэмдэглэсэн."
+              },
+              {
+                "id": 5,
+                "start": 141,
+                "end": 175,
+                "text": "Парацетамол 500 мг нэг удаа уусан."
+              },
+              {
+                "id": 6,
+                "start": 176,
+                "end": 210,
+                "text": "Эмийн харшилгүй гэж өвчтөн хэлсэн."
+              },
+              {
+                "id": 7,
+                "start": 211,
+                "end": 232,
+                "text": "Шинжилгээ хийгдээгүй."
+              },
+              {
+                "id": 8,
+                "start": 233,
+                "end": 303,
+                "text": "Хүлээн авах эмчид: удаан үргэлжилсэн ханиалгын талаар зөвлөгөө хүссэн."
+              }
+            ],
+            "model": "qwen3:4b",
+            "schema_version": "provisional-0.1",
+            "prompt_version": "source-id-2",
+            "output_schema_version": "source-id-1",
+            "segmentation_version": "sentence-lines-1",
+            "model_digest": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+            "settings": {
+              "think": false,
+              "temperature": 0,
+              "seed": 42,
+              "num_ctx": 16384,
+              "num_predict": 1600
+            },
+            "metrics": {
+              "total_duration": 9756977541,
+              "load_duration": 2739596708,
+              "prompt_eval_count": 1517,
+              "eval_count": 88
+            },
+            "raw_output": "{\n  \"history\": [\n    1\n  ],\n  \"examination\": [\n    3\n  ],\n  \"investigations\": [\n    7\n  ],\n  \"diagnosis\": [\n    4\n  ],\n  \"medication\": [\n    5\n  ],\n  \"allergies\": [\n    6\n  ],\n  \"referral\": [\n    8\n  ]\n}"
+          },
+          "validation_error": null,
+          "abstentions": [],
+          "latency_seconds": 9.804
+        },
+        {
+          "case_id": "dev-002",
+          "clinician_review_status": "unreviewed",
+          "output": {
+            "fields": {
+              "history": {
+                "status": "extracted",
+                "text": "Өчигдрөөс толгой өвдсөн гэж хэлсэн.",
+                "evidence": [
+                  {
+                    "id": 1,
+                    "start": 0,
+                    "end": 35,
+                    "text": "Өчигдрөөс толгой өвдсөн гэж хэлсэн."
+                  }
+                ]
+              },
+              "examination": {
+                "status": "extracted",
+                "text": "Амин үзүүлэлт тэмдэглээгүй.",
+                "evidence": [
+                  {
+                    "id": 2,
+                    "start": 36,
+                    "end": 63,
+                    "text": "Амин үзүүлэлт тэмдэглээгүй."
+                  }
+                ]
+              },
+              "investigations": {
+                "status": "extracted",
+                "text": "Харшлын түүх тодорхойгүй.",
+                "evidence": [
+                  {
+                    "id": 3,
+                    "start": 64,
+                    "end": 89,
+                    "text": "Харшлын түүх тодорхойгүй."
+                  }
+                ]
+              },
+              "diagnosis": {
+                "status": "extracted",
+                "text": "Онош бичээгүй.",
+                "evidence": [
+                  {
+                    "id": 4,
+                    "start": 90,
+                    "end": 104,
+                    "text": "Онош бичээгүй."
+                  }
+                ]
+              },
+              "medication": {
+                "status": "not_found",
+                "text": "",
+                "evidence": []
+              },
+              "allergies": {
+                "status": "not_found",
+                "text": "",
+                "evidence": []
+              },
+              "referral": {
+                "status": "not_found",
+                "text": "",
+                "evidence": []
+              }
+            },
+            "units": [
+              {
+                "id": 1,
+                "start": 0,
+                "end": 35,
+                "text": "Өчигдрөөс толгой өвдсөн гэж хэлсэн."
+              },
+              {
+                "id": 2,
+                "start": 36,
+                "end": 63,
+                "text": "Амин үзүүлэлт тэмдэглээгүй."
+              },
+              {
+                "id": 3,
+                "start": 64,
+                "end": 89,
+                "text": "Харшлын түүх тодорхойгүй."
+              },
+              {
+                "id": 4,
+                "start": 90,
+                "end": 104,
+                "text": "Онош бичээгүй."
+              }
+            ],
+            "model": "qwen3:4b",
+            "schema_version": "provisional-0.1",
+            "prompt_version": "source-id-2",
+            "output_schema_version": "source-id-1",
+            "segmentation_version": "sentence-lines-1",
+            "model_digest": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+            "settings": {
+              "think": false,
+              "temperature": 0,
+              "seed": 42,
+              "num_ctx": 16384,
+              "num_predict": 1600
+            },
+            "metrics": {
+              "total_duration": 9907408041,
+              "load_duration": 3834660458,
+              "prompt_eval_count": 1282,
+              "eval_count": 70
+            },
+            "raw_output": "{\n  \"history\": [\n    1\n  ],\n  \"examination\": [\n    2\n  ],\n  \"investigations\": [\n    3\n  ],\n  \"diagnosis\": [\n    4\n  ],\n  \"medication\": [],\n  \"allergies\": [],\n  \"referral\": []\n}"
+          },
+          "validation_error": null,
+          "abstentions": [
+            "medication",
+            "allergies",
+            "referral"
+          ],
+          "latency_seconds": 9.982
+        },
+        {
+          "case_id": "dev-003",
+          "clinician_review_status": "unreviewed",
+          "output": {
+            "fields": {
+              "history": {
+                "status": "extracted",
+                "text": "Ханиалгагүй.\nХалуураагүй.\nАмьсгаадаагүй.",
+                "evidence": [
+                  {
+                    "id": 1,
+                    "start": 0,
+                    "end": 12,
+                    "text": "Ханиалгагүй."
+                  },
+                  {
+                    "id": 2,
+                    "start": 13,
+                    "end": 25,
+                    "text": "Халуураагүй."
+                  },
+                  {
+                    "id": 3,
+                    "start": 26,
+                    "end": 40,
+                    "text": "Амьсгаадаагүй."
+                  }
+                ]
+              },
+              "examination": {
+                "status": "extracted",
+                "text": "Уушгинд шуугиан сонсогдоогүй.",
+                "evidence": [
+                  {
+                    "id": 4,
+                    "start": 41,
+                    "end": 70,
+                    "text": "Уушгинд шуугиан сонсогдоогүй."
+                  }
+                ]
+              },
+              "investigations": {
+                "status": "extracted",
+                "text": "Шинжилгээ хийгдээгүй.",
+                "evidence": [
+                  {
+                    "id": 7,
+                    "start": 108,
+                    "end": 129,
+                    "text": "Шинжилгээ хийгдээгүй."
+                  }
+                ]
+              },
+              "diagnosis": {
+                "status": "not_found",
+                "text": "",
+                "evidence": []
+              },
+              "medication": {
+                "status": "extracted",
+                "text": "Эмчилгээ хийгээгүй.",
+                "evidence": [
+                  {
+                    "id": 6,
+                    "start": 88,
+                    "end": 107,
+                    "text": "Эмчилгээ хийгээгүй."
+                  }
+                ]
+              },
+              "allergies": {
+                "status": "extracted",
+                "text": "Эмийн харшилгүй.",
+                "evidence": [
+                  {
+                    "id": 5,
+                    "start": 71,
+                    "end": 87,
+                    "text": "Эмийн харшилгүй."
+                  }
+                ]
+              },
+              "referral": {
+                "status": "not_found",
+                "text": "",
+                "evidence": []
+              }
+            },
+            "units": [
+              {
+                "id": 1,
+                "start": 0,
+                "end": 12,
+                "text": "Ханиалгагүй."
+              },
+              {
+                "id": 2,
+                "start": 13,
+                "end": 25,
+                "text": "Халуураагүй."
+              },
+              {
+                "id": 3,
+                "start": 26,
+                "end": 40,
+                "text": "Амьсгаадаагүй."
+              },
+              {
+                "id": 4,
+                "start": 41,
+                "end": 70,
+                "text": "Уушгинд шуугиан сонсогдоогүй."
+              },
+              {
+                "id": 5,
+                "start": 71,
+                "end": 87,
+                "text": "Эмийн харшилгүй."
+              },
+              {
+                "id": 6,
+                "start": 88,
+                "end": 107,
+                "text": "Эмчилгээ хийгээгүй."
+              },
+              {
+                "id": 7,
+                "start": 108,
+                "end": 129,
+                "text": "Шинжилгээ хийгдээгүй."
+              }
+            ],
+            "model": "qwen3:4b",
+            "schema_version": "provisional-0.1",
+            "prompt_version": "source-id-2",
+            "output_schema_version": "source-id-1",
+            "segmentation_version": "sentence-lines-1",
+            "model_digest": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+            "settings": {
+              "think": false,
+              "temperature": 0,
+              "seed": 42,
+              "num_ctx": 16384,
+              "num_predict": 1600
+            },
+            "metrics": {
+              "total_duration": 8850408209,
+              "load_duration": 1941046000,
+              "prompt_eval_count": 1371,
+              "eval_count": 84
+            },
+            "raw_output": "{\n  \"history\": [\n    1,\n    2,\n    3\n  ],\n  \"examination\": [\n    4\n  ],\n  \"investigations\": [\n    7\n  ],\n  \"diagnosis\": [],\n  \"medication\": [\n    6\n  ],\n  \"allergies\": [\n    5\n  ],\n  \"referral\": []\n}"
+          },
+          "validation_error": null,
+          "abstentions": [
+            "diagnosis",
+            "referral"
+          ],
+          "latency_seconds": 8.873
+        },
+        {
+          "case_id": "dev-004",
+          "clinician_review_status": "unreviewed",
+          "output": {
+            "fields": {
+              "history": {
+                "status": "extracted",
+                "text": "Өнөөдөр 09:00 цагт парацетамол 500 мг 1 шахмал уусан.",
+                "evidence": [
+                  {
+                    "id": 1,
+                    "start": 0,
+                    "end": 53,
+                    "text": "Өнөөдөр 09:00 цагт парацетамол 500 мг 1 шахмал уусан."
+                  }
+                ]
+              },
+              "examination": {
+                "status": "extracted",
+                "text": "Халуун 37.2 °C, АД 120/80 мм.муб, жин 62.5 кг.",
+                "evidence": [
+                  {
+                    "id": 3,
+                    "start": 136,
+                    "end": 182,
+                    "text": "Халуун 37.2 °C, АД 120/80 мм.муб, жин 62.5 кг."
+                  }
+                ]
+              },
+              "investigations": {
+                "status": "extracted",
+                "text": "Глюкоз 5.6 ммоль/л.",
+                "evidence": [
+                  {
+                    "id": 4,
+                    "start": 183,
+                    "end": 202,
+                    "text": "Глюкоз 5.6 ммоль/л."
+                  }
+                ]
+              },
+              "diagnosis": {
+                "status": "extracted",
+                "text": "Пенициллинд тууралт гардаг гэж тэмдэглэсэн.",
+                "evidence": [
+                  {
+                    "id": 5,
+                    "start": 203,
+                    "end": 246,
+                    "text": "Пенициллинд тууралт гардаг гэж тэмдэглэсэн."
+                  }
+                ]
+              },
+              "medication": {
+                "status": "extracted",
+                "text": "Өмнөх тэмдэглэлд амоксициллин 250 мг өдөрт 3 удаа, 5 хоног хэрэглэсэн гэж бичсэн.",
+                "evidence": [
+                  {
+                    "id": 2,
+                    "start": 54,
+                    "end": 135,
+                    "text": "Өмнөх тэмдэглэлд амоксициллин 250 мг өдөрт 3 удаа, 5 хоног хэрэглэсэн гэж бичсэн."
+                  }
+                ]
+              },
+              "allergies": {
+                "status": "not_found",
+                "text": "",
+                "evidence": []
+              },
+              "referral": {
+                "status": "not_found",
+                "text": "",
+                "evidence": []
+              }
+            },
+            "units": [
+              {
+                "id": 1,
+                "start": 0,
+                "end": 53,
+                "text": "Өнөөдөр 09:00 цагт парацетамол 500 мг 1 шахмал уусан."
+              },
+              {
+                "id": 2,
+                "start": 54,
+                "end": 135,
+                "text": "Өмнөх тэмдэглэлд амоксициллин 250 мг өдөрт 3 удаа, 5 хоног хэрэглэсэн гэж бичсэн."
+              },
+              {
+                "id": 3,
+                "start": 136,
+                "end": 182,
+                "text": "Халуун 37.2 °C, АД 120/80 мм.муб, жин 62.5 кг."
+              },
+              {
+                "id": 4,
+                "start": 183,
+                "end": 202,
+                "text": "Глюкоз 5.6 ммоль/л."
+              },
+              {
+                "id": 5,
+                "start": 203,
+                "end": 246,
+                "text": "Пенициллинд тууралт гардаг гэж тэмдэглэсэн."
+              }
+            ],
+            "model": "qwen3:4b",
+            "schema_version": "provisional-0.1",
+            "prompt_version": "source-id-2",
+            "output_schema_version": "source-id-1",
+            "segmentation_version": "sentence-lines-1",
+            "model_digest": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+            "settings": {
+              "think": false,
+              "temperature": 0,
+              "seed": 42,
+              "num_ctx": 16384,
+              "num_predict": 1600
+            },
+            "metrics": {
+              "total_duration": 9582933333,
+              "load_duration": 2579652708,
+              "prompt_eval_count": 1406,
+              "eval_count": 76
+            },
+            "raw_output": "{\n  \"history\": [\n    1\n  ],\n  \"examination\": [\n    3\n  ],\n  \"investigations\": [\n    4\n  ],\n  \"diagnosis\": [\n    5\n  ],\n  \"medication\": [\n    2\n  ],\n  \"allergies\": [],\n  \"referral\": []\n}"
+          },
+          "validation_error": null,
+          "abstentions": [
+            "allergies",
+            "referral"
+          ],
+          "latency_seconds": 9.614
+        },
+        {
+          "case_id": "dev-005",
+          "clinician_review_status": "unreviewed",
+          "output": {
+            "fields": {
+              "history": {
+                "status": "extracted",
+                "text": "2026-09-01: эмийн харшилгүй гэж тэмдэглэсэн.",
+                "evidence": [
+                  {
+                    "id": 1,
+                    "start": 0,
+                    "end": 44,
+                    "text": "2026-09-01: эмийн харшилгүй гэж тэмдэглэсэн."
+                  }
+                ]
+              },
+              "examination": {
+                "status": "extracted",
+                "text": "Өглөө халуун 38.5 °C байсан.\nОрой халуун 36.8 °C болсон.",
+                "evidence": [
+                  {
+                    "id": 3,
+                    "start": 113,
+                    "end": 141,
+                    "text": "Өглөө халуун 38.5 °C байсан."
+                  },
+                  {
+                    "id": 4,
+                    "start": 142,
+                    "end": 169,
+                    "text": "Орой халуун 36.8 °C болсон."
+                  }
+                ]
+              },
+              "investigations": {
+                "status": "extracted",
+                "text": "Эхний тэмдэглэлд: хатгалгаа сэжигтэй.\nДараагийн тэмдэглэлд: хатгалгаа батлагдаагүй, онош тодорхойгүй.",
+                "evidence": [
+                  {
+                    "id": 5,
+                    "start": 170,
+                    "end": 207,
+                    "text": "Эхний тэмдэглэлд: хатгалгаа сэжигтэй."
+                  },
+                  {
+                    "id": 6,
+                    "start": 208,
+                    "end": 271,
+                    "text": "Дараагийн тэмдэглэлд: хатгалгаа батлагдаагүй, онош тодорхойгүй."
+                  }
+                ]
+              },
+              "diagnosis": {
+                "status": "extracted",
+                "text": "Дараагийн тэмдэглэлд: хатгалгаа батлагдаагүй, онош тодорхойгүй.",
+                "evidence": [
+                  {
+                    "id": 6,
+                    "start": 208,
+                    "end": 271,
+                    "text": "Дараагийн тэмдэглэлд: хатгалгаа батлагдаагүй, онош тодорхойгүй."
+                  }
+                ]
+              },
+              "medication": {
+                "status": "extracted",
+                "text": "2026-09-03: пенициллин хэрэглэсний дараа тууралт гарсан гэж хэлсэн.",
+                "evidence": [
+                  {
+                    "id": 2,
+                    "start": 45,
+                    "end": 112,
+                    "text": "2026-09-03: пенициллин хэрэглэсний дараа тууралт гарсан гэж хэлсэн."
+                  }
+                ]
+              },
+              "allergies": {
+                "status": "extracted",
+                "text": "2026-09-01: эмийн харшилгүй гэж тэмдэглэсэн.",
+                "evidence": [
+                  {
+                    "id": 1,
+                    "start": 0,
+                    "end": 44,
+                    "text": "2026-09-01: эмийн харшилгүй гэж тэмдэглэсэн."
+                  }
+                ]
+              },
+              "referral": {
+                "status": "extracted",
+                "text": "Хүлээн авах эмчээс өмнөх тэмдэглэлийн зөрүүг тодруулахыг хүссэн.",
+                "evidence": [
+                  {
+                    "id": 7,
+                    "start": 272,
+                    "end": 336,
+                    "text": "Хүлээн авах эмчээс өмнөх тэмдэглэлийн зөрүүг тодруулахыг хүссэн."
+                  }
+                ]
+              }
+            },
+            "units": [
+              {
+                "id": 1,
+                "start": 0,
+                "end": 44,
+                "text": "2026-09-01: эмийн харшилгүй гэж тэмдэглэсэн."
+              },
+              {
+                "id": 2,
+                "start": 45,
+                "end": 112,
+                "text": "2026-09-03: пенициллин хэрэглэсний дараа тууралт гарсан гэж хэлсэн."
+              },
+              {
+                "id": 3,
+                "start": 113,
+                "end": 141,
+                "text": "Өглөө халуун 38.5 °C байсан."
+              },
+              {
+                "id": 4,
+                "start": 142,
+                "end": 169,
+                "text": "Орой халуун 36.8 °C болсон."
+              },
+              {
+                "id": 5,
+                "start": 170,
+                "end": 207,
+                "text": "Эхний тэмдэглэлд: хатгалгаа сэжигтэй."
+              },
+              {
+                "id": 6,
+                "start": 208,
+                "end": 271,
+                "text": "Дараагийн тэмдэглэлд: хатгалгаа батлагдаагүй, онош тодорхойгүй."
+              },
+              {
+                "id": 7,
+                "start": 272,
+                "end": 336,
+                "text": "Хүлээн авах эмчээс өмнөх тэмдэглэлийн зөрүүг тодруулахыг хүссэн."
+              }
+            ],
+            "model": "qwen3:4b",
+            "schema_version": "provisional-0.1",
+            "prompt_version": "source-id-2",
+            "output_schema_version": "source-id-1",
+            "segmentation_version": "sentence-lines-1",
+            "model_digest": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+            "settings": {
+              "think": false,
+              "temperature": 0,
+              "seed": 42,
+              "num_ctx": 16384,
+              "num_predict": 1600
+            },
+            "metrics": {
+              "total_duration": 11787774459,
+              "load_duration": 2944236375,
+              "prompt_eval_count": 1516,
+              "eval_count": 96
+            },
+            "raw_output": "{\n  \"history\": [\n    1\n  ],\n  \"examination\": [\n    3,\n    4\n  ],\n  \"investigations\": [\n    5,\n    6\n  ],\n  \"diagnosis\": [\n    6\n  ],\n  \"medication\": [\n    2\n  ],\n  \"allergies\": [\n    1\n  ],\n  \"referral\": [\n    7\n  ]\n}"
+          },
+          "validation_error": null,
+          "abstentions": [],
+          "latency_seconds": 11.817
+        }
+      ]
+    }
+  ],
+  "runtime": {
+    "version": "0.34.0"
+  }
+}

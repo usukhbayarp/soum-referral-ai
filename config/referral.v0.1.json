@@ -1,0 +1,16 @@
+{
+  "version": "provisional-0.1",
+  "title": "Илгээх бичгийн бэлтгэл",
+  "notice": "Түр загвар — үндэсний батлагдсан маягт биш. Зөвхөн зохиомол өгөгдөлтэй туршилт.",
+  "fields": [
+    {"id":"patient","label":"Өвчтөн, үзлэгийн мэдээлэл","manual":true,"required":true,"instruction":"Patient and encounter identifiers, manually entered only."},
+    {"id":"facilities","label":"Илгээх / хүлээн авах байгууллага, эмч","manual":true,"required":true,"instruction":"Sending and receiving facility and doctor, manually entered only."},
+    {"id":"history","label":"Зовиур, өвчний түүх","manual":false,"required":true,"instruction":"Presenting symptoms and history, with negatives and uncertainty."},
+    {"id":"examination","label":"Үзлэг, амин үзүүлэлт","manual":false,"required":false,"instruction":"Physical examination and vital signs explicitly recorded."},
+    {"id":"investigations","label":"Шинжилгээ","manual":false,"required":false,"instruction":"Investigations, results, or explicit statements that testing was not done."},
+    {"id":"diagnosis","label":"Эхэд бичигдсэн онош","manual":false,"required":false,"instruction":"Only an explicitly documented diagnosis, including tentative or ruled-out diagnoses with original uncertainty. Never infer a diagnosis from symptoms."},
+    {"id":"medication","label":"Хийгдсэн эмчилгээ, хэрэглэж буй эм","manual":false,"required":false,"instruction":"Treatment already provided or current medication, doses, units and times. No new recommendations."},
+    {"id":"allergies","label":"Харшлын мэдээлэл","manual":false,"required":false,"instruction":"Allergies including explicitly absent, unknown, or not assessed."},
+    {"id":"referral","label":"Илгээх шалтгаан, хүлээн авах эмчид тавих хүсэлт","manual":false,"required":true,"instruction":"Only the source's explicit referral reason/request. Do not decide eligibility, urgency, diagnosis, or treatment."}
+  ]
+}
