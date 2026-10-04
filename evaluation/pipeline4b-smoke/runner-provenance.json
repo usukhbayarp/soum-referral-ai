@@ -1,0 +1,27 @@
+{
+  "code_sha256": {
+    "scripts/engineering4b.py": "a33c1709c39ea1dea918801130ca66d04429a86a720da84c148e4428a4ece1d2",
+    "scripts/watch_engineering4b.py": "aa256bf7369d502fd4ffe531074205d5509877cc727fa0ef91ea63875ee38046",
+    "scripts/training_tokens.py": "0ad14b946df96f00e6555713e305c7ab6c83ee0f599881cff8932a452265a0d6",
+    "scripts/medication_experiment.py": "089ba884c422e6fb0b309d3e42d0d23e83451fea811015ebeb1245442793bd54",
+    "experiments/medication-v2/A.txt": "93f29fd2b932cc6daf1e5b764365092dca353fca605588f98546b69a3a0c3b9d",
+    "experiments/medication-v2/roles.json": "cb8befaf617be53fc942fc25b4575f7f3da5a9fbb910bac2fff60b99b0b10942",
+    "training/engineering4b-fixture.json": "d9a9696175eeaa72d24b31ad0bf198a410badb14558089b0b906558f15cb557e"
+  },
+  "note": "Hashes of executed smoke/monitor/shared contract code; no prompt or role change",
+  "export_guard": {
+    "command": "sh scripts/pipeline4b_export.sh",
+    "exit_code": 1,
+    "message": "Disk gate: need 41.27 GiB free; have 6.26; add 35.01 GiB. No export started."
+  },
+  "remaining_free_bytes": 6850908160,
+  "comparison_requests": 0,
+  "all_existing_tags_unchanged": true,
+  "new_tags_created": [],
+  "live_config": {
+    "version": "experimental-0.7",
+    "extraction_schema_version": "experimental-0.6",
+    "model": "qwen3:1.7b",
+    "prompt_version": "source-id-v06-1"
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "purpose": "engineering-smoke-only",
+  "clinical_candidate_eligible": false,
+  "clinician_review_status": "unreviewed",
+  "steps": [
+    {
+      "optimizer_step": 1,
+      "loss": 0.8964285850524902,
+      "completion_tokens_in_loss": 35,
+      "adapter_max_abs_delta": {
+        "model.layers.35.self_attn.q_proj.lora_a": 0.0,
+        "model.layers.35.self_attn.q_proj.lora_b": 3.16226614813786e-05,
+        "model.layers.35.self_attn.v_proj.lora_a": 0.0,
+        "model.layers.35.self_attn.v_proj.lora_b": 3.162258508382365e-05
+      }
+    },
+    {
+      "optimizer_step": 2,
+      "loss": 0.8964285850524902,
+      "completion_tokens_in_loss": 35,
+      "adapter_max_abs_delta": {
+        "model.layers.35.self_attn.q_proj.lora_a": 3.161747008562088e-05,
+        "model.layers.35.self_attn.q_proj.lora_b": 7.415577420033514e-05,
+        "model.layers.35.self_attn.v_proj.lora_a": 3.162212669849396e-05,
+        "model.layers.35.self_attn.v_proj.lora_b": 7.416127482429147e-05
+      }
+    },
+    {
+      "optimizer_step": 3,
+      "loss": 0.8928571343421936,
+      "completion_tokens_in_loss": 35,
+      "adapter_max_abs_delta": {
+        "model.layers.35.self_attn.q_proj.lora_a": 7.187295705080032e-05,
+        "model.layers.35.self_attn.q_proj.lora_b": 0.0001238249969901517,
+        "model.layers.35.self_attn.v_proj.lora_a": 7.187668234109879e-05,
+        "model.layers.35.self_attn.v_proj.lora_b": 0.0001238245895365253
+      }
+    }
+  ],
+  "source": {
+    "repo": "Qwen/Qwen3-4B-MLX-4bit",
+    "revision": "52a5ab34fa604bc8af6d3ce0cac0cab10b7eb495",
+    "files": {
+      "LICENSE": {
+        "sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+        "bytes": 11343
+      },
+      "config.json": {
+        "sha256": "76eae114d67a444c7296be7a6bc0409ecc15c340e113f1bac7572cb7d0928b6f",
+        "bytes": 988
+      },
+      "model.safetensors": {
+        "sha256": "e56a94b846a2dce7d1cc154ce58b9cfc4b8d99e8ffb74bfe256a265f4cbc7fb9",
+        "bytes": 2137326367
+      },
+      "model.safetensors.index.json": {
+        "sha256": "278844a566da15beab6e9068c57f606c50a99c440d4515206b871a8b5282b3de",
+        "bytes": 63924
+      },
+      "tokenizer.json": {
+        "sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+        "bytes": 11422654
+      },
+      "tokenizer_config.json": {
+        "sha256": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101",
+        "bytes": 9732
+      }
+    },
+    "status": "verified"
+  },
+  "stages": {
+    "load": "observed_success",
+    "optimizer": "observed_success_3_steps",
+    "reload": "observed_success",
+    "adapter_inference": "observed_success",
+    "adapter_layer_fusion": "observed_success",
+    "full_dequantized_export": "not_attempted_disk_budget"
+  },
+  "limits": {
+    "steps": 3,
+    "batch_size": 1,
+    "rank": 2,
+    "last_layers": 1,
+    "keys": [
+      "self_attn.q_proj",
+      "self_attn.v_proj"
+    ],
+    "mlx_memory_limit_bytes": 8589934592,
+    "max_output_tokens": 32
+  },
+  "training_quality_claim": null,
+  "last_stage": "completed_bounded_smoke",
+  "elapsed_seconds": 36.83925558300689,
+  "mlx_peak_memory_bytes": 4415189868,
+  "sequence": {
+    "full_tokens": 1663,
+    "prompt_tokens": 1628,
+    "completion_tokens": 35,
+    "truncated": false,
+    "completion_mask_verified": true
+  },
+  "fixture_sha256": "d9a9696175eeaa72d24b31ad0bf198a410badb14558089b0b906558f15cb557e",
+  "adapter_inference": {
+    "output": "{\n  \"U1\": \"regular_medication\",\n  \"U2\": \"allergy_statement\",\n  \"U3\": \"explicitly_not_administer",
+    "max_tokens": 32,
+    "note": "Execution test only; may be incomplete JSON, not a clinical extraction score"
+  },
+  "fusion_checks": [
+    {
+      "module": "model.layers.35.self_attn.v_proj",
+      "max_abs_weight_delta": 3.0517578125e-05,
+      "fusion_formula_equal": true
+    },
+    {
+      "module": "model.layers.35.self_attn.q_proj",
+      "max_abs_weight_delta": 3.0517578125e-05,
+      "fusion_formula_equal": true
+    }
+  ],
+  "adapter_bytes": 82361,
+  "adapter_sha256": "3da1742d66975bb357f902ba4f9fc7e3b76ea2f0aa52de2ec70d514952097ca1"
+}

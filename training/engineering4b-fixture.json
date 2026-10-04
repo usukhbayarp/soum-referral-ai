@@ -1,0 +1,9 @@
+{
+  "case_id": "ENGINEERING-ONLY-001",
+  "underlying_case_id": "engineering-smoke-family-001",
+  "purpose": "pipeline-test-only; not eligible for clinical training or promotion",
+  "synthetic_origin": "AI-created fictional engineering fixture",
+  "clinician_review_status": "unreviewed",
+  "source_note": "Тогтмол амлодипин 5 мг өдөрт нэг удаа уудаг.\nЭмийн харшлыг асуугаагүй.\nЭнэ үзлэгээр эмчилгээ хийгээгүй.\nПарацетамол уусан боловч хэзээ ууснаа хэлээгүй.",
+  "labels": {"U1":"regular_medication","U2":"allergy_statement","U3":"explicitly_not_administered","U4":"mixed_or_unclear"}
+}

@@ -113,6 +113,7 @@ def snapshot():
             key: config.json().get(key)
             for key in (
                 "version",
+                "extraction_schema_version",
                 "prompt_version",
                 "output_schema_version",
                 "segmentation_version",
@@ -195,7 +196,7 @@ def start_app(directory):
         "OLLAMA_BASE_URL": "http://127.0.0.1:11434",
         "APP_ALLOWED_HOSTS": "127.0.0.1,localhost,[::1]",
         "INFERENCE_TIMEOUT": str(before["inference_timeout"]),
-        "REFERRAL_SCHEMA_VERSION": before["contract"]["version"],
+        "REFERRAL_SCHEMA_VERSION": before["contract"].get("extraction_schema_version") or before["contract"]["version"],
         "EXTRACTION_PROMPT_VERSION": before["contract"]["prompt_version"],
     }
     process = subprocess.Popen(

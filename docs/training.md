@@ -1,4 +1,6 @@
-# Optional fine-tuning: preparation verified; training not performed
+# Optional fine-tuning: clinical training pending
+
+The later [original-4B engineering smoke](pipeline4b-smoke.md) verified three optimizer steps, reload and adapter-layer fusion. Full 4B export remains disk-blocked; no reviewed-data clinical experiment has run. The production-contract workflow below remains separate from experimental A-v2.
 
 Prerequisites: clinically reviewed train/development examples, a preserved held-out test set grouped by underlying case, a saved baseline, and a tiny verified training-to-serving experiment. Keep the base Ollama artifact installed for rollback. A tuned candidate must preserve the exact source-ID extraction contract and pass the same validators and review UI.
 
@@ -134,3 +136,7 @@ The existing MLX 0.30.6 / MLX-LM 0.30.7 / Transformers 5.2.0 environment is reus
 The pinned 4B tokenizer and token-mask report are stored separately; do not assume tokenizer byte identity from the common model family. The 1.7B export route remains the reusable starting point: MLX fuse with dequantized HF-compatible safetensors → pinned llama.cpp F16 GGUF → Q4_K_M → new Ollama tag. Actual adapted fusion/parity and the full 4B route remain unverified. The publisher's original-4B GGUF is a model comparison reference, **not a conversion-matched control for a future MLX-trained 4B**. Before training, pin a chosen 4B source-weight revision and create its own untuned MLX round-trip control; do not substitute the publisher GGUF for that control. Retain qwen3:1.7b rollback and every existing tag.
 
 Next prerequisites: explicit clinician review and corrections, representation/contract selection, separate reviewed train/development families, immutable held-out families, measured full sequences, and an authorized tiny training→fusion→serving experiment. No training automatically follows receipt of files. Preserve Apache-2.0 notices when distributing weights. Training remains a viable follow-up, not rejected because of the deadline.
+
+## Later bounded original-4B verification
+
+[Observed engineering-only smoke and disk-blocked stages](pipeline4b-smoke.md): three real optimizer steps, saved adapter reload, adapter inference and adapter-layer fusion succeeded using the official pinned MLX 4-bit source. This does not validate clinical training or the complete 4B training-to-Ollama route. New private A-v2 correction/export/preflight tooling preserves the frozen role task; it does not repurpose the production 19-category dataset schema. No reviewed-data experiment has run.

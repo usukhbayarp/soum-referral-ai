@@ -30,3 +30,7 @@ See [implementation and development results](../docs/v06.md). The clinician-desi
 ## v0.7 update
 
 The authoritative clinician-approved form scope is implemented; see [v0.7 mapping and checks](../docs/v07.md). It remains experimental/unofficial. Existing 19-category extraction limitations remain disclosed; no experimental extractor or serving-model replacement is activated. The original Qwen3-4B comparison is a fictional, unreviewed development mechanics experiment, separate from the form release. Offline restart, hosted deployment, clinical validation and time saved remain unclaimed. Required videos remain **exactly three separate videos, each ≤60 seconds: Team Intro, Demo, Teach**. Paid deployment and submission remain pending user action.
+
+## Bounded original-4B engineering smoke
+
+Three engineering-only adapter steps, reload, inference and adapter-layer fusion were observed; no clinical training or model promotion. Full export and fair matched-control comparison remain disk-blocked. See [stage table and exact review-ingestion commands](../docs/pipeline4b-smoke.md). The offline restart helper now separates form 0.7 from extraction schema 0.6; use the updated guide and a new versioned bundle. Offline/hosting/clinical success remains unclaimed.

@@ -1,0 +1,26 @@
+{
+  "checked_utc": "2026-10-04T09:32:12.449276+00:00",
+  "regression_python_passed": 95,
+  "additional_focused_comparison_tests_passed": 2,
+  "javascript_passed": 29,
+  "shell_syntax": "pipeline4b_export.sh passed",
+  "python_syntax": "new runners passed py_compile",
+  "live_application_restarted": false,
+  "production_and_historical_paths_unchanged": [
+    "app",
+    "config",
+    "experiments",
+    "evaluation/medication-v1",
+    "evaluation/original4b-v07",
+    "evaluation/dev002-v06"
+  ],
+  "existing_model_tags_preserved": true,
+  "new_model_tags": [],
+  "comparison_requests": 0,
+  "reviewed_data_received": false,
+  "unreviewed_private_staging": "observed success, no export",
+  "training_export_unit_tests": "fabricated unit-test review metadata only, not clinician approval",
+  "free_disk_bytes": 43280785408,
+  "network_disconnected": false,
+  "cloud_deployment": false
+}

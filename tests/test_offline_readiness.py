@@ -124,3 +124,16 @@ def test_preparation_does_not_infer_or_invent_observations(monkeypatch, tmp_path
     assert not list(run.glob("capture-*"))
     with pytest.raises(FileExistsError):
         audit.prepare_run(run)
+
+
+def test_v07_restart_uses_extraction_contract_not_form_version(monkeypatch,tmp_path):
+    before,_=snapshots();before['contract']=dict(version='experimental-0.7',extraction_schema_version='experimental-0.6',prompt_version='source-id-v06-1')
+    (tmp_path/'before.json').write_text(json.dumps(before))
+    monkeypatch.setattr(audit,'listener',lambda port:None)
+    observed={}
+    class Child:pid=999
+    def launch(args,**kwargs):observed.update(kwargs['env']);return Child()
+    monkeypatch.setattr(audit.subprocess,'Popen',launch)
+    audit.start_app(tmp_path)
+    assert observed['REFERRAL_SCHEMA_VERSION']=='experimental-0.6'
+    assert observed['EXTRACTION_PROMPT_VERSION']==before['contract']['prompt_version']

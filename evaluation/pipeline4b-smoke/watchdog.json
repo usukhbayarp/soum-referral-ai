@@ -1,0 +1,176 @@
+{
+  "exit_code": 0,
+  "stop_reason": null,
+  "elapsed_seconds": 50.6321046249941,
+  "samples": [
+    {
+      "seconds": 2.07,
+      "child_rss_kib": 96304,
+      "pressure_level": "2",
+      "system_free_percentage": 41,
+      "ollama_resident_count": 0
+    },
+    {
+      "seconds": 4.09,
+      "child_rss_kib": 207776,
+      "pressure_level": "2",
+      "system_free_percentage": 41,
+      "ollama_resident_count": 0
+    },
+    {
+      "seconds": 6.11,
+      "child_rss_kib": 325216,
+      "pressure_level": "2",
+      "system_free_percentage": 40,
+      "ollama_resident_count": 0
+    },
+    {
+      "seconds": 8.14,
+      "child_rss_kib": 406784,
+      "pressure_level": "2",
+      "system_free_percentage": 37,
+      "ollama_resident_count": 0
+    },
+    {
+      "seconds": 10.17,
+      "child_rss_kib": 367808,
+      "pressure_level": "2",
+      "system_free_percentage": 32,
+      "ollama_resident_count": 0
+    },
+    {
+      "seconds": 12.19,
+      "child_rss_kib": 874928,
+      "pressure_level": "2",
+      "system_free_percentage": 28,
+      "ollama_resident_count": 0
+    },
+    {
+      "seconds": 14.21,
+      "child_rss_kib": 993088,
+      "pressure_level": "2",
+      "system_free_percentage": 32,
+      "ollama_resident_count": 0
+    },
+    {
+      "seconds": 16.25,
+      "child_rss_kib": 752160,
+      "pressure_level": "2",
+      "system_free_percentage": 33,
+      "ollama_resident_count": 0
+    },
+    {
+      "seconds": 18.28,
+      "child_rss_kib": 752240,
+      "pressure_level": "2",
+      "system_free_percentage": 37,
+      "ollama_resident_count": 0
+    },
+    {
+      "seconds": 20.3,
+      "child_rss_kib": 746592,
+      "pressure_level": "2",
+      "system_free_percentage": 42,
+      "ollama_resident_count": 0
+    },
+    {
+      "seconds": 22.32,
+      "child_rss_kib": 570768,
+      "pressure_level": "2",
+      "system_free_percentage": 28,
+      "ollama_resident_count": 0
+    },
+    {
+      "seconds": 24.35,
+      "child_rss_kib": 579664,
+      "pressure_level": "2",
+      "system_free_percentage": 38,
+      "ollama_resident_count": 0
+    },
+    {
+      "seconds": 26.37,
+      "child_rss_kib": 579712,
+      "pressure_level": "2",
+      "system_free_percentage": 42,
+      "ollama_resident_count": 0
+    },
+    {
+      "seconds": 28.4,
+      "child_rss_kib": 579728,
+      "pressure_level": "1",
+      "system_free_percentage": 45,
+      "ollama_resident_count": 0
+    },
+    {
+      "seconds": 30.42,
+      "child_rss_kib": 292992,
+      "pressure_level": "2",
+      "system_free_percentage": 27,
+      "ollama_resident_count": 0
+    },
+    {
+      "seconds": 32.44,
+      "child_rss_kib": 299584,
+      "pressure_level": "2",
+      "system_free_percentage": 38,
+      "ollama_resident_count": 0
+    },
+    {
+      "seconds": 34.46,
+      "child_rss_kib": 299664,
+      "pressure_level": "1",
+      "system_free_percentage": 42,
+      "ollama_resident_count": 0
+    },
+    {
+      "seconds": 36.49,
+      "child_rss_kib": 299680,
+      "pressure_level": "1",
+      "system_free_percentage": 47,
+      "ollama_resident_count": 0
+    },
+    {
+      "seconds": 38.52,
+      "child_rss_kib": 291008,
+      "pressure_level": "2",
+      "system_free_percentage": 30,
+      "ollama_resident_count": 0
+    },
+    {
+      "seconds": 40.55,
+      "child_rss_kib": 2078608,
+      "pressure_level": "1",
+      "system_free_percentage": 53,
+      "ollama_resident_count": 0
+    },
+    {
+      "seconds": 42.57,
+      "child_rss_kib": 1579664,
+      "pressure_level": "1",
+      "system_free_percentage": 35,
+      "ollama_resident_count": 0
+    },
+    {
+      "seconds": 44.59,
+      "child_rss_kib": 1578768,
+      "pressure_level": "1",
+      "system_free_percentage": 35,
+      "ollama_resident_count": 0
+    },
+    {
+      "seconds": 46.61,
+      "child_rss_kib": 1571664,
+      "pressure_level": "1",
+      "system_free_percentage": 32,
+      "ollama_resident_count": 0
+    },
+    {
+      "seconds": 48.63,
+      "child_rss_kib": 413280,
+      "pressure_level": "1",
+      "system_free_percentage": 51,
+      "ollama_resident_count": 0
+    }
+  ],
+  "method": "2s ps RSS of owned child + macOS pressure level/free metric; Ollama residency guard; never terminates another process"
+}

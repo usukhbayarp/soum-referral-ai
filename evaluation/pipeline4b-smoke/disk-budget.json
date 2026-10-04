@@ -1,0 +1,12 @@
+{
+  "parameter_count": 4022468096,
+  "float16_weight_bytes_estimate": 8044936192,
+  "mlx_download_bytes": 2137326367,
+  "q4_bytes_estimate_each": 2497280256,
+  "retained_intermediates_peak_additional_bytes_estimate": 46453675807,
+  "sequential_intermediate_cleanup_peak_additional_bytes_estimate": 30363803423,
+  "safety_reserve_bytes": 2147483648,
+  "note": "Both pipelines: dequantized HF + F16 GGUF per pipeline, two Q4 outputs and conservative two Ollama blob copies. Metadata/adapter small; source-trained numerical parity not assumed. No cleanup performed.",
+  "free_bytes_at_budget_check": 9907662848,
+  "observed_before_download_df": "9.5 GiB free"
+}

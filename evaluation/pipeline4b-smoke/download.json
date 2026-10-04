@@ -1,0 +1,31 @@
+{
+  "repo": "Qwen/Qwen3-4B-MLX-4bit",
+  "revision": "52a5ab34fa604bc8af6d3ce0cac0cab10b7eb495",
+  "files": {
+    "LICENSE": {
+      "sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+      "bytes": 11343
+    },
+    "config.json": {
+      "sha256": "76eae114d67a444c7296be7a6bc0409ecc15c340e113f1bac7572cb7d0928b6f",
+      "bytes": 988
+    },
+    "model.safetensors": {
+      "sha256": "e56a94b846a2dce7d1cc154ce58b9cfc4b8d99e8ffb74bfe256a265f4cbc7fb9",
+      "bytes": 2137326367
+    },
+    "model.safetensors.index.json": {
+      "sha256": "278844a566da15beab6e9068c57f606c50a99c440d4515206b871a8b5282b3de",
+      "bytes": 63924
+    },
+    "tokenizer.json": {
+      "sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+      "bytes": 11422654
+    },
+    "tokenizer_config.json": {
+      "sha256": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101",
+      "bytes": 9732
+    }
+  },
+  "status": "verified"
+}
