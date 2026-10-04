@@ -69,7 +69,7 @@
             </div>
             <div class="actions">
               <button id="extract" class="primary" disabled>
-                Эхээс мэдээлэл ялгах</button
+                Хуучин өргөн ялгалт — туршилт</button
               ><button id="reset" class="quiet">Цэвэрлэх</button>
             </div>
             <p id="status" role="status" aria-live="polite">
@@ -94,6 +94,13 @@
               Зөрүүтэй хэсгүүдийг эмч өөрөө шалгана.
             </p>
             <p class="notice">v0.6 хөгжүүлэлтийн туршилтад буруу ангилал илэрсэн. Сонгосон эх нь утгын зөв байдлыг батлахгүй. Нарийвчилсан утгуудыг эмч оруулж, бүх ангиллыг эхтэй тулгана.</p>
+            <aside id="treatment-picker" hidden>
+              <h3>Туршилт: эмчилгээний эхийн хэсэг хайх</h3>
+              <p class="notice">Хөгжүүлэлтийн туршилтад орхигдуулалт, хамааралгүй сонголт илэрсэн. Зөвхөн ажлын урсгалыг хянахад ашиглана.</p>
+              <p>Untuned 4B • Зөвхөн эхийн дугаар санал болгоно. Хоосон санал нь эмчилгээ хийгээгүй гэсэн баталгаа биш. Саналыг хүлээн авах хүртэл маягт өөрчлөгдөхгүй. Эмийн мөр автоматаар үүсгэхгүй.</p>
+              <button id="find-treatment" type="button">Эмчилгээтэй холбоотой эх хайх</button>
+              <p id="picker-status" role="status"></p><div id="treatment-suggestions"></div>
+            </aside>
             <div id="fields"></div>
           </section>
         </div>

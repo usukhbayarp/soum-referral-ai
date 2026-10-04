@@ -43,12 +43,12 @@ export function printSections(state, config) {
         return [{
           id: f.id,
           display_group: f.display_group,
-          label: labels[f.id] || f.label,
+          label: f.parent_id ? "Одоогийн өвчний түүх — " + f.label : labels[f.id] || f.label,
           text: text || (meaning ? '' : 'Бөглөөгүй'),
           meaning,
           manual: value.status === 'manual',
           rows: rowTexts,
-          compact: f.manual && !['treatment_rows', 'review_notes', 'transport', 'agreement', 'medical_history', 'chronic_history'].includes(f.id),
+          compact: f.manual && !['treatment_rows', 'review_notes', 'transport', 'agreement', 'medical_history', 'chronic_history', 'home_medication', 'treatment_narrative'].includes(f.id),
         }];
       }),
   }));

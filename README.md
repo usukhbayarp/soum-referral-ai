@@ -1,6 +1,6 @@
 # Soum Referral AI / Сум
 
-Latest milestone: [completed four-step diagnostic pilot](docs/quality-medfacts-pilot1.md). Both checkpoints changed weights and survived export, but all development responses matched the untuned baseline. No model was promoted; the live app still reports v0.7. [Reviewed-data preparation](docs/reviewed-medfacts-v1.md) remains preserved.
+Latest milestone: [experimental treatment-source picker and clinician placement rules](docs/treatment-picker-v1.md). The picker remains off by default after missed/irrelevant development suggestions; an isolated v0.8 review preview is available. The completed negative [four-step pilot](docs/quality-medfacts-pilot1.md) remains preserved.
 
 A local Mongolian referral-documentation prototype for the World Bank Small AI for Development hackathon.
 

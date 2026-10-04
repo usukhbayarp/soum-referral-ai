@@ -122,6 +122,7 @@ def create_app(adapter=None, gate=None):
     deployment_mode = os.getenv("DEPLOYMENT_MODE", "local")
     if deployment_mode not in ("local", "hosted"):
         raise ValueError("DEPLOYMENT_MODE must be local or hosted")
+    picker_enabled = os.getenv("TREATMENT_PICKER_ENABLED", "0") == "1"
     app = FastAPI(docs_url=None, redoc_url=None, openapi_url=None)
     app.state.adapter = adapter or OllamaAdapter()
     app.state.gate = gate or Gate()
@@ -172,6 +173,8 @@ def create_app(adapter=None, gate=None):
             "output_schema_version": OUTPUT_SCHEMA_VERSION,
             "segmentation_version": SEGMENTATION_VERSION,
             "max_chars": MAX_CHARS,
+            "treatment_picker_enabled": picker_enabled,
+            "treatment_picker_version": "treatment-picker-1",
             "deployment_mode": deployment_mode,
             "inference_timeout": (
                 app.state.adapter.timeout
@@ -206,6 +209,15 @@ def create_app(adapter=None, gate=None):
     async def extract(payload: ExtractRequest):
         async with app.state.gate.enter():
             result = await app.state.adapter.extract(payload.note)
+        return {**result, "request_id": payload.request_id}
+
+    @app.post("/api/treatment-suggestions")
+    async def treatment_suggestions(payload: ExtractRequest):
+        if not picker_enabled:
+            raise ExtractionError("feature_disabled", 404)
+        from .treatment_picker import suggest
+        async with app.state.gate.enter():
+            result = await suggest(payload.note)
         return {**result, "request_id": payload.request_id}
 
     app.mount("/static", StaticFiles(directory=STATIC), name="static")

@@ -25,6 +25,7 @@ export function initialFields(config) {
 }
 export function createState(config) {
   return {
+    treatmentPicker: null,
     caseId: 0,
     revision: 0,
     request: 0,
@@ -41,6 +42,7 @@ export function invalidate(state) {
 export function sourceChanged(state, note, config) {
   invalidate(state);
   state.note = note;
+  state.treatmentPicker = null;
   state.units = [];
   for (const f of config.fields) {
     const old = state.fields[f.id];
@@ -120,6 +122,7 @@ export function newReferral(state, config, note = "") {
   state.request++;
   state.caseId++;
   state.note = note;
+  state.treatmentPicker = null;
   state.units = [];
   state.fields = initialFields(config);
 }

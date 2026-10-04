@@ -1,0 +1,39 @@
+{
+  "starting_head": "353790efb6efdd6546aceca9074da419e38a5791",
+  "requests": 3,
+  "contract_valid": 3,
+  "retrieved_reviewed": 2,
+  "missed_reviewed": 1,
+  "irrelevant_reviewed": 8,
+  "unknown_unreviewed": 3,
+  "total_wall_seconds": 17.778151665930636,
+  "python_focused_tests": 28,
+  "javascript_tests": 37,
+  "browser_checks": "passed using captured/mock response; no additional inference",
+  "normal_print_pages": 2,
+  "normal_print_visual_inspection": "both rendered pages inspected; no clipping/overlap; negative narrative only and regular medication once",
+  "normal_print_sha256": "5a4a76ffb18d856d78931751fadc4e87d9b73512962d14be67a55f97cfc568fe",
+  "actual_configurations": {
+    "8000": {
+      "version": "experimental-0.7",
+      "model": "qwen3:1.7b",
+      "prompt_version": "source-id-v06-1"
+    },
+    "8001": {
+      "version": "experimental-0.8",
+      "revision": "clinician-placement-picker-3",
+      "model": "qwen3:1.7b",
+      "prompt_version": "source-id-v06-1",
+      "treatment_picker_enabled": true
+    }
+  },
+  "preview_pid": 85109,
+  "live_pid": 69834,
+  "live_restarted": false,
+  "default_feature_enabled": false,
+  "clinician_acceptance_observed": false,
+  "offline_tested": false,
+  "held_out_contents_opened": false,
+  "new_training": false,
+  "presentation_revision": "adjacent-and-original-S-paragraph-1; original inference captures and scores preserved"
+}

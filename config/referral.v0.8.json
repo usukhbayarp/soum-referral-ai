@@ -201,8 +201,19 @@
       "required": false,
       "instruction": "Current illness history. Existing past-history proposals require category review; no automatic chronic-history migration.",
       "display_group": "Түүх ба тогтмол эм",
-      "help": "Одоогийн өвчний түүхийг эмч гараар оруулна. Өмнөх түүхийн саналыг энд автоматаар оруулахгүй. Гэрээр хэрэглэсэн, төлөвлөсөн болон өгөөгүй эмийн тухай баримтыг хугацаа, үгүйсгэлтэй нь хадгална.",
+      "help": "Одоогийн өвчний түүхийг эмч оруулна. Доорх гэрийн хэрэглээ нь зөвхөн энэ зовуурьтай холбоотой гэж баримтжуулсан хэрэглээ. Өгөөгүй эмчилгээний шууд тэмдэглэлийг Хийсэн эмчилгээ, ажилбар хэсэгт хадгална.",
       "source_group": "past_history_source"
+    },
+    {
+      "id": "home_medication",
+      "label": "Гэрээр хэрэглэсэн эм тариа",
+      "section": 3,
+      "manual": true,
+      "required": false,
+      "instruction": "",
+      "parent_id": "medical_history",
+      "help": "Зөвхөн одоогийн өвчин/зовуурьтай холбоотой гэж баримтжуулсан гэрийн буюу үзлэгээс өмнөх хэрэглээ. Гэртээ уусан гэдгээс холбоог дүгнэхгүй. Тогтмол эмийг давхар бичихгүй. Баримтгүй нь хэрэглээгүй гэсэн үг биш.",
+      "display_group": "Түүх ба тогтмол эм"
     },
     {
       "id": "chronic_history",
@@ -217,12 +228,13 @@
     },
     {
       "id": "regular_medication",
-      "label": "Тогтмол эм",
+      "label": "Тогтмол хэрэглэдэг эм",
       "section": 3,
       "manual": false,
       "required": false,
       "instruction": "Usual medication and whether today dose was asked/taken; NOT treatment administered this visit.",
-      "display_group": "Түүх ба тогтмол эм"
+      "display_group": "Түүх ба тогтмол эм",
+      "help": "Нэг удаа энд бичнэ. Баримтжуулсан өнөөдрийн тун, цаг, өвчтөний өгүүлэмжийг хадгална. Гэрээр хэрэглэсэн эмийн дэд хэсэгт давхардуулахгүй."
     },
     {
       "id": "diagnosis",
@@ -532,12 +544,13 @@
     },
     {
       "id": "treatment_source",
-      "label": "Бодитоор хийсэн эмчилгээ ба ажилбар — эхийн санал",
+      "label": "Хуучин өргөн ялгалтын эмчилгээний эхийн санал",
       "section": 5,
       "manual": false,
       "required": false,
       "instruction": "Only treatment actually administered THIS VISIT, dose/route/time and explicit no-other/no-treatment. NOT regular medication.",
-      "kind": "source_suggestion"
+      "kind": "source_suggestion",
+      "help": "Ангиллын алдаа шийдэгдээгүй. Энэ нь шинэ туршилтын эх хайлтаас тусдаа."
     },
     {
       "id": "pain_change",
@@ -547,6 +560,15 @@
       "required": false,
       "instruction": "Initial AND later pain reports if change documented. Select both sources; do not infer causal treatment response.",
       "kind": "source_suggestion"
+    },
+    {
+      "id": "treatment_narrative",
+      "label": "Хийсэн эмчилгээ, ажилбар — хүүрнэл",
+      "section": 5,
+      "manual": true,
+      "required": false,
+      "instruction": "",
+      "help": "Хийсэн үйлдэл ба эмчилгээ өгөөгүй гэсэн шууд тэмдэглэл хамт байна. Үгүйсгэлийг эмийн мөр болгохгүй. Төлөвлөснийг хийсэн гэж үзэхгүй; шарх угаасан уусмалыг судсаар хийсэн гэж хувиргахгүй."
     },
     {
       "id": "treatment_status",
@@ -752,5 +774,10 @@
   },
   "partial_review_version": "clinician-partial-20261004-1",
   "proposal_review_required": [],
-  "revision": "history-destination-2"
+  "revision": "clinician-placement-picker-3",
+  "placement_review": {
+    "reviewer": "А. Балжинням",
+    "date": "2026-10-04",
+    "scope": "Display placement only, not TRAIN-003 full approval; source not supplied and not reconstructed"
+  }
 }

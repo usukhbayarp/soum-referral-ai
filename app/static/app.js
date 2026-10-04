@@ -1,3 +1,4 @@
+import {receivePicker, decidePicker} from "./treatment-picker.mjs";
 import {
   labels,
   createState,
@@ -104,7 +105,7 @@ function refreshField(id) {
   for (const unit of field.evidence) {
     const b = node(
       "button",
-      `${field.status === "manual" ? "Анхны ялгалтын эх" : "Эх"} ${unit.id}`,
+      `${field.originKind === "accepted_source" ? "Хүлээн авсан эх" : field.status === "manual" ? "Анхны ялгалтын эх" : "Эх"} ${unit.id}`,
     );
     b.type = "button";
     b.disabled = !field.evidenceCurrent;
@@ -113,7 +114,7 @@ function refreshField(id) {
   }
   const original = $(id + "-original");
   original.textContent = field.original
-    ? `Анхны ялгалтын эх — эмчийн зассан агуулгыг батлахгүй.${!field.evidenceCurrent ? " Өмнөх эхийн хувилбар; одоогийн эхтэй холбохгүй." : ""}\n${field.original}`
+    ? `${field.originKind === "accepted_source" ? "Хүлээн авсан эхийн хуулбар" : "Анхны ялгалтын эх"} — эмчийн зассан агуулгыг батлахгүй.${!field.evidenceCurrent ? " Өмнөх эхийн хувилбар; одоогийн эхтэй холбохгүй." : ""}\n${field.original}`
     : "";
   const proposal = $(id + "-suggestion");
   proposal.replaceChildren();
@@ -182,6 +183,7 @@ function renderTreatmentRows(section) {
 }
 function renderFields() {
   $("fields").replaceChildren();
+
   let group, previous, subgroup, previousSubgroup;
   for (const field of config.fields) {
     if (previous !== field.section) {
@@ -192,6 +194,7 @@ function renderFields() {
     const section = node("section", undefined, "field"),
       head = node("div", undefined, "field-header"),
       label = node("label", field.label);
+    section.id = "section-" + field.id;
     label.htmlFor = "field-" + field.id;
     head.append(label);
     const badge = node("span", "", "field-status");
@@ -261,17 +264,18 @@ function renderFields() {
       area.id = field.id + "-" + suffix;
       section.append(area);
     }
-    if (field.display_group !== previousSubgroup) {
+    if (!field.parent_id && field.display_group !== previousSubgroup) {
       subgroup = field.display_group ? node("fieldset", undefined, "field-group") : null;
       if (subgroup) { subgroup.append(node("legend", field.display_group)); group.append(subgroup); }
       previousSubgroup = field.display_group;
     }
-    (subgroup || group).append(section);
+    (field.parent_id ? $("section-"+field.parent_id) : subgroup || group).append(section);
     refreshField(field.id);
   }
   updateApproval();
 }
 function renderSource(selected) {
+  renderPicker();
   const pre = $("source-view");
   pre.replaceChildren();
   const chars = Array.from(state.note);
@@ -488,6 +492,7 @@ try {
   if (!response.ok) throw new Error();
   config = await response.json();
   state = createState(config);
+  $("treatment-picker").hidden = !config.treatment_picker_enabled;
   $("model").textContent = config.model;
   const hosted = config.deployment_mode === "hosted";
   $("deployment-location").textContent = hosted
@@ -509,4 +514,36 @@ try {
 // Drafts are memory-only; warn before a navigation/reload discards a current case.
 window.addEventListener("beforeunload", (event) => {
   if (state && hasReferralContent(state)) { event.preventDefault(); event.returnValue = ""; }
+});
+
+function renderPicker() {
+  const area=$("treatment-suggestions");area.replaceChildren();
+  const picker=state?.treatmentPicker;
+  if(!picker) {$("picker-status").textContent="";return;}
+  if(!picker.items.length)area.append(node("p","Холбогдох хэсэг олдоогүй. Энэ нь эмчилгээ хийгээгүй гэсэн баталгаа биш; бүтэн эхийг хянана уу."));
+  for(const item of picker.items) {
+    const card=node("section",undefined,"field");card.append(node("strong",`Эх ${item.unit.id} — хийгдсэн гэсэн баталгаа биш`),node("p",item.unit.text));
+    const context=node("details");context.append(node("summary","Зэргэлдээ / нэг догол мөрийн эх — автоматаар оруулахгүй"));
+    item.context.forEach(u=>context.append(node("p",`[${u.id}] ${u.text}`)));card.append(context);
+    for(const [label,accept] of [["Хянаад хүүрнэлд оруулах",true],["Татгалзах",false]]) {
+      const b=node("button",label);b.type="button";b.disabled=item.decision!=='pending';
+      b.addEventListener("click",()=>{const changed=decidePicker(state,item.unit.id,accept);if(accept&&changed){invalidateUI();renderFields();}renderPicker();});card.append(b);
+    }
+    if(item.decision!=='pending')card.append(node("p",({accepted:'Оруулсан — эмч хянана',rejected:'Татгалзсан',duplicate:'Давхардсан — дахин оруулаагүй'})[item.decision]));
+    area.append(card);
+  }
+}
+$("find-treatment").addEventListener("click",async()=>{
+  if(busy||!state.note.trim())return;
+  const ticket=beginRequest(state);state.treatmentPicker=null;invalidateUI();renderPicker();busy=true;updateApproval();
+  $("find-treatment").disabled=true;$("picker-status").textContent="Туршилтын эх хайлт ажиллаж байна…";
+  controller=new AbortController();const own=controller;const timer=setTimeout(()=>own.abort(),140000);
+  try {
+    const response=await fetch('/api/treatment-suggestions',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({note:state.note,request_id:String(ticket.request)}),signal:own.signal});
+    const data=await response.json();
+    if(!response.ok)throw Error(errors[data.error]||'Эх хайлт амжилтгүй.');
+    if(data.request_id!==String(ticket.request)||data.contract_version!==config.treatment_picker_version)throw Error('Хариуны хувилбар тохирохгүй.');
+    if(receivePicker(state,ticket,data)){renderSource();$("picker-status").textContent="Тусдаа санал бэлэн. Үгүйсгэл, цаг, хэн хэлснийг бүтэн эхтэй тулгаж хянана.";}
+  } catch(e) {if(ticket.caseId===state.caseId&&ticket.revision===state.revision)$("picker-status").textContent='Хайлт амжилтгүй; мэдээлэлгүй гэсэн үг биш. Гараар оруулж болно.';}
+  finally {clearTimeout(timer);if(ticket.request===state.request){busy=false;updateApproval();}$("find-treatment").disabled=false;}
 });
