@@ -1,0 +1,245 @@
+{
+  "status": "untuned export and serving mechanics verified; no training",
+  "started_utc": "2026-10-04T05:59:27Z",
+  "pins": {
+    "base_repository": "Qwen/Qwen3-1.7B",
+    "base_revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "tokenizer_repository": "Qwen/Qwen3-1.7B",
+    "tokenizer_revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "mlx": "0.30.6",
+    "mlx-lm": "0.30.7",
+    "transformers": "5.2.0",
+    "serving_template_sha256": "ae370d884f108d16e7cc8fd5259ebc5773a0afa6e078b11f4ed7e39a27e0dfc4",
+    "llama_cpp_revision": "11fe02151f79c41d0d4af7da708755d73b9c0da6",
+    "mlx_quantization": {
+      "bits": 4,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "serving_quantization": "Q4_K_M",
+    "untuned_control_tag": "soum-qwen3-1.7b-untuned-control:mlx4-roundtrip-20261004",
+    "rollback_tag": "qwen3:1.7b"
+  },
+  "python": "3.13.5",
+  "versions": {
+    "mlx": "0.30.6",
+    "mlx-metal": "0.30.6",
+    "mlx-lm": "0.30.7",
+    "mlx-vlm": "0.3.12",
+    "transformers": "5.2.0",
+    "torch": "2.9.1",
+    "datasets": "4.4.1",
+    "huggingface-hub": "1.4.1",
+    "numpy": "1.26.4",
+    "safetensors": "0.6.2",
+    "tokenizers": "0.22.1",
+    "sentencepiece": "0.2.1",
+    "protobuf": "5.29.3"
+  },
+  "isolated_converter": {
+    "cmake": "4.1.3",
+    "gguf": "0.19.0 (vendored at pinned llama.cpp revision)",
+    "system_site_packages": true,
+    "declared_broad_requirements_not_installed": "Torch 2.11.0 / Transformers 4.57.6 / NumPy ~2.2.6; Qwen3 route tested with inherited versions above"
+  },
+  "tiny_mlx_operation": {
+    "device": "gpu",
+    "input": [
+      1,
+      2,
+      3
+    ],
+    "squared": [
+      1,
+      4,
+      9
+    ]
+  },
+  "upstream_weights": {
+    "model-00001-of-00002.safetensors": {
+      "bytes": 3441185608,
+      "cache_blob_sha256": "169ad53ec313c3a34b06c0809216e4fc072cce444a5d4ff2b59690d064130ed5"
+    },
+    "model-00002-of-00002.safetensors": {
+      "bytes": 622329984,
+      "cache_blob_sha256": "912becff8d60672aa8628ef08c05898d9adf17c2ad4ae3caf99b065622fdeff9"
+    }
+  },
+  "mlx_copy": {
+    "base_repository": "Qwen/Qwen3-1.7B",
+    "base_revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "quantization": {
+      "bits": 4,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "training_steps": 0,
+    "versions": {
+      "mlx": "0.30.6",
+      "mlx-metal": "0.30.6",
+      "mlx-lm": "0.30.7",
+      "transformers": "5.2.0",
+      "torch": "2.9.1",
+      "datasets": "4.4.1",
+      "huggingface-hub": "1.4.1"
+    },
+    "files": {
+      "model.safetensors": {
+        "bytes": 968080210,
+        "sha256": "c36f6f1e992e4dbb6ad3620b3f3397e73371ff538e84f7fd3384aeb486708f79"
+      },
+      "tokenizer_config.json": {
+        "bytes": 700,
+        "sha256": "5d1da8a22094af87a0eb4dc47f6ad0e9712f3ff4d179591de452ebd2acd88b96"
+      },
+      "config.json": {
+        "bytes": 1021,
+        "sha256": "60eef70aeb7fa7d1f9a6d45069cc7ff0f5a11139155a96aaf9d3991c5d24e58a"
+      },
+      "tokenizer.json": {
+        "bytes": 11422650,
+        "sha256": "be75606093db2094d7cd20f3c2f385c212750648bd6ea4fb2bf507a6a4c55506"
+      },
+      "generation_config.json": {
+        "bytes": 239,
+        "sha256": "2325da0f15bb848e018c5ae071b7943332e9f871d6b60e2ed22ca97d4cb993d2"
+      },
+      "README.md": {
+        "bytes": 81,
+        "sha256": "8df8741a2dc87926f74ea10c5a8862fed59e90d816a6a569062f725c1be36e7c"
+      },
+      "chat_template.jinja": {
+        "bytes": 4168,
+        "sha256": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8"
+      },
+      "model.safetensors.index.json": {
+        "bytes": 49771,
+        "sha256": "b2e5b0437ba3dd97c262018713af2fea5c010a8a95d6e24ee6dd045f4cac8ce0"
+      }
+    }
+  },
+  "conversion": {
+    "dequantized_files": {
+      "model.safetensors": {
+        "bytes": 3441185441,
+        "sha256": "c9a59c2935dce621c694161cb9f9445218e167205e685361b3495818c9b1c4af"
+      },
+      "tokenizer_config.json": {
+        "bytes": 700,
+        "sha256": "5d1da8a22094af87a0eb4dc47f6ad0e9712f3ff4d179591de452ebd2acd88b96"
+      },
+      "config.json": {
+        "bytes": 816,
+        "sha256": "41eb9baa243fc92dadd6ac800e1c073efcbc1cee198e360de07470420b7ef0a6"
+      },
+      "tokenizer.json": {
+        "bytes": 11422650,
+        "sha256": "be75606093db2094d7cd20f3c2f385c212750648bd6ea4fb2bf507a6a4c55506"
+      },
+      "generation_config.json": {
+        "bytes": 239,
+        "sha256": "2325da0f15bb848e018c5ae071b7943332e9f871d6b60e2ed22ca97d4cb993d2"
+      },
+      "README.md": {
+        "bytes": 81,
+        "sha256": "f3270b3cb7c42dee36dcff63717fd8e7dc3bdaacd58e05e34ac093dc05d7ad58"
+      },
+      "chat_template.jinja": {
+        "bytes": 4168,
+        "sha256": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8"
+      },
+      "model.safetensors.index.json": {
+        "bytes": 22188,
+        "sha256": "5bc27eb752e76bec3235ce08f98789307f6b3f00f3be241d9fa42a3a50c9fbe8"
+      }
+    },
+    "note": "Untuned affine MLX4 -> bfloat16. Original precision not recovered.",
+    "f16_gguf": {
+      "bytes": 3447349248,
+      "sha256": "52d8a69dad434b23c3350394ecfede30240a137f39caf099ad3839fdf5df8054"
+    },
+    "intermediate_cleanup": "Generated dequantized weight removed after successful F16 conversion; metadata retained. Original HF cache and MLX4 copy retained. F16 GGUF removed after successful Q4_K_M quantization.",
+    "q4_k_m_gguf": {
+      "bytes": 1107408896,
+      "sha256": "810430e69414d418850f4c51bfe9374b06df55be288bdbc42f88fb20b9630de3"
+    }
+  },
+  "import": {
+    "tag": "soum-qwen3-1.7b-untuned-control:mlx4-roundtrip-20261004",
+    "gguf_sha256": "810430e69414d418850f4c51bfe9374b06df55be288bdbc42f88fb20b9630de3",
+    "gguf_bytes": 1107408896,
+    "template_origin": "evaluation/results/comparison-20261004T052629Z.json",
+    "template_sha256": "ae370d884f108d16e7cc8fd5259ebc5773a0afa6e078b11f4ed7e39a27e0dfc4",
+    "existing_tags_before": {
+      "qwen3:1.7b": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+      "llama3.1:8b": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+      "qwen3-vl:4b": "1343d82ebee38e26a4dd6b0180b915eb91550184e67c505dea97509571c8f683",
+      "qwen3:4b": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7"
+    },
+    "status": "imported",
+    "command": [
+      "ollama",
+      "create",
+      "soum-qwen3-1.7b-untuned-control:mlx4-roundtrip-20261004",
+      "-f",
+      ".runtime/preparation/control-import/Modelfile"
+    ],
+    "exit_code": 0,
+    "existing_tags_preserved": true,
+    "candidate_digest": "e6a6e54bcc9d597d1700b25e24e5b769ca18333015079b50ead7ecaa269bfa75"
+  },
+  "tokenizer_checks": {
+    "all_five_hf_and_mlx_full_token_sequences_equal": true,
+    "all_five_training_prompt_counts_match_ollama": true,
+    "policy": "ollama-qwen3-single-turn-1"
+  },
+  "quantization_seconds": 28.14358,
+  "web_image": {
+    "digest": "sha256:7f802401d627c309ebfc8fe64a986f5b4ecf77cb70c8b10e833afef80e45c1a7",
+    "architecture": "arm64",
+    "bytes": 232276320,
+    "build": "passed",
+    "offline_import": "passed",
+    "hosted_deployment": "not performed"
+  },
+  "failures_resolved": [
+    {
+      "command": "python -c \"from transformers import AutoTokenizer\"",
+      "error": "exit 139; segmentation fault importing optional Anaconda readline extension",
+      "resolution": "Process-local scripts.mlx_python sets sys.modules[readline]=None; no installed packages changed"
+    },
+    {
+      "command": "git checkout --detach 11fe02151f79c41d0d4af7da708755d73b9c0da6 in partial clone",
+      "error": "curl 92 HTTP/2 stream CANCEL; early EOF from promisor remote",
+      "resolution": "Retried same pinned checkout with git -c http.version=HTTP/1.1; succeeded"
+    }
+  ],
+  "training_steps": 0,
+  "clinical_quality": "unmeasured; all evaluation fixtures remain unreviewed",
+  "preserved": [
+    "existing Ollama model digests",
+    "original HF caches",
+    "versioned extraction prompts and schemas",
+    "earlier baseline reports",
+    "running local demo process"
+  ],
+  "upstream_tied_weight_check": {
+    "model.embed_tokens.weight": {
+      "shape": [
+        151936,
+        2048
+      ],
+      "dtype": "BF16",
+      "sha256": "f56b71b6939a944afce2902799810e2acfaefbf0dbcacd8cda1add4eb710f05d"
+    },
+    "lm_head.weight": {
+      "shape": [
+        151936,
+        2048
+      ],
+      "dtype": "BF16",
+      "sha256": "f56b71b6939a944afce2902799810e2acfaefbf0dbcacd8cda1add4eb710f05d"
+    },
+    "byte_identical": true
+  }
+}

@@ -79,7 +79,9 @@ Read [evaluation/report.md](evaluation/report.md), [docs/verification.md](docs/v
 
 ## Hosting and next milestones
 
-This is a localhost application, not a deployed service. `APP_ALLOWED_HOSTS` permits a future explicit host allowlist; Ollama remains loopback. No provider, credentials, compute allocation, public access controls, distributed queue or retention policy has been selected. See [TASKS.md](TASKS.md). No accounts, audio, OCR, hospital integration or fine-tuning are included.
+This is a localhost application, not a deployed service. [Container packaging](docs/deployment.md) is prepared: the web image builds, Compose validates, and an offline container imports the application. Web and Ollama share a network namespace to retain strict loopback-only inference; hosted disclosure and explicit allowed hosts are required. `/api/health` is liveness; `/api/ready` checks runtime/local-model availability without loading the model. These new endpoints require a deliberate app restart; the existing demo was left running.
+
+The optional MLX environment, pinned base/tokenizer, untuned export-to-Ollama control and reviewed-data training skeleton are prepared. **No training has run.** Read [measured preparation results](docs/preparation-20261004.md) and [the later experiment runbook](docs/training.md). Original baseline tags/artifacts remain available. Provider, budget, compute allocation, access controls and operational retention policy are pending; see [TASKS.md](TASKS.md).
 
 ## Licenses and primary references
 

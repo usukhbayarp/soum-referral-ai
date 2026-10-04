@@ -1,0 +1,15 @@
+{
+  "base_repository": "Qwen/Qwen3-1.7B",
+  "base_revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+  "tokenizer_repository": "Qwen/Qwen3-1.7B",
+  "tokenizer_revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+  "mlx": "0.30.6",
+  "mlx-lm": "0.30.7",
+  "transformers": "5.2.0",
+  "serving_template_sha256": "ae370d884f108d16e7cc8fd5259ebc5773a0afa6e078b11f4ed7e39a27e0dfc4",
+  "llama_cpp_revision": "11fe02151f79c41d0d4af7da708755d73b9c0da6",
+  "mlx_quantization": {"bits": 4, "group_size": 64, "mode": "affine"},
+  "serving_quantization": "Q4_K_M",
+  "untuned_control_tag": "soum-qwen3-1.7b-untuned-control:mlx4-roundtrip-20261004",
+  "rollback_tag": "qwen3:1.7b"
+}

@@ -1,0 +1,52 @@
+name: soum-referral
+services:
+  ollama:
+    image: ollama/ollama:0.34.0
+    environment:
+      OLLAMA_HOST: 127.0.0.1:11434
+      OLLAMA_NO_CLOUD: "1"
+      OLLAMA_NUM_PARALLEL: "1"
+      OLLAMA_MAX_LOADED_MODELS: "1"
+      OLLAMA_MAX_QUEUE: "3"
+      OLLAMA_DEBUG: "0"
+    volumes:
+      - models:/root/.ollama
+    # Only web is published. The two processes share a network namespace so
+    # the application's strict loopback-only Ollama client remains unchanged.
+    ports:
+      - "127.0.0.1:${WEB_PORT:-8000}:8000"
+    healthcheck:
+      test: ["CMD", "ollama", "list"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    logging:
+      driver: none
+  web:
+    build:
+      context: ..
+      dockerfile: deployment/Dockerfile
+    network_mode: service:ollama
+    depends_on:
+      ollama:
+        condition: service_healthy
+    environment:
+      DEPLOYMENT_MODE: hosted
+      APP_ALLOWED_HOSTS: ${APP_ALLOWED_HOSTS:?Set an explicit comma-separated hostname allowlist}
+      REFERRAL_MODEL: ${REFERRAL_MODEL:-qwen3:1.7b}
+      OLLAMA_BASE_URL: http://127.0.0.1:11434
+      INFERENCE_TIMEOUT: "120"
+    read_only: true
+    tmpfs:
+      - /tmp:size=16m,noexec,nosuid
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/health', timeout=3)"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    logging:
+      driver: none
+volumes:
+  models:

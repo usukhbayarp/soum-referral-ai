@@ -46,7 +46,7 @@ Public staging review excludes environments, credentials, weights, private notes
 - Long multi-page print stress testing and maximum accepted note/output runtime behavior.
 - Clinician validation, held-out quality evaluation, adversarial prompt robustness, general contradiction detection (not implemented).
 - Hosted multi-user deployment, shared/distributed queue, authentication/access control, HTTPS and operational retention review.
-- MLX model loading, training, merging, GGUF conversion or Ollama import of a tuned model.
+- Training, adapter merging and Ollama import of a tuned model. Untuned MLX conversion/export/import was subsequently verified; see the preparation report below.
 
 
 ## Follow-up UI/state correction verification
@@ -57,3 +57,7 @@ Continued from `f2c4365c6e8e06c194c8277bf3266579950af69a`. Prompts, model settin
 - Chrome checks used a loopback-only temporary app with **mock inference**, configured as hosted solely to test disclosure. Observed server-processing notice, retained manual values with approval blocked, individual reconciliation controls, original historical evidence distinct from re-extraction proposals, and manual print attribution without source IDs.
 - Confirmed example replacement cleared patient/admin/manual content, original evidence, approval and generated print content, while loading the fictional example into a fresh referral. No hosting was deployed.
 - The original milestone's real inference and print-preview observations above are historical results, not rerun claims for this UI/state patch.
+
+## Optional training and packaging preparation
+
+See [2026-10-04 preparation observations](preparation-20261004.md) for the pinned untuned conversion route, token/masking checks, five control outputs, preserved baseline comparison, 51 Python / 13 Node passing tests and container build checks. No training or hosted deployment occurred. Prompts, schema, UI, prior evaluation artifacts and existing model tags were preserved.

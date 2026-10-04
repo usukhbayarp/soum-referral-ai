@@ -167,6 +167,10 @@ def create_app(adapter=None, gate=None):
     async def health():
         return {"status": "ok", "model": app.state.adapter.model}
 
+    @app.get("/api/ready")
+    async def ready():
+        return await app.state.adapter.readiness()
+
     @app.post("/api/extract")
     async def extract(payload: ExtractRequest):
         async with app.state.gate.enter():

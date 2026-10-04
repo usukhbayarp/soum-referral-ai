@@ -1,0 +1,50 @@
+{
+  "purpose": "mechanics only; targets are preserved unreviewed baseline outputs, NOT clinician labels",
+  "fixture_sha256": "6154cae0dad92ccfc2f8510d3616970eaf7abc279e9335780528721a41117184",
+  "baseline_sha256": "947764f652dc19d71ef3784c13f4889150e7b6f6e919f36a8006e9df96af8001",
+  "tokenizer_sha256": {
+    "tokenizer.json": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+    "tokenizer_config.json": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101",
+    "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+    "merges.txt": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5"
+  },
+  "measurements": [
+    {
+      "case_id": "dev-001",
+      "prompt_tokens": 1522,
+      "completion_tokens": 41,
+      "full_tokens": 1563
+    },
+    {
+      "case_id": "dev-002",
+      "prompt_tokens": 1287,
+      "completion_tokens": 34,
+      "full_tokens": 1321
+    },
+    {
+      "case_id": "dev-003",
+      "prompt_tokens": 1376,
+      "completion_tokens": 44,
+      "full_tokens": 1420
+    },
+    {
+      "case_id": "dev-004",
+      "prompt_tokens": 1411,
+      "completion_tokens": 40,
+      "full_tokens": 1451
+    },
+    {
+      "case_id": "dev-005",
+      "prompt_tokens": 1521,
+      "completion_tokens": 51,
+      "full_tokens": 1572
+    }
+  ],
+  "non_thinking_prefix_verified": true,
+  "completion_mask_probe": {
+    "prompt_and_padding_excluded": true,
+    "completion_token_count": 2
+  },
+  "training_started": false,
+  "template_policy": "ollama-qwen3-single-turn-1"
+}

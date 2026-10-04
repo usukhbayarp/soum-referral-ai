@@ -7,6 +7,8 @@
 - [ ] Supply realistic note length and device targets.
 
 ## Evaluation and optional tuning
+- [x] Reuse MLX environment, pin base/tokenizer/converter, check completion masking and full sequence lengths, and preserve an untuned MLX-to-GGUF-to-Ollama control.
+- [x] Prepare reviewed-data preflight, bounded training skeleton, development-loss selection and protected candidate import. Training has not run.
 - [ ] Create reviewed synthetic train/development/test cases grouped by underlying case. Keep held-out cases out of prompt iteration.
 - [ ] Freeze baseline digests, prompt/schema/segmentation versions and scoring rubric.
 - [ ] Review all-empty abstentions separately from invalid responses and clinical correctness.
@@ -20,6 +22,7 @@
 - [ ] Test maximum accepted note/output size, long print layout, abbreviations, Unicode and realistic source formats.
 
 ## Hosted demonstration (not deployed)
+- [x] Prepare shared-loopback Compose packaging, hosted disclosure and separate liveness/model-availability probes; build/import-check web image. Full hosted stack remains untested.
 - [ ] Select provider/region, budget, CPU/GPU/RAM and concurrent-user target.
 - [ ] Provision isolated sessions, expiry/reset policy, HTTPS, explicit allowed hosts and appropriate demo access controls; use fictional data only.
 - [ ] Keep Ollama on loopback/private inference boundary. Deploy one web worker initially or implement a shared bounded queue before multiple replicas.

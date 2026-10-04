@@ -47,6 +47,47 @@ class OllamaAdapter:
         ):
             raise ValueError("Choose a local Ollama model identifier")
 
+    async def readiness(self):
+        """Dependency probe only: never load a model or submit a clinical note."""
+        try:
+            async with httpx.AsyncClient(
+                base_url=self.base_url,
+                timeout=3,
+                trust_env=False,
+                transport=self.transport,
+            ) as client:
+                response = await client.get("/api/tags")
+                response.raise_for_status()
+                name = (
+                    self.model
+                    if ":" in self.model.rsplit("/", 1)[-1]
+                    else self.model + ":latest"
+                )
+                local = next(
+                    (
+                        m
+                        for m in response.json().get("models", [])
+                        if m.get("name") == name
+                    ),
+                    None,
+                )
+                if (
+                    not local
+                    or local.get("remote_host")
+                    or local.get("remote_model")
+                    or local.get("details", {}).get("format") != "gguf"
+                ):
+                    raise ExtractionError("local_model_required", 503)
+                return {
+                    "status": "ready",
+                    "model": self.model,
+                    "model_digest": local.get("digest"),
+                    "check": "runtime_reachable_and_local_gguf_installed",
+                    "inference_verified": False,
+                }
+        except (httpx.HTTPError, ValueError, TypeError, AttributeError):
+            raise ExtractionError("runtime_unavailable", 503) from None
+
     async def extract(self, note, capture=False):
         units, user, schema = prepare(note)
         request = {
