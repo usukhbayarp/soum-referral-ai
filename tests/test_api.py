@@ -230,3 +230,21 @@ async def test_queue_cancel_releases_waiter():
             await task
         assert gate.count == 1
     assert gate.count == 0
+
+
+@pytest.mark.parametrize("mode", ["local", "hosted"])
+def test_deployment_mode_configuration(monkeypatch, mode):
+    monkeypatch.setenv("DEPLOYMENT_MODE", mode)
+    config = TestClient(create_app(Fake())).get("/api/config").json()
+    assert config["deployment_mode"] == mode
+
+
+def test_deployment_mode_defaults_local_and_rejects_typos(monkeypatch):
+    monkeypatch.delenv("DEPLOYMENT_MODE", raising=False)
+    assert (
+        TestClient(create_app(Fake())).get("/api/config").json()["deployment_mode"]
+        == "local"
+    )
+    monkeypatch.setenv("DEPLOYMENT_MODE", "hostedd")
+    with pytest.raises(ValueError, match="DEPLOYMENT_MODE"):
+        create_app(Fake())

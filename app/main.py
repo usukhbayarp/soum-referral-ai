@@ -106,6 +106,9 @@ class RequestBoundary:
 
 
 def create_app(adapter=None, gate=None):
+    deployment_mode = os.getenv("DEPLOYMENT_MODE", "local")
+    if deployment_mode not in ("local", "hosted"):
+        raise ValueError("DEPLOYMENT_MODE must be local or hosted")
     app = FastAPI(docs_url=None, redoc_url=None, openapi_url=None)
     app.state.adapter = adapter or OllamaAdapter()
     app.state.gate = gate or Gate()
@@ -152,6 +155,7 @@ def create_app(adapter=None, gate=None):
             **SCHEMA,
             "model": app.state.adapter.model,
             "max_chars": MAX_CHARS,
+            "deployment_mode": deployment_mode,
             "inference_timeout": (
                 app.state.adapter.timeout
                 if hasattr(app.state.adapter, "timeout")

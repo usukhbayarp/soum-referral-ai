@@ -5,10 +5,13 @@ import {
   sourceChanged,
   editField,
   beginRequest,
-  isCurrent,
   acceptResponse,
   failResponse,
-  resetState,
+  replaceReferral,
+  reconcileField,
+  pendingReconciliations,
+  canApprove,
+  printAttribution,
 } from "./state.mjs";
 const $ = (id) => document.getElementById(id);
 let config,
@@ -69,12 +72,15 @@ function updateApproval() {
   if (oversized)
     $("unresolved").textContent +=
       " Нэг талбар 6000 тэмдэгтээс урт байна. Агуулгыг таслаагүй; хянаж богиносгоно уу.";
-  $("approve").disabled =
-    oversized ||
-    busy ||
-    !$("reviewed").checked ||
-    !$("acknowledged").checked ||
-    !Object.values(state.fields).some((f) => f.text.trim());
+  const pending = pendingReconciliations(state);
+  if (pending.length)
+    $("unresolved").textContent +=
+      ` Эх өөрчлөгдсөн: хадгалсан ${pending.length} талбарыг шинэ эхтэй тулгаж дахин хянана уу.`;
+  $("approve").disabled = !canApprove(state, {
+    busy,
+    reviewed: $("reviewed").checked,
+    acknowledged: $("acknowledged").checked,
+  });
   $("extract").disabled =
     busy ||
     !state.note.trim() ||
@@ -88,15 +94,59 @@ function refreshField(id) {
   const ev = $(id + "-evidence");
   ev.replaceChildren();
   for (const unit of field.evidence) {
-    const b = node("button", `Эх ${unit.id}`);
+    const b = node(
+      "button",
+      `${field.status === "manual" ? "Анхны ялгалтын эх" : "Эх"} ${unit.id}`,
+    );
     b.type = "button";
+    b.disabled = !field.evidenceCurrent;
     b.addEventListener("click", () => highlight(unit.id));
     ev.append(b);
   }
   const original = $(id + "-original");
   original.textContent = field.original
-    ? `Ялгасан эх (засвараас үл хамааран):\n${field.original}`
+    ? `Анхны ялгалтын эх — эмчийн зассан агуулгыг батлахгүй.${!field.evidenceCurrent ? " Өмнөх эхийн хувилбар; одоогийн эхтэй холбохгүй." : ""}\n${field.original}`
     : "";
+  const proposal = $(id + "-suggestion");
+  proposal.replaceChildren();
+  if (field.suggestion) {
+    proposal.append(
+      node(
+        "p",
+        "Дахин ялгалтын тусдаа санал — хадгалсан гар засварын нотолгоо биш.",
+        "hint",
+      ),
+    );
+    proposal.append(
+      node("p", field.suggestion.text || "Модель олоогүй — эхийг хянана уу."),
+    );
+    for (const unit of field.suggestion.evidence) {
+      const b = node("button", `Саналын эх ${unit.id}`);
+      b.type = "button";
+      b.addEventListener("click", () => highlight(unit.id));
+      proposal.append(b);
+    }
+  }
+  const reconciliation = $(id + "-reconciliation");
+  reconciliation.replaceChildren();
+  if (field.needsReconciliation) {
+    container.textContent += " • Шинэ эхтэй тулгаж хянана";
+    reconciliation.append(
+      node(
+        "p",
+        "Эх өөрчлөгдсөн. Гараар оруулсан утгыг хадгалсан; шинэ эхтэй тулгаж хянах хүртэл батлах боломжгүй.",
+        "hint",
+      ),
+    );
+    const review = node("button", "Хадгалсан утгыг шинэ эхтэй тулгаж хянасан");
+    review.type = "button";
+    review.addEventListener("click", () => {
+      reconcileField(state, id);
+      invalidateUI();
+      refreshField(id);
+    });
+    reconciliation.append(review);
+  }
 }
 function renderFields() {
   $("fields").replaceChildren();
@@ -141,6 +191,11 @@ function renderFields() {
     const original = node("div", undefined, "original");
     original.id = field.id + "-original";
     section.append(original);
+    for (const suffix of ["suggestion", "reconciliation"]) {
+      const area = node("div", undefined, suffix);
+      area.id = field.id + "-" + suffix;
+      section.append(area);
+    }
     $("fields").append(section);
     refreshField(field.id);
   }
@@ -181,7 +236,9 @@ function changeNote(note) {
   invalidateUI();
   renderFields();
   renderSource();
-  status("Эх шинэчлэгдсэн. Ялгах эсвэл гараар нөхөж болно.");
+  status(
+    "Одоогийн тохиолдлын эх шинэчлэгдсэн. Хадгалсан гар засваруудыг шинэ эхтэй тулгаж хянана уу.",
+  );
 }
 async function extract() {
   if (busy) return;
@@ -215,9 +272,10 @@ async function extract() {
     if (data.request_id !== String(ticket.request))
       throw new Error("Хариуны дугаар тохирохгүй.");
     if (!acceptResponse(state, ticket, data)) {
-      status(
-        "Хуучин хариуг хэрэглэлгүй орхилоо. Таны шинэ тэмдэглэл, засвар хэвээр үлдсэн.",
-      );
+      if (ticket.caseId === state.caseId && ticket.request === state.request)
+        status(
+          "Хуучин хариуг хэрэглэлгүй орхилоо. Таны шинэ тэмдэглэл, засвар хэвээр үлдсэн.",
+        );
       return;
     }
     renderFields();
@@ -268,10 +326,7 @@ function printView() {
           ? value.text
           : `ШИЙДЭЭГҮЙ / МЭДЭЭЛЭЛ НӨХӨӨГҮЙ — ${labels[value.status]}`,
       ),
-      node(
-        "small",
-        `${labels[value.status]}${value.evidence.length ? " | Эх: " + value.evidence.map((e) => e.id).join(", ") : ""}`,
-      ),
+      node("small", printAttribution(value)),
     );
     view.append(section);
   }
@@ -287,29 +342,31 @@ function printView() {
   );
 }
 $("note").addEventListener("input", () => changeNote($("note").value));
-$("example").addEventListener("click", () => {
-  if (state.note || Object.values(state.fields).some((f) => f.text)) {
-    if (
-      !window.confirm(
-        "Одоогийн эхийг зохиомол жишээгээр солих уу? Эмчийн гараар оруулсан талбарууд хадгалагдана.",
-      )
+function startReferral(note = "") {
+  if (
+    !replaceReferral(state, config, note, () =>
+      window.confirm(
+        "Шинэ илгээх бичиг эхлүүлэх үү? Одоогийн эх, өвчтөн ба байгууллагын мэдээлэл, бүх гар засвар, нотолгоо, баталгаа болон хэвлэх агуулга арилна.",
+      ),
     )
-      return;
-  }
-  changeNote(example);
-});
-$("extract").addEventListener("click", extract);
-$("reset").addEventListener("click", () => {
+  )
+    return;
   controller?.abort();
-  resetState(state, config);
   busy = false;
-  $("note").value = "";
-  $("count").textContent = `0 / ${config.max_chars} тэмдэгт`;
+  $("note").value = state.note;
+  $("count").textContent =
+    `${Array.from(state.note).length} / ${config.max_chars} тэмдэгт`;
   invalidateUI();
   renderFields();
   renderSource();
-  status("Хуудсын агуулгыг цэвэрлэлээ. Өмнө экспортолсон файл тусдаа үлдэнэ.");
-});
+  status(
+    "Шинэ илгээх бичиг эхэллээ. Өмнөх тохиолдлын мэдээлэл арилсан; экспортолсон файл тусдаа үлдэнэ.",
+  );
+}
+$("example").addEventListener("click", () => startReferral(example));
+$("new-referral").addEventListener("click", () => startReferral());
+$("extract").addEventListener("click", extract);
+$("reset").addEventListener("click", () => startReferral());
 for (const id of ["reviewed", "acknowledged"])
   $(id).addEventListener("change", () => {
     if (state.approved) {
@@ -322,7 +379,14 @@ for (const id of ["reviewed", "acknowledged"])
     updateApproval();
   });
 $("approve").addEventListener("click", () => {
-  if ($("approve").disabled) return;
+  if (
+    !canApprove(state, {
+      busy,
+      reviewed: $("reviewed").checked,
+      acknowledged: $("acknowledged").checked,
+    })
+  )
+    return;
   state.approved = true;
   document.body.classList.add("approved");
   printView();
@@ -345,10 +409,18 @@ try {
   config = await response.json();
   state = createState(config);
   $("model").textContent = config.model;
+  const hosted = config.deployment_mode === "hosted";
+  $("deployment-location").textContent = hosted
+    ? "Демо сервер дээр"
+    : "Энэ компьютер дээр";
+  $("deployment-notice").textContent = hosted
+    ? "Серверийн демо: таны илгээсэн текстийг демо сервер дээр боловсруулна. Зөвхөн зохиомол өгөгдөл ашиглана уу."
+    : "Дотоод горим: моделийн боловсруулалт энэ компьютер дээр ажиллана.";
   $("schema-version").textContent = config.version;
   renderFields();
   status("Зохиомол тэмдэглэл оруулах эсвэл жишээг нээнэ үү.");
 } catch {
   status("Тохиргоо ачаалсангүй. Програмыг дахин ажиллуулна уу.", "error");
-  for (const id of ["example", "reset", "note"]) $(id).disabled = true;
+  for (const id of ["example", "new-referral", "reset", "note"])
+    $(id).disabled = true;
 }

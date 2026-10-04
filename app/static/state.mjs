@@ -15,12 +15,16 @@ export function initialFields(config) {
         status: f.manual ? "manual_pending" : "pending",
         evidence: [],
         original: "",
+        evidenceCurrent: true,
+        suggestion: null,
+        needsReconciliation: false,
       },
     ]),
   );
 }
 export function createState(config) {
   return {
+    caseId: 0,
     revision: 0,
     request: 0,
     approved: false,
@@ -39,17 +43,14 @@ export function sourceChanged(state, note, config) {
   state.units = [];
   for (const f of config.fields) {
     const old = state.fields[f.id];
-    state.fields[f.id] = {
-      text: old.status === "manual" ? old.text : "",
-      status:
-        old.status === "manual"
-          ? "manual"
-          : f.manual
-            ? "manual_pending"
-            : "pending",
-      evidence: [],
-      original: "",
-    };
+    if (old.status === "manual") {
+      // A source edit stays in this case. Retain work, but require explicit review.
+      old.needsReconciliation = Boolean(old.text.trim());
+      old.evidenceCurrent = false;
+      old.suggestion = null;
+    } else {
+      state.fields[f.id] = initialFields(config)[f.id];
+    }
   }
 }
 export function editField(state, id, text) {
@@ -59,20 +60,38 @@ export function editField(state, id, text) {
 }
 export function beginRequest(state) {
   invalidate(state);
-  return { revision: state.revision, request: ++state.request };
+  return {
+    caseId: state.caseId,
+    revision: state.revision,
+    request: ++state.request,
+  };
 }
 export function isCurrent(state, ticket) {
-  return ticket.revision === state.revision && ticket.request === state.request;
+  return (
+    ticket.caseId === state.caseId &&
+    ticket.revision === state.revision &&
+    ticket.request === state.request
+  );
 }
 export function acceptResponse(state, ticket, result) {
   if (!isCurrent(state, ticket)) return false;
   state.units = result.units;
   for (const [id, value] of Object.entries(result.fields)) {
     if (state.fields[id].status !== "manual") {
-      state.fields[id] = { ...value, original: value.text };
+      state.fields[id] = {
+        ...value,
+        original: value.text,
+        evidenceCurrent: true,
+        suggestion: null,
+        needsReconciliation: false,
+      };
     } else {
-      state.fields[id].evidence = value.evidence;
-      state.fields[id].original = value.text;
+      // A fresh extraction is a separate proposal, never support for retained edits.
+      state.fields[id].suggestion = {
+        text: value.text,
+        evidence: value.evidence,
+        status: value.status,
+      };
     }
   }
   return true;
@@ -90,10 +109,59 @@ export function failResponse(state, ticket) {
   // Existing units still refer to the same source; keep edited fields' evidence clickable.
   return true;
 }
-export function resetState(state, config) {
+export function newReferral(state, config, note = "") {
   invalidate(state);
   state.request++;
-  state.note = "";
+  state.caseId++;
+  state.note = note;
   state.units = [];
   state.fields = initialFields(config);
+}
+
+export function resetState(state, config) {
+  newReferral(state, config);
+}
+export function hasReferralContent(state) {
+  return Boolean(
+    state.note ||
+      state.approved ||
+      state.units.length ||
+      Object.values(state.fields).some(
+        (f) => f.text || f.original || f.suggestion,
+      ),
+  );
+}
+export function replaceReferral(state, config, note, confirmReplacement) {
+  if (hasReferralContent(state) && !confirmReplacement()) return false;
+  newReferral(state, config, note);
+  return true;
+}
+export function reconcileField(state, id) {
+  if (!state.fields[id].needsReconciliation) return;
+  invalidate(state);
+  state.fields[id].needsReconciliation = false;
+}
+export function pendingReconciliations(state) {
+  return Object.entries(state.fields)
+    .filter(([, field]) => field.needsReconciliation)
+    .map(([id]) => id);
+}
+export function canApprove(
+  state,
+  { busy = false, reviewed = false, acknowledged = false } = {},
+) {
+  return (
+    !busy &&
+    reviewed &&
+    acknowledged &&
+    pendingReconciliations(state).length === 0 &&
+    Object.values(state.fields).some((f) => f.text.trim()) &&
+    !Object.values(state.fields).some((f) => Array.from(f.text).length > 6000)
+  );
+}
+export function printAttribution(field) {
+  if (field.status === "manual") {
+    return "Эмч оруулсан / зассан — энэ агуулгыг эхээр баталгаажсан гэж үзэхгүй. Анхны ялгалт болон дахин ялгалтын санал нь засварын нотолгоо биш.";
+  }
+  return `${labels[field.status]}${field.evidence.length ? " | Эх: " + field.evidence.map((e) => e.id).join(", ") : ""}`;
 }

@@ -47,3 +47,13 @@ Public staging review excludes environments, credentials, weights, private notes
 - Clinician validation, held-out quality evaluation, adversarial prompt robustness, general contradiction detection (not implemented).
 - Hosted multi-user deployment, shared/distributed queue, authentication/access control, HTTPS and operational retention review.
 - MLX model loading, training, merging, GGUF conversion or Ollama import of a tuned model.
+
+
+## Follow-up UI/state correction verification
+
+Continued from `f2c4365c6e8e06c194c8277bf3266579950af69a`. Prompts, model settings, schemas, fixtures and all evaluation artifacts remain unchanged. No real inference, tuning or model comparison was run for this patch.
+
+- **35 Python tests / 13 Node tests passed.** New regressions cover full new-case/example replacement, canceled replacement, repeated source edits retaining manual values, per-field reconciliation gates, stale previous-case success/failure rejection, original-versus-proposal evidence separation, and print attribution without source support for manual edits. API tests cover default local, explicit local/hosted, and rejection of invalid deployment modes.
+- Chrome checks used a loopback-only temporary app with **mock inference**, configured as hosted solely to test disclosure. Observed server-processing notice, retained manual values with approval blocked, individual reconciliation controls, original historical evidence distinct from re-extraction proposals, and manual print attribution without source IDs.
+- Confirmed example replacement cleared patient/admin/manual content, original evidence, approval and generated print content, while loading the fictional example into a fresh referral. No hosting was deployed.
+- The original milestone's real inference and print-preview observations above are historical results, not rerun claims for this UI/state patch.

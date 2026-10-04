@@ -33,7 +33,9 @@
           <div class="model">
             <span class="dot"></span
             ><span id="model">Тохиргоо ачаалж байна…</span
-            ><small>Дотоод төхөөрөмж дээр</small>
+            ><small id="deployment-location"
+              >Боловсруулах байршлыг шалгаж байна…</small
+            >
           </div>
         </div>
         <aside class="notice">
@@ -41,12 +43,18 @@
           эсэх, яаралтай байдлын зөвлөмж гаргахгүй. Энэ нь үндэсний батлагдсан
           маягт биш. Бодит өвчтөний мэдээлэл бүү оруул.
         </aside>
+        <p id="deployment-notice" class="notice" role="status"></p>
         <div class="columns">
           <section class="panel source-panel">
             <div class="panel-title">
               <h2><span>01</span> Эх тэмдэглэл</h2>
               <button id="example" class="quiet">Зохиомол жишээ</button>
             </div>
+            <p class="hint">
+              Энд засах нь одоогийн тохиолдлыг шинэчилнэ. Өөр өвчтөн /
+              тохиолдолд «Шинэ илгээх бичиг» ашиглана.
+            </p>
+            <button id="new-referral" class="quiet">Шинэ илгээх бичиг</button>
             <label for="note">Эмнэлзүйн тэмдэглэлээ оруулах</label
             ><textarea
               id="note"
