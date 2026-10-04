@@ -91,3 +91,7 @@ Application code: [MIT](LICENSE). Model weights remain under their own licenses;
 - [Ollama structured outputs](https://docs.ollama.com/capabilities/structured-outputs).
 - [Ollama Qwen3:1.7b artifact](https://ollama.com/library/qwen3:1.7b).
 - [Ollama FAQ](https://docs.ollama.com/faq): localhost binding, model residency and cloud configuration.
+
+## Submission readiness
+
+See [readiness handoff](readiness/READINESS.md) for the cold offline test, hosting budget and prepared HTTPS packaging, sourced deadline, and team capture checklist. Offline and hosted success remain pending actual execution/user observations; no training or clinical-quality claim is implied.

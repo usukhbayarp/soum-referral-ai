@@ -1,0 +1,14 @@
+[
+  {
+    "case_id": "offline-dev-20261004-01",
+    "underlying_case_id": "offline-fictional-20261004-01",
+    "source_note": "Зөвхөн офлайн туршилтад зориулсан зохиомол тэмдэглэл.\n47 настай хүн дөрвөн хоногийн өмнөөс баруун мөр өвдсөн гэж өгүүлэв. Гэмтэл аваагүй. Халуураагүй.\nҮзлэгт: биеийн халуун 36.6 °C, судасны цохилт 76/мин, артерийн даралт 118/74 мм.муб. Баруун мөрөө өргөхөд өвдөлттэй.\nШинжилгээ хийгдээгүй. Эцсийн онош бичигдээгүй.\nӨчигдөр парацетамол 500 мг нэг удаа уусан гэж тэмдэглэв. Эмийн харшлыг тодруулаагүй.\nМөрний өвдөлтийн шалтгааныг тодруулах зорилгоор аймгийн эмнэлгийн дотрын эмчийн үзлэгт илгээх хүсэлт бичив.",
+    "expected_assignments": null,
+    "schema_version": "provisional-0.1",
+    "segmentation_version": "sentence-lines-1",
+    "split": "development",
+    "synthetic_origin": "New fictional offline-readiness fixture authored 2026-10-04; not run through inference during preparation; no real patient",
+    "clinician_review_status": "unreviewed",
+    "scenario": "Cold offline loading and human review/print mechanics only; not clinical evaluation or held-out test"
+  }
+]

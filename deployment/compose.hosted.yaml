@@ -1,0 +1,32 @@
+# Prepared for a single approved Linux VM. Does not provision infrastructure.
+services:
+  ollama:
+    ports:
+      - "80:80"
+      - "443:443"
+    mem_limit: 6g
+    cpus: 3.5
+  web:
+    environment:
+      DEPLOYMENT_MODE: hosted
+      APP_ALLOWED_HOSTS: "127.0.0.1,localhost,${DEMO_HOST:?Set the exact public DNS hostname}"
+    mem_limit: 512m
+    cpus: 0.5
+  proxy:
+    image: caddy:2.10.2@sha256:c3d7ee5d2b11f9dc54f947f68a734c84e9c9666c92c88a7f30b9cba5da182adb
+    network_mode: service:ollama
+    depends_on:
+      web:
+        condition: service_healthy
+    environment:
+      DEMO_HOST: ${DEMO_HOST:?Set the exact public DNS hostname}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    mem_limit: 128m
+    logging:
+      driver: none
+volumes:
+  caddy_data:
+  caddy_config:
