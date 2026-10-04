@@ -2,7 +2,7 @@
 
 A local Mongolian referral-documentation prototype for the World Bank Small AI for Development hackathon.
 
-**Fictional data only. The schema is provisional, not an approved Mongolian national referral form.** No diagnoses, treatment recommendations, referral eligibility decisions, or urgency assessments are generated. The model proposes source-unit classifications; the doctor must correct them before export. Incorrect classifications and omissions have been observed. This is not clinically validated.
+**Fictional data only. The clinician-designed v0.6 schema is experimental, not an approved Mongolian national referral form or a replacement for 13А.** No diagnoses, treatment recommendations, referral eligibility decisions, or urgency assessments are generated. The model proposes source-unit classifications; the doctor must correct them before export. Incorrect classifications and omissions have been observed. This is not clinically validated.
 
 ## Run locally
 
@@ -19,16 +19,16 @@ ollama pull qwen3:1.7b
 
 Open **http://127.0.0.1:8000**. On Windows use `.venv\Scripts\python.exe` in place of `.venv/bin/python`. Windows/Linux execution and performance have not been verified. Lock file includes development/test packages; `requirements.txt` has the four pinned direct runtime dependencies.
 
-Use “Зохиомол жишээ” to load a fictional, **unreviewed** example. Extract, inspect the original alongside fields, click evidence IDs, correct fields, acknowledge unresolved information, approve, then print/save PDF. Missing facts may stay missing. Each edit revokes approval. **New referral / Шинэ илгээх бичиг** starts another case and clears source, administrative details, manual edits, evidence, approval and print content. Loading the fictional example also starts a fresh referral; existing content requires replacement confirmation. Cancel keeps the current draft intact. Reset uses the same full-clear action; previously exported files remain separately. No secure erasure claim is made for browser/OS memory or swap.
+Use “DEV-002 зохиомол жишээ” to load a fictional, **unreviewed** example. Extract, inspect the original alongside fields, click evidence IDs, correct fields, acknowledge unresolved information, approve, then print/save PDF. Missing facts may stay missing. Each edit revokes approval. **New referral / Шинэ илгээх бичиг** starts another case and clears source, administrative details, manual edits, evidence, approval and print content. Loading the fictional example also starts a fresh referral; existing content requires replacement confirmation. Cancel keeps the current draft intact. Reset uses the same full-clear action; previously exported files remain separately. No secure erasure claim is made for browser/OS memory or swap.
 
 ## Architecture and extraction contract
 
 `Browser → FastAPI → replaceable OllamaAdapter → loopback Ollama → source IDs → strict validation → source text → doctor review`.
 
 - The browser holds its own draft in memory; the backend has no shared patient state, accounts or database. Shared state is only a concurrency gate and immutable configuration.
-- `config/referral.v0.1.json`: versioned, replaceable field definitions and **provisional workflow** required flags. Empty required fields are allowed after explicit acknowledgement; these rules have no clinical authority.
-- `config/extraction.source-id-2.txt`: active bilingual prompt. Version 1 remains for baseline provenance.
-- `config/output.source-id-1.json`: common output JSON schema. Inference restricts integer IDs to each request's units; validation rejects wrong types, unknown/duplicate IDs, extra/missing/duplicate fields, malformed or incomplete output. A failure is never silently converted into an empty assignment.
+- `config/referral.v0.6.json`: active six-section clinician-designed form and manual subfields; clinician completeness rules live in `app/static/completeness.mjs`. Empty required fields are allowed after explicit acknowledgement; these rules have no clinical authority.
+- `config/extraction.source-id-v06-1.txt`: active source-selection prompt. The v0.6 variant 2 returned incomplete output under the unchanged limits and is retained only as an experiment. Old prompts and v0.1 schemas remain historical.
+- `config/output.source-id-v06-1.json`: active output JSON schema. Inference restricts integer IDs to each request's units; validation rejects wrong types, unknown/duplicate IDs, extra/missing/duplicate fields, malformed or incomplete output. A failure is never silently converted into an empty assignment.
 - `app/core.py`: `sentence-lines-1` segmentation. Split on newlines or `. ! ?` followed by whitespace/end; trim boundary whitespace, keep original Unicode code-point offsets and exact text. Decimal points remain intact. This is deterministic, **not a clinical sentence parser**. Abbreviations can split unexpectedly. The browser handles offsets using Unicode code points too.
 - A valid ID proves only that text exists. It does **not** establish correct categorization, completeness, truth, or absence of contradictions. No confidence percentages or general contradiction detector exist. Multiple excerpts are retained in source order, including incompatible statements when selected; the original note always remains available.
 - UI statuses distinguish extracted/awaiting review, model did not find/review source, failed extraction/evidence, and doctor-entered/edited. Explicit negatives/unknown/not assessed remain verbatim when selected. Administrative fields are manual only.
@@ -65,13 +65,13 @@ The cached `qwen3:4b` is actually **Qwen3-4B-Thinking-2507** per local GGUF meta
 
 ```sh
 .venv/bin/python -m pytest -q
-node --test tests/state.test.mjs
+node --test tests/*.test.mjs
 .venv/bin/python -m scripts.compare
 .venv/bin/python -m scripts.compare --models qwen3:1.7b soum-tuned:latest
 .venv/bin/python -m scripts.dataset evaluation/fixtures/development.json
 ```
 
-Set `EXTRACTION_PROMPT_VERSION=source-id-1` to reproduce the first prompt baseline, or leave its default `source-id-2` for the current contract.
+The active defaults are `REFERRAL_SCHEMA_VERSION=experimental-0.6` and `EXTRACTION_PROMPT_VERSION=source-id-v06-1`. For historical CLI reproduction only, explicitly set `REFERRAL_SCHEMA_VERSION=provisional-0.1 EXTRACTION_PROMPT_VERSION=source-id-1` (or `source-id-2`). Do not serve the v0.6 UI with the historical schema; use its historical Git commit for full application rollback. Version-mismatched fixtures are rejected, not relabeled.
 
 Run comparisons while interactive extraction is idle: they are sequential within the runner but do not share the web process's queue. Each model is unloaded before advancing. Results are timestamped and preserved, including failures and abstentions. The runner intentionally uses fixed development cases, never held-out tests.
 
@@ -95,3 +95,7 @@ Application code: [MIT](LICENSE). Model weights remain under their own licenses;
 ## Submission readiness
 
 See [readiness handoff](readiness/READINESS.md) for the cold offline test, hosting budget and prepared HTTPS packaging, sourced deadline, and team capture checklist. Offline and hosted success remain pending actual execution/user observations; no training or clinical-quality claim is implied.
+
+## Clinician template v0.6
+
+[Implementation, exact automatic/manual field policy, real DEV-002 failures and verification](docs/v06.md). DEV-002 has 1,620 source characters preserved verbatim; its original v0.5 reference stays separate. **18 of 19 source selections differed from provisional labels in the first real run; an alternative prompt failed structurally. No clinical quality claim.** Detailed observations, referral type and treatment rows are manual with separate source suggestions. All labels remain unreviewed; no training export or held-out evaluation used DEV-002.

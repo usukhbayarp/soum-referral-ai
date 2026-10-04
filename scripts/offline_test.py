@@ -15,7 +15,7 @@ from app.core import ROOT, prepare
 from scripts.dataset import validate_cases
 
 FIXTURE = ROOT / "readiness/fixtures/offline-new.json"
-DEFAULT_RUN = ROOT / ".runtime/offline-readiness"
+DEFAULT_RUN = ROOT / ".runtime/offline-readiness-v06"
 MANUAL_STEPS = {
     "connections_disconnected": "Wi-Fi, Ethernet, phone tethering and every other internet connection were manually disconnected throughout the test",
     "ollama_restarted": "Quit and reopened Ollama while disconnected, after checking no other application needed it",
@@ -109,6 +109,15 @@ def snapshot():
         "ollama_pid": listener(11434),
         "resident_models": [m["name"] for m in resident.json()["models"]],
         "deployment_mode": config.json()["deployment_mode"],
+        "contract": {
+            key: config.json().get(key)
+            for key in (
+                "version",
+                "prompt_version",
+                "output_schema_version",
+                "segmentation_version",
+            )
+        },
         "inference_timeout": config.json().get("inference_timeout", 120),
         "device": {
             "macos": platform.mac_ver()[0],
@@ -186,6 +195,8 @@ def start_app(directory):
         "OLLAMA_BASE_URL": "http://127.0.0.1:11434",
         "APP_ALLOWED_HOSTS": "127.0.0.1,localhost,[::1]",
         "INFERENCE_TIMEOUT": str(before["inference_timeout"]),
+        "REFERRAL_SCHEMA_VERSION": before["contract"]["version"],
+        "EXTRACTION_PROMPT_VERSION": before["contract"]["prompt_version"],
     }
     process = subprocess.Popen(
         [
@@ -221,6 +232,10 @@ def check_cold(before, now):
     for key in ("commit", "model", "model_digest", "runtime", "inference_timeout"):
         if before[key] != now[key]:
             raise ValueError(f"{key} changed; prepare a new attempt")
+    if before.get("contract") != now.get("contract"):
+        raise ValueError(
+            "Extraction contract changed; preserve this bundle and prepare a new attempt"
+        )
     if now["working_tree_dirty"]:
         raise ValueError(
             "Commit/stash only your intended changes before the recorded run"

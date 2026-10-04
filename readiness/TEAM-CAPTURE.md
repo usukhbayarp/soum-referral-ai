@@ -2,7 +2,7 @@
 
 Use the two actual team members. Replace [Engineer name], [Doctor name], [Team name] and optional on-screen [Affiliation] with verified information. Do not invent employers, credentials, clinical validation, training results, deployment success or accuracy claims. Affiliations can be omitted if not confirmed.
 
-## Spoken script — 114 words before replacing placeholders
+## Spoken script — 115 words before replacing placeholders
 
 **AI engineer:** “Hi, I’m [Engineer name], the AI engineer on [Team name]. I build the local extraction software and the interface doctors use to review a referral.”
 
@@ -10,7 +10,7 @@ Use the two actual team members. Replace [Engineer name], [Doctor name], [Team n
 
 **AI engineer:** “Referral preparation can leave important details scattered across notes. We’re building an offline Mongolian referral-preparation assistant. It organizes documented facts from an existing note, shows the source text, and flags missing information.”
 
-**Internal medicine doctor:** “The doctor stays in control: editing, checking, and approving before export. Our clinical schema and reviewed examples are still being finalized. This prototype supports documentation; it does not make diagnoses or treatment decisions.”
+**Internal medicine doctor:** “The doctor stays in control: editing, checking, and approving before export. The clinician-designed template is experimental, and the examples still await review. This prototype supports documentation; it does not make diagnoses or treatment decisions.”
 
 Aim for 45–55 seconds, approximately 125–150 words/minute. Time the actual take: names, pauses and title cards change duration. Keep the final export under 60 seconds, including titles. Both people speak naturally; no background music needed. This script describes roles and intended behavior, not proven clinical performance.
 
@@ -21,3 +21,5 @@ Aim for 45–55 seconds, approximately 125–150 words/minute. Time the actual t
 - Take a separate **real landscape photo with both members**, clear faces, similar lighting/background. No patient charts, screens with records, badges with sensitive details or other personal information in the background. Do not generate or retouch an AI team photo.
 - Keep original photo/video plus final export in ignored `private/team-media/` or another private local folder. Never add personal media, emails or account details to Git. Verify both members consent to the intended submission/public use.
 - Check final video duration, intelligibility, captions and public-link access if uploaded later. Submission/upload is a separate user action; none performed here.
+
+Organizer clarification relayed by the user: Team Intro, Demo, and Teach are separate videos, each at most 60 seconds. No additional 2–5-minute or 3–5-minute video is required.

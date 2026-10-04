@@ -3,7 +3,7 @@
 import argparse
 import json
 from pathlib import Path
-from app.core import ROOT, SYSTEM, Assignment, prepare
+from app.core import ROOT, SYSTEM, Assignment, prepare, SCHEMA, PROMPT_VERSION
 from scripts.training_prepare import sha256
 from scripts.training_tokens import checked_tokens, completion_loss, TEMPLATE_POLICY
 
@@ -19,6 +19,13 @@ def audit(tokenizer_path, output):
     baseline_path = ROOT / "evaluation/results/comparison-20261004T052629Z.json"
     fixtures = json.loads(fixture_path.read_text())
     baseline = json.loads(baseline_path.read_text())
+    if (
+        baseline["schema_version"] != SCHEMA["version"]
+        or baseline["prompt_version"] != PROMPT_VERSION
+    ):
+        raise ValueError(
+            "Historical audit requires REFERRAL_SCHEMA_VERSION=provisional-0.1 and EXTRACTION_PROMPT_VERSION=source-id-2; use dev002_tokens for v0.6"
+        )
     model = next(m for m in baseline["models"] if m["identifier"] == "qwen3:1.7b")
     rows = []
     for case, result in zip(fixtures, model["cases"], strict=True):

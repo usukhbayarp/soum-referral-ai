@@ -1,0 +1,288 @@
+{
+  "status": "provisional/unreviewed",
+  "segmentation_version": "sentence-lines-1",
+  "original_to_internal": {
+    "S01": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "S02": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "S03": [
+      10,
+      11,
+      12,
+      13
+    ],
+    "S04": [
+      14,
+      15,
+      16,
+      17,
+      18
+    ],
+    "S05": [
+      19,
+      20
+    ],
+    "S06": [
+      21,
+      22,
+      23
+    ],
+    "S07": [
+      24,
+      25
+    ],
+    "S08": [
+      26,
+      27
+    ],
+    "S09": [
+      28,
+      29
+    ],
+    "S10": [
+      30,
+      31
+    ],
+    "S11": [
+      32,
+      33
+    ]
+  },
+  "units": [
+    {
+      "id": 1,
+      "start": 0,
+      "end": 24,
+      "text": "[S01] 2026.10.04, 11:15."
+    },
+    {
+      "id": 2,
+      "start": 25,
+      "end": 41,
+      "text": "Жишээ сумын ЭМТ."
+    },
+    {
+      "id": 3,
+      "start": 42,
+      "end": 54,
+      "text": "Демо эмч 02."
+    },
+    {
+      "id": 4,
+      "start": 55,
+      "end": 82,
+      "text": "DEV-002, 46 настай эмэгтэй."
+    },
+    {
+      "id": 5,
+      "start": 83,
+      "end": 105,
+      "text": "Өнөөдөр 10:00-д ирсэн."
+    },
+    {
+      "id": 6,
+      "start": 106,
+      "end": 171,
+      "text": "[S02] 6 долоо хоног хоёр бугуй, гарын хурууны үеэр өвдөж хавдана."
+    },
+    {
+      "id": 7,
+      "start": 172,
+      "end": 204,
+      "text": "Өглөөгүүр 30 орчим минут хөшинө."
+    },
+    {
+      "id": 8,
+      "start": 205,
+      "end": 220,
+      "text": "Гэмтэл аваагүй."
+    },
+    {
+      "id": 9,
+      "start": 221,
+      "end": 241,
+      "text": "Халуурахыг үгүйсгэв."
+    },
+    {
+      "id": 10,
+      "start": 242,
+      "end": 261,
+      "text": "[S03] АД ихсэлттэй."
+    },
+    {
+      "id": 11,
+      "start": 262,
+      "end": 302,
+      "text": "Амлодипин 5 мг өдөрт 1 удаа уудаг гэсэн."
+    },
+    {
+      "id": 12,
+      "start": 303,
+      "end": 345,
+      "text": "Өнөөдрийн тунгаа уусан эсэхийг асуугаагүй."
+    },
+    {
+      "id": 13,
+      "start": 346,
+      "end": 372,
+      "text": "Эмийн харшилгүй гэж хэлэв."
+    },
+    {
+      "id": 14,
+      "start": 373,
+      "end": 421,
+      "text": "[S04] 10:05-д ерөнхий байдал дунд, ухаан саруул."
+    },
+    {
+      "id": 15,
+      "start": 422,
+      "end": 498,
+      "text": "АД 134/82 мм.муб, ЗЦ 82/мин, АТ 16/мин, SpO₂ 98% дэмжлэггүй, халуун 36.7 °C."
+    },
+    {
+      "id": 16,
+      "start": 499,
+      "end": 560,
+      "text": "Хоёр бугуй, хоёр гарын II–III MCP үе хавдаж, тэмтрэхэд эмзэг."
+    },
+    {
+      "id": 17,
+      "start": 561,
+      "end": 606,
+      "text": "Үе тус бүрийн хөдөлгөөний далайцыг үнэлээгүй."
+    },
+    {
+      "id": 18,
+      "start": 607,
+      "end": 630,
+      "text": "Өвдөлт 6/10 гэж хэлсэн."
+    },
+    {
+      "id": 19,
+      "start": 631,
+      "end": 720,
+      "text": "[S05] 2026.10.03-ны шинжилгээ: Hb 127 г/л, WBC 6.8 × 10⁹/л, PLT 310 × 10⁹/л, CRP 14 мг/л."
+    },
+    {
+      "id": 20,
+      "start": 721,
+      "end": 744,
+      "text": "RF, anti-CCP хийгээгүй."
+    },
+    {
+      "id": 21,
+      "start": 745,
+      "end": 799,
+      "text": "[S06] 10:15-д парацетамол 500 мг амаар нэг удаа өгсөн."
+    },
+    {
+      "id": 22,
+      "start": 800,
+      "end": 837,
+      "text": "11:00-д өвдөлт 4/10 болсон гэж хэлэв."
+    },
+    {
+      "id": 23,
+      "start": 838,
+      "end": 874,
+      "text": "Энэ үзлэгээр өөр эмчилгээ хийгээгүй."
+    },
+    {
+      "id": 24,
+      "start": 875,
+      "end": 923,
+      "text": "[S07] 11:00-д ерөнхий байдал дунд, ухаан саруул."
+    },
+    {
+      "id": 25,
+      "start": 924,
+      "end": 1000,
+      "text": "АД 128/80 мм.муб, ЗЦ 78/мин, АТ 16/мин, SpO₂ 98% дэмжлэггүй, халуун 36.6 °C."
+    },
+    {
+      "id": 26,
+      "start": 1001,
+      "end": 1062,
+      "text": "[S08] Үнэлгээ: олон үений өвдөлт, хавдар, шалтгаан тодруулах."
+    },
+    {
+      "id": 27,
+      "start": 1063,
+      "end": 1102,
+      "text": "Хавсарсан онош: артерийн даралт ихсэлт."
+    },
+    {
+      "id": 28,
+      "start": 1103,
+      "end": 1168,
+      "text": "[S09] Манай суманд ревматологийн эмч, anti-CCP шинжилгээ байхгүй."
+    },
+    {
+      "id": 29,
+      "start": 1169,
+      "end": 1312,
+      "text": "6 долоо хоног үргэлжилсэн олон үений өвдөлт, хавдрын шалтгаан тодруулахаар Жишээ аймгийн НЭ-ийн дотрын амбулаторид төлөвлөгөөт журмаар илгээнэ."
+    },
+    {
+      "id": 30,
+      "start": 1313,
+      "end": 1464,
+      "text": "[S10] Хүлээн авах эмчээс үрэвсэлт үений өвчин байж болзошгүй эсэхийг үнэлж, шаардлагатай шинжилгээ болон цаашдын эмчилгээний төлөвлөгөө гаргахыг хүсэв."
+    },
+    {
+      "id": 31,
+      "start": 1465,
+      "end": 1530,
+      "text": "Аймгийн дотрын эмчийн үнэлгээний дараа сумын эмчид эргэн үзүүлнэ."
+    },
+    {
+      "id": 32,
+      "start": 1531,
+      "end": 1578,
+      "text": "[S11] ЦДШ, CRP-ийн хариуны хуулбарыг хавсаргав."
+    },
+    {
+      "id": 33,
+      "start": 1579,
+      "end": 1620,
+      "text": "Хүлээгдэж буй шинжилгээний хариу байхгүй."
+    }
+  ],
+  "date_policy": "No automatic date normalization. S01 plus the relevant time unit is required for clinician-confirmed same-date association; otherwise preserve time-only text.",
+  "pain_change_sources": [
+    "S04",
+    "S06"
+  ],
+  "clinician_supplied_roles": {
+    "S01": "Patient ID, age/sex, sending facility/clinician, note date/time, arrival time.",
+    "S02": "Main complaint, duration, denied trauma and fever.",
+    "S03": "Medical history, regular amlodipine, today's dose not asked, patient-reported medication allergy absence.",
+    "S04": "Initial examination and observations, joint findings, range of motion not assessed, initial pain score.",
+    "S05": "Investigation results/date/units and tests not performed.",
+    "S06": "Administered paracetamol, dose/route/time, later pain report, no other treatment this visit.",
+    "S07": "Current observations and condition.",
+    "S08": "Documented assessment and comorbid diagnosis.",
+    "S09": "Referral reason, destination, planned referral decision.",
+    "S10": "Requested receiving-clinician action and documented follow-up plan.",
+    "S11": "Attached results and explicitly no pending results."
+  },
+  "clinician_reported_absent": [
+    "real patient identifier (demo ID satisfies demo identification)",
+    "clinician phone",
+    "diagnosis codes",
+    "transport instructions",
+    "prior receiving-clinician agreement"
+  ],
+  "later_clinician_added_clinical_facts": false,
+  "signature_and_approval": "unfilled; actual user review required"
+}

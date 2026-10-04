@@ -15,6 +15,7 @@ export function initialFields(config) {
         status: f.manual ? "manual_pending" : "pending",
         evidence: [],
         original: "",
+        meaning: "unreviewed",
         evidenceCurrent: true,
         suggestion: null,
         needsReconciliation: false,
@@ -45,7 +46,7 @@ export function sourceChanged(state, note, config) {
     const old = state.fields[f.id];
     if (old.status === "manual") {
       // A source edit stays in this case. Retain work, but require explicit review.
-      old.needsReconciliation = Boolean(old.text.trim());
+      old.needsReconciliation = Boolean(old.text.trim() || (old.meaning && old.meaning !== "unreviewed"));
       old.evidenceCurrent = false;
       old.suggestion = null;
     } else {
@@ -77,10 +78,12 @@ export function acceptResponse(state, ticket, result) {
   if (!isCurrent(state, ticket)) return false;
   state.units = result.units;
   for (const [id, value] of Object.entries(result.fields)) {
+    if (!state.fields[id]) continue;
     if (state.fields[id].status !== "manual") {
       state.fields[id] = {
         ...value,
         original: value.text,
+        meaning: "unreviewed",
         evidenceCurrent: true,
         suggestion: null,
         needsReconciliation: false,
@@ -127,7 +130,7 @@ export function hasReferralContent(state) {
       state.approved ||
       state.units.length ||
       Object.values(state.fields).some(
-        (f) => f.text || f.original || f.suggestion,
+        (f) => f.text || f.original || f.suggestion || (f.meaning && f.meaning !== "unreviewed"),
       ),
   );
 }
@@ -164,4 +167,9 @@ export function printAttribution(field) {
     return "Эмч оруулсан / зассан — энэ агуулгыг эхээр баталгаажсан гэж үзэхгүй. Анхны ялгалт болон дахин ялгалтын санал нь засварын нотолгоо биш.";
   }
   return `${labels[field.status]}${field.evidence.length ? " | Эх: " + field.evidence.map((e) => e.id).join(", ") : ""}`;
+}
+
+export function editMeaning(state, id, meaning) {
+  editField(state, id, state.fields[id].text);
+  state.fields[id].meaning = meaning;
 }

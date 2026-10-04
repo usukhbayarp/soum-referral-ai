@@ -1,0 +1,13 @@
+{
+  "status": "pass",
+  "pdf_pages": 7,
+  "pdf_sha256": "f1e2f04b5aa0581527c00e07b61908e3d0f13927fd6f6e2d411acd6465337710",
+  "checks": [
+    "identifier every page",
+    "all three treatment rows each fit on one page",
+    "long-text final line present",
+    "Mongolian Ө ө Ү ү extractable"
+  ],
+  "visual_inspection": "required separately; text extraction alone does not prove unclipped readable rendering",
+  "fixture": "fictional browser stress test using provisional labels; not clinical/model/offline validation"
+}

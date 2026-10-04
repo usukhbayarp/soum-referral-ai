@@ -4,7 +4,7 @@ Prerequisites: clinically reviewed train/development examples, a preserved held-
 
 ## Canonical dataset
 
-A JSON array of records:
+A JSON array of records. The snippet below is a **historical v0.1** example retained for compatibility; new v0.6 records must use `schema_version: experimental-0.6`, explicit `prompt_version: source-id-v06-1`, and all 19 keys from `config/output.source-id-v06-1.json`. See `evaluation/dev002-v06/cases.json` for the exact current shape (unreviewed development only).
 
 ```json
 {
@@ -26,7 +26,7 @@ A JSON array of records:
 
 This example is **not reviewed**. `expected_assignments` may be null for unreviewed fixtures; reviewed records require complete labels. Review status values: `unreviewed`, `reviewed`, `rejected`. `split`: `train`, `development`, `test`. Synthetic origin must describe provenance; human review must ensure it is genuinely fictional. Marking `reviewed` is a human attestation, not something the tool can verify.
 
-The only source segmentation is `app.core.segment`/`prepare`, shared by serving, comparison and export. Offsets are Python Unicode code points. Labels reference exact units; never relabel against a separately split note. Any source edit may change IDs and needs renewed review. Both source and versions are stored. Field assignment schema is the same `config/output.source-id-1.json` contract used for serving; no competing generated-referral training target exists.
+The only source segmentation is `app.core.segment`/`prepare`, shared by serving, comparison and export. Offsets are Python Unicode code points. Labels reference exact units; never relabel against a separately split note. Any source edit may change IDs and needs renewed review. Both source and versions are stored. Field assignment schema is the same version-selected contract used for serving (`output.source-id-v06-1.json` for v0.6, `output.source-id-1.json` for historical v0.1); no competing generated-referral training target exists.
 
 ```sh
 .venv/bin/python -m scripts.dataset private/all-splits.json
@@ -54,6 +54,12 @@ Every example checks that the full training tokens start with the exact inferenc
 Measured full prompt-plus-target lengths are **1,321, 1,420, 1,451, 1,563 and 1,572 tokens** (five fictional notes, baseline outputs as mechanical targets; not reviewed labels). A 512-token limit would truncate every one. `training_prepare` measures **every reviewed record**, rounds the largest full length up to 32, rejects a sequence beyond serving context, and records all lengths. The runner rechecks lengths and refuses truncation. Larger real reviewed examples may need more memory; these measurements are not a maximum-input guarantee.
 
 The installed [MLX loss](https://github.com/ml-explore/mlx-lm/blob/v0.30.7/mlx_lm/tuner/trainer.py) uses an inclusive end boundary that can include a padding target. `completion_loss` uses an exclusive end: prompt and padding are masked; JSON and EOS are trained. A numerical dummy-logit test verified exactly two real completion targets, with no optimizer or model update. Do **not** bypass this runner with a plain `mlx_lm lora --mask-prompt` command: it would omit our template and padding checks.
+
+## v0.6 compatibility
+
+No training or conversion was started for v0.6. DEV-002 and any reordered/abbreviated variant must keep underlying_case_id `DEV-002` and split `development`; all are unreviewed and ineligible for reviewed-only export. Its source mapping is provisional, not a clinical benchmark. The current tokenizer/masking check measured 2,624 prompt + 163 target = **2,787 tokens** under the unchanged 16,384 context; the rejected prompt variant measured 3,217. These are measurements for one development case, not universal limits. No truncation is permitted. The preparation command requires separate reviewed train/development sets plus a held-out set, all matching the active explicit contract. Export rejects mixed contracts; historical files/reports are not relabeled. `training_audit` is historical-only and now refuses mismatched active versions. Use `scripts.dev002_tokens` for v0.6 tokenization mechanics.
+
+The existing conversion preparation and untuned-control tag remain untouched. New training cannot be justified by this unreviewed example or the failed development extraction. Reviewed labels, baseline, held-out set and a tiny training-to-serving experiment are still prerequisites.
 
 ## Exact next command when reviewed data arrives
 

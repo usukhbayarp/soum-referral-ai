@@ -3,7 +3,11 @@ import json
 from pathlib import Path
 import pytest
 from scripts.dataset import validate_cases, export_cases
-from tests.test_core import empty
+from app.core import Contract
+
+
+def empty():
+    return {f["id"]: [] for f in Contract("provisional-0.1").fields}
 
 
 def record(case="a", underlying="a", split="train", review="reviewed"):

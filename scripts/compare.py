@@ -8,6 +8,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 import time
 import httpx
+from scripts.dataset import validate_cases
 from app.adapter import OllamaAdapter, OPTIONS
 from app.core import (
     ROOT,
@@ -19,10 +20,23 @@ from app.core import (
 )
 
 
-async def run(models, destination):
+async def run(models, destination, fixtures=None):
     probe = OllamaAdapter(model=models[0])
-    cases_path = ROOT / "evaluation/fixtures/development.json"
+    cases_path = fixtures or ROOT / (
+        "evaluation/dev002-v06/cases.json"
+        if SCHEMA["version"] == "experimental-0.6"
+        else "evaluation/fixtures/development.json"
+    )
     cases = json.loads(cases_path.read_text())
+    checked = validate_cases(cases)
+    if any(
+        c.schema_version != SCHEMA["version"]
+        or (c.prompt_version is not None and c.prompt_version != PROMPT_VERSION)
+        for c in checked
+    ):
+        raise ValueError(
+            "Fixture and runtime contract mismatch; choose explicit matching versions"
+        )
     report = {
         "created_utc": datetime.now(timezone.utc).isoformat(),
         "quality_status": "UNREVIEWED: mechanics only, no clinical accuracy score",
@@ -83,6 +97,22 @@ async def run(models, destination):
                         case["source_note"], capture=True
                     )
                     result["validation_error"] = None
+                    expected = case.get("expected_assignments")
+                    if expected is not None:
+                        actual = json.loads(result["output"]["raw_output"])
+                        result["provisional_assignment_differences"] = {
+                            k: {
+                                "expected": expected[k],
+                                "actual": actual[k],
+                                "missing": sorted(set(expected[k]) - set(actual[k])),
+                                "extra": sorted(set(actual[k]) - set(expected[k])),
+                            }
+                            for k in expected
+                            if set(expected[k]) != set(actual[k])
+                        }
+                        result["label_status"] = (
+                            "Provisional/unreviewed source assignment comparison, not clinical accuracy"
+                        )
                     result["abstentions"] = [
                         k
                         for k, v in result["output"]["fields"].items()
@@ -115,5 +145,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--models", nargs="+", default=["qwen3:1.7b", "qwen3:4b"])
     parser.add_argument("--output", type=Path, default=ROOT / "evaluation/results")
+    parser.add_argument("--fixtures", type=Path)
     args = parser.parse_args()
-    asyncio.run(run(args.models, args.output))
+    asyncio.run(run(args.models, args.output, args.fixtures))

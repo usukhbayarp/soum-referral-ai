@@ -1,0 +1,18 @@
+{
+  "schema_version": "experimental-0.6",
+  "prompt_version": "source-id-v06-2",
+  "case_id": "DEV-002",
+  "status": "unreviewed development mechanics; no training",
+  "source_chars": 1620,
+  "source_sha256": "8d0a57da7eae52892e4277d2647762ab3395e86fec19a4c42d0839262d29f129",
+  "prompt_tokens": 3054,
+  "target_tokens": 163,
+  "full_tokens": 3217,
+  "serving_context": 16384,
+  "serving_output_bound": 1600,
+  "non_thinking_and_completion_mask_verified": true,
+  "tokenizer_files": {
+    "tokenizer.json": "be75606093db2094d7cd20f3c2f385c212750648bd6ea4fb2bf507a6a4c55506",
+    "tokenizer_config.json": "5d1da8a22094af87a0eb4dc47f6ad0e9712f3ff4d179591de452ebd2acd88b96"
+  }
+}

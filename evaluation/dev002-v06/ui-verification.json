@@ -1,0 +1,30 @@
+{
+  "status": "pass",
+  "inference": "mocked provisional assignments for UI regressions only",
+  "checks": [
+    "six sections",
+    "exact source-only example",
+    "blank referral type/signature",
+    "manual-only vital subfields",
+    "distinct medications",
+    "evidence navigation",
+    "pending conditional warnings",
+    "honest manual attribution",
+    "acknowledged missing information approval",
+    "approval revoked after edit",
+    "source reconciliation blocks approval",
+    "example replacement clears case",
+    "long textarea expands",
+    "three editable treatment rows",
+    "multipage PDF generated for separate visual inspection",
+    "new-case reset",
+    "delayed example fetch cannot overwrite new case"
+  ],
+  "pdf": "v06-multipage.pdf",
+  "pdf_pages": 7,
+  "pdf_visual_review": "All seven rendered pages inspected; Mongolian text readable, no clipped content/orphaned headings observed; three treatment rows intact. Identifier repeats on every page.",
+  "print_engine": "Installed Chrome 154 on macOS; other browsers/printers untested",
+  "clinical_evaluation": false,
+  "offline_test": false,
+  "pdf_sha256": "f1e2f04b5aa0581527c00e07b61908e3d0f13927fd6f6e2d411acd6465337710"
+}

@@ -39,11 +39,11 @@ def test_negatives_numbers_temporal_exact_source():
     data = empty()
     data["history"] = [1]
     data["examination"] = [3, 2]
-    data["medication"] = [4]
+    data["treatment_source"] = [4]
     fields = resolve(json.dumps(data), units)
     assert fields["history"]["text"] == "Халуураагүй."
     assert fields["examination"]["text"] == "Өглөө 38.5 °C.\nОрой 36.8 °C."
-    assert fields["medication"]["text"] == "💊 500 мг уусан."
+    assert fields["treatment_source"]["text"] == "💊 500 мг уусан."
     assert fields["diagnosis"]["status"] == "not_found"
 
 

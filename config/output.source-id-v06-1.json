@@ -1,0 +1,141 @@
+{
+  "type": "object",
+  "properties": {
+    "identity_source": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "referral": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "requested_action": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "referral_type_source": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "history": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "medical_history": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "regular_medication": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "diagnosis": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "comorbid": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "allergies": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "initial_source": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "current_source": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "examination": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "investigations": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "attached": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "pending_results": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "treatment_source": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "pain_change": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "plan": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    }
+  },
+  "required": [
+    "identity_source",
+    "referral",
+    "requested_action",
+    "referral_type_source",
+    "history",
+    "medical_history",
+    "regular_medication",
+    "diagnosis",
+    "comorbid",
+    "allergies",
+    "initial_source",
+    "current_source",
+    "examination",
+    "investigations",
+    "attached",
+    "pending_results",
+    "treatment_source",
+    "pain_change",
+    "plan"
+  ],
+  "additionalProperties": false
+}

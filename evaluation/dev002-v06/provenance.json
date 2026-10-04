@@ -1,0 +1,14 @@
+{
+  "integrated_schema_version": "experimental-0.6",
+  "original_reference_version": "0.5",
+  "clinician_review_status": "unreviewed",
+  "reviewed": false,
+  "split": "development",
+  "underlying_case_id": "DEV-002",
+  "source_note_policy": "Exact S01\u2013S11 paragraph text joined with newline; no reference form or grading instructions included.",
+  "source_note_sha256": "99ef7a0ee70c2d3ffbe9aee5c4a46a0eb1eff0c13f1627ddc52e43da9eba3bf0",
+  "documents": {
+    "Referral_example_DEV002_MN.docx": "f00a1e6dbe790e60fbe77d4e533f7fc20cf64a474257f5d7e019c9eaa83ee519",
+    "Referral_template_MN (3).docx": "9403479caa1255b027df613cdb63d10dfa98abdc0ae70a579c9909108511ad1f"
+  }
+}

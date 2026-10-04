@@ -62,6 +62,14 @@ def check_versions(pins):
 def prepare_experiment(source, output, model):
     cases = validate_cases(json.loads(source.read_text()))
     require_splits(cases)
+    if any(
+        c.schema_version != SCHEMA["version"]
+        or (c.prompt_version or "source-id-2") != PROMPT_VERSION
+        for c in cases
+    ):
+        raise ValueError(
+            "All experiment cases must match the explicit active serving contract"
+        )
     pins = json.loads((ROOT / "training/pins.json").read_text())
     baseline = json.loads(
         (ROOT / "evaluation/results/comparison-20261004T052629Z.json").read_text()

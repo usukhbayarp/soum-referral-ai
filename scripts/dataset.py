@@ -5,14 +5,10 @@ import hashlib
 import json
 from pathlib import Path
 from typing import Literal
-from pydantic import BaseModel, ConfigDict, Field, ValidationError
+from pydantic import BaseModel, ConfigDict, Field, ValidationError, StrictInt
 from app.core import (
-    Assignment,
-    SCHEMA,
+    Contract,
     SEGMENTATION_VERSION,
-    PROMPT_VERSION,
-    OUTPUT_SCHEMA_VERSION,
-    SYSTEM,
     ExtractionError,
     prepare,
     resolve,
@@ -25,7 +21,8 @@ class Case(BaseModel):
     case_id: str = Field(min_length=1, max_length=128)
     underlying_case_id: str = Field(min_length=1, max_length=128)
     source_note: str = Field(min_length=1, max_length=3000)
-    expected_assignments: Assignment | None
+    expected_assignments: dict[str, list[StrictInt]] | None
+    prompt_version: str | None = None
     schema_version: str
     segmentation_version: str
     split: Literal["train", "development", "test"]
@@ -48,11 +45,17 @@ def validate_cases(records):
         if case.case_id in ids:
             raise ValueError("Duplicate case_id")
         ids.add(case.case_id)
-        if (
-            case.schema_version != SCHEMA["version"]
-            or case.segmentation_version != SEGMENTATION_VERSION
-        ):
+        if case.segmentation_version != SEGMENTATION_VERSION:
             raise ValueError("Schema or segmentation version mismatch")
+        contract = Contract(case.schema_version, case.prompt_version)
+        if case.schema_version == "experimental-0.6" and case.prompt_version is None:
+            raise ValueError("v0.6 requires explicit prompt_version")
+        if (
+            case.case_id.startswith("DEV-002") or "DEV-002" in case.source_note
+        ) and case.underlying_case_id != "DEV-002":
+            raise ValueError("DEV-002 variants must share underlying_case_id DEV-002")
+        if case.underlying_case_id == "DEV-002" and case.split != "development":
+            raise ValueError("DEV-002 family is development-only")
         prior = underlying.setdefault(case.underlying_case_id, case.split)
         if prior != case.split:
             raise ValueError("Underlying-case overlap across splits")
@@ -60,9 +63,9 @@ def validate_cases(records):
         if note_splits.setdefault(digest, case.split) != case.split:
             raise ValueError("Exact source-note overlap across splits")
         try:
-            units, _, _ = prepare(case.source_note)
+            units, _, _ = prepare(case.source_note, contract)
             if case.expected_assignments is not None:
-                resolve(case.expected_assignments.model_dump_json(), units)
+                resolve(json.dumps(case.expected_assignments), units, contract)
         except ExtractionError:
             raise ValueError(
                 "Source limits or expected evidence assignments invalid"
@@ -85,16 +88,20 @@ def export_cases(cases, destination):
     ]
     if not selected:
         raise ValueError("No reviewed train/development cases; nothing exported")
+    versions = {(c.schema_version, c.prompt_version) for c in selected}
+    if len(versions) != 1:
+        raise ValueError("Cannot mix extraction contracts in a training export")
+    contract = Contract(*next(iter(versions)))
     # Caller supplies all splits for leakage checking. Never reuse an old output directory.
     if destination.exists():
         raise ValueError("Output directory already exists; choose a new directory")
     destination.mkdir(parents=True)
     manifest = {
         "format": "mlx-lm-0.30.7-chat-jsonl",
-        "schema_version": SCHEMA["version"],
+        "schema_version": contract.schema["version"],
         "segmentation_version": SEGMENTATION_VERSION,
-        "prompt_version": PROMPT_VERSION,
-        "output_schema_version": OUTPUT_SCHEMA_VERSION,
+        "prompt_version": contract.prompt_version,
+        "output_schema_version": contract.output_version,
         "cases": [],
         "contract_sha256": {
             p.name: hashlib.sha256(p.read_bytes()).hexdigest()
@@ -106,13 +113,15 @@ def export_cases(cases, destination):
         for case in selected:
             if case.split != split:
                 continue
-            _, user, _ = prepare(case.source_note)
+            _, user, _ = prepare(case.source_note, contract)
             messages = [
-                {"role": "system", "content": SYSTEM},
+                {"role": "system", "content": contract.system},
                 {"role": "user", "content": user},
                 {
                     "role": "assistant",
-                    "content": case.expected_assignments.model_dump_json(),
+                    "content": json.dumps(
+                        case.expected_assignments, ensure_ascii=False
+                    ),
                 },
             ]
             lines.append(json.dumps({"messages": messages}, ensure_ascii=False))

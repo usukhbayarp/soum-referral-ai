@@ -34,3 +34,10 @@
 - [ ] Prepare fictional walkthrough video, architecture graphic and demo script.
 - [ ] Record comparison limitations and clinician contribution; avoid national-form or diagnostic claims.
 - [ ] Verify submission requirements and provide repository/demo links.
+
+## Clinician template v0.6 milestone
+- [x] Integrate six sections, manual detailed observations/treatment rows, source suggestions, explicit conditional completeness review and approval safeguards.
+- [x] Preserve exact DEV-002 source and S01–S11 mapping; retain original v0.5 reference separately, integrate under v0.6 as unreviewed development only.
+- [x] Run real default-model development extraction and preserve valid-but-wrong plus incomplete variant results; no quality pass claimed.
+- [x] Check multipage Mongolian print, long text and treatment rows with browser fixture regressions; not an offline test.
+- [ ] Clinician review of schema/labels, sending-clinic note availability/hardware, receiving-clinician template approval, held-out evaluation, actual disconnected offline test and hosting approval/deployment remain pending.

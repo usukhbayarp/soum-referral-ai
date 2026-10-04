@@ -8,3 +8,6 @@
 !deployment/Dockerfile
 **/__pycache__/
 **/*.pyc
+!evaluation/
+!evaluation/dev002-v06/
+!evaluation/dev002-v06/cases.json

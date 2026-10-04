@@ -367,9 +367,10 @@ pre {
 }
 @page {
   size: A4;
-  margin: 17mm;
+  margin: 25mm 17mm 20mm;
 }
 @media print {
+  :root { background: white; color: #111; }
   body {
     background: white;
     color: #111;
@@ -433,4 +434,29 @@ pre {
   font-size: 12px;
   white-space: pre-wrap;
   overflow-wrap: anywhere;
+}
+
+.form-section > h2 { margin-top: 30px; padding: 12px 0; border-bottom: 2px solid #216456; }
+select { width: 100%; padding: 9px; margin: 6px 0; border: 1px solid #aebdb5; background: white; color: #182820; border-radius: 4px; }
+.field textarea, .treatment-row textarea { overflow: hidden; min-height: 60px; resize: vertical; }
+.source-suggestion { margin: 8px 0; padding: 8px; border: 1px dashed #abbab0; white-space: pre-wrap; font-size: 12px; }
+.treatment-row { margin: 12px 0; border: 1px solid #abbab0; min-width: 0; }
+.treatment-row label { display: block; margin-top: 8px; }
+@media print {
+  .print-layout { width: 100%; border-collapse: collapse; table-layout: fixed; }
+  .print-layout > thead { display: table-header-group; }
+  .print-layout > thead th { text-align: left; padding-bottom: 7mm; font-size: 12pt; }
+  .print-layout > tbody > tr > td { padding: 0; vertical-align: top; }
+  #print-view .print-field { break-inside: auto; margin: 0 0 8px; }
+  #print-view h2, #print-view h3, #print-view h4 { break-after: avoid-page; }
+  #print-view h3 { font-size: 10pt; margin: 9px 0 3px; }
+  #print-view p { margin: 3px 0; orphans: 3; widows: 3; }
+  #print-view .print-treatment-row { break-inside: avoid-page; padding: 8px; margin: 8px 0; border: 1px solid #aaa; }
+  #print-view .print-original { font-size: 9pt; color: #444; }
+}
+
+@media print {
+  #print-view { page: referral; }
+  #print-view .print-repeat { font-weight: bold; font-size: 11pt; margin-bottom: 8mm; }
+  #print-view small { display: block; margin-top: 2px; }
 }

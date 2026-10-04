@@ -1,5 +1,6 @@
 import asyncio
 import os
+import json
 from contextlib import asynccontextmanager
 from pathlib import Path
 from fastapi import FastAPI, Request
@@ -9,7 +10,15 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, ConfigDict, Field
 from starlette.middleware.trustedhost import TrustedHostMiddleware
 from .adapter import OllamaAdapter
-from .core import ExtractionError, MAX_CHARS, SCHEMA
+from .core import (
+    ExtractionError,
+    MAX_CHARS,
+    SCHEMA,
+    ROOT,
+    PROMPT_VERSION,
+    OUTPUT_SCHEMA_VERSION,
+    SEGMENTATION_VERSION,
+)
 
 STATIC = Path(__file__).parent / "static"
 
@@ -154,6 +163,9 @@ def create_app(adapter=None, gate=None):
         return {
             **SCHEMA,
             "model": app.state.adapter.model,
+            "prompt_version": PROMPT_VERSION,
+            "output_schema_version": OUTPUT_SCHEMA_VERSION,
+            "segmentation_version": SEGMENTATION_VERSION,
             "max_chars": MAX_CHARS,
             "deployment_mode": deployment_mode,
             "inference_timeout": (
@@ -161,6 +173,20 @@ def create_app(adapter=None, gate=None):
                 if hasattr(app.state.adapter, "timeout")
                 else 120
             ),
+        }
+
+    @app.get("/api/example/dev002")
+    async def example():
+        case = json.loads((ROOT / "evaluation/dev002-v06/cases.json").read_text())[0]
+        return {
+            k: case[k]
+            for k in (
+                "case_id",
+                "source_note",
+                "schema_version",
+                "clinician_review_status",
+                "split",
+            )
         }
 
     @app.get("/api/health")

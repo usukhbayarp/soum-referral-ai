@@ -8,22 +8,62 @@ from pathlib import Path
 from pydantic import ConfigDict, StrictInt, create_model
 
 ROOT = Path(__file__).resolve().parents[1]
-SCHEMA = json.loads((ROOT / "config/referral.v0.1.json").read_text())
-PROMPT_VERSION = os.getenv("EXTRACTION_PROMPT_VERSION", "source-id-2")
-if PROMPT_VERSION not in ("source-id-1", "source-id-2"):
-    raise ValueError("Unknown versioned extraction prompt")
+
+
+class Contract:
+    """Explicit version selection shared by serving, validation, export and evaluation."""
+
+    def __init__(self, version, prompt_version=None):
+        if version not in ("provisional-0.1", "experimental-0.6"):
+            raise ValueError("Unknown schema version")
+        modern = version == "experimental-0.6"
+        allowed = (
+            ("source-id-v06-1", "source-id-v06-2")
+            if modern
+            else ("source-id-1", "source-id-2")
+        )
+        self.prompt_version = prompt_version or (allowed[0] if modern else allowed[-1])
+        if self.prompt_version not in allowed:
+            raise ValueError("Incompatible schema/prompt versions")
+        self.schema = json.loads(
+            (
+                ROOT
+                / (
+                    "config/referral.v0.6.json"
+                    if modern
+                    else "config/referral.v0.1.json"
+                )
+            ).read_text()
+        )
+        self.output_version = "source-id-v06-1" if modern else "source-id-1"
+        self.fields = tuple(f for f in self.schema["fields"] if not f["manual"])
+        self.assignment = create_model(
+            "Assignment",
+            __config__=ConfigDict(extra="forbid", strict=True),
+            **{f["id"]: (list[StrictInt], ...) for f in self.fields},
+        )
+        self.system = (
+            (ROOT / f"config/extraction.{self.prompt_version}.txt").read_text().strip()
+        )
+        self.output_schema = json.loads(
+            (ROOT / f"config/output.{self.output_version}.json").read_text()
+        )
+
+
+CONTRACT = Contract(
+    os.getenv("REFERRAL_SCHEMA_VERSION", "experimental-0.6"),
+    os.getenv("EXTRACTION_PROMPT_VERSION"),
+)
+SCHEMA = CONTRACT.schema
+PROMPT_VERSION = CONTRACT.prompt_version
+OUTPUT_SCHEMA_VERSION = CONTRACT.output_version
+FIELDS = CONTRACT.fields
+Assignment = CONTRACT.assignment
+SYSTEM = CONTRACT.system
+OUTPUT_SCHEMA = CONTRACT.output_schema
 MAX_CHARS = 3000
 MAX_UNITS = 80
-FIELDS = tuple(f for f in SCHEMA["fields"] if not f["manual"])
-Assignment = create_model(
-    "Assignment",
-    __config__=ConfigDict(extra="forbid", strict=True),
-    **{f["id"]: (list[StrictInt], ...) for f in FIELDS},
-)
 SEGMENTATION_VERSION = "sentence-lines-1"
-OUTPUT_SCHEMA_VERSION = "source-id-1"
-SYSTEM = (ROOT / f"config/extraction.{PROMPT_VERSION}.txt").read_text().strip()
-OUTPUT_SCHEMA = json.loads((ROOT / "config/output.source-id-1.json").read_text())
 
 
 class ExtractionError(Exception):
@@ -57,23 +97,27 @@ def _unit(note, start, end, units):
         )
 
 
-def prepare(note):
+def prepare(note, contract=CONTRACT):
     if not note.strip() or len(note) > MAX_CHARS:
         raise ExtractionError("input_limit", 413)
     units = segment(note)
     payload = {
         "headings": {
-            f["id"]: (f["label"] + ": " if PROMPT_VERSION == "source-id-2" else "")
+            f["id"]: (
+                f["label"] + ": "
+                if contract.prompt_version in ("source-id-2", "source-id-v06-2")
+                else ""
+            )
             + f["instruction"]
-            for f in FIELDS
+            for f in contract.fields
         },
         "source_units": units,
     }
     user = json.dumps(payload, ensure_ascii=False)
     # Conservative UTF-8 byte bound below context budget, including template overhead and output.
-    if len((SYSTEM + user).encode("utf-8")) > 12000:
+    if len((contract.system + user).encode("utf-8")) > 12000:
         raise ExtractionError("input_limit", 413)
-    schema = copy.deepcopy(OUTPUT_SCHEMA)
+    schema = copy.deepcopy(contract.output_schema)
     for prop in schema["properties"].values():
         prop["items"] = {"type": "integer", "enum": [u["id"] for u in units]}
         prop["maxItems"] = len(units)
@@ -81,7 +125,7 @@ def prepare(note):
     return units, user, schema
 
 
-def resolve(raw: str, units: list[dict]):
+def resolve(raw: str, units: list[dict], contract=CONTRACT):
     try:
         # Reject duplicate keys instead of silently taking the last value.
         def unique(pairs):
@@ -93,7 +137,7 @@ def resolve(raw: str, units: list[dict]):
             return out
 
         data = json.loads(raw, object_pairs_hook=unique)
-        assignments = Assignment.model_validate(data).model_dump()
+        assignments = contract.assignment.model_validate(data).model_dump()
         by_id = {u["id"]: u for u in units}
         result = {}
         for field, ids in assignments.items():
@@ -105,6 +149,20 @@ def resolve(raw: str, units: list[dict]):
                 "text": "\n".join(u["text"] for u in evidence),
                 "evidence": evidence,
             }
+        # Detect only structural reuse, not semantic truth. Keep all source text visible.
+        for left, right in (
+            ("initial_source", "current_source"),
+            ("regular_medication", "treatment_source"),
+        ):
+            if (
+                left in assignments
+                and right in assignments
+                and set(assignments[left]) & set(assignments[right])
+            ):
+                for name in (left, right):
+                    result[name]["review_flags"] = [
+                        "Эхийг хоёр өөр бүлэгт давхар сонгосон — хугацаа / эмийн хэрэглээг эмч ялгана. Утгыг автоматаар нэгтгээгүй."
+                    ]
         return result
     except (ValueError, TypeError):
         raise ExtractionError() from None
