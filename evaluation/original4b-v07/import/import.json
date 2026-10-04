@@ -1,0 +1,25 @@
+{
+  "tag": "soum-qwen3-4b-original:q4_k_m-bc640142",
+  "gguf_sha256": "7485fe6f11af29433bc51cab58009521f205840f5b4ae3a32fa7f92e8534fdf5",
+  "gguf_bytes": 2497280256,
+  "template_origin": "evaluation/results/comparison-20261004T052629Z.json",
+  "template_sha256": "ae370d884f108d16e7cc8fd5259ebc5773a0afa6e078b11f4ed7e39a27e0dfc4",
+  "existing_tags_before": {
+    "soum-qwen3-1.7b-untuned-control:mlx4-roundtrip-20261004": "e6a6e54bcc9d597d1700b25e24e5b769ca18333015079b50ead7ecaa269bfa75",
+    "qwen3:1.7b": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+    "llama3.1:8b": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+    "qwen3-vl:4b": "1343d82ebee38e26a4dd6b0180b915eb91550184e67c505dea97509571c8f683",
+    "qwen3:4b": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7"
+  },
+  "status": "imported",
+  "command": [
+    "ollama",
+    "create",
+    "soum-qwen3-4b-original:q4_k_m-bc640142",
+    "-f",
+    "evaluation/original4b-v07/import/Modelfile"
+  ],
+  "exit_code": 0,
+  "existing_tags_preserved": true,
+  "candidate_digest": "afefb6cebde01e54ec2207c28172a3abafea0dcaa990cf542c765d6ea6b4fe1d"
+}

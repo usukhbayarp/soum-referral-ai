@@ -1,0 +1,24 @@
+{
+  "url": "https://huggingface.co/Qwen/Qwen3-4B-GGUF/resolve/bc640142c66e1fdd12af0bd68f40445458f3869b/Qwen3-4B-Q4_K_M.gguf",
+  "sha256": "7485fe6f11af29433bc51cab58009521f205840f5b4ae3a32fa7f92e8534fdf5",
+  "bytes": 2497280256,
+  "verified": true,
+  "upstream_repository": "Qwen/Qwen3-4B",
+  "upstream_revision_inspected": "1cfa9a7208912126459214e8b04321603b3df60c",
+  "conversion_input_revision": null,
+  "artifact_repository": "Qwen/Qwen3-4B-GGUF",
+  "artifact_revision": "bc640142c66e1fdd12af0bd68f40445458f3869b",
+  "filename": "Qwen3-4B-Q4_K_M.gguf",
+  "license": "Apache-2.0",
+  "quantization": "Q4_K_M",
+  "tag": "soum-qwen3-4b-original:q4_k_m-bc640142",
+  "identity_evidence": [
+    "Official Qwen publisher card base_model Qwen/Qwen3-4B",
+    "Repository pinned commit May 21 2025 predates Thinking-2507",
+    "GGUF qwen3 architecture,36 layers,2560 embedding,40960 context; not VL"
+  ],
+  "limitations": [
+    "GGUF general.name is Qwen3 4B Instruct Awq and general.finetune Instruct-awq; publisher does not provide exact source-weight commit or conversion recipe. Original family is supported by official repo provenance, not the internal label alone. No claim of direct full-precision quantization or numerical parity.",
+    "Embedded Jinja differs from current upstream in message type/tool/reasoning handling. Imported serving Go template deliberately equals preserved 1.7B baseline; single-turn non-thinking alignment checked separately."
+  ]
+}

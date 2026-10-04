@@ -1,0 +1,58 @@
+{
+  "upstream_revision_inspected": "1cfa9a7208912126459214e8b04321603b3df60c",
+  "tokenizer_manifest": {
+    "rfilename": "tokenizer.json",
+    "blobId": "cd71f61a15a522601badb3dc960d800d9cb3766c",
+    "size": 11422654,
+    "lfs": {
+      "sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+      "size": 11422654,
+      "pointerSize": 133
+    }
+  },
+  "tokenizer_vocabulary_identical": true,
+  "chat_template_identical": true,
+  "upstream_config": {
+    "architectures": [
+      "Qwen3ForCausalLM"
+    ],
+    "attention_bias": false,
+    "attention_dropout": 0.0,
+    "bos_token_id": 151643,
+    "eos_token_id": 151645,
+    "head_dim": 128,
+    "hidden_act": "silu",
+    "hidden_size": 2560,
+    "initializer_range": 0.02,
+    "intermediate_size": 9728,
+    "max_position_embeddings": 40960,
+    "max_window_layers": 36,
+    "model_type": "qwen3",
+    "num_attention_heads": 32,
+    "num_hidden_layers": 36,
+    "num_key_value_heads": 8,
+    "rms_norm_eps": 1e-06,
+    "rope_scaling": null,
+    "rope_theta": 1000000,
+    "sliding_window": null,
+    "tie_word_embeddings": true,
+    "torch_dtype": "bfloat16",
+    "transformers_version": "4.51.0",
+    "use_cache": true,
+    "use_sliding_window": false,
+    "vocab_size": 151936
+  },
+  "note": "Publisher identifies base repository but does not pin source-weight commit. Current source metadata revision is not proof of conversion input revision.",
+  "tokenizer_bytes_sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+  "tokenizer_component_equality": {
+    "version": true,
+    "truncation": true,
+    "padding": true,
+    "added_tokens": true,
+    "normalizer": true,
+    "pre_tokenizer": false,
+    "post_processor": true,
+    "decoder": false,
+    "model": true
+  }
+}
