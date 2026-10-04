@@ -1,0 +1,10 @@
+{
+  "command": [
+    "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/preparation/llama.cpp/build/bin/llama-quantize",
+    "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/quality-medfacts-v1-step2/candidate-F16.gguf",
+    "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/quality-medfacts-v1-step2/candidate-Q4_K_M.gguf",
+    "Q4_K_M"
+  ],
+  "disk_free_before": 31130882048,
+  "start_unix": 1791110812.8731341
+}

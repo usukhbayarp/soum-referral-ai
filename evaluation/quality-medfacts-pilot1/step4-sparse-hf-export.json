@@ -1,0 +1,53 @@
+{
+  "status": "observed_success",
+  "clinical_candidate_eligible": false,
+  "required_free_bytes_estimate": 23231916672,
+  "free_bytes_before": 34112970752,
+  "free_bytes_after": 26056450048,
+  "elapsed_seconds": 21.533703583991155,
+  "tensor_count": 398,
+  "adapted_tensors": [
+    "model.layers.35.self_attn.q_proj.weight",
+    "model.layers.35.self_attn.v_proj.weight"
+  ],
+  "changed_tensors": [
+    "model.layers.35.self_attn.q_proj.weight",
+    "model.layers.35.self_attn.v_proj.weight"
+  ],
+  "all_unchanged_tensors_byte_identical": true,
+  "shapes_dtypes_headers_index_preserved": true,
+  "files": {
+    "tokenizer_config.json": {
+      "sha256": "5d1da8a22094af87a0eb4dc47f6ad0e9712f3ff4d179591de452ebd2acd88b96",
+      "bytes": 700
+    },
+    "model-00001-of-00002.safetensors": {
+      "sha256": "5c4936ab548c511785591d7a9e8819806e49a33f51f16f6108b3b4b31df1b1a3",
+      "bytes": 5321133607
+    },
+    "config.json": {
+      "sha256": "46e80bcebd93b692059c2e80548b114e10d1b8a001c92a412ecb8e6df1815a82",
+      "bytes": 833
+    },
+    "tokenizer.json": {
+      "sha256": "be75606093db2094d7cd20f3c2f385c212750648bd6ea4fb2bf507a6a4c55506",
+      "bytes": 11422650
+    },
+    "README.md": {
+      "sha256": "748c964f9b7e5f2c3770ce013bbc0153be7c54311d9692c343b6188eefe77ac6",
+      "bytes": 81
+    },
+    "chat_template.jinja": {
+      "sha256": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8",
+      "bytes": 4168
+    },
+    "model-00002-of-00002.safetensors": {
+      "sha256": "ce63dd2c85eb832e1510e916613be3dd1155d224e587e09ee68644c9dc79109f",
+      "bytes": 2723848286
+    },
+    "model.safetensors.index.json": {
+      "sha256": "5e699a61da09415f33a625885364d3889a80acb6ab88aedaf6e195b2612addf4",
+      "bytes": 34462
+    }
+  }
+}

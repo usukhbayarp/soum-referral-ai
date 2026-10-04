@@ -1,0 +1,27 @@
+{
+  "downstream_verified": {
+    "stage": "f16",
+    "tensor_count": 398,
+    "all_f16_values_match_hf": true,
+    "changed_tensors_vs_control": [],
+    "path": "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/quality-medfacts-v1-step4/candidate-F16.gguf",
+    "sha256": "4100ba518a3a7914330fd0e1dd785b12357a669441790952731e44982c31522f",
+    "bytes": 8051284832,
+    "clinical_quality_inferred": false
+  },
+  "deleted": [
+    {
+      "path": ".runtime/quality-medfacts-v1-step4/candidate-hf/model-00001-of-00002.safetensors",
+      "sha256": "5c4936ab548c511785591d7a9e8819806e49a33f51f16f6108b3b4b31df1b1a3",
+      "bytes": 5321133607
+    },
+    {
+      "path": ".runtime/quality-medfacts-v1-step4/candidate-hf/model-00002-of-00002.safetensors",
+      "sha256": "ce63dd2c85eb832e1510e916613be3dd1155d224e587e09ee68644c9dc79109f",
+      "bytes": 2723848286
+    }
+  ],
+  "disk_free_before": 17999945728,
+  "status": "completed",
+  "disk_free_after": 26044932096
+}

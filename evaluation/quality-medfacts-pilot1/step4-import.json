@@ -1,0 +1,29 @@
+{
+  "tag": "soum-qwen3-4b-medfacts:pilot1-step4",
+  "gguf_sha256": "60dd20aaeba455781ff060d2f5a97186733d610ee4368bf1c7a86ded68f79f5c",
+  "gguf_bytes": 2497280352,
+  "template_origin": "evaluation/results/comparison-20261004T052629Z.json",
+  "template_sha256": "ae370d884f108d16e7cc8fd5259ebc5773a0afa6e078b11f4ed7e39a27e0dfc4",
+  "existing_tags_before": {
+    "soum-qwen3-4b-medfacts:pilot1-step2": "76249ac3b5f580251328d34c8c1bb08ec285d203824ec8c6bb8a01ea8bdfb50f",
+    "soum-qwen3-4b-pipeline-test:step3-sparse-v08": "7eaab334438b28c63290c3e526d12aeacc937810a6504482cbfe40cb55405bbe",
+    "soum-qwen3-4b-control:mlx128-52a5ab34": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+    "soum-qwen3-4b-original:q4_k_m-bc640142": "afefb6cebde01e54ec2207c28172a3abafea0dcaa990cf542c765d6ea6b4fe1d",
+    "soum-qwen3-1.7b-untuned-control:mlx4-roundtrip-20261004": "e6a6e54bcc9d597d1700b25e24e5b769ca18333015079b50ead7ecaa269bfa75",
+    "qwen3:1.7b": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+    "llama3.1:8b": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+    "qwen3-vl:4b": "1343d82ebee38e26a4dd6b0180b915eb91550184e67c505dea97509571c8f683",
+    "qwen3:4b": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7"
+  },
+  "status": "imported",
+  "command": [
+    "ollama",
+    "create",
+    "soum-qwen3-4b-medfacts:pilot1-step4",
+    "-f",
+    "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/quality-medfacts-v1-step4-reports/import/Modelfile"
+  ],
+  "exit_code": 0,
+  "existing_tags_preserved": true,
+  "candidate_digest": "476c1eddc6d929c4adaec05dabd2f5c0462fb1f22e2d8fe269e92744b5766a02"
+}

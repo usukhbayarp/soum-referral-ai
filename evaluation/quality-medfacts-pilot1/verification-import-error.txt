@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/usukhbayar.purevdorj/Documents/hackathon/scripts/mlx_python.py", line 30, in <module>
+    main()
+    ~~~~^^
+  File "/Users/usukhbayar.purevdorj/Documents/hackathon/scripts/mlx_python.py", line 26, in main
+    runpy.run_module(sys.argv[0], run_name="__main__", alter_sys=True)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen runpy>", line 226, in run_module
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/usukhbayar.purevdorj/Documents/hackathon/scripts/verify_pilot_gguf.py", line 46, in <module>
+    p=argparse.ArgumentParser();p.add_argument('stage',choices=['f16','q4']);p.add_argument('--work',required=True,type=Path);p.add_argument('--report',required=True,type=Path);a=p.parse_args();verify(a.stage,a.work,a.report)
+                                                                                                                                                                                                  ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/usukhbayar.purevdorj/Documents/hackathon/scripts/verify_pilot_gguf.py", line 8, in verify
+    from gguf import GGUFReader,MODEL_ARCH,get_tensor_name_map
+ModuleNotFoundError: No module named 'gguf'

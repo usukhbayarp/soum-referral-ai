@@ -1,0 +1,105 @@
+{
+  "command": [
+    "/Users/usukhbayar.purevdorj/Documents/hackathon/.venv/bin/python",
+    "-m",
+    "scripts.export_reviewed_adapter",
+    "export",
+    "--adapter",
+    "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/quality-medfacts-v1-pilot/step-2",
+    "--adapter-sha256",
+    "e340e81cc60feeb97610ec1373140f7c089900067625e989477171a2ee5ccbea",
+    "--work",
+    "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/quality-medfacts-v1-step2",
+    "--reports",
+    "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/quality-medfacts-v1-step2-reports"
+  ],
+  "samples": [
+    {
+      "seconds": 2.0412487919675186,
+      "rss_kib": 23360,
+      "pressure_level": "1",
+      "system_free_percent": 58
+    },
+    {
+      "seconds": 4.063458958989941,
+      "rss_kib": 24112,
+      "pressure_level": "1",
+      "system_free_percent": 56
+    },
+    {
+      "seconds": 6.091945167048834,
+      "rss_kib": 25712,
+      "pressure_level": "1",
+      "system_free_percent": 59
+    },
+    {
+      "seconds": 8.128043042030185,
+      "rss_kib": 25696,
+      "pressure_level": "1",
+      "system_free_percent": 59
+    },
+    {
+      "seconds": 10.373266833950765,
+      "rss_kib": 24816,
+      "pressure_level": "1",
+      "system_free_percent": 55
+    },
+    {
+      "seconds": 12.412720125052147,
+      "rss_kib": 24816,
+      "pressure_level": "1",
+      "system_free_percent": 57
+    },
+    {
+      "seconds": 14.439954375033267,
+      "rss_kib": 24800,
+      "pressure_level": "1",
+      "system_free_percent": 58
+    },
+    {
+      "seconds": 16.465072083985433,
+      "rss_kib": 24800,
+      "pressure_level": "1",
+      "system_free_percent": 58
+    },
+    {
+      "seconds": 18.484937791945413,
+      "rss_kib": 38976,
+      "pressure_level": "1",
+      "system_free_percent": 59
+    },
+    {
+      "seconds": 20.50735154200811,
+      "rss_kib": 32512,
+      "pressure_level": "1",
+      "system_free_percent": 59
+    },
+    {
+      "seconds": 22.534470333950594,
+      "rss_kib": 32240,
+      "pressure_level": "1",
+      "system_free_percent": 59
+    },
+    {
+      "seconds": 24.55605887505226,
+      "rss_kib": 33008,
+      "pressure_level": "1",
+      "system_free_percent": 58
+    },
+    {
+      "seconds": 26.577181459055282,
+      "rss_kib": 33872,
+      "pressure_level": "1",
+      "system_free_percent": 58
+    },
+    {
+      "seconds": 28.620497334050015,
+      "rss_kib": 32288,
+      "pressure_level": "1",
+      "system_free_percent": 58
+    }
+  ],
+  "stop_reason": null,
+  "exit_code": 0,
+  "elapsed_seconds": 30.622815459035337
+}

@@ -46,18 +46,27 @@ def run(directory,output):
     tok=AutoTokenizer.from_pretrained(base,local_files_only=True,trust_remote_code=False)
     data=[checked_tokens(r,tok,capacity['maximum']) for r in records]
     mx.set_memory_limit(8*1024**3);mx.set_cache_limit(128*1024**2);mx.random.seed(42)
-    output.mkdir(parents=True);model,_=load(str(base));model.freeze()
+    start=time.monotonic();output.mkdir(parents=True);model,_=load(str(base));model.freeze()
     config={'num_layers':1,'fine_tune_type':'lora','lora_parameters':{'rank':2,'scale':4.,'dropout':0.,'keys':['self_attn.q_proj','self_attn.v_proj']}}
     linear_to_lora_layers(model,1,config['lora_parameters']);grad_checkpoint(model.layers[0]);optimizer=optim.Adam(learning_rate=1e-5);loss_fn=nn.value_and_grad(model,completion_loss);model.train()
     report={'base_revision':pins['training_revision'],'export_manifest':json.loads((directory/'manifest.json').read_text()),'versions':pins['versions'],'lora_config':config,'learning_rate':1e-5,'batch_size':1,'seed':42,'capacity_maximum':capacity['maximum'],'purpose':'diagnostic quality pilot, not validation','contract_hashes':hashes(),'max_steps':4,'passes':2,'steps':[],'checkpoints':[0],'development_loss_available':False,'selection':'untuned step zero retained; candidate selection pending matched semantic reports','clinical_candidate_eligible':False}
+    initial={k:mx.array(v) for k,v in tree_flatten(model.trainable_parameters())};mx.eval(initial)
+    (output/'pilot.json').write_text(json.dumps(report,indent=2)+'\n')
     for step in range(1,5):
         tokens,offset=data[(step-1)%len(data)];(loss,count),grad=loss_fn(model,mx.array([tokens]),mx.array([[offset,len(tokens)]]))
         mx.eval(loss,grad)
         if not math.isfinite(float(loss)) or not all(bool(mx.all(mx.isfinite(g))) for _,g in tree_flatten(grad)):raise RuntimeError('Nonfinite loss/gradient; no update applied')
         optimizer.update(model,grad);mx.eval(model.parameters(),optimizer.state)
-        report['steps'].append({'step':step,'loss':float(loss),'full_tokens':len(tokens),'completion_tokens':int(count)})
+        report['steps'].append({'step':step,'loss':float(loss),'full_tokens':len(tokens),'completion_tokens':int(count),'elapsed_seconds':time.monotonic()-start})
         if step in [2,4]:
             checkpoint=output/f'step-{step}';checkpoint.mkdir();mx.save_safetensors(str(checkpoint/'adapters.safetensors'),dict(tree_flatten(model.trainable_parameters())));(checkpoint/'adapter_config.json').write_text(json.dumps(config,indent=2)+'\n');report['checkpoints'].append(step);report.setdefault('adapter_sha256',{})[str(step)]=hashlib.sha256((checkpoint/'adapters.safetensors').read_bytes()).hexdigest()
+        report['completed_steps']=step
+        report['parameter_changes']={k:float(mx.max(mx.abs(v-initial[k]))) for k,v in tree_flatten(model.trainable_parameters())}
+        if step in [2,4]:
+            reloaded=mx.load(str(checkpoint/'adapters.safetensors'));current=dict(tree_flatten(model.trainable_parameters()))
+            assert reloaded.keys()==current.keys() and all(bool(mx.array_equal(reloaded[k],v)) for k,v in current.items())
+            report.setdefault('checkpoint_reload_verified',[]).append(step)
+        report['mlx_peak_memory_bytes']=mx.get_peak_memory();report['elapsed_seconds']=time.monotonic()-start
         (output/'pilot.json').write_text(json.dumps(report,indent=2)+'\n');mx.clear_cache()
     report['mlx_peak_memory_bytes']=mx.get_peak_memory();report['completed_steps']=4;(output/'pilot.json').write_text(json.dumps(report,indent=2)+'\n')
 

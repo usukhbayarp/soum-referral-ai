@@ -1,0 +1,52 @@
+{
+  "command": [
+    "/opt/anaconda3/bin/python",
+    "-m",
+    "scripts.mlx_python",
+    "scripts.export_reviewed_adapter",
+    "patches",
+    "--adapter",
+    "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/quality-medfacts-v1-pilot/step-4",
+    "--adapter-sha256",
+    "56d566bca5caecf55c2d2cdb2aff0cf8a6dce581f16fe06fb5d0605e9f2b8a15",
+    "--work",
+    "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/quality-medfacts-v1-step4",
+    "--reports",
+    "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/quality-medfacts-v1-step4-reports"
+  ],
+  "samples": [
+    {
+      "seconds": 2.047717083012685,
+      "rss_kib": 104048,
+      "pressure_level": "1",
+      "system_free_percent": 56
+    },
+    {
+      "seconds": 4.066971541033126,
+      "rss_kib": 219600,
+      "pressure_level": "1",
+      "system_free_percent": 56
+    },
+    {
+      "seconds": 6.082917332998477,
+      "rss_kib": 325216,
+      "pressure_level": "1",
+      "system_free_percent": 57
+    },
+    {
+      "seconds": 8.09986299998127,
+      "rss_kib": 433232,
+      "pressure_level": "1",
+      "system_free_percent": 55
+    },
+    {
+      "seconds": 10.11871270800475,
+      "rss_kib": 433248,
+      "pressure_level": "1",
+      "system_free_percent": 58
+    }
+  ],
+  "stop_reason": null,
+  "exit_code": 0,
+  "elapsed_seconds": 12.125138374976814
+}

@@ -1,0 +1,297 @@
+{
+  "observations": [
+    {
+      "step": 0,
+      "case_id": "DEV-002",
+      "valid": true,
+      "error": null,
+      "empty": false,
+      "done_reason": "stop",
+      "wall_seconds": 14.848783124936745,
+      "prompt_tokens": 2727,
+      "output_tokens": 64,
+      "identical_content_to_baseline": true
+    },
+    {
+      "step": 0,
+      "case_id": "dev-003",
+      "valid": false,
+      "error": "ValueError: Do not collapse distinct uncertainty/absence facts",
+      "empty": false,
+      "done_reason": "stop",
+      "wall_seconds": 8.173582250019535,
+      "prompt_tokens": 1476,
+      "output_tokens": 146,
+      "identical_content_to_baseline": true
+    },
+    {
+      "step": 0,
+      "case_id": "dev-004",
+      "valid": false,
+      "error": "ValueError: Quote must resolve exactly once in original unit",
+      "empty": false,
+      "done_reason": "stop",
+      "wall_seconds": 3.90614825009834,
+      "prompt_tokens": 1535,
+      "output_tokens": 44,
+      "identical_content_to_baseline": true
+    },
+    {
+      "step": 2,
+      "case_id": "DEV-002",
+      "valid": true,
+      "error": null,
+      "empty": false,
+      "done_reason": "stop",
+      "wall_seconds": 12.978925041039474,
+      "prompt_tokens": 2727,
+      "output_tokens": 64,
+      "identical_content_to_baseline": true
+    },
+    {
+      "step": 2,
+      "case_id": "dev-003",
+      "valid": false,
+      "error": "ValueError: Do not collapse distinct uncertainty/absence facts",
+      "empty": false,
+      "done_reason": "stop",
+      "wall_seconds": 7.603151791961864,
+      "prompt_tokens": 1476,
+      "output_tokens": 146,
+      "identical_content_to_baseline": true
+    },
+    {
+      "step": 2,
+      "case_id": "dev-004",
+      "valid": false,
+      "error": "ValueError: Quote must resolve exactly once in original unit",
+      "empty": false,
+      "done_reason": "stop",
+      "wall_seconds": 3.5182245830073953,
+      "prompt_tokens": 1535,
+      "output_tokens": 44,
+      "identical_content_to_baseline": true
+    },
+    {
+      "step": 4,
+      "case_id": "DEV-002",
+      "valid": true,
+      "error": null,
+      "empty": false,
+      "done_reason": "stop",
+      "wall_seconds": 13.89297174999956,
+      "prompt_tokens": 2727,
+      "output_tokens": 64,
+      "identical_content_to_baseline": true
+    },
+    {
+      "step": 4,
+      "case_id": "dev-003",
+      "valid": false,
+      "error": "ValueError: Do not collapse distinct uncertainty/absence facts",
+      "empty": false,
+      "done_reason": "stop",
+      "wall_seconds": 8.413237583008595,
+      "prompt_tokens": 1476,
+      "output_tokens": 146,
+      "identical_content_to_baseline": true
+    },
+    {
+      "step": 4,
+      "case_id": "dev-004",
+      "valid": false,
+      "error": "ValueError: Quote must resolve exactly once in original unit",
+      "empty": false,
+      "done_reason": "stop",
+      "wall_seconds": 4.018921750015579,
+      "prompt_tokens": 1535,
+      "output_tokens": 44,
+      "identical_content_to_baseline": true
+    }
+  ],
+  "resources": [
+    {
+      "stage": "step2-convert-watch",
+      "seconds": 57.02799499989487,
+      "exit_code": 0,
+      "stop_reason": null,
+      "peak_rss_kib": 2754672,
+      "minimum_system_free_percent": 53,
+      "pressure_levels": [
+        "1"
+      ]
+    },
+    {
+      "stage": "step2-fusion-watch",
+      "seconds": 12.131605957983993,
+      "exit_code": 0,
+      "stop_reason": null,
+      "peak_rss_kib": 464928,
+      "minimum_system_free_percent": 62,
+      "pressure_levels": [
+        "1"
+      ]
+    },
+    {
+      "stage": "step2-hf-watch",
+      "seconds": 30.622815459035337,
+      "exit_code": 0,
+      "stop_reason": null,
+      "peak_rss_kib": 38976,
+      "minimum_system_free_percent": 55,
+      "pressure_levels": [
+        "1"
+      ]
+    },
+    {
+      "stage": "step2-quantize-watch",
+      "seconds": 24.727577332989313,
+      "exit_code": 0,
+      "stop_reason": null,
+      "peak_rss_kib": 2655376,
+      "minimum_system_free_percent": 38,
+      "pressure_levels": [
+        "1",
+        "2"
+      ]
+    },
+    {
+      "stage": "step2-verify-f16-recovery-watch",
+      "seconds": 40.48278541699983,
+      "exit_code": 0,
+      "stop_reason": null,
+      "peak_rss_kib": 2555984,
+      "minimum_system_free_percent": 52,
+      "pressure_levels": [
+        "1"
+      ]
+    },
+    {
+      "stage": "step2-verify-f16-watch",
+      "seconds": 2.0196731670293957,
+      "exit_code": 1,
+      "stop_reason": null,
+      "peak_rss_kib": 0,
+      "minimum_system_free_percent": null,
+      "pressure_levels": []
+    },
+    {
+      "stage": "step2-verify-q4-watch",
+      "seconds": 16.182673499919474,
+      "exit_code": 0,
+      "stop_reason": null,
+      "peak_rss_kib": 4450416,
+      "minimum_system_free_percent": 53,
+      "pressure_levels": [
+        "1"
+      ]
+    },
+    {
+      "stage": "step4-convert-watch",
+      "seconds": 46.60337762499694,
+      "exit_code": 0,
+      "stop_reason": null,
+      "peak_rss_kib": 1384304,
+      "minimum_system_free_percent": 54,
+      "pressure_levels": [
+        "1"
+      ]
+    },
+    {
+      "stage": "step4-fusion-watch",
+      "seconds": 12.125138374976814,
+      "exit_code": 0,
+      "stop_reason": null,
+      "peak_rss_kib": 433248,
+      "minimum_system_free_percent": 55,
+      "pressure_levels": [
+        "1"
+      ]
+    },
+    {
+      "stage": "step4-hf-watch",
+      "seconds": 22.2813174999319,
+      "exit_code": 0,
+      "stop_reason": null,
+      "peak_rss_kib": 61520,
+      "minimum_system_free_percent": 57,
+      "pressure_levels": [
+        "1"
+      ]
+    },
+    {
+      "stage": "step4-quantize-watch",
+      "seconds": 24.686933249933645,
+      "exit_code": 0,
+      "stop_reason": null,
+      "peak_rss_kib": 2644144,
+      "minimum_system_free_percent": 42,
+      "pressure_levels": [
+        "1"
+      ]
+    },
+    {
+      "stage": "step4-verify-f16-watch",
+      "seconds": 38.54299183306284,
+      "exit_code": 0,
+      "stop_reason": null,
+      "peak_rss_kib": 2763248,
+      "minimum_system_free_percent": 55,
+      "pressure_levels": [
+        "1"
+      ]
+    },
+    {
+      "stage": "step4-verify-q4-watch",
+      "seconds": 20.27550454204902,
+      "exit_code": 0,
+      "stop_reason": null,
+      "peak_rss_kib": 4709776,
+      "minimum_system_free_percent": 55,
+      "pressure_levels": [
+        "1"
+      ]
+    },
+    {
+      "stage": "training-watch",
+      "seconds": 76.42619200004265,
+      "exit_code": 0,
+      "stop_reason": null,
+      "peak_rss_kib": 2574048,
+      "minimum_system_free_percent": 17,
+      "pressure_levels": [
+        "1",
+        "2"
+      ]
+    }
+  ],
+  "disk_free_bytes": 29097095168,
+  "removed_new_intermediate_bytes": 32192533450,
+  "all_existing_tags_preserved": true,
+  "new_tags": {
+    "soum-qwen3-4b-medfacts:pilot1-step4": "476c1eddc6d929c4adaec05dabd2f5c0462fb1f22e2d8fe269e92744b5766a02",
+    "soum-qwen3-4b-medfacts:pilot1-step2": "76249ac3b5f580251328d34c8c1bb08ec285d203824ec8c6bb8a01ea8bdfb50f"
+  },
+  "live_form_version": "experimental-0.7",
+  "live_restarted": false,
+  "production_changed": false,
+  "new_development_requests": 6,
+  "test_contents_opened": false,
+  "elapsed_since_frozen_preflight_seconds": 610.3367960453033,
+  "focused_tests_passed": 11,
+  "final_script_hashes": {
+    "scripts/medfacts_pilot.py": "648d2c3aae5645e33ff37c1fd684d2c5cca75c520aa445a2e783ef72e728d0a6",
+    "scripts/run_quality_exports.py": "6445e909666ee8968c6f272879c7f04a5e484e363af71d3e2b166c954b9e0f0f",
+    "scripts/verify_pilot_gguf.py": "7e44beb71d746d75af063a247b05d5053aa000948c2e30f5b808684f425ce71b"
+  },
+  "converter_binary_sha256": "45da84bb07176ee702583c6897a921de5f8854579d808d5230c760a572762e6d",
+  "frozen_old_files_unchanged": true,
+  "conclusions": {
+    "weights_changed": true,
+    "survived_quantization": true,
+    "predictions_changed": false,
+    "reviewed_outcomes_improved": false,
+    "clinical_usability_demonstrated": false,
+    "recommendation": "C: narrower source-suggestion task; no integration or promotion"
+  }
+}

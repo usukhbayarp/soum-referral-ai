@@ -1,0 +1,79 @@
+{
+  "command": [
+    "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/preparation/llama.cpp/build/bin/llama-quantize",
+    "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/quality-medfacts-v1-step2/candidate-F16.gguf",
+    "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/quality-medfacts-v1-step2/candidate-Q4_K_M.gguf",
+    "Q4_K_M"
+  ],
+  "samples": [
+    {
+      "seconds": 2.119505292037502,
+      "rss_kib": 2655280,
+      "pressure_level": "1",
+      "system_free_percent": 55
+    },
+    {
+      "seconds": 4.162104167044163,
+      "rss_kib": 2655376,
+      "pressure_level": "1",
+      "system_free_percent": 54
+    },
+    {
+      "seconds": 6.253699042019434,
+      "rss_kib": 1373440,
+      "pressure_level": "1",
+      "system_free_percent": 48
+    },
+    {
+      "seconds": 8.30734466703143,
+      "rss_kib": 1010928,
+      "pressure_level": "1",
+      "system_free_percent": 47
+    },
+    {
+      "seconds": 10.32974395796191,
+      "rss_kib": 1010944,
+      "pressure_level": "1",
+      "system_free_percent": 45
+    },
+    {
+      "seconds": 12.400554458028637,
+      "rss_kib": 1010896,
+      "pressure_level": "1",
+      "system_free_percent": 45
+    },
+    {
+      "seconds": 14.483969541965052,
+      "rss_kib": 1010848,
+      "pressure_level": "1",
+      "system_free_percent": 44
+    },
+    {
+      "seconds": 16.549763791961595,
+      "rss_kib": 514576,
+      "pressure_level": "1",
+      "system_free_percent": 42
+    },
+    {
+      "seconds": 18.609239542041905,
+      "rss_kib": 205328,
+      "pressure_level": "2",
+      "system_free_percent": 39
+    },
+    {
+      "seconds": 20.694486708031036,
+      "rss_kib": 201808,
+      "pressure_level": "2",
+      "system_free_percent": 38
+    },
+    {
+      "seconds": 22.722559583024122,
+      "rss_kib": 199792,
+      "pressure_level": "2",
+      "system_free_percent": 39
+    }
+  ],
+  "stop_reason": null,
+  "exit_code": 0,
+  "elapsed_seconds": 24.727577332989313
+}

@@ -1,0 +1,151 @@
+{
+  "command": [
+    "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/preparation/converter-env/bin/python",
+    "-m",
+    "scripts.mlx_python",
+    "--script",
+    "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/preparation/llama.cpp/convert_hf_to_gguf.py",
+    "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/quality-medfacts-v1-step4/candidate-hf",
+    "--outfile",
+    "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/quality-medfacts-v1-step4/candidate-F16.gguf",
+    "--outtype",
+    "f16"
+  ],
+  "samples": [
+    {
+      "seconds": 2.033768791006878,
+      "rss_kib": 229040,
+      "pressure_level": "1",
+      "system_free_percent": 59
+    },
+    {
+      "seconds": 4.0520918749971315,
+      "rss_kib": 342768,
+      "pressure_level": "1",
+      "system_free_percent": 59
+    },
+    {
+      "seconds": 6.073518416029401,
+      "rss_kib": 1384304,
+      "pressure_level": "1",
+      "system_free_percent": 54
+    },
+    {
+      "seconds": 8.10356529103592,
+      "rss_kib": 570336,
+      "pressure_level": "1",
+      "system_free_percent": 55
+    },
+    {
+      "seconds": 10.128132625017315,
+      "rss_kib": 654128,
+      "pressure_level": "1",
+      "system_free_percent": 56
+    },
+    {
+      "seconds": 12.155650208005682,
+      "rss_kib": 663040,
+      "pressure_level": "1",
+      "system_free_percent": 55
+    },
+    {
+      "seconds": 14.175222750054672,
+      "rss_kib": 696816,
+      "pressure_level": "1",
+      "system_free_percent": 58
+    },
+    {
+      "seconds": 16.210995582980104,
+      "rss_kib": 667440,
+      "pressure_level": "1",
+      "system_free_percent": 56
+    },
+    {
+      "seconds": 18.248130750027485,
+      "rss_kib": 670656,
+      "pressure_level": "1",
+      "system_free_percent": 59
+    },
+    {
+      "seconds": 20.272342500044033,
+      "rss_kib": 668864,
+      "pressure_level": "1",
+      "system_free_percent": 58
+    },
+    {
+      "seconds": 22.297483916045167,
+      "rss_kib": 665600,
+      "pressure_level": "1",
+      "system_free_percent": 59
+    },
+    {
+      "seconds": 24.32101379102096,
+      "rss_kib": 668032,
+      "pressure_level": "1",
+      "system_free_percent": 57
+    },
+    {
+      "seconds": 26.34438762499485,
+      "rss_kib": 515840,
+      "pressure_level": "1",
+      "system_free_percent": 56
+    },
+    {
+      "seconds": 28.3653565000277,
+      "rss_kib": 317472,
+      "pressure_level": "1",
+      "system_free_percent": 56
+    },
+    {
+      "seconds": 30.386051291017793,
+      "rss_kib": 299072,
+      "pressure_level": "1",
+      "system_free_percent": 55
+    },
+    {
+      "seconds": 32.40667487506289,
+      "rss_kib": 303824,
+      "pressure_level": "1",
+      "system_free_percent": 56
+    },
+    {
+      "seconds": 34.43595712503884,
+      "rss_kib": 325488,
+      "pressure_level": "1",
+      "system_free_percent": 54
+    },
+    {
+      "seconds": 36.46443162497599,
+      "rss_kib": 309520,
+      "pressure_level": "1",
+      "system_free_percent": 57
+    },
+    {
+      "seconds": 38.49252404097933,
+      "rss_kib": 326704,
+      "pressure_level": "1",
+      "system_free_percent": 55
+    },
+    {
+      "seconds": 40.51860316598322,
+      "rss_kib": 296704,
+      "pressure_level": "1",
+      "system_free_percent": 56
+    },
+    {
+      "seconds": 42.57687300001271,
+      "rss_kib": 302448,
+      "pressure_level": "1",
+      "system_free_percent": 56
+    },
+    {
+      "seconds": 44.59688833297696,
+      "rss_kib": 578128,
+      "pressure_level": "1",
+      "system_free_percent": 57
+    }
+  ],
+  "stop_reason": null,
+  "exit_code": 0,
+  "elapsed_seconds": 46.60337762499694
+}

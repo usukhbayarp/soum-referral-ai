@@ -1,0 +1,19 @@
+{
+  "command": [
+    "/opt/anaconda3/bin/python",
+    "-m",
+    "scripts.mlx_python",
+    "scripts.export_reviewed_adapter",
+    "patches",
+    "--adapter",
+    "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/quality-medfacts-v1-pilot/step-4",
+    "--adapter-sha256",
+    "56d566bca5caecf55c2d2cdb2aff0cf8a6dce581f16fe06fb5d0605e9f2b8a15",
+    "--work",
+    "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/quality-medfacts-v1-step4",
+    "--reports",
+    "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/quality-medfacts-v1-step4-reports"
+  ],
+  "disk_free_before": 34173435904,
+  "start_unix": 1791110898.928349
+}

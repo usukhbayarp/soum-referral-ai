@@ -1,0 +1,72 @@
+{
+  "command": [
+    "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/preparation/converter-env/bin/python",
+    "-m",
+    "scripts.mlx_python",
+    "scripts.verify_pilot_gguf",
+    "q4",
+    "--work",
+    "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/quality-medfacts-v1-step4",
+    "--report",
+    "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/quality-medfacts-v1-step4-reports/q4.json"
+  ],
+  "samples": [
+    {
+      "seconds": 2.101059000007808,
+      "rss_kib": 38992,
+      "pressure_level": "1",
+      "system_free_percent": 57
+    },
+    {
+      "seconds": 4.122726000030525,
+      "rss_kib": 67216,
+      "pressure_level": "1",
+      "system_free_percent": 57
+    },
+    {
+      "seconds": 6.1442832089960575,
+      "rss_kib": 264112,
+      "pressure_level": "1",
+      "system_free_percent": 58
+    },
+    {
+      "seconds": 8.166115542058833,
+      "rss_kib": 564752,
+      "pressure_level": "1",
+      "system_free_percent": 58
+    },
+    {
+      "seconds": 10.188612625002861,
+      "rss_kib": 668320,
+      "pressure_level": "1",
+      "system_free_percent": 59
+    },
+    {
+      "seconds": 12.210068584070541,
+      "rss_kib": 1016112,
+      "pressure_level": "1",
+      "system_free_percent": 59
+    },
+    {
+      "seconds": 14.23189833399374,
+      "rss_kib": 2377600,
+      "pressure_level": "1",
+      "system_free_percent": 59
+    },
+    {
+      "seconds": 16.254399667028338,
+      "rss_kib": 3783728,
+      "pressure_level": "1",
+      "system_free_percent": 57
+    },
+    {
+      "seconds": 18.27234245906584,
+      "rss_kib": 4709776,
+      "pressure_level": "1",
+      "system_free_percent": 55
+    }
+  ],
+  "stop_reason": null,
+  "exit_code": 0,
+  "elapsed_seconds": 20.27550454204902
+}

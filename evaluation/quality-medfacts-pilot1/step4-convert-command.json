@@ -1,0 +1,16 @@
+{
+  "command": [
+    "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/preparation/converter-env/bin/python",
+    "-m",
+    "scripts.mlx_python",
+    "--script",
+    "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/preparation/llama.cpp/convert_hf_to_gguf.py",
+    "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/quality-medfacts-v1-step4/candidate-hf",
+    "--outfile",
+    "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/quality-medfacts-v1-step4/candidate-F16.gguf",
+    "--outtype",
+    "f16"
+  ],
+  "disk_free_before": 26056441856,
+  "start_unix": 1791110933.336549
+}

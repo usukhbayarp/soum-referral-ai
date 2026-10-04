@@ -1,0 +1,10 @@
+{
+  "stage": "f16",
+  "tensor_count": 398,
+  "all_f16_values_match_hf": true,
+  "changed_tensors_vs_control": [],
+  "path": "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/quality-medfacts-v1-step4/candidate-F16.gguf",
+  "sha256": "4100ba518a3a7914330fd0e1dd785b12357a669441790952731e44982c31522f",
+  "bytes": 8051284832,
+  "clinical_quality_inferred": false
+}

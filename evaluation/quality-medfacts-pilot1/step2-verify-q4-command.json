@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/preparation/converter-env/bin/python",
+    "-m",
+    "scripts.mlx_python",
+    "scripts.verify_pilot_gguf",
+    "q4",
+    "--work",
+    "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/quality-medfacts-v1-step2",
+    "--report",
+    "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/quality-medfacts-v1-step2-reports/q4.json"
+  ],
+  "disk_free_before": 28622200832,
+  "start_unix": 1791110837.603893
+}

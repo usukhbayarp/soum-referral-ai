@@ -1,0 +1,79 @@
+{
+  "command": [
+    "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/preparation/llama.cpp/build/bin/llama-quantize",
+    "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/quality-medfacts-v1-step4/candidate-F16.gguf",
+    "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/quality-medfacts-v1-step4/candidate-Q4_K_M.gguf",
+    "Q4_K_M"
+  ],
+  "samples": [
+    {
+      "seconds": 2.074515042011626,
+      "rss_kib": 2644144,
+      "pressure_level": "1",
+      "system_free_percent": 58
+    },
+    {
+      "seconds": 4.133551792008802,
+      "rss_kib": 2644032,
+      "pressure_level": "1",
+      "system_free_percent": 59
+    },
+    {
+      "seconds": 6.198350250022486,
+      "rss_kib": 1751376,
+      "pressure_level": "1",
+      "system_free_percent": 52
+    },
+    {
+      "seconds": 8.245945416972972,
+      "rss_kib": 1124256,
+      "pressure_level": "1",
+      "system_free_percent": 49
+    },
+    {
+      "seconds": 10.272550874971785,
+      "rss_kib": 1065712,
+      "pressure_level": "1",
+      "system_free_percent": 49
+    },
+    {
+      "seconds": 12.312701708986424,
+      "rss_kib": 1065856,
+      "pressure_level": "1",
+      "system_free_percent": 49
+    },
+    {
+      "seconds": 14.417712291935459,
+      "rss_kib": 1065760,
+      "pressure_level": "1",
+      "system_free_percent": 49
+    },
+    {
+      "seconds": 16.540519666974433,
+      "rss_kib": 1065696,
+      "pressure_level": "1",
+      "system_free_percent": 47
+    },
+    {
+      "seconds": 18.594312458997592,
+      "rss_kib": 838800,
+      "pressure_level": "1",
+      "system_free_percent": 45
+    },
+    {
+      "seconds": 20.64675041695591,
+      "rss_kib": 213696,
+      "pressure_level": "1",
+      "system_free_percent": 42
+    },
+    {
+      "seconds": 22.682286042021587,
+      "rss_kib": 191424,
+      "pressure_level": "1",
+      "system_free_percent": 44
+    }
+  ],
+  "stop_reason": null,
+  "exit_code": 0,
+  "elapsed_seconds": 24.686933249933645
+}

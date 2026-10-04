@@ -1,0 +1,18 @@
+{
+  "command": [
+    "/Users/usukhbayar.purevdorj/Documents/hackathon/.venv/bin/python",
+    "-m",
+    "scripts.export_reviewed_adapter",
+    "export",
+    "--adapter",
+    "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/quality-medfacts-v1-pilot/step-2",
+    "--adapter-sha256",
+    "e340e81cc60feeb97610ec1373140f7c089900067625e989477171a2ee5ccbea",
+    "--work",
+    "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/quality-medfacts-v1-step2",
+    "--reports",
+    "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/quality-medfacts-v1-step2-reports"
+  ],
+  "disk_free_before": 39122079744,
+  "start_unix": 1791110659.3158982
+}

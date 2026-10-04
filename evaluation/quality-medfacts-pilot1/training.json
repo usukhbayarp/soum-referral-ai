@@ -1,0 +1,108 @@
+{
+  "base_revision": "52a5ab34fa604bc8af6d3ce0cac0cab10b7eb495",
+  "export_manifest": {
+    "contract_version": "source-linked-medfacts-1",
+    "contract_hashes": {
+      "experiments/medfacts-v1/contract.json": "123f595bbd90da4577735e28b5b7e5892c61fc885124fd50607c1b01962ab3aa",
+      "experiments/medfacts-v1/prompt.txt": "a7508ea96d19b401118bcb6eb08ae4db07aa5998fa29a63d1bd9ba7bcb99d4c8"
+    },
+    "training_cases": [
+      "TRAIN-001",
+      "TRAIN-002"
+    ],
+    "training_families": [
+      "train-001-independent-family",
+      "train-002-independent-family"
+    ],
+    "training_record_sha256": "33009283f57a86441de6ac19b6a4c9ab22100a6f354c9d673ef9a84bb513271c",
+    "development_loss_available": false,
+    "development_evaluation": "reviewed-subset semantic only; no valid.jsonl fabricated",
+    "test_contents_included": false,
+    "training_started": false
+  },
+  "versions": {
+    "mlx": "0.30.6",
+    "mlx-lm": "0.30.7",
+    "transformers": "5.2.0",
+    "huggingface-hub": "1.4.1"
+  },
+  "lora_config": {
+    "num_layers": 1,
+    "fine_tune_type": "lora",
+    "lora_parameters": {
+      "rank": 2,
+      "scale": 4.0,
+      "dropout": 0.0,
+      "keys": [
+        "self_attn.q_proj",
+        "self_attn.v_proj"
+      ]
+    }
+  },
+  "learning_rate": 1e-05,
+  "batch_size": 1,
+  "seed": 42,
+  "capacity_maximum": 2727,
+  "purpose": "diagnostic quality pilot, not validation",
+  "contract_hashes": {
+    "experiments/medfacts-v1/contract.json": "123f595bbd90da4577735e28b5b7e5892c61fc885124fd50607c1b01962ab3aa",
+    "experiments/medfacts-v1/prompt.txt": "a7508ea96d19b401118bcb6eb08ae4db07aa5998fa29a63d1bd9ba7bcb99d4c8"
+  },
+  "max_steps": 4,
+  "passes": 2,
+  "steps": [
+    {
+      "step": 1,
+      "loss": 0.37358757853507996,
+      "full_tokens": 2690,
+      "completion_tokens": 708,
+      "elapsed_seconds": 16.587389915948734
+    },
+    {
+      "step": 2,
+      "loss": 0.3577464818954468,
+      "full_tokens": 2727,
+      "completion_tokens": 710,
+      "elapsed_seconds": 31.501366832992062
+    },
+    {
+      "step": 3,
+      "loss": 0.3742937743663788,
+      "full_tokens": 2690,
+      "completion_tokens": 708,
+      "elapsed_seconds": 46.9120407080045
+    },
+    {
+      "step": 4,
+      "loss": 0.3575704097747803,
+      "full_tokens": 2727,
+      "completion_tokens": 710,
+      "elapsed_seconds": 64.33945349999703
+    }
+  ],
+  "checkpoints": [
+    0,
+    2,
+    4
+  ],
+  "development_loss_available": false,
+  "selection": "untuned step zero retained; candidate selection pending matched semantic reports",
+  "clinical_candidate_eligible": false,
+  "completed_steps": 4,
+  "parameter_changes": {
+    "model.layers.35.self_attn.q_proj.lora_a": 0.0001215544471051544,
+    "model.layers.35.self_attn.q_proj.lora_b": 0.00017839510110206902,
+    "model.layers.35.self_attn.v_proj.lora_a": 0.00011842604726552963,
+    "model.layers.35.self_attn.v_proj.lora_b": 0.0001784203777788207
+  },
+  "mlx_peak_memory_bytes": 5666708000,
+  "elapsed_seconds": 64.34977424994577,
+  "adapter_sha256": {
+    "2": "e340e81cc60feeb97610ec1373140f7c089900067625e989477171a2ee5ccbea",
+    "4": "56d566bca5caecf55c2d2cdb2aff0cf8a6dce581f16fe06fb5d0605e9f2b8a15"
+  },
+  "checkpoint_reload_verified": [
+    2,
+    4
+  ]
+}

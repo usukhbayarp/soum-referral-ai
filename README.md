@@ -1,6 +1,6 @@
 # Soum Referral AI / Сум
 
-Latest milestone: [reviewed training preparation, frozen compact contract and measured baseline](docs/reviewed-medfacts-v1.md). Two fictional training families are staged; quality training has not started. Production model/prompt remain unchanged. The isolated v0.8 history fix is verified; the existing live process still reports v0.7.
+Latest milestone: [completed four-step diagnostic pilot](docs/quality-medfacts-pilot1.md). Both checkpoints changed weights and survived export, but all development responses matched the untuned baseline. No model was promoted; the live app still reports v0.7. [Reviewed-data preparation](docs/reviewed-medfacts-v1.md) remains preserved.
 
 A local Mongolian referral-documentation prototype for the World Bank Small AI for Development hackathon.
 

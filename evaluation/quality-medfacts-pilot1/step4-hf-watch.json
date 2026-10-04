@@ -1,0 +1,81 @@
+{
+  "command": [
+    "/Users/usukhbayar.purevdorj/Documents/hackathon/.venv/bin/python",
+    "-m",
+    "scripts.export_reviewed_adapter",
+    "export",
+    "--adapter",
+    "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/quality-medfacts-v1-pilot/step-4",
+    "--adapter-sha256",
+    "56d566bca5caecf55c2d2cdb2aff0cf8a6dce581f16fe06fb5d0605e9f2b8a15",
+    "--work",
+    "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/quality-medfacts-v1-step4",
+    "--reports",
+    "/Users/usukhbayar.purevdorj/Documents/hackathon/.runtime/quality-medfacts-v1-step4-reports"
+  ],
+  "samples": [
+    {
+      "seconds": 2.0307217499939725,
+      "rss_kib": 49424,
+      "pressure_level": "1",
+      "system_free_percent": 57
+    },
+    {
+      "seconds": 4.0745667919982225,
+      "rss_kib": 51008,
+      "pressure_level": "1",
+      "system_free_percent": 58
+    },
+    {
+      "seconds": 6.105745082953945,
+      "rss_kib": 51008,
+      "pressure_level": "1",
+      "system_free_percent": 58
+    },
+    {
+      "seconds": 8.137087124981917,
+      "rss_kib": 51008,
+      "pressure_level": "1",
+      "system_free_percent": 58
+    },
+    {
+      "seconds": 10.166412749909796,
+      "rss_kib": 52032,
+      "pressure_level": "1",
+      "system_free_percent": 58
+    },
+    {
+      "seconds": 12.191110124927945,
+      "rss_kib": 59424,
+      "pressure_level": "1",
+      "system_free_percent": 58
+    },
+    {
+      "seconds": 14.210955874994397,
+      "rss_kib": 61520,
+      "pressure_level": "1",
+      "system_free_percent": 59
+    },
+    {
+      "seconds": 16.233901291969232,
+      "rss_kib": 61520,
+      "pressure_level": "1",
+      "system_free_percent": 58
+    },
+    {
+      "seconds": 18.256047041970305,
+      "rss_kib": 61520,
+      "pressure_level": "1",
+      "system_free_percent": 59
+    },
+    {
+      "seconds": 20.275291291996837,
+      "rss_kib": 61520,
+      "pressure_level": "1",
+      "system_free_percent": 58
+    }
+  ],
+  "stop_reason": null,
+  "exit_code": 0,
+  "elapsed_seconds": 22.2813174999319
+}
