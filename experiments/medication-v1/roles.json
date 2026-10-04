@@ -1,0 +1,10 @@
+{
+ "regular_medication":"Usual ongoing medication, including uncertainty about today's dose in the same context; not administration during this encounter.",
+ "administered_treatment":"Treatment explicitly actually given during this encounter. Patient-reported taking alone does not establish encounter administration.",
+ "historical_medication":"A past medication course, not established as current regular use or current encounter administration.",
+ "planned_or_prescribed_treatment":"Proposed, planned or prescribed treatment; not evidence it was given.",
+ "explicitly_not_administered":"Explicit statement treatment was not given, including no treatment/no other treatment. Never treat this as administration.",
+ "allergy_statement":"Allergy wording, reaction, patient attribution, explicit absence, uncertainty or not asked. Preserve the entire statement.",
+ "mixed_or_unclear":"More than one relevant role in the same unit, or a medication mention whose role is unclear. Requires manual review, never exclusion or successful extraction.",
+ "other":"No relevant medication/allergy fact. Do not discard relevant negatives or uncertainty as other."
+}

@@ -1,0 +1,238 @@
+{
+  "version": "medication-facts-provisional-1",
+  "frozen_before_inference": true,
+  "cases": {
+    "DEV-002": {
+      "roles": {
+        "U1": "other",
+        "U2": "other",
+        "U3": "other",
+        "U4": "other",
+        "U5": "other",
+        "U6": "other",
+        "U7": "other",
+        "U8": "other",
+        "U9": "other",
+        "U10": "other",
+        "U11": "regular_medication",
+        "U12": "regular_medication",
+        "U13": "allergy_statement",
+        "U14": "other",
+        "U15": "other",
+        "U16": "other",
+        "U17": "other",
+        "U18": "other",
+        "U19": "other",
+        "U20": "other",
+        "U21": "administered_treatment",
+        "U22": "other",
+        "U23": "explicitly_not_administered",
+        "U24": "other",
+        "U25": "other",
+        "U26": "other",
+        "U27": "other",
+        "U28": "other",
+        "U29": "other",
+        "U30": "other",
+        "U31": "other",
+        "U32": "other",
+        "U33": "other"
+      },
+      "medications": [
+        {
+          "name": "Амлодипин",
+          "role": "regular_medication",
+          "units": [
+            "U11",
+            "U12"
+          ],
+          "dose": "5 мг",
+          "route": null,
+          "time": null,
+          "frequency": "өдөрт 1 удаа"
+        },
+        {
+          "name": "парацетамол",
+          "role": "administered_treatment",
+          "units": [
+            "U21"
+          ],
+          "dose": "500 мг",
+          "route": "амаар",
+          "time": "10:15-д",
+          "frequency": "нэг удаа"
+        }
+      ],
+      "allergies": {
+        "U13": "Эмийн харшилгүй гэж хэлэв."
+      },
+      "context": {
+        "U12": "Өнөөдрийн тунгаа уусан эсэхийг асуугаагүй.",
+        "U23": "Энэ үзлэгээр өөр эмчилгээ хийгээгүй."
+      },
+      "absent": [
+        "Amlodipine route, exact administration time and today dose confirmation",
+        "Full date for time-only treatment: no automatic association to note date",
+        "Any other administered drug, inferred regimen or allergy confirmation beyond patient report"
+      ],
+      "label_status": "provisional expected facts; not clinician-reviewed labels",
+      "clinician_review_status": "unreviewed",
+      "underlying_case_id": "DEV-002"
+    },
+    "dev-003": {
+      "roles": {
+        "U1": "other",
+        "U2": "other",
+        "U3": "other",
+        "U4": "other",
+        "U5": "allergy_statement",
+        "U6": "explicitly_not_administered",
+        "U7": "other"
+      },
+      "medications": [],
+      "allergies": {
+        "U5": "Эмийн харшилгүй."
+      },
+      "context": {
+        "U6": "Эмчилгээ хийгээгүй."
+      },
+      "absent": [
+        "Drug names, doses, routes, timestamps and frequencies; do not create anonymous treatment rows",
+        "Do not turn no treatment into missing information"
+      ],
+      "label_status": "provisional expected facts; not clinician-reviewed labels",
+      "clinician_review_status": "unreviewed",
+      "underlying_case_id": "fictional-003"
+    },
+    "dev-004": {
+      "roles": {
+        "U1": "mixed_or_unclear",
+        "U2": "historical_medication",
+        "U3": "other",
+        "U4": "other",
+        "U5": "allergy_statement"
+      },
+      "medications": [
+        {
+          "name": "парацетамол",
+          "role": "mixed_or_unclear",
+          "units": [
+            "U1"
+          ],
+          "dose": "500 мг 1 шахмал",
+          "route": null,
+          "time": "Өнөөдөр 09:00 цагт",
+          "frequency": null
+        },
+        {
+          "name": "амоксициллин",
+          "role": "historical_medication",
+          "units": [
+            "U2"
+          ],
+          "dose": "250 мг",
+          "route": null,
+          "time": null,
+          "frequency": "өдөрт 3 удаа"
+        }
+      ],
+      "allergies": {
+        "U5": "Пенициллинд тууралт гардаг гэж тэмдэглэсэн."
+      },
+      "context": {
+        "U2": "Өмнөх тэмдэглэлд амоксициллин 250 мг өдөрт 3 удаа, 5 хоног хэрэглэсэн гэж бичсэн."
+      },
+      "absent": [
+        "Reported taking does not establish encounter administration or ongoing regular medication",
+        "Explicit route, exact historical date; preserve 5 хоног duration in context without fabricating timestamp",
+        "No new treatment from glucose, vitals or allergy drug"
+      ],
+      "label_status": "provisional expected facts; not clinician-reviewed labels",
+      "clinician_review_status": "unreviewed",
+      "underlying_case_id": "fictional-004"
+    },
+    "probe-med-001": {
+      "roles": {
+        "U1": "mixed_or_unclear",
+        "U2": "planned_or_prescribed_treatment",
+        "U3": "explicitly_not_administered",
+        "U4": "mixed_or_unclear",
+        "U5": "allergy_statement",
+        "U6": "allergy_statement"
+      },
+      "medications": [
+        {
+          "name": "амлодипин",
+          "role": "regular_medication",
+          "units": [
+            "U1"
+          ],
+          "dose": "5 мг",
+          "route": null,
+          "time": null,
+          "frequency": "өдөрт нэг удаа"
+        },
+        {
+          "name": "парацетамол",
+          "role": "administered_treatment",
+          "units": [
+            "U1"
+          ],
+          "dose": "500 мг",
+          "route": "амаар",
+          "time": "10:15-д",
+          "frequency": null
+        },
+        {
+          "name": "Ибупрофен",
+          "role": "planned_or_prescribed_treatment",
+          "units": [
+            "U2"
+          ],
+          "dose": "200 мг",
+          "route": "амаар",
+          "time": null,
+          "frequency": null
+        },
+        {
+          "name": "Диклофенак",
+          "role": "explicitly_not_administered",
+          "units": [
+            "U3"
+          ],
+          "dose": null,
+          "route": null,
+          "time": null,
+          "frequency": null
+        },
+        {
+          "name": "нэрийг нь санахгүй эм",
+          "role": "mixed_or_unclear",
+          "units": [
+            "U4"
+          ],
+          "dose": null,
+          "route": null,
+          "time": null,
+          "frequency": null
+        }
+      ],
+      "allergies": {
+        "U5": "Харшлыг асуугаагүй.",
+        "U6": "Өмнөх тэмдэглэлд харшлын түүх тодорхойгүй гэж бичсэн."
+      },
+      "context": {
+        "U4": "Өвчтөн нэрийг нь санахгүй эм уусан гэж хэлсэн."
+      },
+      "absent": [
+        "Do not transfer paracetamol 500 мг/амаар/10:15-д to amlodipine 5 мг",
+        "No evidence planned ibuprofen was given",
+        "No dose/route/time/frequency for not-given diclofenac or unnamed reported drug",
+        "Not asked and historical unknown allergy are not allergy absence"
+      ],
+      "label_status": "engineer-authored diagnostic expectations",
+      "clinician_review_status": "unreviewed",
+      "underlying_case_id": "probe-med-family-001"
+    }
+  }
+}
