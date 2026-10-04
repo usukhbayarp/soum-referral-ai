@@ -1,0 +1,9 @@
+{
+  "version": "experimental-0.7",
+  "model": "qwen3:1.7b",
+  "prompt_version": "source-id-v06-1",
+  "output_schema_version": "source-id-v06-1",
+  "extraction_schema_version": "experimental-0.6",
+  "segmentation_version": "sentence-lines-1",
+  "deployment_mode": "local"
+}

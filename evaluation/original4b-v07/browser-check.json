@@ -1,0 +1,24 @@
+{
+  "status": "pass",
+  "inference": "mocked provisional assignments for UI regressions only",
+  "checks": [
+    "six sections",
+    "exact source-only example",
+    "blank referral type/signature",
+    "manual-only vital subfields",
+    "distinct medications",
+    "evidence navigation",
+    "pending conditional warnings",
+    "honest manual attribution",
+    "acknowledged missing information approval",
+    "approval revoked after edit",
+    "source reconciliation blocks approval",
+    "example replacement clears case",
+    "long textarea expands",
+    "three editable treatment rows",
+    "multipage PDF generated for separate visual inspection",
+    "new-case reset",
+    "delayed example fetch isolation"
+  ],
+  "pdf": "v07-multipage.pdf"
+}

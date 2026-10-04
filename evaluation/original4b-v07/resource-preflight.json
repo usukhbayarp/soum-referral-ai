@@ -1,0 +1,13 @@
+{
+  "observed_before_download": {
+    "available_disk_display": "12 GiB",
+    "memory_pressure_free_percentage": 50
+  },
+  "after_import_df": "Filesystem      Size    Used   Avail Capacity iused ifree %iused  Mounted on\n/dev/disk3s5   460Gi   418Gi   6.2Gi    99%    2.7M   65M    4%   /System/Volumes/Data\n",
+  "method": "df -h . and memory_pressure; free percentage is system metric, not available allocatable MLX memory",
+  "estimated_download_plus_Ollama_blob": "about 5 GB; actual disk usage may include filesystem clone/dedup effects",
+  "hardware": {
+    "chip": "Apple M4",
+    "unified_memory_bytes": 17179869184
+  }
+}

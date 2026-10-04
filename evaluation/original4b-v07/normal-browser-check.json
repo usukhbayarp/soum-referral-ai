@@ -1,0 +1,9 @@
+[
+  {
+    "mode": "after",
+    "status": "pass",
+    "inference": "none; manual fictional layout fixture",
+    "signature": "blank",
+    "pdf": "normal-after.pdf"
+  }
+]

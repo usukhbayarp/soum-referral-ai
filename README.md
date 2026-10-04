@@ -2,7 +2,7 @@
 
 A local Mongolian referral-documentation prototype for the World Bank Small AI for Development hackathon.
 
-**Fictional data only. The clinician-designed v0.6 schema is experimental, not an approved Mongolian national referral form or a replacement for 13А.** No diagnoses, treatment recommendations, referral eligibility decisions, or urgency assessments are generated. The model proposes source-unit classifications; the doctor must correct them before export. Incorrect classifications and omissions have been observed. This is not clinically validated.
+**Fictional data only. The clinician-designed v0.7 form is experimental, not an approved Mongolian national referral form or a replacement for 13А.** No diagnoses, treatment recommendations, referral eligibility decisions, or urgency assessments are generated. The model proposes source-unit classifications; the doctor must correct them before export. Incorrect classifications and omissions have been observed. This is not clinically validated.
 
 ## Run locally
 
@@ -26,7 +26,7 @@ Use “DEV-002 зохиомол жишээ” to load a fictional, **unreviewed*
 `Browser → FastAPI → replaceable OllamaAdapter → loopback Ollama → source IDs → strict validation → source text → doctor review`.
 
 - The browser holds its own draft in memory; the backend has no shared patient state, accounts or database. Shared state is only a concurrency gate and immutable configuration.
-- `config/referral.v0.6.json`: active six-section clinician-designed form and manual subfields; clinician completeness rules live in `app/static/completeness.mjs`. Empty required fields are allowed after explicit acknowledgement; these rules have no clinical authority.
+- `config/referral.v0.7.json`: active six-section clinician-designed form and manual subfields, explicitly mapped to the unchanged v0.6 extraction contract; clinician completeness rules live in `app/static/completeness.mjs`. Empty required fields are allowed after explicit acknowledgement; these rules have no clinical authority.
 - `config/extraction.source-id-v06-1.txt`: active source-selection prompt. The v0.6 variant 2 returned incomplete output under the unchanged limits and is retained only as an experiment. Old prompts and v0.1 schemas remain historical.
 - `config/output.source-id-v06-1.json`: active output JSON schema. Inference restricts integer IDs to each request's units; validation rejects wrong types, unknown/duplicate IDs, extra/missing/duplicate fields, malformed or incomplete output. A failure is never silently converted into an empty assignment.
 - `app/core.py`: `sentence-lines-1` segmentation. Split on newlines or `. ! ?` followed by whitespace/end; trim boundary whitespace, keep original Unicode code-point offsets and exact text. Decimal points remain intact. This is deterministic, **not a clinical sentence parser**. Abbreviations can split unexpectedly. The browser handles offsets using Unicode code points too.
@@ -71,7 +71,7 @@ node --test tests/*.test.mjs
 .venv/bin/python -m scripts.dataset evaluation/fixtures/development.json
 ```
 
-The active defaults are `REFERRAL_SCHEMA_VERSION=experimental-0.6` and `EXTRACTION_PROMPT_VERSION=source-id-v06-1`. For historical CLI reproduction only, explicitly set `REFERRAL_SCHEMA_VERSION=provisional-0.1 EXTRACTION_PROMPT_VERSION=source-id-1` (or `source-id-2`). Do not serve the v0.6 UI with the historical schema; use its historical Git commit for full application rollback. Version-mismatched fixtures are rejected, not relabeled.
+The active defaults are `REFERRAL_SCHEMA_VERSION=experimental-0.6` and `EXTRACTION_PROMPT_VERSION=source-id-v06-1`. For historical CLI reproduction only, explicitly set `REFERRAL_SCHEMA_VERSION=provisional-0.1 EXTRACTION_PROMPT_VERSION=source-id-1` (or `source-id-2`). Do not serve the current UI with the historical schema; use its historical Git commit for full application rollback. Version-mismatched fixtures are rejected, not relabeled.
 
 Run comparisons while interactive extraction is idle: they are sequential within the runner but do not share the web process's queue. Each model is unloaded before advancing. Results are timestamped and preserved, including failures and abstentions. The runner intentionally uses fixed development cases, never held-out tests.
 
@@ -107,3 +107,7 @@ See [readiness handoff](readiness/READINESS.md) for the cold offline test, hosti
 ## Medication/allergy representation comparison
 
 [Concise comparison report](evaluation/medication-v1/REPORT.md) and [clinician review sheet](evaluation/medication-v1/clinician-review.html): source-unit roles versus structured values/evidence on four unreviewed fictional development notes, using the same installed 1.7B model. Both first runs and the single prompt revisions are retained. **Neither candidate is integrated; the full v0.6 application and defaults remain unchanged.** [Detailed audit and fine-tuning/model-selection implications](docs/medication-representation-comparison.md) preserve both as subsequent options. No training, replacement-model download or deployment ran.
+
+## v0.7 and original-4B follow-up
+
+[Form version mapping and verification](docs/v07.md): optional requested assistance, birth date/receiving phone, distinct oxygen support/FiO₂, compact additional information and conditional organized transport. The serving extraction contract still has 19 categories; production model/prompt are unchanged. Original-4B experimental outputs and clinician-review inputs live separately in `evaluation/original4b-v07`. Historical reports above describe their own milestones.

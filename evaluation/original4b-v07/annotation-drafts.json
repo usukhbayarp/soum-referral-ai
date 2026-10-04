@@ -1,0 +1,306 @@
+[
+  {
+    "case_id": "DEV-002",
+    "underlying_case_id": "DEV-002",
+    "source_note": "[S01] 2026.10.04, 11:15. Жишээ сумын ЭМТ. Демо эмч 02. DEV-002, 46 настай эмэгтэй. Өнөөдөр 10:00-д ирсэн.\n[S02] 6 долоо хоног хоёр бугуй, гарын хурууны үеэр өвдөж хавдана. Өглөөгүүр 30 орчим минут хөшинө. Гэмтэл аваагүй. Халуурахыг үгүйсгэв.\n[S03] АД ихсэлттэй. Амлодипин 5 мг өдөрт 1 удаа уудаг гэсэн. Өнөөдрийн тунгаа уусан эсэхийг асуугаагүй. Эмийн харшилгүй гэж хэлэв.\n[S04] 10:05-д ерөнхий байдал дунд, ухаан саруул. АД 134/82 мм.муб, ЗЦ 82/мин, АТ 16/мин, SpO₂ 98% дэмжлэггүй, халуун 36.7 °C. Хоёр бугуй, хоёр гарын II–III MCP үе хавдаж, тэмтрэхэд эмзэг. Үе тус бүрийн хөдөлгөөний далайцыг үнэлээгүй. Өвдөлт 6/10 гэж хэлсэн.\n[S05] 2026.10.03-ны шинжилгээ: Hb 127 г/л, WBC 6.8 × 10⁹/л, PLT 310 × 10⁹/л, CRP 14 мг/л. RF, anti-CCP хийгээгүй.\n[S06] 10:15-д парацетамол 500 мг амаар нэг удаа өгсөн. 11:00-д өвдөлт 4/10 болсон гэж хэлэв. Энэ үзлэгээр өөр эмчилгээ хийгээгүй.\n[S07] 11:00-д ерөнхий байдал дунд, ухаан саруул. АД 128/80 мм.муб, ЗЦ 78/мин, АТ 16/мин, SpO₂ 98% дэмжлэггүй, халуун 36.6 °C.\n[S08] Үнэлгээ: олон үений өвдөлт, хавдар, шалтгаан тодруулах. Хавсарсан онош: артерийн даралт ихсэлт.\n[S09] Манай суманд ревматологийн эмч, anti-CCP шинжилгээ байхгүй. 6 долоо хоног үргэлжилсэн олон үений өвдөлт, хавдрын шалтгаан тодруулахаар Жишээ аймгийн НЭ-ийн дотрын амбулаторид төлөвлөгөөт журмаар илгээнэ.\n[S10] Хүлээн авах эмчээс үрэвсэлт үений өвчин байж болзошгүй эсэхийг үнэлж, шаардлагатай шинжилгээ болон цаашдын эмчилгээний төлөвлөгөө гаргахыг хүсэв. Аймгийн дотрын эмчийн үнэлгээний дараа сумын эмчид эргэн үзүүлнэ.\n[S11] ЦДШ, CRP-ийн хариуны хуулбарыг хавсаргав. Хүлээгдэж буй шинжилгээний хариу байхгүй.",
+    "split": "development",
+    "synthetic_origin": "AI-generated fictional example supplied by clinician; awaiting final clinician review",
+    "clinician_review_status": "unreviewed",
+    "reviewer": null,
+    "reviewed_at": null,
+    "form_version": "experimental-0.7",
+    "extraction_contract": "medication-representation-1",
+    "prompt_versions": [
+      "medication-A-1",
+      "medication-B-1",
+      "medication-A-2",
+      "medication-B-2"
+    ],
+    "annotation_version": "medication-review-1",
+    "source_segmentation_version": "sentence-lines-1",
+    "provisional_expected_roles": {
+      "U1": "other",
+      "U2": "other",
+      "U3": "other",
+      "U4": "other",
+      "U5": "other",
+      "U6": "other",
+      "U7": "other",
+      "U8": "other",
+      "U9": "other",
+      "U10": "other",
+      "U11": "regular_medication",
+      "U12": "regular_medication",
+      "U13": "allergy_statement",
+      "U14": "other",
+      "U15": "other",
+      "U16": "other",
+      "U17": "other",
+      "U18": "other",
+      "U19": "other",
+      "U20": "other",
+      "U21": "administered_treatment",
+      "U22": "other",
+      "U23": "explicitly_not_administered",
+      "U24": "other",
+      "U25": "other",
+      "U26": "other",
+      "U27": "other",
+      "U28": "other",
+      "U29": "other",
+      "U30": "other",
+      "U31": "other",
+      "U32": "other",
+      "U33": "other"
+    },
+    "provisional_expected_facts": [
+      {
+        "name": "Амлодипин",
+        "role": "regular_medication",
+        "units": [
+          "U11",
+          "U12"
+        ],
+        "dose": "5 мг",
+        "route": null,
+        "time": null,
+        "frequency": "өдөрт 1 удаа"
+      },
+      {
+        "name": "парацетамол",
+        "role": "administered_treatment",
+        "units": [
+          "U21"
+        ],
+        "dose": "500 мг",
+        "route": "амаар",
+        "time": "10:15-д",
+        "frequency": "нэг удаа"
+      }
+    ],
+    "provisional_allergies": {
+      "U13": "Эмийн харшилгүй гэж хэлэв."
+    },
+    "provisional_context": {
+      "U12": "Өнөөдрийн тунгаа уусан эсэхийг асуугаагүй.",
+      "U23": "Энэ үзлэгээр өөр эмчилгээ хийгээгүй."
+    },
+    "missing_absent_not_assessed_to_adjudicate": [
+      "Amlodipine route, exact administration time and today dose confirmation",
+      "Full date for time-only treatment: no automatic association to note date",
+      "Any other administered drug, inferred regimen or allergy confirmation beyond patient report"
+    ],
+    "evidence_mapping_reference": "../medication-v1/expected-facts.json",
+    "review_notes": null,
+    "training_eligible": false
+  },
+  {
+    "case_id": "dev-003",
+    "underlying_case_id": "fictional-003",
+    "source_note": "Ханиалгагүй. Халуураагүй. Амьсгаадаагүй.\nУушгинд шуугиан сонсогдоогүй.\nЭмийн харшилгүй.\nЭмчилгээ хийгээгүй.\nШинжилгээ хийгдээгүй.",
+    "split": "development",
+    "synthetic_origin": "AI-authored fictional development fixture; no real patient",
+    "clinician_review_status": "unreviewed",
+    "reviewer": null,
+    "reviewed_at": null,
+    "form_version": "experimental-0.7",
+    "extraction_contract": "medication-representation-1",
+    "prompt_versions": [
+      "medication-A-1",
+      "medication-B-1",
+      "medication-A-2",
+      "medication-B-2"
+    ],
+    "annotation_version": "medication-review-1",
+    "source_segmentation_version": "sentence-lines-1",
+    "provisional_expected_roles": {
+      "U1": "other",
+      "U2": "other",
+      "U3": "other",
+      "U4": "other",
+      "U5": "allergy_statement",
+      "U6": "explicitly_not_administered",
+      "U7": "other"
+    },
+    "provisional_expected_facts": [],
+    "provisional_allergies": {
+      "U5": "Эмийн харшилгүй."
+    },
+    "provisional_context": {
+      "U6": "Эмчилгээ хийгээгүй."
+    },
+    "missing_absent_not_assessed_to_adjudicate": [
+      "Drug names, doses, routes, timestamps and frequencies; do not create anonymous treatment rows",
+      "Do not turn no treatment into missing information"
+    ],
+    "evidence_mapping_reference": "../medication-v1/expected-facts.json",
+    "review_notes": null,
+    "training_eligible": false
+  },
+  {
+    "case_id": "dev-004",
+    "underlying_case_id": "fictional-004",
+    "source_note": "Өнөөдөр 09:00 цагт парацетамол 500 мг 1 шахмал уусан.\nӨмнөх тэмдэглэлд амоксициллин 250 мг өдөрт 3 удаа, 5 хоног хэрэглэсэн гэж бичсэн.\nХалуун 37.2 °C, АД 120/80 мм.муб, жин 62.5 кг.\nГлюкоз 5.6 ммоль/л.\nПенициллинд тууралт гардаг гэж тэмдэглэсэн.",
+    "split": "development",
+    "synthetic_origin": "AI-authored fictional development fixture; no real patient",
+    "clinician_review_status": "unreviewed",
+    "reviewer": null,
+    "reviewed_at": null,
+    "form_version": "experimental-0.7",
+    "extraction_contract": "medication-representation-1",
+    "prompt_versions": [
+      "medication-A-1",
+      "medication-B-1",
+      "medication-A-2",
+      "medication-B-2"
+    ],
+    "annotation_version": "medication-review-1",
+    "source_segmentation_version": "sentence-lines-1",
+    "provisional_expected_roles": {
+      "U1": "mixed_or_unclear",
+      "U2": "historical_medication",
+      "U3": "other",
+      "U4": "other",
+      "U5": "allergy_statement"
+    },
+    "provisional_expected_facts": [
+      {
+        "name": "парацетамол",
+        "role": "mixed_or_unclear",
+        "units": [
+          "U1"
+        ],
+        "dose": "500 мг 1 шахмал",
+        "route": null,
+        "time": "Өнөөдөр 09:00 цагт",
+        "frequency": null
+      },
+      {
+        "name": "амоксициллин",
+        "role": "historical_medication",
+        "units": [
+          "U2"
+        ],
+        "dose": "250 мг",
+        "route": null,
+        "time": null,
+        "frequency": "өдөрт 3 удаа"
+      }
+    ],
+    "provisional_allergies": {
+      "U5": "Пенициллинд тууралт гардаг гэж тэмдэглэсэн."
+    },
+    "provisional_context": {
+      "U2": "Өмнөх тэмдэглэлд амоксициллин 250 мг өдөрт 3 удаа, 5 хоног хэрэглэсэн гэж бичсэн."
+    },
+    "missing_absent_not_assessed_to_adjudicate": [
+      "Reported taking does not establish encounter administration or ongoing regular medication",
+      "Explicit route, exact historical date; preserve 5 хоног duration in context without fabricating timestamp",
+      "No new treatment from glucose, vitals or allergy drug"
+    ],
+    "evidence_mapping_reference": "../medication-v1/expected-facts.json",
+    "review_notes": null,
+    "training_eligible": false
+  },
+  {
+    "case_id": "probe-med-001",
+    "underlying_case_id": "probe-med-family-001",
+    "source_note": "Тогтмол амлодипин 5 мг өдөрт нэг удаа уудаг, харин энэ үзлэгээр парацетамол 500 мг амаар 10:15-д өгсөн.\nИбупрофен 200 мг амаар өгөхөөр төлөвлөсөн.\nДиклофенак өгөөгүй.\nӨвчтөн нэрийг нь санахгүй эм уусан гэж хэлсэн.\nХаршлыг асуугаагүй.\nӨмнөх тэмдэглэлд харшлын түүх тодорхойгүй гэж бичсэн.",
+    "split": "development",
+    "synthetic_origin": "Engineer/AI-authored fictional diagnostic probe; no real patient",
+    "clinician_review_status": "unreviewed",
+    "reviewer": null,
+    "reviewed_at": null,
+    "form_version": "experimental-0.7",
+    "extraction_contract": "medication-representation-1",
+    "prompt_versions": [
+      "medication-A-1",
+      "medication-B-1",
+      "medication-A-2",
+      "medication-B-2"
+    ],
+    "annotation_version": "medication-review-1",
+    "source_segmentation_version": "sentence-lines-1",
+    "provisional_expected_roles": {
+      "U1": "mixed_or_unclear",
+      "U2": "planned_or_prescribed_treatment",
+      "U3": "explicitly_not_administered",
+      "U4": "mixed_or_unclear",
+      "U5": "allergy_statement",
+      "U6": "allergy_statement"
+    },
+    "provisional_expected_facts": [
+      {
+        "name": "амлодипин",
+        "role": "regular_medication",
+        "units": [
+          "U1"
+        ],
+        "dose": "5 мг",
+        "route": null,
+        "time": null,
+        "frequency": "өдөрт нэг удаа"
+      },
+      {
+        "name": "парацетамол",
+        "role": "administered_treatment",
+        "units": [
+          "U1"
+        ],
+        "dose": "500 мг",
+        "route": "амаар",
+        "time": "10:15-д",
+        "frequency": null
+      },
+      {
+        "name": "Ибупрофен",
+        "role": "planned_or_prescribed_treatment",
+        "units": [
+          "U2"
+        ],
+        "dose": "200 мг",
+        "route": "амаар",
+        "time": null,
+        "frequency": null
+      },
+      {
+        "name": "Диклофенак",
+        "role": "explicitly_not_administered",
+        "units": [
+          "U3"
+        ],
+        "dose": null,
+        "route": null,
+        "time": null,
+        "frequency": null
+      },
+      {
+        "name": "нэрийг нь санахгүй эм",
+        "role": "mixed_or_unclear",
+        "units": [
+          "U4"
+        ],
+        "dose": null,
+        "route": null,
+        "time": null,
+        "frequency": null
+      }
+    ],
+    "provisional_allergies": {
+      "U5": "Харшлыг асуугаагүй.",
+      "U6": "Өмнөх тэмдэглэлд харшлын түүх тодорхойгүй гэж бичсэн."
+    },
+    "provisional_context": {
+      "U4": "Өвчтөн нэрийг нь санахгүй эм уусан гэж хэлсэн."
+    },
+    "missing_absent_not_assessed_to_adjudicate": [
+      "Do not transfer paracetamol 500 мг/амаар/10:15-д to amlodipine 5 мг",
+      "No evidence planned ibuprofen was given",
+      "No dose/route/time/frequency for not-given diclofenac or unnamed reported drug",
+      "Not asked and historical unknown allergy are not allergy absence"
+    ],
+    "evidence_mapping_reference": "../medication-v1/expected-facts.json",
+    "review_notes": null,
+    "training_eligible": false
+  }
+]

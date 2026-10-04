@@ -7,7 +7,7 @@
     "three stress treatment rows individually unbroken",
     "long-text final line retained"
   ],
-  "visual_inspection": "Normal pages 1–2 and stress page 2 inspected: legible Mongolian, no observed clipping; remaining stress pages checked by text/row assertions.",
+  "visual_inspection": "All 2 normal pages and all 3 stress pages rendered and inspected: legible Mongolian, no observed clipping; repeated IDs and full-row content also checked by PDF text assertions.",
   "results": [
     {
       "fixture": "normal_after",

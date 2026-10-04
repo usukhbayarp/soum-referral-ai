@@ -1,0 +1,11 @@
+{
+  "status": "pass",
+  "checks": [
+    "four fictional cases, original source exact",
+    "both saved versions and both models retained",
+    "human-readable proposals and blank adjudication",
+    "no executable script or external requests",
+    "no overflow at 1500 or 720px"
+  ],
+  "clinical_review": false
+}

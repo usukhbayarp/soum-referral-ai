@@ -251,8 +251,8 @@ def test_deployment_mode_defaults_local_and_rejects_typos(monkeypatch):
 
 
 def test_v07_form_version_is_separate_from_unchanged_extraction_contract():
-    config = TestClient(create_app(Fake())).get('/api/config').json()
-    assert config['version'] == 'experimental-0.7'
-    assert config['extraction_schema_version'] == 'experimental-0.6'
-    assert config['prompt_version'] == 'source-id-v06-1'
-    assert len(config['proposal_mapping']) == 19
+    config = TestClient(create_app(Fake())).get("/api/config").json()
+    assert config["version"] == "experimental-0.7"
+    assert config["extraction_schema_version"] == "experimental-0.6"
+    assert config["prompt_version"] == "source-id-v06-1"
+    assert len(config["proposal_mapping"]) == 19

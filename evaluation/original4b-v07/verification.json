@@ -1,0 +1,59 @@
+{
+  "checked_utc": "2026-10-04T08:58:29.938066+00:00",
+  "python_tests": 88,
+  "javascript_tests": 29,
+  "warnings": [
+    "existing Starlette/AnyIO deprecation"
+  ],
+  "browser_checks": [
+    "v0.7 form with mocked provisional extraction",
+    "normal manual DEV-002 print",
+    "long-text stress print",
+    "clinician sheet desktop/narrow, exact source, blank review"
+  ],
+  "print_pages": {
+    "normal": 2,
+    "stress": 3
+  },
+  "visual_inspection": "All five referral PDF pages and clinician-sheet screenshots inspected",
+  "historical_paths_unchanged_since": "b958cc61f3a7310c7a1ffb08a5f1b80c390c0435",
+  "historical_paths": [
+    "evaluation/medication-v1",
+    "evaluation/dev002-v06",
+    "evaluation/recovery-v06",
+    "config/referral.v0.6.json",
+    "config/extraction.source-id-v06-1.txt",
+    "config/extraction.source-id-v06-2.txt",
+    "app/core.py",
+    "app/adapter.py"
+  ],
+  "prior_tags_preserved": true,
+  "tags_after": {
+    "soum-qwen3-4b-original:q4_k_m-bc640142": "afefb6cebde01e54ec2207c28172a3abafea0dcaa990cf542c765d6ea6b4fe1d",
+    "soum-qwen3-1.7b-untuned-control:mlx4-roundtrip-20261004": "e6a6e54bcc9d597d1700b25e24e5b769ca18333015079b50ead7ecaa269bfa75",
+    "qwen3:1.7b": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+    "llama3.1:8b": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+    "qwen3-vl:4b": "1343d82ebee38e26a4dd6b0180b915eb91550184e67c505dea97509571c8f683",
+    "qwen3:4b": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7"
+  },
+  "production": {
+    "model": "qwen3:1.7b",
+    "version": "experimental-0.7",
+    "extraction_schema_version": "experimental-0.6",
+    "prompt_version": "source-id-v06-1",
+    "output_schema_version": "source-id-v06-1",
+    "deployment_mode": "local"
+  },
+  "health": {
+    "status": "ok",
+    "model": "qwen3:1.7b"
+  },
+  "model_experiment_requests": 18,
+  "baseline_requests_reused": 18,
+  "full_precision_checkpoint_downloaded": false,
+  "trained": false,
+  "heldout_content_accessed": false,
+  "clinical_review": false,
+  "offline_disconnect_test": false,
+  "hosted_deployment": false
+}

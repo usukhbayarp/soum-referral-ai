@@ -1,0 +1,2201 @@
+{
+  "status": "Frozen unreviewed development expectations; mechanical diagnostics, not clinical accuracy",
+  "runs": [
+    {
+      "model": "1.7B",
+      "identity": "qwen3:1.7b",
+      "digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+      "revision": 1,
+      "case_id": "DEV-002",
+      "candidate": "A",
+      "repeat": false,
+      "abstention": false,
+      "structural_valid": true,
+      "evidence_valid": true,
+      "error": null,
+      "wall_seconds": 24.412,
+      "cold": true,
+      "termination": "stop",
+      "timings_seconds": {
+        "load_duration": 3.607172292,
+        "prompt_eval_duration": 4.728786,
+        "eval_duration": 16.042587
+      },
+      "evidence_error_counts": {},
+      "role_differences": {
+        "U1": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U6": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U7": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U8": {
+          "expected": "other",
+          "actual": "explicitly_not_administered"
+        },
+        "U9": {
+          "expected": "other",
+          "actual": "explicitly_not_administered"
+        },
+        "U10": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U11": {
+          "expected": "regular_medication",
+          "actual": "administered_treatment"
+        },
+        "U12": {
+          "expected": "regular_medication",
+          "actual": "mixed_or_unclear"
+        },
+        "U13": {
+          "expected": "allergy_statement",
+          "actual": "mixed_or_unclear"
+        },
+        "U14": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U15": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U16": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U17": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U18": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U19": {
+          "expected": "other",
+          "actual": "historical_medication"
+        },
+        "U22": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U23": {
+          "expected": "explicitly_not_administered",
+          "actual": "mixed_or_unclear"
+        },
+        "U24": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U25": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U26": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U27": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U29": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U30": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U31": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U32": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U33": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        }
+      },
+      "missing_and_extra_by_role": {
+        "administered_treatment": {
+          "missing": [],
+          "extra": [
+            "U11"
+          ]
+        },
+        "allergy_statement": {
+          "missing": [
+            "U13"
+          ],
+          "extra": []
+        },
+        "explicitly_not_administered": {
+          "missing": [
+            "U23"
+          ],
+          "extra": [
+            "U8",
+            "U9"
+          ]
+        },
+        "historical_medication": {
+          "missing": [],
+          "extra": [
+            "U19"
+          ]
+        },
+        "mixed_or_unclear": {
+          "missing": [],
+          "extra": [
+            "U1",
+            "U6",
+            "U7",
+            "U10",
+            "U12",
+            "U13",
+            "U14",
+            "U15",
+            "U16",
+            "U17",
+            "U18",
+            "U22",
+            "U23",
+            "U24",
+            "U25",
+            "U26",
+            "U27",
+            "U29",
+            "U30",
+            "U31",
+            "U32",
+            "U33"
+          ]
+        },
+        "other": {
+          "missing": [
+            "U1",
+            "U6",
+            "U7",
+            "U8",
+            "U9",
+            "U10",
+            "U14",
+            "U15",
+            "U16",
+            "U17",
+            "U18",
+            "U19",
+            "U22",
+            "U24",
+            "U25",
+            "U26",
+            "U27",
+            "U29",
+            "U30",
+            "U31",
+            "U32",
+            "U33"
+          ],
+          "extra": []
+        },
+        "regular_medication": {
+          "missing": [
+            "U11",
+            "U12"
+          ],
+          "extra": []
+        }
+      }
+    },
+    {
+      "model": "1.7B",
+      "identity": "qwen3:1.7b",
+      "digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+      "revision": 1,
+      "case_id": "DEV-002",
+      "candidate": "B",
+      "repeat": false,
+      "abstention": false,
+      "structural_valid": true,
+      "evidence_valid": false,
+      "error": null,
+      "wall_seconds": 16.815,
+      "cold": false,
+      "termination": "stop",
+      "timings_seconds": {
+        "load_duration": 0.0098575,
+        "prompt_eval_duration": 3.970909,
+        "eval_duration": 12.724958
+      },
+      "evidence_error_counts": {
+        "detail_not_in_linked_quote": 2,
+        "quote_mismatch": 1,
+        "statement_not_intact_unit": 3
+      }
+    },
+    {
+      "model": "1.7B",
+      "identity": "qwen3:1.7b",
+      "digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+      "revision": 1,
+      "case_id": "dev-003",
+      "candidate": "B",
+      "repeat": false,
+      "abstention": false,
+      "structural_valid": true,
+      "evidence_valid": false,
+      "error": null,
+      "wall_seconds": 18.613,
+      "cold": false,
+      "termination": "stop",
+      "timings_seconds": {
+        "load_duration": 0.004951875,
+        "prompt_eval_duration": 0.239997,
+        "eval_duration": 18.230755
+      },
+      "evidence_error_counts": {
+        "detail_not_in_linked_quote": 4,
+        "statement_not_intact_unit": 10
+      }
+    },
+    {
+      "model": "1.7B",
+      "identity": "qwen3:1.7b",
+      "digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+      "revision": 1,
+      "case_id": "dev-003",
+      "candidate": "A",
+      "repeat": false,
+      "abstention": true,
+      "structural_valid": true,
+      "evidence_valid": true,
+      "error": null,
+      "wall_seconds": 1.917,
+      "cold": false,
+      "termination": "stop",
+      "timings_seconds": {
+        "load_duration": 0.003899208,
+        "prompt_eval_duration": 0.691251,
+        "eval_duration": 1.161278
+      },
+      "evidence_error_counts": {},
+      "role_differences": {
+        "U5": {
+          "expected": "allergy_statement",
+          "actual": "other"
+        },
+        "U6": {
+          "expected": "explicitly_not_administered",
+          "actual": "other"
+        }
+      },
+      "missing_and_extra_by_role": {
+        "allergy_statement": {
+          "missing": [
+            "U5"
+          ],
+          "extra": []
+        },
+        "explicitly_not_administered": {
+          "missing": [
+            "U6"
+          ],
+          "extra": []
+        },
+        "other": {
+          "missing": [],
+          "extra": [
+            "U5",
+            "U6"
+          ]
+        }
+      }
+    },
+    {
+      "model": "1.7B",
+      "identity": "qwen3:1.7b",
+      "digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+      "revision": 1,
+      "case_id": "dev-004",
+      "candidate": "A",
+      "repeat": false,
+      "abstention": false,
+      "structural_valid": true,
+      "evidence_valid": true,
+      "error": null,
+      "wall_seconds": 1.357,
+      "cold": false,
+      "termination": "stop",
+      "timings_seconds": {
+        "load_duration": 0.01343325,
+        "prompt_eval_duration": 0.311759,
+        "eval_duration": 1.022328
+      },
+      "evidence_error_counts": {},
+      "role_differences": {
+        "U1": {
+          "expected": "mixed_or_unclear",
+          "actual": "administered_treatment"
+        },
+        "U2": {
+          "expected": "historical_medication",
+          "actual": "administered_treatment"
+        },
+        "U5": {
+          "expected": "allergy_statement",
+          "actual": "mixed_or_unclear"
+        }
+      },
+      "missing_and_extra_by_role": {
+        "administered_treatment": {
+          "missing": [],
+          "extra": [
+            "U1",
+            "U2"
+          ]
+        },
+        "allergy_statement": {
+          "missing": [
+            "U5"
+          ],
+          "extra": []
+        },
+        "historical_medication": {
+          "missing": [
+            "U2"
+          ],
+          "extra": []
+        },
+        "mixed_or_unclear": {
+          "missing": [
+            "U1"
+          ],
+          "extra": [
+            "U5"
+          ]
+        },
+        "other": {
+          "missing": [],
+          "extra": []
+        }
+      }
+    },
+    {
+      "model": "1.7B",
+      "identity": "qwen3:1.7b",
+      "digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+      "revision": 1,
+      "case_id": "dev-004",
+      "candidate": "B",
+      "repeat": false,
+      "abstention": false,
+      "structural_valid": true,
+      "evidence_valid": false,
+      "error": null,
+      "wall_seconds": 12.957,
+      "cold": false,
+      "termination": "stop",
+      "timings_seconds": {
+        "load_duration": 0.002083959,
+        "prompt_eval_duration": 0.310628,
+        "eval_duration": 12.603661
+      },
+      "evidence_error_counts": {
+        "detail_not_in_linked_quote": 4
+      }
+    },
+    {
+      "model": "1.7B",
+      "identity": "qwen3:1.7b",
+      "digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+      "revision": 1,
+      "case_id": "probe-med-001",
+      "candidate": "B",
+      "repeat": false,
+      "abstention": false,
+      "structural_valid": true,
+      "evidence_valid": false,
+      "error": null,
+      "wall_seconds": 27.886,
+      "cold": false,
+      "termination": "stop",
+      "timings_seconds": {
+        "load_duration": 0.004589458,
+        "prompt_eval_duration": 0.363484,
+        "eval_duration": 27.443567
+      },
+      "evidence_error_counts": {
+        "quote_mismatch": 4,
+        "detail_not_in_linked_quote": 18,
+        "statement_not_intact_unit": 3
+      }
+    },
+    {
+      "model": "1.7B",
+      "identity": "qwen3:1.7b",
+      "digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+      "revision": 1,
+      "case_id": "probe-med-001",
+      "candidate": "A",
+      "repeat": false,
+      "abstention": false,
+      "structural_valid": true,
+      "evidence_valid": true,
+      "error": null,
+      "wall_seconds": 1.905,
+      "cold": false,
+      "termination": "stop",
+      "timings_seconds": {
+        "load_duration": 0.007063625,
+        "prompt_eval_duration": 0.356124,
+        "eval_duration": 1.392412
+      },
+      "evidence_error_counts": {},
+      "role_differences": {
+        "U1": {
+          "expected": "mixed_or_unclear",
+          "actual": "administered_treatment"
+        },
+        "U2": {
+          "expected": "planned_or_prescribed_treatment",
+          "actual": "administered_treatment"
+        },
+        "U4": {
+          "expected": "mixed_or_unclear",
+          "actual": "allergy_statement"
+        },
+        "U5": {
+          "expected": "allergy_statement",
+          "actual": "mixed_or_unclear"
+        },
+        "U6": {
+          "expected": "allergy_statement",
+          "actual": "mixed_or_unclear"
+        }
+      },
+      "missing_and_extra_by_role": {
+        "administered_treatment": {
+          "missing": [],
+          "extra": [
+            "U1",
+            "U2"
+          ]
+        },
+        "allergy_statement": {
+          "missing": [
+            "U5",
+            "U6"
+          ],
+          "extra": [
+            "U4"
+          ]
+        },
+        "explicitly_not_administered": {
+          "missing": [],
+          "extra": []
+        },
+        "mixed_or_unclear": {
+          "missing": [
+            "U1",
+            "U4"
+          ],
+          "extra": [
+            "U5",
+            "U6"
+          ]
+        },
+        "planned_or_prescribed_treatment": {
+          "missing": [
+            "U2"
+          ],
+          "extra": []
+        }
+      }
+    },
+    {
+      "model": "1.7B",
+      "identity": "qwen3:1.7b",
+      "digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+      "revision": 1,
+      "case_id": "DEV-002",
+      "candidate": "A",
+      "repeat": true,
+      "abstention": false,
+      "structural_valid": true,
+      "evidence_valid": true,
+      "error": null,
+      "wall_seconds": 10.286,
+      "cold": false,
+      "termination": "stop",
+      "timings_seconds": {
+        "load_duration": 0.00223825,
+        "prompt_eval_duration": 1.93157,
+        "eval_duration": 8.307405
+      },
+      "evidence_error_counts": {},
+      "role_differences": {
+        "U1": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U6": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U7": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U8": {
+          "expected": "other",
+          "actual": "explicitly_not_administered"
+        },
+        "U9": {
+          "expected": "other",
+          "actual": "explicitly_not_administered"
+        },
+        "U10": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U11": {
+          "expected": "regular_medication",
+          "actual": "administered_treatment"
+        },
+        "U12": {
+          "expected": "regular_medication",
+          "actual": "mixed_or_unclear"
+        },
+        "U13": {
+          "expected": "allergy_statement",
+          "actual": "mixed_or_unclear"
+        },
+        "U14": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U15": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U16": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U17": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U18": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U19": {
+          "expected": "other",
+          "actual": "historical_medication"
+        },
+        "U22": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U23": {
+          "expected": "explicitly_not_administered",
+          "actual": "mixed_or_unclear"
+        },
+        "U24": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U25": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U26": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U27": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U29": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U30": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U31": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U32": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U33": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        }
+      },
+      "missing_and_extra_by_role": {
+        "administered_treatment": {
+          "missing": [],
+          "extra": [
+            "U11"
+          ]
+        },
+        "allergy_statement": {
+          "missing": [
+            "U13"
+          ],
+          "extra": []
+        },
+        "explicitly_not_administered": {
+          "missing": [
+            "U23"
+          ],
+          "extra": [
+            "U8",
+            "U9"
+          ]
+        },
+        "historical_medication": {
+          "missing": [],
+          "extra": [
+            "U19"
+          ]
+        },
+        "mixed_or_unclear": {
+          "missing": [],
+          "extra": [
+            "U1",
+            "U6",
+            "U7",
+            "U10",
+            "U12",
+            "U13",
+            "U14",
+            "U15",
+            "U16",
+            "U17",
+            "U18",
+            "U22",
+            "U23",
+            "U24",
+            "U25",
+            "U26",
+            "U27",
+            "U29",
+            "U30",
+            "U31",
+            "U32",
+            "U33"
+          ]
+        },
+        "other": {
+          "missing": [
+            "U1",
+            "U6",
+            "U7",
+            "U8",
+            "U9",
+            "U10",
+            "U14",
+            "U15",
+            "U16",
+            "U17",
+            "U18",
+            "U19",
+            "U22",
+            "U24",
+            "U25",
+            "U26",
+            "U27",
+            "U29",
+            "U30",
+            "U31",
+            "U32",
+            "U33"
+          ],
+          "extra": []
+        },
+        "regular_medication": {
+          "missing": [
+            "U11",
+            "U12"
+          ],
+          "extra": []
+        }
+      }
+    },
+    {
+      "model": "1.7B",
+      "identity": "qwen3:1.7b",
+      "digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+      "revision": 1,
+      "case_id": "DEV-002",
+      "candidate": "B",
+      "repeat": true,
+      "abstention": false,
+      "structural_valid": true,
+      "evidence_valid": false,
+      "error": null,
+      "wall_seconds": 15.701,
+      "cold": false,
+      "termination": "stop",
+      "timings_seconds": {
+        "load_duration": 0.008264083,
+        "prompt_eval_duration": 0.052675,
+        "eval_duration": 15.152764
+      },
+      "evidence_error_counts": {
+        "detail_not_in_linked_quote": 2,
+        "quote_mismatch": 1,
+        "statement_not_intact_unit": 3
+      }
+    },
+    {
+      "model": "1.7B",
+      "identity": "qwen3:1.7b",
+      "digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+      "revision": 2,
+      "case_id": "DEV-002",
+      "candidate": "A",
+      "repeat": false,
+      "abstention": false,
+      "structural_valid": true,
+      "evidence_valid": true,
+      "error": null,
+      "wall_seconds": 13.018,
+      "cold": false,
+      "termination": "stop",
+      "timings_seconds": {
+        "load_duration": 0.004849084,
+        "prompt_eval_duration": 3.657342,
+        "eval_duration": 9.243802
+      },
+      "evidence_error_counts": {},
+      "role_differences": {
+        "U1": {
+          "expected": "other",
+          "actual": "regular_medication"
+        },
+        "U3": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U4": {
+          "expected": "other",
+          "actual": "historical_medication"
+        },
+        "U5": {
+          "expected": "other",
+          "actual": "planned_or_prescribed_treatment"
+        },
+        "U6": {
+          "expected": "other",
+          "actual": "administered_treatment"
+        },
+        "U7": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U8": {
+          "expected": "other",
+          "actual": "explicitly_not_administered"
+        },
+        "U9": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U10": {
+          "expected": "other",
+          "actual": "regular_medication"
+        },
+        "U11": {
+          "expected": "regular_medication",
+          "actual": "planned_or_prescribed_treatment"
+        },
+        "U12": {
+          "expected": "regular_medication",
+          "actual": "explicitly_not_administered"
+        },
+        "U13": {
+          "expected": "allergy_statement",
+          "actual": "mixed_or_unclear"
+        },
+        "U14": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U15": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U16": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U17": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U18": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U19": {
+          "expected": "other",
+          "actual": "historical_medication"
+        },
+        "U20": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U21": {
+          "expected": "administered_treatment",
+          "actual": "planned_or_prescribed_treatment"
+        },
+        "U22": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U23": {
+          "expected": "explicitly_not_administered",
+          "actual": "mixed_or_unclear"
+        },
+        "U24": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U25": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U26": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U27": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U28": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U29": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U30": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U31": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U32": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U33": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        }
+      },
+      "missing_and_extra_by_role": {
+        "administered_treatment": {
+          "missing": [
+            "U21"
+          ],
+          "extra": [
+            "U6"
+          ]
+        },
+        "allergy_statement": {
+          "missing": [
+            "U13"
+          ],
+          "extra": []
+        },
+        "explicitly_not_administered": {
+          "missing": [
+            "U23"
+          ],
+          "extra": [
+            "U8",
+            "U12"
+          ]
+        },
+        "historical_medication": {
+          "missing": [],
+          "extra": [
+            "U4",
+            "U19"
+          ]
+        },
+        "mixed_or_unclear": {
+          "missing": [],
+          "extra": [
+            "U3",
+            "U7",
+            "U9",
+            "U13",
+            "U14",
+            "U15",
+            "U16",
+            "U17",
+            "U18",
+            "U20",
+            "U22",
+            "U23",
+            "U24",
+            "U25",
+            "U26",
+            "U27",
+            "U28",
+            "U29",
+            "U30",
+            "U31",
+            "U32",
+            "U33"
+          ]
+        },
+        "other": {
+          "missing": [
+            "U1",
+            "U3",
+            "U4",
+            "U5",
+            "U6",
+            "U7",
+            "U8",
+            "U9",
+            "U10",
+            "U14",
+            "U15",
+            "U16",
+            "U17",
+            "U18",
+            "U19",
+            "U20",
+            "U22",
+            "U24",
+            "U25",
+            "U26",
+            "U27",
+            "U28",
+            "U29",
+            "U30",
+            "U31",
+            "U32",
+            "U33"
+          ],
+          "extra": []
+        },
+        "planned_or_prescribed_treatment": {
+          "missing": [],
+          "extra": [
+            "U5",
+            "U11",
+            "U21"
+          ]
+        },
+        "regular_medication": {
+          "missing": [
+            "U11",
+            "U12"
+          ],
+          "extra": [
+            "U1",
+            "U10"
+          ]
+        }
+      }
+    },
+    {
+      "model": "1.7B",
+      "identity": "qwen3:1.7b",
+      "digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+      "revision": 2,
+      "case_id": "DEV-002",
+      "candidate": "B",
+      "repeat": false,
+      "abstention": false,
+      "structural_valid": true,
+      "evidence_valid": false,
+      "error": null,
+      "wall_seconds": 13.091,
+      "cold": false,
+      "termination": "stop",
+      "timings_seconds": {
+        "load_duration": 0.004292584,
+        "prompt_eval_duration": 4.567924,
+        "eval_duration": 8.326226
+      },
+      "evidence_error_counts": {
+        "detail_not_in_linked_quote": 1
+      }
+    },
+    {
+      "model": "1.7B",
+      "identity": "qwen3:1.7b",
+      "digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+      "revision": 2,
+      "case_id": "dev-003",
+      "candidate": "B",
+      "repeat": false,
+      "abstention": false,
+      "structural_valid": true,
+      "evidence_valid": false,
+      "error": null,
+      "wall_seconds": 12.347,
+      "cold": false,
+      "termination": "stop",
+      "timings_seconds": {
+        "load_duration": 0.006394417,
+        "prompt_eval_duration": 0.265127,
+        "eval_duration": 12.039082
+      },
+      "evidence_error_counts": {
+        "detail_not_in_linked_quote": 7,
+        "statement_not_intact_unit": 2
+      }
+    },
+    {
+      "model": "1.7B",
+      "identity": "qwen3:1.7b",
+      "digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+      "revision": 2,
+      "case_id": "dev-003",
+      "candidate": "A",
+      "repeat": false,
+      "abstention": false,
+      "structural_valid": true,
+      "evidence_valid": true,
+      "error": null,
+      "wall_seconds": 2.149,
+      "cold": false,
+      "termination": "stop",
+      "timings_seconds": {
+        "load_duration": 0.006235291,
+        "prompt_eval_duration": 0.241342,
+        "eval_duration": 1.698455
+      },
+      "evidence_error_counts": {},
+      "role_differences": {
+        "U1": {
+          "expected": "other",
+          "actual": "regular_medication"
+        },
+        "U2": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U3": {
+          "expected": "other",
+          "actual": "planned_or_prescribed_treatment"
+        },
+        "U4": {
+          "expected": "other",
+          "actual": "explicitly_not_administered"
+        },
+        "U5": {
+          "expected": "allergy_statement",
+          "actual": "administered_treatment"
+        },
+        "U6": {
+          "expected": "explicitly_not_administered",
+          "actual": "historical_medication"
+        },
+        "U7": {
+          "expected": "other",
+          "actual": "allergy_statement"
+        }
+      },
+      "missing_and_extra_by_role": {
+        "administered_treatment": {
+          "missing": [],
+          "extra": [
+            "U5"
+          ]
+        },
+        "allergy_statement": {
+          "missing": [
+            "U5"
+          ],
+          "extra": [
+            "U7"
+          ]
+        },
+        "explicitly_not_administered": {
+          "missing": [
+            "U6"
+          ],
+          "extra": [
+            "U4"
+          ]
+        },
+        "historical_medication": {
+          "missing": [],
+          "extra": [
+            "U6"
+          ]
+        },
+        "mixed_or_unclear": {
+          "missing": [],
+          "extra": [
+            "U2"
+          ]
+        },
+        "other": {
+          "missing": [
+            "U1",
+            "U2",
+            "U3",
+            "U4",
+            "U7"
+          ],
+          "extra": []
+        },
+        "planned_or_prescribed_treatment": {
+          "missing": [],
+          "extra": [
+            "U3"
+          ]
+        },
+        "regular_medication": {
+          "missing": [],
+          "extra": [
+            "U1"
+          ]
+        }
+      }
+    },
+    {
+      "model": "1.7B",
+      "identity": "qwen3:1.7b",
+      "digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+      "revision": 2,
+      "case_id": "dev-004",
+      "candidate": "A",
+      "repeat": false,
+      "abstention": false,
+      "structural_valid": true,
+      "evidence_valid": true,
+      "error": null,
+      "wall_seconds": 1.568,
+      "cold": false,
+      "termination": "stop",
+      "timings_seconds": {
+        "load_duration": 0.002705834,
+        "prompt_eval_duration": 0.317949,
+        "eval_duration": 1.236734
+      },
+      "evidence_error_counts": {},
+      "role_differences": {
+        "U1": {
+          "expected": "mixed_or_unclear",
+          "actual": "regular_medication"
+        },
+        "U3": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U4": {
+          "expected": "other",
+          "actual": "planned_or_prescribed_treatment"
+        },
+        "U5": {
+          "expected": "allergy_statement",
+          "actual": "explicitly_not_administered"
+        }
+      },
+      "missing_and_extra_by_role": {
+        "allergy_statement": {
+          "missing": [
+            "U5"
+          ],
+          "extra": []
+        },
+        "explicitly_not_administered": {
+          "missing": [],
+          "extra": [
+            "U5"
+          ]
+        },
+        "historical_medication": {
+          "missing": [],
+          "extra": []
+        },
+        "mixed_or_unclear": {
+          "missing": [
+            "U1"
+          ],
+          "extra": [
+            "U3"
+          ]
+        },
+        "other": {
+          "missing": [
+            "U3",
+            "U4"
+          ],
+          "extra": []
+        },
+        "planned_or_prescribed_treatment": {
+          "missing": [],
+          "extra": [
+            "U4"
+          ]
+        },
+        "regular_medication": {
+          "missing": [],
+          "extra": [
+            "U1"
+          ]
+        }
+      }
+    },
+    {
+      "model": "1.7B",
+      "identity": "qwen3:1.7b",
+      "digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+      "revision": 2,
+      "case_id": "dev-004",
+      "candidate": "B",
+      "repeat": false,
+      "abstention": false,
+      "structural_valid": true,
+      "evidence_valid": false,
+      "error": null,
+      "wall_seconds": 29.483,
+      "cold": false,
+      "termination": "stop",
+      "timings_seconds": {
+        "load_duration": 0.002675333,
+        "prompt_eval_duration": 0.33791,
+        "eval_duration": 29.020202
+      },
+      "evidence_error_counts": {
+        "detail_not_in_linked_quote": 6,
+        "statement_not_intact_unit": 2
+      }
+    },
+    {
+      "model": "1.7B",
+      "identity": "qwen3:1.7b",
+      "digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+      "revision": 2,
+      "case_id": "probe-med-001",
+      "candidate": "B",
+      "repeat": false,
+      "abstention": false,
+      "structural_valid": true,
+      "evidence_valid": false,
+      "error": null,
+      "wall_seconds": 34.348,
+      "cold": false,
+      "termination": "stop",
+      "timings_seconds": {
+        "load_duration": 0.007472875,
+        "prompt_eval_duration": 1.25121,
+        "eval_duration": 33.059196
+      },
+      "evidence_error_counts": {
+        "detail_not_in_linked_quote": 3,
+        "statement_not_intact_unit": 1
+      }
+    },
+    {
+      "model": "1.7B",
+      "identity": "qwen3:1.7b",
+      "digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+      "revision": 2,
+      "case_id": "probe-med-001",
+      "candidate": "A",
+      "repeat": false,
+      "abstention": false,
+      "structural_valid": true,
+      "evidence_valid": true,
+      "error": null,
+      "wall_seconds": 4.095,
+      "cold": false,
+      "termination": "stop",
+      "timings_seconds": {
+        "load_duration": 0.008679417,
+        "prompt_eval_duration": 0.664875,
+        "eval_duration": 2.885494
+      },
+      "evidence_error_counts": {},
+      "role_differences": {
+        "U1": {
+          "expected": "mixed_or_unclear",
+          "actual": "regular_medication"
+        },
+        "U6": {
+          "expected": "allergy_statement",
+          "actual": "other"
+        }
+      },
+      "missing_and_extra_by_role": {
+        "allergy_statement": {
+          "missing": [
+            "U6"
+          ],
+          "extra": []
+        },
+        "explicitly_not_administered": {
+          "missing": [],
+          "extra": []
+        },
+        "mixed_or_unclear": {
+          "missing": [
+            "U1"
+          ],
+          "extra": []
+        },
+        "other": {
+          "missing": [],
+          "extra": [
+            "U6"
+          ]
+        },
+        "planned_or_prescribed_treatment": {
+          "missing": [],
+          "extra": []
+        },
+        "regular_medication": {
+          "missing": [],
+          "extra": [
+            "U1"
+          ]
+        }
+      }
+    },
+    {
+      "model": "original 4B",
+      "identity": "soum-qwen3-4b-original:q4_k_m-bc640142",
+      "digest": "afefb6cebde01e54ec2207c28172a3abafea0dcaa990cf542c765d6ea6b4fe1d",
+      "revision": 1,
+      "case_id": "DEV-002",
+      "candidate": "A",
+      "repeat": false,
+      "abstention": false,
+      "structural_valid": true,
+      "evidence_valid": true,
+      "error": null,
+      "wall_seconds": 24.528,
+      "cold": true,
+      "termination": "stop",
+      "timings_seconds": {
+        "load_duration": 2.853591417,
+        "prompt_eval_duration": 6.553187,
+        "eval_duration": 15.084036
+      },
+      "evidence_error_counts": {},
+      "role_differences": {
+        "U11": {
+          "expected": "regular_medication",
+          "actual": "planned_or_prescribed_treatment"
+        },
+        "U12": {
+          "expected": "regular_medication",
+          "actual": "other"
+        },
+        "U13": {
+          "expected": "allergy_statement",
+          "actual": "other"
+        },
+        "U23": {
+          "expected": "explicitly_not_administered",
+          "actual": "other"
+        }
+      },
+      "missing_and_extra_by_role": {
+        "administered_treatment": {
+          "missing": [],
+          "extra": []
+        },
+        "allergy_statement": {
+          "missing": [
+            "U13"
+          ],
+          "extra": []
+        },
+        "explicitly_not_administered": {
+          "missing": [
+            "U23"
+          ],
+          "extra": []
+        },
+        "other": {
+          "missing": [],
+          "extra": [
+            "U12",
+            "U13",
+            "U23"
+          ]
+        },
+        "planned_or_prescribed_treatment": {
+          "missing": [],
+          "extra": [
+            "U11"
+          ]
+        },
+        "regular_medication": {
+          "missing": [
+            "U11",
+            "U12"
+          ],
+          "extra": []
+        }
+      }
+    },
+    {
+      "model": "original 4B",
+      "identity": "soum-qwen3-4b-original:q4_k_m-bc640142",
+      "digest": "afefb6cebde01e54ec2207c28172a3abafea0dcaa990cf542c765d6ea6b4fe1d",
+      "revision": 1,
+      "case_id": "DEV-002",
+      "candidate": "B",
+      "repeat": false,
+      "abstention": false,
+      "structural_valid": false,
+      "evidence_valid": null,
+      "error": "TimeoutError",
+      "wall_seconds": 60.005,
+      "cold": false,
+      "termination": null,
+      "timings_seconds": {
+        "load_duration": 0.0,
+        "prompt_eval_duration": 0.0,
+        "eval_duration": 0.0
+      },
+      "evidence_error_counts": {}
+    },
+    {
+      "model": "original 4B",
+      "identity": "soum-qwen3-4b-original:q4_k_m-bc640142",
+      "digest": "afefb6cebde01e54ec2207c28172a3abafea0dcaa990cf542c765d6ea6b4fe1d",
+      "revision": 1,
+      "case_id": "dev-003",
+      "candidate": "B",
+      "repeat": false,
+      "abstention": true,
+      "structural_valid": true,
+      "evidence_valid": true,
+      "error": null,
+      "wall_seconds": 2.323,
+      "cold": false,
+      "termination": "stop",
+      "timings_seconds": {
+        "load_duration": 0.031910791,
+        "prompt_eval_duration": 0.807717,
+        "eval_duration": 0.989888
+      },
+      "evidence_error_counts": {}
+    },
+    {
+      "model": "original 4B",
+      "identity": "soum-qwen3-4b-original:q4_k_m-bc640142",
+      "digest": "afefb6cebde01e54ec2207c28172a3abafea0dcaa990cf542c765d6ea6b4fe1d",
+      "revision": 1,
+      "case_id": "dev-003",
+      "candidate": "A",
+      "repeat": false,
+      "abstention": true,
+      "structural_valid": true,
+      "evidence_valid": true,
+      "error": null,
+      "wall_seconds": 4.715,
+      "cold": false,
+      "termination": "stop",
+      "timings_seconds": {
+        "load_duration": 0.003676,
+        "prompt_eval_duration": 2.315967,
+        "eval_duration": 2.299255
+      },
+      "evidence_error_counts": {},
+      "role_differences": {
+        "U5": {
+          "expected": "allergy_statement",
+          "actual": "other"
+        },
+        "U6": {
+          "expected": "explicitly_not_administered",
+          "actual": "other"
+        }
+      },
+      "missing_and_extra_by_role": {
+        "allergy_statement": {
+          "missing": [
+            "U5"
+          ],
+          "extra": []
+        },
+        "explicitly_not_administered": {
+          "missing": [
+            "U6"
+          ],
+          "extra": []
+        },
+        "other": {
+          "missing": [],
+          "extra": [
+            "U5",
+            "U6"
+          ]
+        }
+      }
+    },
+    {
+      "model": "original 4B",
+      "identity": "soum-qwen3-4b-original:q4_k_m-bc640142",
+      "digest": "afefb6cebde01e54ec2207c28172a3abafea0dcaa990cf542c765d6ea6b4fe1d",
+      "revision": 1,
+      "case_id": "dev-004",
+      "candidate": "A",
+      "repeat": false,
+      "abstention": false,
+      "structural_valid": true,
+      "evidence_valid": true,
+      "error": null,
+      "wall_seconds": 3.46,
+      "cold": false,
+      "termination": "stop",
+      "timings_seconds": {
+        "load_duration": 0.005427667,
+        "prompt_eval_duration": 1.120395,
+        "eval_duration": 2.30384
+      },
+      "evidence_error_counts": {},
+      "role_differences": {
+        "U1": {
+          "expected": "mixed_or_unclear",
+          "actual": "regular_medication"
+        }
+      },
+      "missing_and_extra_by_role": {
+        "allergy_statement": {
+          "missing": [],
+          "extra": []
+        },
+        "historical_medication": {
+          "missing": [],
+          "extra": []
+        },
+        "mixed_or_unclear": {
+          "missing": [
+            "U1"
+          ],
+          "extra": []
+        },
+        "other": {
+          "missing": [],
+          "extra": []
+        },
+        "regular_medication": {
+          "missing": [],
+          "extra": [
+            "U1"
+          ]
+        }
+      }
+    },
+    {
+      "model": "original 4B",
+      "identity": "soum-qwen3-4b-original:q4_k_m-bc640142",
+      "digest": "afefb6cebde01e54ec2207c28172a3abafea0dcaa990cf542c765d6ea6b4fe1d",
+      "revision": 1,
+      "case_id": "dev-004",
+      "candidate": "B",
+      "repeat": false,
+      "abstention": false,
+      "structural_valid": true,
+      "evidence_valid": false,
+      "error": null,
+      "wall_seconds": 43.634,
+      "cold": false,
+      "termination": "stop",
+      "timings_seconds": {
+        "load_duration": 0.003662584,
+        "prompt_eval_duration": 1.092272,
+        "eval_duration": 42.429925
+      },
+      "evidence_error_counts": {
+        "detail_not_in_linked_quote": 3
+      }
+    },
+    {
+      "model": "original 4B",
+      "identity": "soum-qwen3-4b-original:q4_k_m-bc640142",
+      "digest": "afefb6cebde01e54ec2207c28172a3abafea0dcaa990cf542c765d6ea6b4fe1d",
+      "revision": 1,
+      "case_id": "probe-med-001",
+      "candidate": "B",
+      "repeat": false,
+      "abstention": false,
+      "structural_valid": false,
+      "evidence_valid": null,
+      "error": "TimeoutError",
+      "wall_seconds": 60.001,
+      "cold": false,
+      "termination": null,
+      "timings_seconds": {
+        "load_duration": 0.0,
+        "prompt_eval_duration": 0.0,
+        "eval_duration": 0.0
+      },
+      "evidence_error_counts": {}
+    },
+    {
+      "model": "original 4B",
+      "identity": "soum-qwen3-4b-original:q4_k_m-bc640142",
+      "digest": "afefb6cebde01e54ec2207c28172a3abafea0dcaa990cf542c765d6ea6b4fe1d",
+      "revision": 1,
+      "case_id": "probe-med-001",
+      "candidate": "A",
+      "repeat": false,
+      "abstention": false,
+      "structural_valid": true,
+      "evidence_valid": true,
+      "error": null,
+      "wall_seconds": 4.854,
+      "cold": false,
+      "termination": "stop",
+      "timings_seconds": {
+        "load_duration": 0.0209955,
+        "prompt_eval_duration": 1.303199,
+        "eval_duration": 3.268462
+      },
+      "evidence_error_counts": {},
+      "role_differences": {
+        "U1": {
+          "expected": "mixed_or_unclear",
+          "actual": "regular_medication"
+        },
+        "U4": {
+          "expected": "mixed_or_unclear",
+          "actual": "allergy_statement"
+        }
+      },
+      "missing_and_extra_by_role": {
+        "allergy_statement": {
+          "missing": [],
+          "extra": [
+            "U4"
+          ]
+        },
+        "explicitly_not_administered": {
+          "missing": [],
+          "extra": []
+        },
+        "mixed_or_unclear": {
+          "missing": [
+            "U1",
+            "U4"
+          ],
+          "extra": []
+        },
+        "planned_or_prescribed_treatment": {
+          "missing": [],
+          "extra": []
+        },
+        "regular_medication": {
+          "missing": [],
+          "extra": [
+            "U1"
+          ]
+        }
+      }
+    },
+    {
+      "model": "original 4B",
+      "identity": "soum-qwen3-4b-original:q4_k_m-bc640142",
+      "digest": "afefb6cebde01e54ec2207c28172a3abafea0dcaa990cf542c765d6ea6b4fe1d",
+      "revision": 1,
+      "case_id": "DEV-002",
+      "candidate": "A",
+      "repeat": true,
+      "abstention": false,
+      "structural_valid": true,
+      "evidence_valid": true,
+      "error": null,
+      "wall_seconds": 21.312,
+      "cold": false,
+      "termination": "stop",
+      "timings_seconds": {
+        "load_duration": 0.004352666,
+        "prompt_eval_duration": 6.278931,
+        "eval_duration": 14.996244
+      },
+      "evidence_error_counts": {},
+      "role_differences": {
+        "U11": {
+          "expected": "regular_medication",
+          "actual": "planned_or_prescribed_treatment"
+        },
+        "U12": {
+          "expected": "regular_medication",
+          "actual": "other"
+        },
+        "U13": {
+          "expected": "allergy_statement",
+          "actual": "other"
+        },
+        "U23": {
+          "expected": "explicitly_not_administered",
+          "actual": "other"
+        }
+      },
+      "missing_and_extra_by_role": {
+        "administered_treatment": {
+          "missing": [],
+          "extra": []
+        },
+        "allergy_statement": {
+          "missing": [
+            "U13"
+          ],
+          "extra": []
+        },
+        "explicitly_not_administered": {
+          "missing": [
+            "U23"
+          ],
+          "extra": []
+        },
+        "other": {
+          "missing": [],
+          "extra": [
+            "U12",
+            "U13",
+            "U23"
+          ]
+        },
+        "planned_or_prescribed_treatment": {
+          "missing": [],
+          "extra": [
+            "U11"
+          ]
+        },
+        "regular_medication": {
+          "missing": [
+            "U11",
+            "U12"
+          ],
+          "extra": []
+        }
+      }
+    },
+    {
+      "model": "original 4B",
+      "identity": "soum-qwen3-4b-original:q4_k_m-bc640142",
+      "digest": "afefb6cebde01e54ec2207c28172a3abafea0dcaa990cf542c765d6ea6b4fe1d",
+      "revision": 1,
+      "case_id": "DEV-002",
+      "candidate": "B",
+      "repeat": true,
+      "abstention": false,
+      "structural_valid": false,
+      "evidence_valid": null,
+      "error": "TimeoutError",
+      "wall_seconds": 60.003,
+      "cold": false,
+      "termination": null,
+      "timings_seconds": {
+        "load_duration": 0.0,
+        "prompt_eval_duration": 0.0,
+        "eval_duration": 0.0
+      },
+      "evidence_error_counts": {}
+    },
+    {
+      "model": "original 4B",
+      "identity": "soum-qwen3-4b-original:q4_k_m-bc640142",
+      "digest": "afefb6cebde01e54ec2207c28172a3abafea0dcaa990cf542c765d6ea6b4fe1d",
+      "revision": 2,
+      "case_id": "DEV-002",
+      "candidate": "A",
+      "repeat": false,
+      "abstention": false,
+      "structural_valid": true,
+      "evidence_valid": true,
+      "error": null,
+      "wall_seconds": 24.968,
+      "cold": false,
+      "termination": "stop",
+      "timings_seconds": {
+        "load_duration": 0.007142542,
+        "prompt_eval_duration": 11.341934,
+        "eval_duration": 13.424377
+      },
+      "evidence_error_counts": {},
+      "role_differences": {
+        "U6": {
+          "expected": "other",
+          "actual": "historical_medication"
+        },
+        "U10": {
+          "expected": "other",
+          "actual": "regular_medication"
+        },
+        "U11": {
+          "expected": "regular_medication",
+          "actual": "administered_treatment"
+        },
+        "U12": {
+          "expected": "regular_medication",
+          "actual": "other"
+        },
+        "U23": {
+          "expected": "explicitly_not_administered",
+          "actual": "other"
+        }
+      },
+      "missing_and_extra_by_role": {
+        "administered_treatment": {
+          "missing": [],
+          "extra": [
+            "U11"
+          ]
+        },
+        "allergy_statement": {
+          "missing": [],
+          "extra": []
+        },
+        "explicitly_not_administered": {
+          "missing": [
+            "U23"
+          ],
+          "extra": []
+        },
+        "historical_medication": {
+          "missing": [],
+          "extra": [
+            "U6"
+          ]
+        },
+        "other": {
+          "missing": [
+            "U6",
+            "U10"
+          ],
+          "extra": [
+            "U12",
+            "U23"
+          ]
+        },
+        "regular_medication": {
+          "missing": [
+            "U11",
+            "U12"
+          ],
+          "extra": [
+            "U10"
+          ]
+        }
+      }
+    },
+    {
+      "model": "original 4B",
+      "identity": "soum-qwen3-4b-original:q4_k_m-bc640142",
+      "digest": "afefb6cebde01e54ec2207c28172a3abafea0dcaa990cf542c765d6ea6b4fe1d",
+      "revision": 2,
+      "case_id": "DEV-002",
+      "candidate": "B",
+      "repeat": false,
+      "abstention": false,
+      "structural_valid": true,
+      "evidence_valid": false,
+      "error": null,
+      "wall_seconds": 47.623,
+      "cold": false,
+      "termination": "stop",
+      "timings_seconds": {
+        "load_duration": 0.003090042,
+        "prompt_eval_duration": 14.533247,
+        "eval_duration": 32.803290999
+      },
+      "evidence_error_counts": {
+        "detail_not_in_linked_quote": 2,
+        "statement_not_intact_unit": 1
+      }
+    },
+    {
+      "model": "original 4B",
+      "identity": "soum-qwen3-4b-original:q4_k_m-bc640142",
+      "digest": "afefb6cebde01e54ec2207c28172a3abafea0dcaa990cf542c765d6ea6b4fe1d",
+      "revision": 2,
+      "case_id": "dev-003",
+      "candidate": "B",
+      "repeat": false,
+      "abstention": false,
+      "structural_valid": true,
+      "evidence_valid": true,
+      "error": null,
+      "wall_seconds": 12.985,
+      "cold": false,
+      "termination": "stop",
+      "timings_seconds": {
+        "load_duration": 0.01669425,
+        "prompt_eval_duration": 0.764147,
+        "eval_duration": 11.9314
+      },
+      "evidence_error_counts": {}
+    },
+    {
+      "model": "original 4B",
+      "identity": "soum-qwen3-4b-original:q4_k_m-bc640142",
+      "digest": "afefb6cebde01e54ec2207c28172a3abafea0dcaa990cf542c765d6ea6b4fe1d",
+      "revision": 2,
+      "case_id": "dev-003",
+      "candidate": "A",
+      "repeat": false,
+      "abstention": false,
+      "structural_valid": true,
+      "evidence_valid": true,
+      "error": null,
+      "wall_seconds": 4.144,
+      "cold": false,
+      "termination": "stop",
+      "timings_seconds": {
+        "load_duration": 0.005704916,
+        "prompt_eval_duration": 0.744368,
+        "eval_duration": 2.561608
+      },
+      "evidence_error_counts": {},
+      "role_differences": {},
+      "missing_and_extra_by_role": {
+        "allergy_statement": {
+          "missing": [],
+          "extra": []
+        },
+        "explicitly_not_administered": {
+          "missing": [],
+          "extra": []
+        },
+        "other": {
+          "missing": [],
+          "extra": []
+        }
+      }
+    },
+    {
+      "model": "original 4B",
+      "identity": "soum-qwen3-4b-original:q4_k_m-bc640142",
+      "digest": "afefb6cebde01e54ec2207c28172a3abafea0dcaa990cf542c765d6ea6b4fe1d",
+      "revision": 2,
+      "case_id": "dev-004",
+      "candidate": "A",
+      "repeat": false,
+      "abstention": false,
+      "structural_valid": true,
+      "evidence_valid": true,
+      "error": null,
+      "wall_seconds": 3.102,
+      "cold": false,
+      "termination": "stop",
+      "timings_seconds": {
+        "load_duration": 0.001942416,
+        "prompt_eval_duration": 0.991254,
+        "eval_duration": 2.095554999
+      },
+      "evidence_error_counts": {},
+      "role_differences": {
+        "U1": {
+          "expected": "mixed_or_unclear",
+          "actual": "regular_medication"
+        }
+      },
+      "missing_and_extra_by_role": {
+        "allergy_statement": {
+          "missing": [],
+          "extra": []
+        },
+        "historical_medication": {
+          "missing": [],
+          "extra": []
+        },
+        "mixed_or_unclear": {
+          "missing": [
+            "U1"
+          ],
+          "extra": []
+        },
+        "other": {
+          "missing": [],
+          "extra": []
+        },
+        "regular_medication": {
+          "missing": [],
+          "extra": [
+            "U1"
+          ]
+        }
+      }
+    },
+    {
+      "model": "original 4B",
+      "identity": "soum-qwen3-4b-original:q4_k_m-bc640142",
+      "digest": "afefb6cebde01e54ec2207c28172a3abafea0dcaa990cf542c765d6ea6b4fe1d",
+      "revision": 2,
+      "case_id": "dev-004",
+      "candidate": "B",
+      "repeat": false,
+      "abstention": false,
+      "structural_valid": true,
+      "evidence_valid": false,
+      "error": null,
+      "wall_seconds": 32.717,
+      "cold": false,
+      "termination": "stop",
+      "timings_seconds": {
+        "load_duration": 0.002497666,
+        "prompt_eval_duration": 1.068814,
+        "eval_duration": 31.36981
+      },
+      "evidence_error_counts": {
+        "detail_not_in_linked_quote": 3
+      }
+    },
+    {
+      "model": "original 4B",
+      "identity": "soum-qwen3-4b-original:q4_k_m-bc640142",
+      "digest": "afefb6cebde01e54ec2207c28172a3abafea0dcaa990cf542c765d6ea6b4fe1d",
+      "revision": 2,
+      "case_id": "probe-med-001",
+      "candidate": "B",
+      "repeat": false,
+      "abstention": false,
+      "structural_valid": false,
+      "evidence_valid": null,
+      "error": "TimeoutError",
+      "wall_seconds": 60.002,
+      "cold": false,
+      "termination": null,
+      "timings_seconds": {
+        "load_duration": 0.0,
+        "prompt_eval_duration": 0.0,
+        "eval_duration": 0.0
+      },
+      "evidence_error_counts": {}
+    },
+    {
+      "model": "original 4B",
+      "identity": "soum-qwen3-4b-original:q4_k_m-bc640142",
+      "digest": "afefb6cebde01e54ec2207c28172a3abafea0dcaa990cf542c765d6ea6b4fe1d",
+      "revision": 2,
+      "case_id": "probe-med-001",
+      "candidate": "A",
+      "repeat": false,
+      "abstention": false,
+      "structural_valid": true,
+      "evidence_valid": true,
+      "error": null,
+      "wall_seconds": 4.439,
+      "cold": false,
+      "termination": "stop",
+      "timings_seconds": {
+        "load_duration": 0.015581875,
+        "prompt_eval_duration": 1.076643,
+        "eval_duration": 2.997957
+      },
+      "evidence_error_counts": {},
+      "role_differences": {
+        "U1": {
+          "expected": "mixed_or_unclear",
+          "actual": "regular_medication"
+        },
+        "U4": {
+          "expected": "mixed_or_unclear",
+          "actual": "allergy_statement"
+        }
+      },
+      "missing_and_extra_by_role": {
+        "allergy_statement": {
+          "missing": [],
+          "extra": [
+            "U4"
+          ]
+        },
+        "explicitly_not_administered": {
+          "missing": [],
+          "extra": []
+        },
+        "mixed_or_unclear": {
+          "missing": [
+            "U1",
+            "U4"
+          ],
+          "extra": []
+        },
+        "planned_or_prescribed_treatment": {
+          "missing": [],
+          "extra": []
+        },
+        "regular_medication": {
+          "missing": [],
+          "extra": [
+            "U1"
+          ]
+        }
+      }
+    }
+  ],
+  "repeats": [
+    {
+      "model": "1.7B",
+      "candidate": "A",
+      "identical_content": true,
+      "errors": [
+        null,
+        null
+      ]
+    },
+    {
+      "model": "1.7B",
+      "candidate": "B",
+      "identical_content": true,
+      "errors": [
+        null,
+        null
+      ]
+    },
+    {
+      "model": "original 4B",
+      "candidate": "A",
+      "identical_content": true,
+      "errors": [
+        null,
+        null
+      ]
+    },
+    {
+      "model": "original 4B",
+      "candidate": "B",
+      "identical_content": null,
+      "errors": [
+        "TimeoutError",
+        "TimeoutError"
+      ]
+    }
+  ]
+}
