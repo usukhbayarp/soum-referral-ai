@@ -5,7 +5,7 @@ const fs=require('node:fs');
 const path=require('node:path');
 const assert=require('node:assert/strict');
 (async()=>{
- const root=path.resolve(__dirname,'..'), out=path.join(root,'.runtime/v06-ui');fs.mkdirSync(out,{recursive:true});
+ const root=path.resolve(__dirname,'..'), out=path.resolve(root,process.env.UI_OUTPUT || '.runtime/v06-ui');fs.mkdirSync(out,{recursive:true});
  const cases=JSON.parse(fs.readFileSync(path.join(root,'evaluation/dev002-v06/cases.json')));
  const units=JSON.parse(fs.readFileSync(path.join(root,'evaluation/dev002-v06/source-map.json'))).units;
  const item=cases[0], fields=Object.fromEntries(Object.entries(item.expected_assignments).map(([id,ids])=>{

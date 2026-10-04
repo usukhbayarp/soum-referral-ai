@@ -1,0 +1,34 @@
+{
+  "status": "fictional print mechanics only; browser acknowledgement simulated, clinician signature/review unfilled",
+  "checks": [
+    "ID on every page",
+    "normal source facts/negatives/units and time-only values retained",
+    "manual attribution without original-evidence duplication",
+    "three stress treatment rows individually unbroken",
+    "long-text final line retained"
+  ],
+  "visual_inspection": "required separately; text checks do not prove layout quality",
+  "results": [
+    {
+      "fixture": "normal_before",
+      "pages": 7,
+      "sha256": "f92467f897770f0c4b36d42a3870fee39000c51f8d3b5b7dbdf26898a7931c4f",
+      "status": "pass",
+      "pdf": ".runtime/recovery-print/normal-before.pdf"
+    },
+    {
+      "fixture": "normal_after",
+      "pages": 2,
+      "sha256": "f611181cd6df0b7797c4592b452fb90fc71fd95aad809b35cb62bc7fa63d8ac8",
+      "status": "pass",
+      "pdf": ".runtime/recovery-print/normal-after.pdf"
+    },
+    {
+      "fixture": "stress_after",
+      "pages": 3,
+      "sha256": "aaa515a5a3f35ab9d68400da121269dac1ad9986c7c0bb6403e6b4ec0543e10b",
+      "status": "pass",
+      "pdf": ".runtime/recovery-stress/v06-multipage.pdf"
+    }
+  ]
+}

@@ -1,0 +1,1816 @@
+{
+  "status": "Unreviewed provisional assignment comparisons, not clinical accuracy. Counts are field-ID pairs, not unique source units.",
+  "DEV-002": [
+    {
+      "candidate": "baseline-1.7b",
+      "prompt_version": "source-id-v06-1",
+      "historical_output_reused": true,
+      "validation_error": null,
+      "latency_seconds": 29.324,
+      "exact_field_sets": 1,
+      "missing_assignment_pairs": 18,
+      "extra_assignment_pairs": 117,
+      "abstentions": [],
+      "fields": {
+        "identity_source": {
+          "expected": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "actual": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "exact": false,
+          "missing": [],
+          "extra": [
+            6,
+            7,
+            8,
+            9,
+            10
+          ]
+        },
+        "referral": {
+          "expected": [
+            28,
+            29
+          ],
+          "actual": [
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32
+          ],
+          "exact": false,
+          "missing": [],
+          "extra": [
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            30,
+            31,
+            32
+          ]
+        },
+        "requested_action": {
+          "expected": [
+            30
+          ],
+          "actual": [
+            33
+          ],
+          "exact": false,
+          "missing": [
+            30
+          ],
+          "extra": [
+            33
+          ]
+        },
+        "referral_type_source": {
+          "expected": [
+            29
+          ],
+          "actual": [
+            33
+          ],
+          "exact": false,
+          "missing": [
+            29
+          ],
+          "extra": [
+            33
+          ]
+        },
+        "history": {
+          "expected": [
+            6,
+            7,
+            8,
+            9
+          ],
+          "actual": [
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32
+          ],
+          "exact": false,
+          "missing": [
+            6,
+            7,
+            8,
+            9
+          ],
+          "extra": [
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32
+          ]
+        },
+        "medical_history": {
+          "expected": [
+            10
+          ],
+          "actual": [
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32
+          ],
+          "exact": false,
+          "missing": [
+            10
+          ],
+          "extra": [
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32
+          ]
+        },
+        "regular_medication": {
+          "expected": [
+            11,
+            12
+          ],
+          "actual": [
+            11,
+            21,
+            22,
+            23
+          ],
+          "exact": false,
+          "missing": [
+            12
+          ],
+          "extra": [
+            21,
+            22,
+            23
+          ]
+        },
+        "diagnosis": {
+          "expected": [
+            26
+          ],
+          "actual": [
+            33
+          ],
+          "exact": false,
+          "missing": [
+            26
+          ],
+          "extra": [
+            33
+          ]
+        },
+        "comorbid": {
+          "expected": [
+            27
+          ],
+          "actual": [
+            33
+          ],
+          "exact": false,
+          "missing": [
+            27
+          ],
+          "extra": [
+            33
+          ]
+        },
+        "allergies": {
+          "expected": [
+            13
+          ],
+          "actual": [
+            33
+          ],
+          "exact": false,
+          "missing": [
+            13
+          ],
+          "extra": [
+            33
+          ]
+        },
+        "initial_source": {
+          "expected": [
+            14,
+            15
+          ],
+          "actual": [
+            5,
+            14,
+            25
+          ],
+          "exact": false,
+          "missing": [
+            15
+          ],
+          "extra": [
+            5,
+            25
+          ]
+        },
+        "current_source": {
+          "expected": [
+            24,
+            25
+          ],
+          "actual": [
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32
+          ],
+          "exact": false,
+          "missing": [],
+          "extra": [
+            19,
+            20,
+            21,
+            22,
+            23,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32
+          ]
+        },
+        "examination": {
+          "expected": [
+            16,
+            17,
+            18
+          ],
+          "actual": [
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32
+          ],
+          "exact": false,
+          "missing": [
+            16,
+            17,
+            18
+          ],
+          "extra": [
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32
+          ]
+        },
+        "investigations": {
+          "expected": [
+            19,
+            20
+          ],
+          "actual": [
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32
+          ],
+          "exact": false,
+          "missing": [],
+          "extra": [
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32
+          ]
+        },
+        "attached": {
+          "expected": [
+            32
+          ],
+          "actual": [
+            33
+          ],
+          "exact": false,
+          "missing": [
+            32
+          ],
+          "extra": [
+            33
+          ]
+        },
+        "pending_results": {
+          "expected": [
+            33
+          ],
+          "actual": [
+            33
+          ],
+          "exact": true,
+          "missing": [],
+          "extra": []
+        },
+        "treatment_source": {
+          "expected": [
+            21,
+            22,
+            23
+          ],
+          "actual": [
+            11,
+            21,
+            22,
+            23
+          ],
+          "exact": false,
+          "missing": [],
+          "extra": [
+            11
+          ]
+        },
+        "pain_change": {
+          "expected": [
+            18,
+            22
+          ],
+          "actual": [
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32
+          ],
+          "exact": false,
+          "missing": [
+            18
+          ],
+          "extra": [
+            19,
+            20,
+            21,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32
+          ]
+        },
+        "plan": {
+          "expected": [
+            31
+          ],
+          "actual": [
+            33
+          ],
+          "exact": false,
+          "missing": [
+            31
+          ],
+          "extra": [
+            33
+          ]
+        }
+      }
+    },
+    {
+      "candidate": "baseline-4b",
+      "prompt_version": "source-id-v06-1",
+      "historical_output_reused": false,
+      "validation_error": null,
+      "latency_seconds": 54.745,
+      "exact_field_sets": 2,
+      "missing_assignment_pairs": 24,
+      "extra_assignment_pairs": 5,
+      "abstentions": [
+        "comorbid",
+        "allergies"
+      ],
+      "fields": {
+        "identity_source": {
+          "expected": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "actual": [
+            1
+          ],
+          "exact": false,
+          "missing": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "extra": []
+        },
+        "referral": {
+          "expected": [
+            28,
+            29
+          ],
+          "actual": [
+            29
+          ],
+          "exact": false,
+          "missing": [
+            28
+          ],
+          "extra": []
+        },
+        "requested_action": {
+          "expected": [
+            30
+          ],
+          "actual": [
+            30
+          ],
+          "exact": true,
+          "missing": [],
+          "extra": []
+        },
+        "referral_type_source": {
+          "expected": [
+            29
+          ],
+          "actual": [
+            29
+          ],
+          "exact": true,
+          "missing": [],
+          "extra": []
+        },
+        "history": {
+          "expected": [
+            6,
+            7,
+            8,
+            9
+          ],
+          "actual": [
+            6
+          ],
+          "exact": false,
+          "missing": [
+            7,
+            8,
+            9
+          ],
+          "extra": []
+        },
+        "medical_history": {
+          "expected": [
+            10
+          ],
+          "actual": [
+            11
+          ],
+          "exact": false,
+          "missing": [
+            10
+          ],
+          "extra": [
+            11
+          ]
+        },
+        "regular_medication": {
+          "expected": [
+            11,
+            12
+          ],
+          "actual": [
+            11
+          ],
+          "exact": false,
+          "missing": [
+            12
+          ],
+          "extra": []
+        },
+        "diagnosis": {
+          "expected": [
+            26
+          ],
+          "actual": [
+            27
+          ],
+          "exact": false,
+          "missing": [
+            26
+          ],
+          "extra": [
+            27
+          ]
+        },
+        "comorbid": {
+          "expected": [
+            27
+          ],
+          "actual": [],
+          "exact": false,
+          "missing": [
+            27
+          ],
+          "extra": []
+        },
+        "allergies": {
+          "expected": [
+            13
+          ],
+          "actual": [],
+          "exact": false,
+          "missing": [
+            13
+          ],
+          "extra": []
+        },
+        "initial_source": {
+          "expected": [
+            14,
+            15
+          ],
+          "actual": [
+            14
+          ],
+          "exact": false,
+          "missing": [
+            15
+          ],
+          "extra": []
+        },
+        "current_source": {
+          "expected": [
+            24,
+            25
+          ],
+          "actual": [
+            24
+          ],
+          "exact": false,
+          "missing": [
+            25
+          ],
+          "extra": []
+        },
+        "examination": {
+          "expected": [
+            16,
+            17,
+            18
+          ],
+          "actual": [
+            16
+          ],
+          "exact": false,
+          "missing": [
+            17,
+            18
+          ],
+          "extra": []
+        },
+        "investigations": {
+          "expected": [
+            19,
+            20
+          ],
+          "actual": [
+            19
+          ],
+          "exact": false,
+          "missing": [
+            20
+          ],
+          "extra": []
+        },
+        "attached": {
+          "expected": [
+            32
+          ],
+          "actual": [
+            19
+          ],
+          "exact": false,
+          "missing": [
+            32
+          ],
+          "extra": [
+            19
+          ]
+        },
+        "pending_results": {
+          "expected": [
+            33
+          ],
+          "actual": [
+            20
+          ],
+          "exact": false,
+          "missing": [
+            33
+          ],
+          "extra": [
+            20
+          ]
+        },
+        "treatment_source": {
+          "expected": [
+            21,
+            22,
+            23
+          ],
+          "actual": [
+            21
+          ],
+          "exact": false,
+          "missing": [
+            22,
+            23
+          ],
+          "extra": []
+        },
+        "pain_change": {
+          "expected": [
+            18,
+            22
+          ],
+          "actual": [
+            22
+          ],
+          "exact": false,
+          "missing": [
+            18
+          ],
+          "extra": []
+        },
+        "plan": {
+          "expected": [
+            31
+          ],
+          "actual": [
+            29
+          ],
+          "exact": false,
+          "missing": [
+            31
+          ],
+          "extra": [
+            29
+          ]
+        }
+      }
+    },
+    {
+      "candidate": "grouped-1.7b",
+      "prompt_version": "grouped-source-id-v06-1",
+      "historical_output_reused": false,
+      "validation_error": null,
+      "latency_seconds": 76.836,
+      "exact_field_sets": 0,
+      "missing_assignment_pairs": 13,
+      "extra_assignment_pairs": 235,
+      "abstentions": [
+        "attached",
+        "pending_results",
+        "referral"
+      ],
+      "fields": {
+        "identity_source": {
+          "expected": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "actual": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33
+          ],
+          "exact": false,
+          "missing": [],
+          "extra": [
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33
+          ]
+        },
+        "referral": {
+          "expected": [
+            28,
+            29
+          ],
+          "actual": [],
+          "exact": false,
+          "missing": [
+            28,
+            29
+          ],
+          "extra": []
+        },
+        "requested_action": {
+          "expected": [
+            30
+          ],
+          "actual": [
+            2
+          ],
+          "exact": false,
+          "missing": [
+            30
+          ],
+          "extra": [
+            2
+          ]
+        },
+        "referral_type_source": {
+          "expected": [
+            29
+          ],
+          "actual": [
+            1
+          ],
+          "exact": false,
+          "missing": [
+            29
+          ],
+          "extra": [
+            1
+          ]
+        },
+        "history": {
+          "expected": [
+            6,
+            7,
+            8,
+            9
+          ],
+          "actual": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33
+          ],
+          "exact": false,
+          "missing": [],
+          "extra": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33
+          ]
+        },
+        "medical_history": {
+          "expected": [
+            10
+          ],
+          "actual": [
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33
+          ],
+          "exact": false,
+          "missing": [
+            10
+          ],
+          "extra": [
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33
+          ]
+        },
+        "regular_medication": {
+          "expected": [
+            11,
+            12
+          ],
+          "actual": [
+            1,
+            11,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33
+          ],
+          "exact": false,
+          "missing": [
+            12
+          ],
+          "extra": [
+            1,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33
+          ]
+        },
+        "diagnosis": {
+          "expected": [
+            26
+          ],
+          "actual": [
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33
+          ],
+          "exact": false,
+          "missing": [],
+          "extra": [
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33
+          ]
+        },
+        "comorbid": {
+          "expected": [
+            27
+          ],
+          "actual": [
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33
+          ],
+          "exact": false,
+          "missing": [],
+          "extra": [
+            28,
+            29,
+            30,
+            31,
+            32,
+            33
+          ]
+        },
+        "allergies": {
+          "expected": [
+            13
+          ],
+          "actual": [
+            1,
+            11,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33
+          ],
+          "exact": false,
+          "missing": [
+            13
+          ],
+          "extra": [
+            1,
+            11,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33
+          ]
+        },
+        "initial_source": {
+          "expected": [
+            14,
+            15
+          ],
+          "actual": [
+            1,
+            5,
+            6,
+            7,
+            8,
+            10,
+            11,
+            15,
+            16,
+            18,
+            21,
+            22,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33
+          ],
+          "exact": false,
+          "missing": [
+            14
+          ],
+          "extra": [
+            1,
+            5,
+            6,
+            7,
+            8,
+            10,
+            11,
+            16,
+            18,
+            21,
+            22,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33
+          ]
+        },
+        "current_source": {
+          "expected": [
+            24,
+            25
+          ],
+          "actual": [
+            1,
+            5,
+            6,
+            7,
+            8,
+            10,
+            11,
+            15,
+            16,
+            18,
+            21,
+            22,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33
+          ],
+          "exact": false,
+          "missing": [],
+          "extra": [
+            1,
+            5,
+            6,
+            7,
+            8,
+            10,
+            11,
+            15,
+            16,
+            18,
+            21,
+            22,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33
+          ]
+        },
+        "examination": {
+          "expected": [
+            16,
+            17,
+            18
+          ],
+          "actual": [
+            1,
+            5,
+            6,
+            7,
+            8,
+            10,
+            11,
+            15,
+            16,
+            18,
+            21,
+            22,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33
+          ],
+          "exact": false,
+          "missing": [
+            17
+          ],
+          "extra": [
+            1,
+            5,
+            6,
+            7,
+            8,
+            10,
+            11,
+            15,
+            21,
+            22,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33
+          ]
+        },
+        "investigations": {
+          "expected": [
+            19,
+            20
+          ],
+          "actual": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33
+          ],
+          "exact": false,
+          "missing": [],
+          "extra": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33
+          ]
+        },
+        "attached": {
+          "expected": [
+            32
+          ],
+          "actual": [],
+          "exact": false,
+          "missing": [
+            32
+          ],
+          "extra": []
+        },
+        "pending_results": {
+          "expected": [
+            33
+          ],
+          "actual": [],
+          "exact": false,
+          "missing": [
+            33
+          ],
+          "extra": []
+        },
+        "treatment_source": {
+          "expected": [
+            21,
+            22,
+            23
+          ],
+          "actual": [
+            1,
+            11,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33
+          ],
+          "exact": false,
+          "missing": [],
+          "extra": [
+            1,
+            11,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33
+          ]
+        },
+        "pain_change": {
+          "expected": [
+            18,
+            22
+          ],
+          "actual": [
+            1,
+            11,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33
+          ],
+          "exact": false,
+          "missing": [
+            18
+          ],
+          "extra": [
+            1,
+            11,
+            21,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33
+          ]
+        },
+        "plan": {
+          "expected": [
+            31
+          ],
+          "actual": [
+            3
+          ],
+          "exact": false,
+          "missing": [
+            31
+          ],
+          "extra": [
+            3
+          ]
+        }
+      }
+    }
+  ],
+  "other_development": [
+    {
+      "candidate": "baseline-1.7b-other",
+      "case_id": "dev-001",
+      "validation_error": null,
+      "latency_seconds": 8.782,
+      "abstentions": [
+        "requested_action",
+        "comorbid",
+        "current_source",
+        "attached",
+        "pending_results",
+        "plan"
+      ],
+      "missing_extra": "Unavailable: no expected v0.6 labels for this existing case. Qualitative audit only."
+    },
+    {
+      "candidate": "baseline-1.7b-other",
+      "case_id": "dev-002",
+      "validation_error": null,
+      "latency_seconds": 6.41,
+      "abstentions": [
+        "referral",
+        "requested_action",
+        "referral_type_source",
+        "history",
+        "medical_history",
+        "regular_medication",
+        "diagnosis",
+        "comorbid",
+        "allergies",
+        "current_source",
+        "investigations",
+        "attached",
+        "pending_results",
+        "treatment_source",
+        "plan"
+      ],
+      "missing_extra": "Unavailable: no expected v0.6 labels for this existing case. Qualitative audit only."
+    },
+    {
+      "candidate": "baseline-1.7b-other",
+      "case_id": "dev-003",
+      "validation_error": null,
+      "latency_seconds": 7.389,
+      "abstentions": [
+        "referral",
+        "requested_action",
+        "referral_type_source",
+        "history",
+        "medical_history",
+        "regular_medication",
+        "diagnosis",
+        "comorbid",
+        "allergies",
+        "current_source",
+        "investigations",
+        "attached",
+        "pending_results",
+        "treatment_source",
+        "pain_change",
+        "plan"
+      ],
+      "missing_extra": "Unavailable: no expected v0.6 labels for this existing case. Qualitative audit only."
+    },
+    {
+      "candidate": "baseline-1.7b-other",
+      "case_id": "dev-004",
+      "validation_error": null,
+      "latency_seconds": 8.51,
+      "abstentions": [
+        "attached",
+        "pending_results",
+        "plan"
+      ],
+      "missing_extra": "Unavailable: no expected v0.6 labels for this existing case. Qualitative audit only."
+    },
+    {
+      "candidate": "baseline-1.7b-other",
+      "case_id": "dev-005",
+      "validation_error": null,
+      "latency_seconds": 9.779,
+      "abstentions": [
+        "requested_action",
+        "comorbid",
+        "current_source",
+        "investigations",
+        "attached",
+        "pending_results",
+        "plan"
+      ],
+      "missing_extra": "Unavailable: no expected v0.6 labels for this existing case. Qualitative audit only."
+    },
+    {
+      "candidate": "baseline-4b-other",
+      "case_id": "dev-001",
+      "validation_error": null,
+      "latency_seconds": 19.004,
+      "abstentions": [
+        "identity_source",
+        "referral_type_source",
+        "medical_history",
+        "comorbid",
+        "allergies",
+        "current_source",
+        "attached",
+        "pain_change"
+      ],
+      "missing_extra": "Unavailable: no expected v0.6 labels for this existing case. Qualitative audit only."
+    },
+    {
+      "candidate": "baseline-4b-other",
+      "case_id": "dev-002",
+      "validation_error": null,
+      "latency_seconds": 15.549,
+      "abstentions": [
+        "history",
+        "medical_history",
+        "regular_medication",
+        "diagnosis",
+        "comorbid",
+        "allergies",
+        "initial_source",
+        "current_source",
+        "examination",
+        "investigations",
+        "attached",
+        "pending_results",
+        "treatment_source",
+        "pain_change",
+        "plan"
+      ],
+      "missing_extra": "Unavailable: no expected v0.6 labels for this existing case. Qualitative audit only."
+    },
+    {
+      "candidate": "baseline-4b-other",
+      "case_id": "dev-003",
+      "validation_error": null,
+      "latency_seconds": 14.514,
+      "abstentions": [
+        "identity_source",
+        "referral",
+        "requested_action",
+        "referral_type_source",
+        "history",
+        "medical_history",
+        "regular_medication",
+        "diagnosis",
+        "comorbid",
+        "allergies",
+        "initial_source",
+        "current_source",
+        "examination",
+        "investigations",
+        "attached",
+        "pending_results",
+        "treatment_source",
+        "pain_change",
+        "plan"
+      ],
+      "missing_extra": "Unavailable: no expected v0.6 labels for this existing case. Qualitative audit only."
+    },
+    {
+      "candidate": "baseline-4b-other",
+      "case_id": "dev-004",
+      "validation_error": null,
+      "latency_seconds": 20.882,
+      "abstentions": [],
+      "missing_extra": "Unavailable: no expected v0.6 labels for this existing case. Qualitative audit only."
+    },
+    {
+      "candidate": "baseline-4b-other",
+      "case_id": "dev-005",
+      "validation_error": null,
+      "latency_seconds": 18.493,
+      "abstentions": [
+        "referral_type_source",
+        "medical_history",
+        "regular_medication",
+        "diagnosis",
+        "comorbid",
+        "allergies",
+        "investigations",
+        "attached",
+        "pending_results",
+        "treatment_source",
+        "plan"
+      ],
+      "missing_extra": "Unavailable: no expected v0.6 labels for this existing case. Qualitative audit only."
+    },
+    {
+      "candidate": "grouped-1.7b",
+      "case_id": "dev-001",
+      "validation_error": null,
+      "latency_seconds": 20.645,
+      "abstentions": [
+        "referral"
+      ],
+      "missing_extra": "Unavailable: no expected v0.6 labels for this existing case. Qualitative audit only."
+    },
+    {
+      "candidate": "grouped-1.7b",
+      "case_id": "dev-002",
+      "validation_error": null,
+      "latency_seconds": 14.983,
+      "abstentions": [
+        "investigations",
+        "attached",
+        "pending_results",
+        "referral"
+      ],
+      "missing_extra": "Unavailable: no expected v0.6 labels for this existing case. Qualitative audit only."
+    },
+    {
+      "candidate": "grouped-1.7b",
+      "case_id": "dev-003",
+      "validation_error": null,
+      "latency_seconds": 20.508,
+      "abstentions": [
+        "comorbid",
+        "regular_medication",
+        "treatment_source",
+        "allergies",
+        "current_source",
+        "attached",
+        "pending_results"
+      ],
+      "missing_extra": "Unavailable: no expected v0.6 labels for this existing case. Qualitative audit only."
+    },
+    {
+      "candidate": "grouped-1.7b",
+      "case_id": "dev-004",
+      "validation_error": null,
+      "latency_seconds": 18.306,
+      "abstentions": [],
+      "missing_extra": "Unavailable: no expected v0.6 labels for this existing case. Qualitative audit only."
+    },
+    {
+      "candidate": "grouped-1.7b",
+      "case_id": "dev-005",
+      "validation_error": null,
+      "latency_seconds": 22.682,
+      "abstentions": [],
+      "missing_extra": "Unavailable: no expected v0.6 labels for this existing case. Qualitative audit only."
+    }
+  ]
+}

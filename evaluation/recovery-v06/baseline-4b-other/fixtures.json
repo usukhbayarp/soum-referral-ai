@@ -1,0 +1,72 @@
+[
+  {
+    "case_id": "dev-001",
+    "underlying_case_id": "fictional-001",
+    "source_note": "Сүүлийн 3 хоног ханиалгасан. Халуураагүй.\nҮзлэгт: халуун 36.7 °C, судасны цохилт 78/мин.\nОнош: амьсгалын дээд замын халдвар гэж тэмдэглэсэн.\nПарацетамол 500 мг нэг удаа уусан.\nЭмийн харшилгүй гэж өвчтөн хэлсэн.\nШинжилгээ хийгдээгүй.\nХүлээн авах эмчид: удаан үргэлжилсэн ханиалгын талаар зөвлөгөө хүссэн.",
+    "expected_assignments": null,
+    "schema_version": "experimental-0.6",
+    "segmentation_version": "sentence-lines-1",
+    "split": "development",
+    "synthetic_origin": "AI-authored fictional development fixture; no real patient",
+    "clinician_review_status": "unreviewed",
+    "scenario": "ordinary narrative",
+    "original_schema_version": "provisional-0.1",
+    "prompt_version": "source-id-v06-1"
+  },
+  {
+    "case_id": "dev-002",
+    "underlying_case_id": "fictional-002",
+    "source_note": "Өчигдрөөс толгой өвдсөн гэж хэлсэн.\nАмин үзүүлэлт тэмдэглээгүй.\nХаршлын түүх тодорхойгүй.\nОнош бичээгүй.",
+    "expected_assignments": null,
+    "schema_version": "experimental-0.6",
+    "segmentation_version": "sentence-lines-1",
+    "split": "development",
+    "synthetic_origin": "AI-authored fictional development fixture; no real patient",
+    "clinician_review_status": "unreviewed",
+    "scenario": "missing information",
+    "original_schema_version": "provisional-0.1",
+    "prompt_version": "source-id-v06-1"
+  },
+  {
+    "case_id": "dev-003",
+    "underlying_case_id": "fictional-003",
+    "source_note": "Ханиалгагүй. Халуураагүй. Амьсгаадаагүй.\nУушгинд шуугиан сонсогдоогүй.\nЭмийн харшилгүй.\nЭмчилгээ хийгээгүй.\nШинжилгээ хийгдээгүй.",
+    "expected_assignments": null,
+    "schema_version": "experimental-0.6",
+    "segmentation_version": "sentence-lines-1",
+    "split": "development",
+    "synthetic_origin": "AI-authored fictional development fixture; no real patient",
+    "clinician_review_status": "unreviewed",
+    "scenario": "explicit negation",
+    "original_schema_version": "provisional-0.1",
+    "prompt_version": "source-id-v06-1"
+  },
+  {
+    "case_id": "dev-004",
+    "underlying_case_id": "fictional-004",
+    "source_note": "Өнөөдөр 09:00 цагт парацетамол 500 мг 1 шахмал уусан.\nӨмнөх тэмдэглэлд амоксициллин 250 мг өдөрт 3 удаа, 5 хоног хэрэглэсэн гэж бичсэн.\nХалуун 37.2 °C, АД 120/80 мм.муб, жин 62.5 кг.\nГлюкоз 5.6 ммоль/л.\nПенициллинд тууралт гардаг гэж тэмдэглэсэн.",
+    "expected_assignments": null,
+    "schema_version": "experimental-0.6",
+    "segmentation_version": "sentence-lines-1",
+    "split": "development",
+    "synthetic_origin": "AI-authored fictional development fixture; no real patient",
+    "clinician_review_status": "unreviewed",
+    "scenario": "medication names numbers units",
+    "original_schema_version": "provisional-0.1",
+    "prompt_version": "source-id-v06-1"
+  },
+  {
+    "case_id": "dev-005",
+    "underlying_case_id": "fictional-005",
+    "source_note": "2026-09-01: эмийн харшилгүй гэж тэмдэглэсэн.\n2026-09-03: пенициллин хэрэглэсний дараа тууралт гарсан гэж хэлсэн.\nӨглөө халуун 38.5 °C байсан.\nОрой халуун 36.8 °C болсон.\nЭхний тэмдэглэлд: хатгалгаа сэжигтэй.\nДараагийн тэмдэглэлд: хатгалгаа батлагдаагүй, онош тодорхойгүй.\nХүлээн авах эмчээс өмнөх тэмдэглэлийн зөрүүг тодруулахыг хүссэн.",
+    "expected_assignments": null,
+    "schema_version": "experimental-0.6",
+    "segmentation_version": "sentence-lines-1",
+    "split": "development",
+    "synthetic_origin": "AI-authored fictional development fixture; no real patient",
+    "clinician_review_status": "unreviewed",
+    "scenario": "temporal changes conflicting statements",
+    "original_schema_version": "provisional-0.1",
+    "prompt_version": "source-id-v06-1"
+  }
+]

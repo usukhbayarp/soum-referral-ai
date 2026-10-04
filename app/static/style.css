@@ -460,3 +460,15 @@ select { width: 100%; padding: 9px; margin: 6px 0; border: 1px solid #aebdb5; ba
   #print-view .print-repeat { font-weight: bold; font-size: 11pt; margin-bottom: 8mm; }
   #print-view small { display: block; margin-top: 2px; }
 }
+
+@media print {
+  #print-view { line-height: 1.3; }
+  #print-view .print-repeat { margin-bottom: 4mm; }
+  #print-view h2 { margin-top: 12px; margin-bottom: 5px; }
+  #print-view .print-field { margin-bottom: 5px; white-space: pre-wrap; overflow-wrap: anywhere; }
+  #print-view .print-field > strong { font-size: 10pt; }
+  #print-view .print-compact { display: flex; flex-wrap: wrap; gap: 0 16px; }
+  #print-view .print-compact .print-field { flex: 1 1 43%; break-inside: avoid-page; }
+  #print-view .print-treatment-row { padding: 6px; margin: 4px 0; }
+  #print-view .print-legend, #print-view .print-warnings { font-size: 9pt; }
+}

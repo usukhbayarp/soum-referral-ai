@@ -1,0 +1,75 @@
+{
+  "base_commit": "53e9e9543d8e90fb803950fe30ccec70c824f9a6",
+  "started_utc": "2026-10-04T07:28:53+00:00",
+  "verification_completed_utc": "2026-10-04T07:43:33.496358+00:00",
+  "elapsed_minutes_through_verification": 14.67,
+  "new_inference_calls": 41,
+  "new_candidate_case_runs": 17,
+  "preserved_historical_case_runs_reused": 1,
+  "python": {
+    "command": ".venv/bin/python -m pytest -q",
+    "passed": 75,
+    "warnings": 1
+  },
+  "javascript": {
+    "command": "node --test tests/*.test.mjs",
+    "passed": 24
+  },
+  "browser_workflow": {
+    "status": "pass",
+    "inference": "mocked provisional assignments for UI regressions only",
+    "checks": [
+      "six sections",
+      "exact source-only example",
+      "blank referral type/signature",
+      "manual-only vital subfields",
+      "distinct medications",
+      "evidence navigation",
+      "pending conditional warnings",
+      "honest manual attribution",
+      "acknowledged missing information approval",
+      "approval revoked after edit",
+      "source reconciliation blocks approval",
+      "example replacement clears case",
+      "long textarea expands",
+      "three editable treatment rows",
+      "multipage PDF generated for separate visual inspection",
+      "new-case reset",
+      "delayed example fetch isolation"
+    ],
+    "pdf": "v06-multipage.pdf"
+  },
+  "normal_print_browser": [
+    {
+      "mode": "before",
+      "status": "pass",
+      "inference": "none; manual fictional layout fixture",
+      "signature": "blank",
+      "pdf": "normal-before.pdf"
+    },
+    {
+      "mode": "after",
+      "status": "pass",
+      "inference": "none; manual fictional layout fixture",
+      "signature": "blank",
+      "pdf": "normal-after.pdf"
+    }
+  ],
+  "visual_review": {
+    "normal_pages": 2,
+    "stress_pages": 3,
+    "observed": "All final pages inspected; readable Mongolian text, headers/footers, no clipping seen, intact ordinary treatment rows."
+  },
+  "runtime_defaults": {
+    "model": "qwen3:1.7b",
+    "schema": "experimental-0.6",
+    "prompt": "source-id-v06-1",
+    "deployment_mode": "local",
+    "changed": false
+  },
+  "clinical_validation": false,
+  "training": false,
+  "model_download": false,
+  "deployment": false,
+  "offline_success_claim": false
+}

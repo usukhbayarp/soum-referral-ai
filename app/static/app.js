@@ -11,10 +11,10 @@ import {
   reconcileField,
   pendingReconciliations,
   canApprove,
-  printAttribution,
   editMeaning,
 } from "./state.mjs";
 import { completeness, meanings, rowColumns, rowsOf } from "./completeness.mjs";
+import { manualLegend, printSections, printWarnings } from "./print.mjs";
 const $ = (id) => document.getElementById(id);
 let printRule = null;
 let config,
@@ -375,30 +375,28 @@ function printView() {
   printRule=sheet.insertRule(`@page referral { size: A4; margin: 25mm 17mm 20mm; @top-left { content: "Өвчтөн шилжүүлэх хураангуй • ${shortID}"; font: bold 10pt Arial; } @bottom-right { content: "Хуудас " counter(page); font: 9pt Arial; } }`,sheet.cssRules.length);
   const cell=node("div");view.append(header,cell);
   cell.append(node("p", `${config.model} | ${config.prompt_version} | Эмч хянаж баталсан үйлдэл: ${new Date().toLocaleString("mn-MN")} — цахим гарын үсэг биш.`));
-  let previous;
-  for (const f of config.fields) {
-    if(previous!==f.section) {cell.append(node("h2",`${f.section} ${config.sections.find(s=>s.id===f.section).label}`));previous=f.section;}
-    const value=state.fields[f.id], section=node("section",undefined,"print-field");
-    section.append(node("h3",f.label));
-    if(f.kind === "treatment_rows") {
-      const rows=rowsOf(state);
-      if(!rows.length) section.append(node("p","Эмчилгээний мөр оруулаагүй — эмч хянана"));
-      rows.forEach((r,i)=> {
-        const card=node("div",undefined,"print-treatment-row");
-        card.append(node("h4", `Мөр ${i+1} • ${r.kind==="procedure"?"Ажилбар":r.kind==="medication"?"Эм":"Төрөл тодорхойгүй"} • ${r.schedule==="single"?"Нэг удаа":r.schedule==="repeated"?"Давтан":"Давтамж тодорхойгүй"}`));
-        for(const [key,label] of rowColumns) card.append(node("p",`${label}: ${r[key] || (key==="frequency" && r.schedule==="single" ? "Хамаарахгүй — нэг удаа" : "Эмч нөхөөгүй")}`));
-        section.append(card);
-      });
-    } else section.append(node("p",value.text.trim() || `Эмч нөхөөгүй — ${labels[value.status]}`));
-    if(f.kind === "source_suggestion") section.append(node("strong", "Эхийн санал төдий — нарийвчилсан утга бүрийн баталгаа биш."));
-    section.append(node("small", printAttribution(value)));
-    value.review_flags?.forEach(flag=>section.append(node("p",flag)));
-    if(value.meaning && value.meaning!=="unreviewed") section.append(node("small",` | Эмчийн тэмдэглэсэн утгын төлөв: ${meanings[value.meaning]}`));
-    if(value.status==="manual" && value.original) section.append(node("p",`Анхны ялгалтын эх — зассан утгын нотолгоо биш: ${value.original}`,"print-original"));
-    cell.append(section);
+  cell.append(node("small",manualLegend,"print-legend"));
+  for (const group of printSections(state,config)) {
+    if (!group.fields.length) continue;
+    cell.append(node("h2",`${group.id} ${group.label}`));
+    let compact=null;
+    for (const field of group.fields) {
+      const section=node("section",undefined,"print-field");
+      section.append(node("strong",`${field.label}${field.manual?" *":""}: `));
+      if(field.rows) field.rows.forEach(text=>section.append(node("p",text,"print-treatment-row")));
+      else section.append(node("span",field.text));
+      if(field.meaning) section.append(node("small",field.meaning));
+      if(field.compact) {
+        if(!compact) {compact=node("div",undefined,"print-compact");cell.append(compact);}
+        compact.append(section);
+      } else {compact=null;cell.append(section);}
+    }
   }
-  cell.append(node("h2","Хяналтын үлдсэн сануулга — шилжүүлэх эсэхийн шийдвэр биш"));
-  completeness(state,config).forEach(w=>cell.append(node("p",w.message)));
+  const warnings=printWarnings(state,config);
+  if(warnings.length) {
+    cell.append(node("h2","Дутуу / тодруулах мэдээлэл"));
+    cell.append(node("p",warnings.join("; "),"print-warnings"));
+  }
   cell.append(node("p","Эмч эх, талбаруудыг хянаж, дутуу / тодруулах боломжгүй зүйлсийг хэвээр экспортлохыг зөвшөөрсөн. Гарын үсэг, тамгыг автоматаар үүсгээгүй."));
 }
 $("note").addEventListener("input", () => changeNote($("note").value));

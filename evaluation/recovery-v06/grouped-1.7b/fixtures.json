@@ -1,0 +1,160 @@
+[
+  {
+    "case_id": "DEV-002",
+    "underlying_case_id": "DEV-002",
+    "source_note": "[S01] 2026.10.04, 11:15. Жишээ сумын ЭМТ. Демо эмч 02. DEV-002, 46 настай эмэгтэй. Өнөөдөр 10:00-д ирсэн.\n[S02] 6 долоо хоног хоёр бугуй, гарын хурууны үеэр өвдөж хавдана. Өглөөгүүр 30 орчим минут хөшинө. Гэмтэл аваагүй. Халуурахыг үгүйсгэв.\n[S03] АД ихсэлттэй. Амлодипин 5 мг өдөрт 1 удаа уудаг гэсэн. Өнөөдрийн тунгаа уусан эсэхийг асуугаагүй. Эмийн харшилгүй гэж хэлэв.\n[S04] 10:05-д ерөнхий байдал дунд, ухаан саруул. АД 134/82 мм.муб, ЗЦ 82/мин, АТ 16/мин, SpO₂ 98% дэмжлэггүй, халуун 36.7 °C. Хоёр бугуй, хоёр гарын II–III MCP үе хавдаж, тэмтрэхэд эмзэг. Үе тус бүрийн хөдөлгөөний далайцыг үнэлээгүй. Өвдөлт 6/10 гэж хэлсэн.\n[S05] 2026.10.03-ны шинжилгээ: Hb 127 г/л, WBC 6.8 × 10⁹/л, PLT 310 × 10⁹/л, CRP 14 мг/л. RF, anti-CCP хийгээгүй.\n[S06] 10:15-д парацетамол 500 мг амаар нэг удаа өгсөн. 11:00-д өвдөлт 4/10 болсон гэж хэлэв. Энэ үзлэгээр өөр эмчилгээ хийгээгүй.\n[S07] 11:00-д ерөнхий байдал дунд, ухаан саруул. АД 128/80 мм.муб, ЗЦ 78/мин, АТ 16/мин, SpO₂ 98% дэмжлэггүй, халуун 36.6 °C.\n[S08] Үнэлгээ: олон үений өвдөлт, хавдар, шалтгаан тодруулах. Хавсарсан онош: артерийн даралт ихсэлт.\n[S09] Манай суманд ревматологийн эмч, anti-CCP шинжилгээ байхгүй. 6 долоо хоног үргэлжилсэн олон үений өвдөлт, хавдрын шалтгаан тодруулахаар Жишээ аймгийн НЭ-ийн дотрын амбулаторид төлөвлөгөөт журмаар илгээнэ.\n[S10] Хүлээн авах эмчээс үрэвсэлт үений өвчин байж болзошгүй эсэхийг үнэлж, шаардлагатай шинжилгээ болон цаашдын эмчилгээний төлөвлөгөө гаргахыг хүсэв. Аймгийн дотрын эмчийн үнэлгээний дараа сумын эмчид эргэн үзүүлнэ.\n[S11] ЦДШ, CRP-ийн хариуны хуулбарыг хавсаргав. Хүлээгдэж буй шинжилгээний хариу байхгүй.",
+    "expected_assignments": {
+      "identity_source": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "referral": [
+        28,
+        29
+      ],
+      "requested_action": [
+        30
+      ],
+      "referral_type_source": [
+        29
+      ],
+      "history": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "medical_history": [
+        10
+      ],
+      "regular_medication": [
+        11,
+        12
+      ],
+      "diagnosis": [
+        26
+      ],
+      "comorbid": [
+        27
+      ],
+      "allergies": [
+        13
+      ],
+      "initial_source": [
+        14,
+        15
+      ],
+      "current_source": [
+        24,
+        25
+      ],
+      "examination": [
+        16,
+        17,
+        18
+      ],
+      "investigations": [
+        19,
+        20
+      ],
+      "attached": [
+        32
+      ],
+      "pending_results": [
+        33
+      ],
+      "treatment_source": [
+        21,
+        22,
+        23
+      ],
+      "pain_change": [
+        18,
+        22
+      ],
+      "plan": [
+        31
+      ]
+    },
+    "schema_version": "experimental-0.6",
+    "prompt_version": "source-id-v06-1",
+    "segmentation_version": "sentence-lines-1",
+    "split": "development",
+    "synthetic_origin": "AI-generated fictional example supplied by clinician; awaiting final clinician review",
+    "clinician_review_status": "unreviewed",
+    "scenario": "v0.6 development mechanics; reference document originally labeled v0.5; not held out"
+  },
+  {
+    "case_id": "dev-001",
+    "underlying_case_id": "fictional-001",
+    "source_note": "Сүүлийн 3 хоног ханиалгасан. Халуураагүй.\nҮзлэгт: халуун 36.7 °C, судасны цохилт 78/мин.\nОнош: амьсгалын дээд замын халдвар гэж тэмдэглэсэн.\nПарацетамол 500 мг нэг удаа уусан.\nЭмийн харшилгүй гэж өвчтөн хэлсэн.\nШинжилгээ хийгдээгүй.\nХүлээн авах эмчид: удаан үргэлжилсэн ханиалгын талаар зөвлөгөө хүссэн.",
+    "expected_assignments": null,
+    "schema_version": "experimental-0.6",
+    "segmentation_version": "sentence-lines-1",
+    "split": "development",
+    "synthetic_origin": "AI-authored fictional development fixture; no real patient",
+    "clinician_review_status": "unreviewed",
+    "scenario": "ordinary narrative",
+    "original_schema_version": "provisional-0.1",
+    "prompt_version": "source-id-v06-1"
+  },
+  {
+    "case_id": "dev-002",
+    "underlying_case_id": "fictional-002",
+    "source_note": "Өчигдрөөс толгой өвдсөн гэж хэлсэн.\nАмин үзүүлэлт тэмдэглээгүй.\nХаршлын түүх тодорхойгүй.\nОнош бичээгүй.",
+    "expected_assignments": null,
+    "schema_version": "experimental-0.6",
+    "segmentation_version": "sentence-lines-1",
+    "split": "development",
+    "synthetic_origin": "AI-authored fictional development fixture; no real patient",
+    "clinician_review_status": "unreviewed",
+    "scenario": "missing information",
+    "original_schema_version": "provisional-0.1",
+    "prompt_version": "source-id-v06-1"
+  },
+  {
+    "case_id": "dev-003",
+    "underlying_case_id": "fictional-003",
+    "source_note": "Ханиалгагүй. Халуураагүй. Амьсгаадаагүй.\nУушгинд шуугиан сонсогдоогүй.\nЭмийн харшилгүй.\nЭмчилгээ хийгээгүй.\nШинжилгээ хийгдээгүй.",
+    "expected_assignments": null,
+    "schema_version": "experimental-0.6",
+    "segmentation_version": "sentence-lines-1",
+    "split": "development",
+    "synthetic_origin": "AI-authored fictional development fixture; no real patient",
+    "clinician_review_status": "unreviewed",
+    "scenario": "explicit negation",
+    "original_schema_version": "provisional-0.1",
+    "prompt_version": "source-id-v06-1"
+  },
+  {
+    "case_id": "dev-004",
+    "underlying_case_id": "fictional-004",
+    "source_note": "Өнөөдөр 09:00 цагт парацетамол 500 мг 1 шахмал уусан.\nӨмнөх тэмдэглэлд амоксициллин 250 мг өдөрт 3 удаа, 5 хоног хэрэглэсэн гэж бичсэн.\nХалуун 37.2 °C, АД 120/80 мм.муб, жин 62.5 кг.\nГлюкоз 5.6 ммоль/л.\nПенициллинд тууралт гардаг гэж тэмдэглэсэн.",
+    "expected_assignments": null,
+    "schema_version": "experimental-0.6",
+    "segmentation_version": "sentence-lines-1",
+    "split": "development",
+    "synthetic_origin": "AI-authored fictional development fixture; no real patient",
+    "clinician_review_status": "unreviewed",
+    "scenario": "medication names numbers units",
+    "original_schema_version": "provisional-0.1",
+    "prompt_version": "source-id-v06-1"
+  },
+  {
+    "case_id": "dev-005",
+    "underlying_case_id": "fictional-005",
+    "source_note": "2026-09-01: эмийн харшилгүй гэж тэмдэглэсэн.\n2026-09-03: пенициллин хэрэглэсний дараа тууралт гарсан гэж хэлсэн.\nӨглөө халуун 38.5 °C байсан.\nОрой халуун 36.8 °C болсон.\nЭхний тэмдэглэлд: хатгалгаа сэжигтэй.\nДараагийн тэмдэглэлд: хатгалгаа батлагдаагүй, онош тодорхойгүй.\nХүлээн авах эмчээс өмнөх тэмдэглэлийн зөрүүг тодруулахыг хүссэн.",
+    "expected_assignments": null,
+    "schema_version": "experimental-0.6",
+    "segmentation_version": "sentence-lines-1",
+    "split": "development",
+    "synthetic_origin": "AI-authored fictional development fixture; no real patient",
+    "clinician_review_status": "unreviewed",
+    "scenario": "temporal changes conflicting statements",
+    "original_schema_version": "provisional-0.1",
+    "prompt_version": "source-id-v06-1"
+  }
+]

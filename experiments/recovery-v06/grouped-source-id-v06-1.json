@@ -1,0 +1,13 @@
+{
+  "version": "grouped-source-id-v06-1",
+  "schema_version": "experimental-0.6",
+  "presentation_version": "integer-only-source-view-1",
+  "system": "Assign source-unit integer IDs to the requested fields. Return only the JSON object specified by the schema, with every requested field and arrays of IDs. Use [] if no source supports a field. Select only directly relevant units, including explicit negatives, unknown or not-assessed statements. Do not infer facts, diagnose, decide urgency, or generate clinical prose. Regular medication is distinct from treatment administered during this visit. Initial and later observations must remain separate. Select both initial and later pain reports for pain change without claiming causation. Each call contains the entire source; classify only the fields requested in that call. The id property is the only source ID namespace. /no_think",
+  "groups": [
+    ["identity_source", "history", "medical_history", "diagnosis", "comorbid"],
+    ["regular_medication", "treatment_source", "allergies", "pain_change"],
+    ["initial_source", "current_source", "examination"],
+    ["investigations", "attached", "pending_results"],
+    ["referral", "referral_type_source", "requested_action", "plan"]
+  ]
+}
