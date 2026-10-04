@@ -1,0 +1,13 @@
+{
+  "status": "pass",
+  "checks": [
+    "four fictional cases",
+    "unchanged original note text",
+    "side-by-side original/expectations and A/B proposals",
+    "v1 failures retained in expandable details",
+    "review fields unfilled",
+    "no executable script or external requests",
+    "no horizontal overflow at 1500px"
+  ],
+  "clinical_review": false
+}

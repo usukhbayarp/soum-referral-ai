@@ -1,0 +1,174 @@
+{
+  "status": "Provisional target length and completion-mask mechanics only; no training export or weights loaded",
+  "tokenizer_files": {
+    "tokenizer.json": "be75606093db2094d7cd20f3c2f385c212750648bd6ea4fb2bf507a6a4c55506",
+    "tokenizer_config.json": "5d1da8a22094af87a0eb4dc47f6ad0e9712f3ff4d179591de452ebd2acd88b96"
+  },
+  "versions": {
+    "mlx": "0.30.6",
+    "mlx-lm": "0.30.7",
+    "transformers": "5.2.0"
+  },
+  "cases": [
+    {
+      "case_id": "DEV-002",
+      "candidate": "A",
+      "prompt_revision": 1,
+      "prompt_tokens": 1896,
+      "completion_tokens": 207,
+      "full_tokens": 2103,
+      "mask_prefix_and_nonthinking_verified": true,
+      "within_1600_output_tokens": true
+    },
+    {
+      "case_id": "DEV-002",
+      "candidate": "B",
+      "prompt_revision": 1,
+      "prompt_tokens": 2053,
+      "completion_tokens": 450,
+      "full_tokens": 2503,
+      "mask_prefix_and_nonthinking_verified": true,
+      "within_1600_output_tokens": true
+    },
+    {
+      "case_id": "DEV-002",
+      "candidate": "A",
+      "prompt_revision": 2,
+      "prompt_tokens": 2983,
+      "completion_tokens": 207,
+      "full_tokens": 3190,
+      "mask_prefix_and_nonthinking_verified": true,
+      "within_1600_output_tokens": true
+    },
+    {
+      "case_id": "DEV-002",
+      "candidate": "B",
+      "prompt_revision": 2,
+      "prompt_tokens": 3631,
+      "completion_tokens": 450,
+      "full_tokens": 4081,
+      "mask_prefix_and_nonthinking_verified": true,
+      "within_1600_output_tokens": true
+    },
+    {
+      "case_id": "dev-003",
+      "candidate": "A",
+      "prompt_revision": 1,
+      "prompt_tokens": 564,
+      "completion_tokens": 45,
+      "full_tokens": 609,
+      "mask_prefix_and_nonthinking_verified": true,
+      "within_1600_output_tokens": true
+    },
+    {
+      "case_id": "dev-003",
+      "candidate": "B",
+      "prompt_revision": 1,
+      "prompt_tokens": 721,
+      "completion_tokens": 104,
+      "full_tokens": 825,
+      "mask_prefix_and_nonthinking_verified": true,
+      "within_1600_output_tokens": true
+    },
+    {
+      "case_id": "dev-003",
+      "candidate": "A",
+      "prompt_revision": 2,
+      "prompt_tokens": 1651,
+      "completion_tokens": 45,
+      "full_tokens": 1696,
+      "mask_prefix_and_nonthinking_verified": true,
+      "within_1600_output_tokens": true
+    },
+    {
+      "case_id": "dev-003",
+      "candidate": "B",
+      "prompt_revision": 2,
+      "prompt_tokens": 2299,
+      "completion_tokens": 104,
+      "full_tokens": 2403,
+      "mask_prefix_and_nonthinking_verified": true,
+      "within_1600_output_tokens": true
+    },
+    {
+      "case_id": "dev-004",
+      "candidate": "A",
+      "prompt_revision": 1,
+      "prompt_tokens": 621,
+      "completion_tokens": 36,
+      "full_tokens": 657,
+      "mask_prefix_and_nonthinking_verified": true,
+      "within_1600_output_tokens": true
+    },
+    {
+      "case_id": "dev-004",
+      "candidate": "B",
+      "prompt_revision": 1,
+      "prompt_tokens": 778,
+      "completion_tokens": 447,
+      "full_tokens": 1225,
+      "mask_prefix_and_nonthinking_verified": true,
+      "within_1600_output_tokens": true
+    },
+    {
+      "case_id": "dev-004",
+      "candidate": "A",
+      "prompt_revision": 2,
+      "prompt_tokens": 1708,
+      "completion_tokens": 36,
+      "full_tokens": 1744,
+      "mask_prefix_and_nonthinking_verified": true,
+      "within_1600_output_tokens": true
+    },
+    {
+      "case_id": "dev-004",
+      "candidate": "B",
+      "prompt_revision": 2,
+      "prompt_tokens": 2356,
+      "completion_tokens": 447,
+      "full_tokens": 2803,
+      "mask_prefix_and_nonthinking_verified": true,
+      "within_1600_output_tokens": true
+    },
+    {
+      "case_id": "probe-med-001",
+      "candidate": "A",
+      "prompt_revision": 1,
+      "prompt_tokens": 667,
+      "completion_tokens": 54,
+      "full_tokens": 721,
+      "mask_prefix_and_nonthinking_verified": true,
+      "within_1600_output_tokens": true
+    },
+    {
+      "case_id": "probe-med-001",
+      "candidate": "B",
+      "prompt_revision": 1,
+      "prompt_tokens": 824,
+      "completion_tokens": 733,
+      "full_tokens": 1557,
+      "mask_prefix_and_nonthinking_verified": true,
+      "within_1600_output_tokens": true
+    },
+    {
+      "case_id": "probe-med-001",
+      "candidate": "A",
+      "prompt_revision": 2,
+      "prompt_tokens": 1754,
+      "completion_tokens": 54,
+      "full_tokens": 1808,
+      "mask_prefix_and_nonthinking_verified": true,
+      "within_1600_output_tokens": true
+    },
+    {
+      "case_id": "probe-med-001",
+      "candidate": "B",
+      "prompt_revision": 2,
+      "prompt_tokens": 2402,
+      "completion_tokens": 733,
+      "full_tokens": 3135,
+      "mask_prefix_and_nonthinking_verified": true,
+      "within_1600_output_tokens": true
+    }
+  ]
+}

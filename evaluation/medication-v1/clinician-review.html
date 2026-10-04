@@ -1,0 +1,3485 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Medication representation review — fictional, unreviewed</title><style>body{font:15px/1.5 system-ui,sans-serif;color:#172727;margin:32px;max-width:1600px}h1{font-size:26px}.notice{padding:12px;background:#fff2d8;border-left:4px solid #96732a}.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}section{border:1px solid #bdcaca;padding:16px;min-width:0}pre{font:13px/1.5 ui-monospace,monospace;white-space:pre-wrap;overflow-wrap:anywhere}p{overflow-wrap:anywhere;margin:5px 0}h2{margin-top:45px}summary{cursor:pointer;font-weight:bold;padding:8px 0}.proposal{border:1px solid #b8c5c5;padding:10px;margin:12px 0}.review{border:1px dashed #777;min-height:70px;padding:12px}@media(max-width:800px){.grid{display:block}}@media print{body{margin:10mm;font-size:10pt}pre{font-size:9pt}.grid{display:block}section{margin-bottom:10px}h2,h3{break-after:avoid} }</style><h1>Medication / allergy representation comparison</h1><p class="notice">Fictional development data only. All labels await clinician review. These are proposals and diagnostic expectations, not approved referrals, training exports or clinical validation. No clinician timing was collected; no time-saved estimate. Both v1 failures and the single v2 revision are retained. Expand details to inspect evidence and mixed items; lexical matches do not certify associations.</p>
+<h2>DEV-002</h2><p>provisional expected facts; not clinician-reviewed labels · DEV-002</p><div class="grid"><section><h3>Unchanged original note</h3><pre>[S01] 2026.10.04, 11:15. Жишээ сумын ЭМТ. Демо эмч 02. DEV-002, 46 настай эмэгтэй. Өнөөдөр 10:00-д ирсэн.
+[S02] 6 долоо хоног хоёр бугуй, гарын хурууны үеэр өвдөж хавдана. Өглөөгүүр 30 орчим минут хөшинө. Гэмтэл аваагүй. Халуурахыг үгүйсгэв.
+[S03] АД ихсэлттэй. Амлодипин 5 мг өдөрт 1 удаа уудаг гэсэн. Өнөөдрийн тунгаа уусан эсэхийг асуугаагүй. Эмийн харшилгүй гэж хэлэв.
+[S04] 10:05-д ерөнхий байдал дунд, ухаан саруул. АД 134/82 мм.муб, ЗЦ 82/мин, АТ 16/мин, SpO₂ 98% дэмжлэггүй, халуун 36.7 °C. Хоёр бугуй, хоёр гарын II–III MCP үе хавдаж, тэмтрэхэд эмзэг. Үе тус бүрийн хөдөлгөөний далайцыг үнэлээгүй. Өвдөлт 6/10 гэж хэлсэн.
+[S05] 2026.10.03-ны шинжилгээ: Hb 127 г/л, WBC 6.8 × 10⁹/л, PLT 310 × 10⁹/л, CRP 14 мг/л. RF, anti-CCP хийгээгүй.
+[S06] 10:15-д парацетамол 500 мг амаар нэг удаа өгсөн. 11:00-д өвдөлт 4/10 болсон гэж хэлэв. Энэ үзлэгээр өөр эмчилгээ хийгээгүй.
+[S07] 11:00-д ерөнхий байдал дунд, ухаан саруул. АД 128/80 мм.муб, ЗЦ 78/мин, АТ 16/мин, SpO₂ 98% дэмжлэггүй, халуун 36.6 °C.
+[S08] Үнэлгээ: олон үений өвдөлт, хавдар, шалтгаан тодруулах. Хавсарсан онош: артерийн даралт ихсэлт.
+[S09] Манай суманд ревматологийн эмч, anti-CCP шинжилгээ байхгүй. 6 долоо хоног үргэлжилсэн олон үений өвдөлт, хавдрын шалтгаан тодруулахаар Жишээ аймгийн НЭ-ийн дотрын амбулаторид төлөвлөгөөт журмаар илгээнэ.
+[S10] Хүлээн авах эмчээс үрэвсэлт үений өвчин байж болзошгүй эсэхийг үнэлж, шаардлагатай шинжилгээ болон цаашдын эмчилгээний төлөвлөгөө гаргахыг хүсэв. Аймгийн дотрын эмчийн үнэлгээний дараа сумын эмчид эргэн үзүүлнэ.
+[S11] ЦДШ, CRP-ийн хариуны хуулбарыг хавсаргав. Хүлээгдэж буй шинжилгээний хариу байхгүй.</pre></section><section><h3>Frozen expected facts — NOT model input</h3><h4>Medication facts</h4><p>name: Амлодипин • role: regular_medication • units: [&#x27;U11&#x27;, &#x27;U12&#x27;] • dose: 5 мг • route: None • time: None • frequency: өдөрт 1 удаа</p><p>name: парацетамол • role: administered_treatment • units: [&#x27;U21&#x27;] • dose: 500 мг • route: амаар • time: 10:15-д • frequency: нэг удаа</p><h4>allergies</h4><p>U13: Эмийн харшилгүй гэж хэлэв.</p><h4>context</h4><p>U12: Өнөөдрийн тунгаа уусан эсэхийг асуугаагүй.</p><p>U23: Энэ үзлэгээр өөр эмчилгээ хийгээгүй.</p><h4>Absent / must not infer</h4><ul><li>Amlodipine route, exact administration time and today dose confirmation</li><li>Full date for time-only treatment: no automatic association to note date</li><li>Any other administered drug, inferred regimen or allergy confirmation beyond patient report</li></ul><details><summary>Provisional unit-role reference</summary><pre>{
+  &quot;U1&quot;: &quot;other&quot;,
+  &quot;U2&quot;: &quot;other&quot;,
+  &quot;U3&quot;: &quot;other&quot;,
+  &quot;U4&quot;: &quot;other&quot;,
+  &quot;U5&quot;: &quot;other&quot;,
+  &quot;U6&quot;: &quot;other&quot;,
+  &quot;U7&quot;: &quot;other&quot;,
+  &quot;U8&quot;: &quot;other&quot;,
+  &quot;U9&quot;: &quot;other&quot;,
+  &quot;U10&quot;: &quot;other&quot;,
+  &quot;U11&quot;: &quot;regular_medication&quot;,
+  &quot;U12&quot;: &quot;regular_medication&quot;,
+  &quot;U13&quot;: &quot;allergy_statement&quot;,
+  &quot;U14&quot;: &quot;other&quot;,
+  &quot;U15&quot;: &quot;other&quot;,
+  &quot;U16&quot;: &quot;other&quot;,
+  &quot;U17&quot;: &quot;other&quot;,
+  &quot;U18&quot;: &quot;other&quot;,
+  &quot;U19&quot;: &quot;other&quot;,
+  &quot;U20&quot;: &quot;other&quot;,
+  &quot;U21&quot;: &quot;administered_treatment&quot;,
+  &quot;U22&quot;: &quot;other&quot;,
+  &quot;U23&quot;: &quot;explicitly_not_administered&quot;,
+  &quot;U24&quot;: &quot;other&quot;,
+  &quot;U25&quot;: &quot;other&quot;,
+  &quot;U26&quot;: &quot;other&quot;,
+  &quot;U27&quot;: &quot;other&quot;,
+  &quot;U28&quot;: &quot;other&quot;,
+  &quot;U29&quot;: &quot;other&quot;,
+  &quot;U30&quot;: &quot;other&quot;,
+  &quot;U31&quot;: &quot;other&quot;,
+  &quot;U32&quot;: &quot;other&quot;,
+  &quot;U33&quot;: &quot;other&quot;
+}</pre></details></section></div>
+<details><summary>Preserved first-run proposals — revision 1</summary>
+<h3>Prompt revision 1</h3><div class="grid">
+<section><h3>A — per-unit roles</h3><p>24.412 seconds; structural error: None; lexical evidence valid: True</p><h4>administered_treatment (2 units)</h4><p>U11: Амлодипин 5 мг өдөрт 1 удаа уудаг гэсэн.</p><p>U21: [S06] 10:15-д парацетамол 500 мг амаар нэг удаа өгсөн.</p><h4>historical_medication (1 units)</h4><p>U19: [S05] 2026.10.03-ны шинжилгээ: Hb 127 г/л, WBC 6.8 × 10⁹/л, PLT 310 × 10⁹/л, CRP 14 мг/л.</p><h4>explicitly_not_administered (2 units)</h4><p>U8: Гэмтэл аваагүй.</p><p>U9: Халуурахыг үгүйсгэв.</p><details><summary>mixed_or_unclear (22 units) — REVIEW REQUIRED; not discarded</summary><p>U1: [S01] 2026.10.04, 11:15.</p><p>U6: [S02] 6 долоо хоног хоёр бугуй, гарын хурууны үеэр өвдөж хавдана.</p><p>U7: Өглөөгүүр 30 орчим минут хөшинө.</p><p>U10: [S03] АД ихсэлттэй.</p><p>U12: Өнөөдрийн тунгаа уусан эсэхийг асуугаагүй.</p><p>U13: Эмийн харшилгүй гэж хэлэв.</p><p>U14: [S04] 10:05-д ерөнхий байдал дунд, ухаан саруул.</p><p>U15: АД 134/82 мм.муб, ЗЦ 82/мин, АТ 16/мин, SpO₂ 98% дэмжлэггүй, халуун 36.7 °C.</p><p>U16: Хоёр бугуй, хоёр гарын II–III MCP үе хавдаж, тэмтрэхэд эмзэг.</p><p>U17: Үе тус бүрийн хөдөлгөөний далайцыг үнэлээгүй.</p><p>U18: Өвдөлт 6/10 гэж хэлсэн.</p><p>U22: 11:00-д өвдөлт 4/10 болсон гэж хэлэв.</p><p>U23: Энэ үзлэгээр өөр эмчилгээ хийгээгүй.</p><p>U24: [S07] 11:00-д ерөнхий байдал дунд, ухаан саруул.</p><p>U25: АД 128/80 мм.муб, ЗЦ 78/мин, АТ 16/мин, SpO₂ 98% дэмжлэггүй, халуун 36.6 °C.</p><p>U26: [S08] Үнэлгээ: олон үений өвдөлт, хавдар, шалтгаан тодруулах.</p><p>U27: Хавсарсан онош: артерийн даралт ихсэлт.</p><p>U29: 6 долоо хоног үргэлжилсэн олон үений өвдөлт, хавдрын шалтгаан тодруулахаар Жишээ аймгийн НЭ-ийн дотрын амбулаторид төлөвлөгөөт журмаар илгээнэ.</p><p>U30: [S10] Хүлээн авах эмчээс үрэвсэлт үений өвчин байж болзошгүй эсэхийг үнэлж, шаардлагатай шинжилгээ болон цаашдын эмчилгээний төлөвлөгөө гаргахыг хүсэв.</p><p>U31: Аймгийн дотрын эмчийн үнэлгээний дараа сумын эмчид эргэн үзүүлнэ.</p><p>U32: [S11] ЦДШ, CRP-ийн хариуны хуулбарыг хавсаргав.</p><p>U33: Хүлээгдэж буй шинжилгээний хариу байхгүй.</p></details><details><summary>other (6 units)</summary><p>U2: Жишээ сумын ЭМТ.</p><p>U3: Демо эмч 02.</p><p>U4: DEV-002, 46 настай эмэгтэй.</p><p>U5: Өнөөдөр 10:00-д ирсэн.</p><p>U20: RF, anti-CCP хийгээгүй.</p><p>U28: [S09] Манай суманд ревматологийн эмч, anti-CCP шинжилгээ байхгүй.</p></details>
+<details><summary>Complete raw JSON, original units / offsets and validation flags</summary><pre>{
+  &quot;U1&quot;: &quot;mixed_or_unclear&quot;,
+  &quot;U2&quot;: &quot;other&quot;,
+  &quot;U3&quot;: &quot;other&quot;,
+  &quot;U4&quot;: &quot;other&quot;,
+  &quot;U5&quot;: &quot;other&quot;,
+  &quot;U6&quot;: &quot;mixed_or_unclear&quot;,
+  &quot;U7&quot;: &quot;mixed_or_unclear&quot;,
+  &quot;U8&quot;: &quot;explicitly_not_administered&quot;,
+  &quot;U9&quot;: &quot;explicitly_not_administered&quot;,
+  &quot;U10&quot;: &quot;mixed_or_unclear&quot;,
+  &quot;U11&quot;: &quot;administered_treatment&quot;,
+  &quot;U12&quot;: &quot;mixed_or_unclear&quot;,
+  &quot;U13&quot;: &quot;mixed_or_unclear&quot;,
+  &quot;U14&quot;: &quot;mixed_or_unclear&quot;,
+  &quot;U15&quot;: &quot;mixed_or_unclear&quot;,
+  &quot;U16&quot;: &quot;mixed_or_unclear&quot;,
+  &quot;U17&quot;: &quot;mixed_or_unclear&quot;,
+  &quot;U18&quot;: &quot;mixed_or_unclear&quot;,
+  &quot;U19&quot;: &quot;historical_medication&quot;,
+  &quot;U20&quot;: &quot;other&quot;,
+  &quot;U21&quot;: &quot;administered_treatment&quot;,
+  &quot;U22&quot;: &quot;mixed_or_unclear&quot;,
+  &quot;U23&quot;: &quot;mixed_or_unclear&quot;,
+  &quot;U24&quot;: &quot;mixed_or_unclear&quot;,
+  &quot;U25&quot;: &quot;mixed_or_unclear&quot;,
+  &quot;U26&quot;: &quot;mixed_or_unclear&quot;,
+  &quot;U27&quot;: &quot;mixed_or_unclear&quot;,
+  &quot;U28&quot;: &quot;other&quot;,
+  &quot;U29&quot;: &quot;mixed_or_unclear&quot;,
+  &quot;U30&quot;: &quot;mixed_or_unclear&quot;,
+  &quot;U31&quot;: &quot;mixed_or_unclear&quot;,
+  &quot;U32&quot;: &quot;mixed_or_unclear&quot;,
+  &quot;U33&quot;: &quot;mixed_or_unclear&quot;
+}</pre><pre>{
+  &quot;source_mapping&quot;: {
+    &quot;U1&quot;: {
+      &quot;id&quot;: 1,
+      &quot;start&quot;: 0,
+      &quot;end&quot;: 24,
+      &quot;text&quot;: &quot;[S01] 2026.10.04, 11:15.&quot;,
+      &quot;model_text&quot;: &quot;2026.10.04, 11:15.&quot;
+    },
+    &quot;U2&quot;: {
+      &quot;id&quot;: 2,
+      &quot;start&quot;: 25,
+      &quot;end&quot;: 41,
+      &quot;text&quot;: &quot;Жишээ сумын ЭМТ.&quot;,
+      &quot;model_text&quot;: &quot;Жишээ сумын ЭМТ.&quot;
+    },
+    &quot;U3&quot;: {
+      &quot;id&quot;: 3,
+      &quot;start&quot;: 42,
+      &quot;end&quot;: 54,
+      &quot;text&quot;: &quot;Демо эмч 02.&quot;,
+      &quot;model_text&quot;: &quot;Демо эмч 02.&quot;
+    },
+    &quot;U4&quot;: {
+      &quot;id&quot;: 4,
+      &quot;start&quot;: 55,
+      &quot;end&quot;: 82,
+      &quot;text&quot;: &quot;DEV-002, 46 настай эмэгтэй.&quot;,
+      &quot;model_text&quot;: &quot;DEV-002, 46 настай эмэгтэй.&quot;
+    },
+    &quot;U5&quot;: {
+      &quot;id&quot;: 5,
+      &quot;start&quot;: 83,
+      &quot;end&quot;: 105,
+      &quot;text&quot;: &quot;Өнөөдөр 10:00-д ирсэн.&quot;,
+      &quot;model_text&quot;: &quot;Өнөөдөр 10:00-д ирсэн.&quot;
+    },
+    &quot;U6&quot;: {
+      &quot;id&quot;: 6,
+      &quot;start&quot;: 106,
+      &quot;end&quot;: 171,
+      &quot;text&quot;: &quot;[S02] 6 долоо хоног хоёр бугуй, гарын хурууны үеэр өвдөж хавдана.&quot;,
+      &quot;model_text&quot;: &quot;6 долоо хоног хоёр бугуй, гарын хурууны үеэр өвдөж хавдана.&quot;
+    },
+    &quot;U7&quot;: {
+      &quot;id&quot;: 7,
+      &quot;start&quot;: 172,
+      &quot;end&quot;: 204,
+      &quot;text&quot;: &quot;Өглөөгүүр 30 орчим минут хөшинө.&quot;,
+      &quot;model_text&quot;: &quot;Өглөөгүүр 30 орчим минут хөшинө.&quot;
+    },
+    &quot;U8&quot;: {
+      &quot;id&quot;: 8,
+      &quot;start&quot;: 205,
+      &quot;end&quot;: 220,
+      &quot;text&quot;: &quot;Гэмтэл аваагүй.&quot;,
+      &quot;model_text&quot;: &quot;Гэмтэл аваагүй.&quot;
+    },
+    &quot;U9&quot;: {
+      &quot;id&quot;: 9,
+      &quot;start&quot;: 221,
+      &quot;end&quot;: 241,
+      &quot;text&quot;: &quot;Халуурахыг үгүйсгэв.&quot;,
+      &quot;model_text&quot;: &quot;Халуурахыг үгүйсгэв.&quot;
+    },
+    &quot;U10&quot;: {
+      &quot;id&quot;: 10,
+      &quot;start&quot;: 242,
+      &quot;end&quot;: 261,
+      &quot;text&quot;: &quot;[S03] АД ихсэлттэй.&quot;,
+      &quot;model_text&quot;: &quot;АД ихсэлттэй.&quot;
+    },
+    &quot;U11&quot;: {
+      &quot;id&quot;: 11,
+      &quot;start&quot;: 262,
+      &quot;end&quot;: 302,
+      &quot;text&quot;: &quot;Амлодипин 5 мг өдөрт 1 удаа уудаг гэсэн.&quot;,
+      &quot;model_text&quot;: &quot;Амлодипин 5 мг өдөрт 1 удаа уудаг гэсэн.&quot;
+    },
+    &quot;U12&quot;: {
+      &quot;id&quot;: 12,
+      &quot;start&quot;: 303,
+      &quot;end&quot;: 345,
+      &quot;text&quot;: &quot;Өнөөдрийн тунгаа уусан эсэхийг асуугаагүй.&quot;,
+      &quot;model_text&quot;: &quot;Өнөөдрийн тунгаа уусан эсэхийг асуугаагүй.&quot;
+    },
+    &quot;U13&quot;: {
+      &quot;id&quot;: 13,
+      &quot;start&quot;: 346,
+      &quot;end&quot;: 372,
+      &quot;text&quot;: &quot;Эмийн харшилгүй гэж хэлэв.&quot;,
+      &quot;model_text&quot;: &quot;Эмийн харшилгүй гэж хэлэв.&quot;
+    },
+    &quot;U14&quot;: {
+      &quot;id&quot;: 14,
+      &quot;start&quot;: 373,
+      &quot;end&quot;: 421,
+      &quot;text&quot;: &quot;[S04] 10:05-д ерөнхий байдал дунд, ухаан саруул.&quot;,
+      &quot;model_text&quot;: &quot;10:05-д ерөнхий байдал дунд, ухаан саруул.&quot;
+    },
+    &quot;U15&quot;: {
+      &quot;id&quot;: 15,
+      &quot;start&quot;: 422,
+      &quot;end&quot;: 498,
+      &quot;text&quot;: &quot;АД 134/82 мм.муб, ЗЦ 82/мин, АТ 16/мин, SpO₂ 98% дэмжлэггүй, халуун 36.7 °C.&quot;,
+      &quot;model_text&quot;: &quot;АД 134/82 мм.муб, ЗЦ 82/мин, АТ 16/мин, SpO₂ 98% дэмжлэггүй, халуун 36.7 °C.&quot;
+    },
+    &quot;U16&quot;: {
+      &quot;id&quot;: 16,
+      &quot;start&quot;: 499,
+      &quot;end&quot;: 560,
+      &quot;text&quot;: &quot;Хоёр бугуй, хоёр гарын II–III MCP үе хавдаж, тэмтрэхэд эмзэг.&quot;,
+      &quot;model_text&quot;: &quot;Хоёр бугуй, хоёр гарын II–III MCP үе хавдаж, тэмтрэхэд эмзэг.&quot;
+    },
+    &quot;U17&quot;: {
+      &quot;id&quot;: 17,
+      &quot;start&quot;: 561,
+      &quot;end&quot;: 606,
+      &quot;text&quot;: &quot;Үе тус бүрийн хөдөлгөөний далайцыг үнэлээгүй.&quot;,
+      &quot;model_text&quot;: &quot;Үе тус бүрийн хөдөлгөөний далайцыг үнэлээгүй.&quot;
+    },
+    &quot;U18&quot;: {
+      &quot;id&quot;: 18,
+      &quot;start&quot;: 607,
+      &quot;end&quot;: 630,
+      &quot;text&quot;: &quot;Өвдөлт 6/10 гэж хэлсэн.&quot;,
+      &quot;model_text&quot;: &quot;Өвдөлт 6/10 гэж хэлсэн.&quot;
+    },
+    &quot;U19&quot;: {
+      &quot;id&quot;: 19,
+      &quot;start&quot;: 631,
+      &quot;end&quot;: 720,
+      &quot;text&quot;: &quot;[S05] 2026.10.03-ны шинжилгээ: Hb 127 г/л, WBC 6.8 × 10⁹/л, PLT 310 × 10⁹/л, CRP 14 мг/л.&quot;,
+      &quot;model_text&quot;: &quot;2026.10.03-ны шинжилгээ: Hb 127 г/л, WBC 6.8 × 10⁹/л, PLT 310 × 10⁹/л, CRP 14 мг/л.&quot;
+    },
+    &quot;U20&quot;: {
+      &quot;id&quot;: 20,
+      &quot;start&quot;: 721,
+      &quot;end&quot;: 744,
+      &quot;text&quot;: &quot;RF, anti-CCP хийгээгүй.&quot;,
+      &quot;model_text&quot;: &quot;RF, anti-CCP хийгээгүй.&quot;
+    },
+    &quot;U21&quot;: {
+      &quot;id&quot;: 21,
+      &quot;start&quot;: 745,
+      &quot;end&quot;: 799,
+      &quot;text&quot;: &quot;[S06] 10:15-д парацетамол 500 мг амаар нэг удаа өгсөн.&quot;,
+      &quot;model_text&quot;: &quot;10:15-д парацетамол 500 мг амаар нэг удаа өгсөн.&quot;
+    },
+    &quot;U22&quot;: {
+      &quot;id&quot;: 22,
+      &quot;start&quot;: 800,
+      &quot;end&quot;: 837,
+      &quot;text&quot;: &quot;11:00-д өвдөлт 4/10 болсон гэж хэлэв.&quot;,
+      &quot;model_text&quot;: &quot;11:00-д өвдөлт 4/10 болсон гэж хэлэв.&quot;
+    },
+    &quot;U23&quot;: {
+      &quot;id&quot;: 23,
+      &quot;start&quot;: 838,
+      &quot;end&quot;: 874,
+      &quot;text&quot;: &quot;Энэ үзлэгээр өөр эмчилгээ хийгээгүй.&quot;,
+      &quot;model_text&quot;: &quot;Энэ үзлэгээр өөр эмчилгээ хийгээгүй.&quot;
+    },
+    &quot;U24&quot;: {
+      &quot;id&quot;: 24,
+      &quot;start&quot;: 875,
+      &quot;end&quot;: 923,
+      &quot;text&quot;: &quot;[S07] 11:00-д ерөнхий байдал дунд, ухаан саруул.&quot;,
+      &quot;model_text&quot;: &quot;11:00-д ерөнхий байдал дунд, ухаан саруул.&quot;
+    },
+    &quot;U25&quot;: {
+      &quot;id&quot;: 25,
+      &quot;start&quot;: 924,
+      &quot;end&quot;: 1000,
+      &quot;text&quot;: &quot;АД 128/80 мм.муб, ЗЦ 78/мин, АТ 16/мин, SpO₂ 98% дэмжлэггүй, халуун 36.6 °C.&quot;,
+      &quot;model_text&quot;: &quot;АД 128/80 мм.муб, ЗЦ 78/мин, АТ 16/мин, SpO₂ 98% дэмжлэггүй, халуун 36.6 °C.&quot;
+    },
+    &quot;U26&quot;: {
+      &quot;id&quot;: 26,
+      &quot;start&quot;: 1001,
+      &quot;end&quot;: 1062,
+      &quot;text&quot;: &quot;[S08] Үнэлгээ: олон үений өвдөлт, хавдар, шалтгаан тодруулах.&quot;,
+      &quot;model_text&quot;: &quot;Үнэлгээ: олон үений өвдөлт, хавдар, шалтгаан тодруулах.&quot;
+    },
+    &quot;U27&quot;: {
+      &quot;id&quot;: 27,
+      &quot;start&quot;: 1063,
+      &quot;end&quot;: 1102,
+      &quot;text&quot;: &quot;Хавсарсан онош: артерийн даралт ихсэлт.&quot;,
+      &quot;model_text&quot;: &quot;Хавсарсан онош: артерийн даралт ихсэлт.&quot;
+    },
+    &quot;U28&quot;: {
+      &quot;id&quot;: 28,
+      &quot;start&quot;: 1103,
+      &quot;end&quot;: 1168,
+      &quot;text&quot;: &quot;[S09] Манай суманд ревматологийн эмч, anti-CCP шинжилгээ байхгүй.&quot;,
+      &quot;model_text&quot;: &quot;Манай суманд ревматологийн эмч, anti-CCP шинжилгээ байхгүй.&quot;
+    },
+    &quot;U29&quot;: {
+      &quot;id&quot;: 29,
+      &quot;start&quot;: 1169,
+      &quot;end&quot;: 1312,
+      &quot;text&quot;: &quot;6 долоо хоног үргэлжилсэн олон үений өвдөлт, хавдрын шалтгаан тодруулахаар Жишээ аймгийн НЭ-ийн дотрын амбулаторид төлөвлөгөөт журмаар илгээнэ.&quot;,
+      &quot;model_text&quot;: &quot;6 долоо хоног үргэлжилсэн олон үений өвдөлт, хавдрын шалтгаан тодруулахаар Жишээ аймгийн НЭ-ийн дотрын амбулаторид төлөвлөгөөт журмаар илгээнэ.&quot;
+    },
+    &quot;U30&quot;: {
+      &quot;id&quot;: 30,
+      &quot;start&quot;: 1313,
+      &quot;end&quot;: 1464,
+      &quot;text&quot;: &quot;[S10] Хүлээн авах эмчээс үрэвсэлт үений өвчин байж болзошгүй эсэхийг үнэлж, шаардлагатай шинжилгээ болон цаашдын эмчилгээний төлөвлөгөө гаргахыг хүсэв.&quot;,
+      &quot;model_text&quot;: &quot;Хүлээн авах эмчээс үрэвсэлт үений өвчин байж болзошгүй эсэхийг үнэлж, шаардлагатай шинжилгээ болон цаашдын эмчилгээний төлөвлөгөө гаргахыг хүсэв.&quot;
+    },
+    &quot;U31&quot;: {
+      &quot;id&quot;: 31,
+      &quot;start&quot;: 1465,
+      &quot;end&quot;: 1530,
+      &quot;text&quot;: &quot;Аймгийн дотрын эмчийн үнэлгээний дараа сумын эмчид эргэн үзүүлнэ.&quot;,
+      &quot;model_text&quot;: &quot;Аймгийн дотрын эмчийн үнэлгээний дараа сумын эмчид эргэн үзүүлнэ.&quot;
+    },
+    &quot;U32&quot;: {
+      &quot;id&quot;: 32,
+      &quot;start&quot;: 1531,
+      &quot;end&quot;: 1578,
+      &quot;text&quot;: &quot;[S11] ЦДШ, CRP-ийн хариуны хуулбарыг хавсаргав.&quot;,
+      &quot;model_text&quot;: &quot;ЦДШ, CRP-ийн хариуны хуулбарыг хавсаргав.&quot;
+    },
+    &quot;U33&quot;: {
+      &quot;id&quot;: 33,
+      &quot;start&quot;: 1579,
+      &quot;end&quot;: 1620,
+      &quot;text&quot;: &quot;Хүлээгдэж буй шинжилгээний хариу байхгүй.&quot;,
+      &quot;model_text&quot;: &quot;Хүлээгдэж буй шинжилгээний хариу байхгүй.&quot;
+    }
+  },
+  &quot;evidence_errors&quot;: [],
+  &quot;review_flags&quot;: [
+    {
+      &quot;source_unit&quot;: &quot;U1&quot;,
+      &quot;type&quot;: &quot;mixed_or_unclear_requires_review&quot;
+    },
+    {
+      &quot;source_unit&quot;: &quot;U6&quot;,
+      &quot;type&quot;: &quot;mixed_or_unclear_requires_review&quot;
+    },
+    {
+      &quot;source_unit&quot;: &quot;U7&quot;,
+      &quot;type&quot;: &quot;mixed_or_unclear_requires_review&quot;
+    },
+    {
+      &quot;source_unit&quot;: &quot;U10&quot;,
+      &quot;type&quot;: &quot;mixed_or_unclear_requires_review&quot;
+    },
+    {
+      &quot;source_unit&quot;: &quot;U12&quot;,
+      &quot;type&quot;: &quot;mixed_or_unclear_requires_review&quot;
+    },
+    {
+      &quot;source_unit&quot;: &quot;U13&quot;,
+      &quot;type&quot;: &quot;mixed_or_unclear_requires_review&quot;
+    },
+    {
+      &quot;source_unit&quot;: &quot;U14&quot;,
+      &quot;type&quot;: &quot;mixed_or_unclear_requires_review&quot;
+    },
+    {
+      &quot;source_unit&quot;: &quot;U15&quot;,
+      &quot;type&quot;: &quot;mixed_or_unclear_requires_review&quot;
+    },
+    {
+      &quot;source_unit&quot;: &quot;U16&quot;,
+      &quot;type&quot;: &quot;mixed_or_unclear_requires_review&quot;
+    },
+    {
+      &quot;source_unit&quot;: &quot;U17&quot;,
+      &quot;type&quot;: &quot;mixed_or_unclear_requires_review&quot;
+    },
+    {
+      &quot;source_unit&quot;: &quot;U18&quot;,
+      &quot;type&quot;: &quot;mixed_or_unclear_requires_review&quot;
+    },
+    {
+      &quot;source_unit&quot;: &quot;U22&quot;,
+      &quot;type&quot;: &quot;mixed_or_unclear_requires_review&quot;
+    },
+    {
+      &quot;source_unit&quot;: &quot;U23&quot;,
+      &quot;type&quot;: &quot;mixed_or_unclear_requires_review&quot;
+    },
+    {
+      &quot;source_unit&quot;: &quot;U24&quot;,
+      &quot;type&quot;: &quot;mixed_or_unclear_requires_review&quot;
+    },
+    {
+      &quot;source_unit&quot;: &quot;U25&quot;,
+      &quot;type&quot;: &quot;mixed_or_unclear_requires_review&quot;
+    },
+    {
+      &quot;source_unit&quot;: &quot;U26&quot;,
+      &quot;type&quot;: &quot;mixed_or_unclear_requires_review&quot;
+    },
+    {
+      &quot;source_unit&quot;: &quot;U27&quot;,
+      &quot;type&quot;: &quot;mixed_or_unclear_requires_review&quot;
+    },
+    {
+      &quot;source_unit&quot;: &quot;U29&quot;,
+      &quot;type&quot;: &quot;mixed_or_unclear_requires_review&quot;
+    },
+    {
+      &quot;source_unit&quot;: &quot;U30&quot;,
+      &quot;type&quot;: &quot;mixed_or_unclear_requires_review&quot;
+    },
+    {
+      &quot;source_unit&quot;: &quot;U31&quot;,
+      &quot;type&quot;: &quot;mixed_or_unclear_requires_review&quot;
+    },
+    {
+      &quot;source_unit&quot;: &quot;U32&quot;,
+      &quot;type&quot;: &quot;mixed_or_unclear_requires_review&quot;
+    },
+    {
+      &quot;source_unit&quot;: &quot;U33&quot;,
+      &quot;type&quot;: &quot;mixed_or_unclear_requires_review&quot;
+    }
+  ]
+}</pre></details></section>
+<section><h3>B — proposed values and evidence</h3><p>16.815 seconds; structural error: None; lexical evidence valid: False</p><p class="notice">Proposals only. Evidence errors and association checks require correction/review; no row is automatically accepted.</p><h4>medications</h4><div class="proposal"><p><b>role: </b>administered_treatment</p><p><b>name: </b>Амлодипин</p><p><b>dose: </b>5 мг</p><p><b>route: </b>өдөрт 1 удаа</p><p><b>time: </b>өнөөдрийн тунгаа</p><p><b>frequency: </b>өдөрт 1 удаа</p><details><summary>Linked evidence: U11</summary><pre>[
+  {
+    &quot;source_unit&quot;: &quot;U11&quot;,
+    &quot;quote&quot;: &quot;Амлодипин 5 мг өдөрт 1 удаа уудаг гэсэн.&quot;
+  }
+]</pre></details></div><div class="proposal"><p><b>role: </b>administered_treatment</p><p><b>name: </b>Парацетамол</p><p><b>dose: </b>500 мг</p><p><b>route: </b>амаар нэг удаа</p><p><b>time: </b>10:15-д</p><p><b>frequency: </b>нэг удаа</p><details><summary>Linked evidence: U21</summary><pre>[
+  {
+    &quot;source_unit&quot;: &quot;U21&quot;,
+    &quot;quote&quot;: &quot;Парацетамол 500 мг амаар нэг удаа өгсөн.&quot;
+  }
+]</pre></details></div><h4>allergies</h4><div class="proposal"><p><b>statement: </b>АД ихсэлттэй</p><details><summary>Linked evidence: U10</summary><pre>[
+  {
+    &quot;source_unit&quot;: &quot;U10&quot;,
+    &quot;quote&quot;: &quot;АД ихсэлттэй.&quot;
+  }
+]</pre></details></div><h4>medication_context</h4><div class="proposal"><p><b>statement: </b>Өнөөдрийн тунгаа уусан эсэхийг асуугаагүй</p><details><summary>Linked evidence: U12</summary><pre>[
+  {
+    &quot;source_unit&quot;: &quot;U12&quot;,
+    &quot;quote&quot;: &quot;Өнөөдрийн тунгаа уусан эсэхийг асуугаагүй.&quot;
+  }
+]</pre></details></div><div class="proposal"><p><b>statement: </b>Энэ үзлэгээр өөр эмчилгээ хийгээгүй</p><details><summary>Linked evidence: U23</summary><pre>[
+  {
+    &quot;source_unit&quot;: &quot;U23&quot;,
+    &quot;quote&quot;: &quot;Энэ үзлэгээр өөр эмчилгээ хийгээгүй.&quot;
+  }
+]</pre></details></div>
+<details><summary>Complete raw JSON, original units / offsets and validation flags</summary><pre>{
+  &quot;medications&quot;: [
+    {
+      &quot;role&quot;: &quot;administered_treatment&quot;,
+      &quot;name&quot;: &quot;Амлодипин&quot;,
+      &quot;dose&quot;: &quot;5 мг&quot;,
+      &quot;route&quot;: &quot;өдөрт 1 удаа&quot;,
+      &quot;time&quot;: &quot;өнөөдрийн тунгаа&quot;,
+      &quot;frequency&quot;: &quot;өдөрт 1 удаа&quot;,
+      &quot;evidence&quot;: [
+        {
+          &quot;source_unit&quot;: &quot;U11&quot;,
+          &quot;quote&quot;: &quot;Амлодипин 5 мг өдөрт 1 удаа уудаг гэсэн.&quot;
+        }
+      ]
+    },
+    {
+      &quot;role&quot;: &quot;administered_treatment&quot;,
+      &quot;name&quot;: &quot;Парацетамол&quot;,
+      &quot;dose&quot;: &quot;500 мг&quot;,
+      &quot;route&quot;: &quot;амаар нэг удаа&quot;,
+      &quot;time&quot;: &quot;10:15-д&quot;,
+      &quot;frequency&quot;: &quot;нэг удаа&quot;,
+      &quot;evidence&quot;: [
+        {
+          &quot;source_unit&quot;: &quot;U21&quot;,
+          &quot;quote&quot;: &quot;Парацетамол 500 мг амаар нэг удаа өгсөн.&quot;
+        }
+      ]
+    }
+  ],
+  &quot;allergies&quot;: [
+    {
+      &quot;statement&quot;: &quot;АД ихсэлттэй&quot;,
+      &quot;evidence&quot;: [
+        {
+          &quot;source_unit&quot;: &quot;U10&quot;,
+          &quot;quote&quot;: &quot;АД ихсэлттэй.&quot;
+        }
+      ]
+    }
+  ],
+  &quot;medication_context&quot;: [
+    {
+      &quot;statement&quot;: &quot;Өнөөдрийн тунгаа уусан эсэхийг асуугаагүй&quot;,
+      &quot;evidence&quot;: [
+        {
+          &quot;source_unit&quot;: &quot;U12&quot;,
+          &quot;quote&quot;: &quot;Өнөөдрийн тунгаа уусан эсэхийг асуугаагүй.&quot;
+        }
+      ]
+    },
+    {
+      &quot;statement&quot;: &quot;Энэ үзлэгээр өөр эмчилгээ хийгээгүй&quot;,
+      &quot;evidence&quot;: [
+        {
+          &quot;source_unit&quot;: &quot;U23&quot;,
+          &quot;quote&quot;: &quot;Энэ үзлэгээр өөр эмчилгээ хийгээгүй.&quot;
+        }
+      ]
+    }
+  ]
+}</pre><pre>{
+  &quot;source_mapping&quot;: {
+    &quot;U1&quot;: {
+      &quot;id&quot;: 1,
+      &quot;start&quot;: 0,
+      &quot;end&quot;: 24,
+      &quot;text&quot;: &quot;[S01] 2026.10.04, 11:15.&quot;,
+      &quot;model_text&quot;: &quot;2026.10.04, 11:15.&quot;
+    },
+    &quot;U2&quot;: {
+      &quot;id&quot;: 2,
+      &quot;start&quot;: 25,
+      &quot;end&quot;: 41,
+      &quot;text&quot;: &quot;Жишээ сумын ЭМТ.&quot;,
+      &quot;model_text&quot;: &quot;Жишээ сумын ЭМТ.&quot;
+    },
+    &quot;U3&quot;: {
+      &quot;id&quot;: 3,
+      &quot;start&quot;: 42,
+      &quot;end&quot;: 54,
+      &quot;text&quot;: &quot;Демо эмч 02.&quot;,
+      &quot;model_text&quot;: &quot;Демо эмч 02.&quot;
+    },
+    &quot;U4&quot;: {
+      &quot;id&quot;: 4,
+      &quot;start&quot;: 55,
+      &quot;end&quot;: 82,
+      &quot;text&quot;: &quot;DEV-002, 46 настай эмэгтэй.&quot;,
+      &quot;model_text&quot;: &quot;DEV-002, 46 настай эмэгтэй.&quot;
+    },
+    &quot;U5&quot;: {
+      &quot;id&quot;: 5,
+      &quot;start&quot;: 83,
+      &quot;end&quot;: 105,
+      &quot;text&quot;: &quot;Өнөөдөр 10:00-д ирсэн.&quot;,
+      &quot;model_text&quot;: &quot;Өнөөдөр 10:00-д ирсэн.&quot;
+    },
+    &quot;U6&quot;: {
+      &quot;id&quot;: 6,
+      &quot;start&quot;: 106,
+      &quot;end&quot;: 171,
+      &quot;text&quot;: &quot;[S02] 6 долоо хоног хоёр бугуй, гарын хурууны үеэр өвдөж хавдана.&quot;,
+      &quot;model_text&quot;: &quot;6 долоо хоног хоёр бугуй, гарын хурууны үеэр өвдөж хавдана.&quot;
+    },
+    &quot;U7&quot;: {
+      &quot;id&quot;: 7,
+      &quot;start&quot;: 172,
+      &quot;end&quot;: 204,
+      &quot;text&quot;: &quot;Өглөөгүүр 30 орчим минут хөшинө.&quot;,
+      &quot;model_text&quot;: &quot;Өглөөгүүр 30 орчим минут хөшинө.&quot;
+    },
+    &quot;U8&quot;: {
+      &quot;id&quot;: 8,
+      &quot;start&quot;: 205,
+      &quot;end&quot;: 220,
+      &quot;text&quot;: &quot;Гэмтэл аваагүй.&quot;,
+      &quot;model_text&quot;: &quot;Гэмтэл аваагүй.&quot;
+    },
+    &quot;U9&quot;: {
+      &quot;id&quot;: 9,
+      &quot;start&quot;: 221,
+      &quot;end&quot;: 241,
+      &quot;text&quot;: &quot;Халуурахыг үгүйсгэв.&quot;,
+      &quot;model_text&quot;: &quot;Халуурахыг үгүйсгэв.&quot;
+    },
+    &quot;U10&quot;: {
+      &quot;id&quot;: 10,
+      &quot;start&quot;: 242,
+      &quot;end&quot;: 261,
+      &quot;text&quot;: &quot;[S03] АД ихсэлттэй.&quot;,
+      &quot;model_text&quot;: &quot;АД ихсэлттэй.&quot;
+    },
+    &quot;U11&quot;: {
+      &quot;id&quot;: 11,
+      &quot;start&quot;: 262,
+      &quot;end&quot;: 302,
+      &quot;text&quot;: &quot;Амлодипин 5 мг өдөрт 1 удаа уудаг гэсэн.&quot;,
+      &quot;model_text&quot;: &quot;Амлодипин 5 мг өдөрт 1 удаа уудаг гэсэн.&quot;
+    },
+    &quot;U12&quot;: {
+      &quot;id&quot;: 12,
+      &quot;start&quot;: 303,
+      &quot;end&quot;: 345,
+      &quot;text&quot;: &quot;Өнөөдрийн тунгаа уусан эсэхийг асуугаагүй.&quot;,
+      &quot;model_text&quot;: &quot;Өнөөдрийн тунгаа уусан эсэхийг асуугаагүй.&quot;
+    },
+    &quot;U13&quot;: {
+      &quot;id&quot;: 13,
+      &quot;start&quot;: 346,
+      &quot;end&quot;: 372,
+      &quot;text&quot;: &quot;Эмийн харшилгүй гэж хэлэв.&quot;,
+      &quot;model_text&quot;: &quot;Эмийн харшилгүй гэж хэлэв.&quot;
+    },
+    &quot;U14&quot;: {
+      &quot;id&quot;: 14,
+      &quot;start&quot;: 373,
+      &quot;end&quot;: 421,
+      &quot;text&quot;: &quot;[S04] 10:05-д ерөнхий байдал дунд, ухаан саруул.&quot;,
+      &quot;model_text&quot;: &quot;10:05-д ерөнхий байдал дунд, ухаан саруул.&quot;
+    },
+    &quot;U15&quot;: {
+      &quot;id&quot;: 15,
+      &quot;start&quot;: 422,
+      &quot;end&quot;: 498,
+      &quot;text&quot;: &quot;АД 134/82 мм.муб, ЗЦ 82/мин, АТ 16/мин, SpO₂ 98% дэмжлэггүй, халуун 36.7 °C.&quot;,
+      &quot;model_text&quot;: &quot;АД 134/82 мм.муб, ЗЦ 82/мин, АТ 16/мин, SpO₂ 98% дэмжлэггүй, халуун 36.7 °C.&quot;
+    },
+    &quot;U16&quot;: {
+      &quot;id&quot;: 16,
+      &quot;start&quot;: 499,
+      &quot;end&quot;: 560,
+      &quot;text&quot;: &quot;Хоёр бугуй, хоёр гарын II–III MCP үе хавдаж, тэмтрэхэд эмзэг.&quot;,
+      &quot;model_text&quot;: &quot;Хоёр бугуй, хоёр гарын II–III MCP үе хавдаж, тэмтрэхэд эмзэг.&quot;
+    },
+    &quot;U17&quot;: {
+      &quot;id&quot;: 17,
+      &quot;start&quot;: 561,
+      &quot;end&quot;: 606,
+      &quot;text&quot;: &quot;Үе тус бүрийн хөдөлгөөний далайцыг үнэлээгүй.&quot;,
+      &quot;model_text&quot;: &quot;Үе тус бүрийн хөдөлгөөний далайцыг үнэлээгүй.&quot;
+    },
+    &quot;U18&quot;: {
+      &quot;id&quot;: 18,
+      &quot;start&quot;: 607,
+      &quot;end&quot;: 630,
+      &quot;text&quot;: &quot;Өвдөлт 6/10 гэж хэлсэн.&quot;,
+      &quot;model_text&quot;: &quot;Өвдөлт 6/10 гэж хэлсэн.&quot;
+    },
+    &quot;U19&quot;: {
+      &quot;id&quot;: 19,
+      &quot;start&quot;: 631,
+      &quot;end&quot;: 720,
+      &quot;text&quot;: &quot;[S05] 2026.10.03-ны шинжилгээ: Hb 127 г/л, WBC 6.8 × 10⁹/л, PLT 310 × 10⁹/л, CRP 14 мг/л.&quot;,
+      &quot;model_text&quot;: &quot;2026.10.03-ны шинжилгээ: Hb 127 г/л, WBC 6.8 × 10⁹/л, PLT 310 × 10⁹/л, CRP 14 мг/л.&quot;
+    },
+    &quot;U20&quot;: {
+      &quot;id&quot;: 20,
+      &quot;start&quot;: 721,
+      &quot;end&quot;: 744,
+      &quot;text&quot;: &quot;RF, anti-CCP хийгээгүй.&quot;,
+      &quot;model_text&quot;: &quot;RF, anti-CCP хийгээгүй.&quot;
+    },
+    &quot;U21&quot;: {
+      &quot;id&quot;: 21,
+      &quot;start&quot;: 745,
+      &quot;end&quot;: 799,
+      &quot;text&quot;: &quot;[S06] 10:15-д парацетамол 500 мг амаар нэг удаа өгсөн.&quot;,
+      &quot;model_text&quot;: &quot;10:15-д парацетамол 500 мг амаар нэг удаа өгсөн.&quot;
+    },
+    &quot;U22&quot;: {
+      &quot;id&quot;: 22,
+      &quot;start&quot;: 800,
+      &quot;end&quot;: 837,
+      &quot;text&quot;: &quot;11:00-д өвдөлт 4/10 болсон гэж хэлэв.&quot;,
+      &quot;model_text&quot;: &quot;11:00-д өвдөлт 4/10 болсон гэж хэлэв.&quot;
+    },
+    &quot;U23&quot;: {
+      &quot;id&quot;: 23,
+      &quot;start&quot;: 838,
+      &quot;end&quot;: 874,
+      &quot;text&quot;: &quot;Энэ үзлэгээр өөр эмчилгээ хийгээгүй.&quot;,
+      &quot;model_text&quot;: &quot;Энэ үзлэгээр өөр эмчилгээ хийгээгүй.&quot;
+    },
+    &quot;U24&quot;: {
+      &quot;id&quot;: 24,
+      &quot;start&quot;: 875,
+      &quot;end&quot;: 923,
+      &quot;text&quot;: &quot;[S07] 11:00-д ерөнхий байдал дунд, ухаан саруул.&quot;,
+      &quot;model_text&quot;: &quot;11:00-д ерөнхий байдал дунд, ухаан саруул.&quot;
+    },
+    &quot;U25&quot;: {
+      &quot;id&quot;: 25,
+      &quot;start&quot;: 924,
+      &quot;end&quot;: 1000,
+      &quot;text&quot;: &quot;АД 128/80 мм.муб, ЗЦ 78/мин, АТ 16/мин, SpO₂ 98% дэмжлэггүй, халуун 36.6 °C.&quot;,
+      &quot;model_text&quot;: &quot;АД 128/80 мм.муб, ЗЦ 78/мин, АТ 16/мин, SpO₂ 98% дэмжлэггүй, халуун 36.6 °C.&quot;
+    },
+    &quot;U26&quot;: {
+      &quot;id&quot;: 26,
+      &quot;start&quot;: 1001,
+      &quot;end&quot;: 1062,
+      &quot;text&quot;: &quot;[S08] Үнэлгээ: олон үений өвдөлт, хавдар, шалтгаан тодруулах.&quot;,
+      &quot;model_text&quot;: &quot;Үнэлгээ: олон үений өвдөлт, хавдар, шалтгаан тодруулах.&quot;
+    },
+    &quot;U27&quot;: {
+      &quot;id&quot;: 27,
+      &quot;start&quot;: 1063,
+      &quot;end&quot;: 1102,
+      &quot;text&quot;: &quot;Хавсарсан онош: артерийн даралт ихсэлт.&quot;,
+      &quot;model_text&quot;: &quot;Хавсарсан онош: артерийн даралт ихсэлт.&quot;
+    },
+    &quot;U28&quot;: {
+      &quot;id&quot;: 28,
+      &quot;start&quot;: 1103,
+      &quot;end&quot;: 1168,
+      &quot;text&quot;: &quot;[S09] Манай суманд ревматологийн эмч, anti-CCP шинжилгээ байхгүй.&quot;,
+      &quot;model_text&quot;: &quot;Манай суманд ревматологийн эмч, anti-CCP шинжилгээ байхгүй.&quot;
+    },
+    &quot;U29&quot;: {
+      &quot;id&quot;: 29,
+      &quot;start&quot;: 1169,
+      &quot;end&quot;: 1312,
+      &quot;text&quot;: &quot;6 долоо хоног үргэлжилсэн олон үений өвдөлт, хавдрын шалтгаан тодруулахаар Жишээ аймгийн НЭ-ийн дотрын амбулаторид төлөвлөгөөт журмаар илгээнэ.&quot;,
+      &quot;model_text&quot;: &quot;6 долоо хоног үргэлжилсэн олон үений өвдөлт, хавдрын шалтгаан тодруулахаар Жишээ аймгийн НЭ-ийн дотрын амбулаторид төлөвлөгөөт журмаар илгээнэ.&quot;
+    },
+    &quot;U30&quot;: {
+      &quot;id&quot;: 30,
+      &quot;start&quot;: 1313,
+      &quot;end&quot;: 1464,
+      &quot;text&quot;: &quot;[S10] Хүлээн авах эмчээс үрэвсэлт үений өвчин байж болзошгүй эсэхийг үнэлж, шаардлагатай шинжилгээ болон цаашдын эмчилгээний төлөвлөгөө гаргахыг хүсэв.&quot;,
+      &quot;model_text&quot;: &quot;Хүлээн авах эмчээс үрэвсэлт үений өвчин байж болзошгүй эсэхийг үнэлж, шаардлагатай шинжилгээ болон цаашдын эмчилгээний төлөвлөгөө гаргахыг хүсэв.&quot;
+    },
+    &quot;U31&quot;: {
+      &quot;id&quot;: 31,
+      &quot;start&quot;: 1465,
+      &quot;end&quot;: 1530,
+      &quot;text&quot;: &quot;Аймгийн дотрын эмчийн үнэлгээний дараа сумын эмчид эргэн үзүүлнэ.&quot;,
+      &quot;model_text&quot;: &quot;Аймгийн дотрын эмчийн үнэлгээний дараа сумын эмчид эргэн үзүүлнэ.&quot;
+    },
+    &quot;U32&quot;: {
+      &quot;id&quot;: 32,
+      &quot;start&quot;: 1531,
+      &quot;end&quot;: 1578,
+      &quot;text&quot;: &quot;[S11] ЦДШ, CRP-ийн хариуны хуулбарыг хавсаргав.&quot;,
+      &quot;model_text&quot;: &quot;ЦДШ, CRP-ийн хариуны хуулбарыг хавсаргав.&quot;
+    },
+    &quot;U33&quot;: {
+      &quot;id&quot;: 33,
+      &quot;start&quot;: 1579,
+      &quot;end&quot;: 1620,
+      &quot;text&quot;: &quot;Хүлээгдэж буй шинжилгээний хариу байхгүй.&quot;,
+      &quot;model_text&quot;: &quot;Хүлээгдэж буй шинжилгээний хариу байхгүй.&quot;
+    }
+  },
+  &quot;evidence_errors&quot;: [
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 0,
+      &quot;type&quot;: &quot;detail_not_in_linked_quote&quot;,
+      &quot;detail&quot;: &quot;time&quot;,
+      &quot;value&quot;: &quot;өнөөдрийн тунгаа&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 1,
+      &quot;type&quot;: &quot;quote_mismatch&quot;,
+      &quot;evidence&quot;: {
+        &quot;source_unit&quot;: &quot;U21&quot;,
+        &quot;quote&quot;: &quot;Парацетамол 500 мг амаар нэг удаа өгсөн.&quot;
+      }
+    },
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 1,
+      &quot;type&quot;: &quot;detail_not_in_linked_quote&quot;,
+      &quot;detail&quot;: &quot;time&quot;,
+      &quot;value&quot;: &quot;10:15-д&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;allergies&quot;,
+      &quot;index&quot;: 0,
+      &quot;type&quot;: &quot;statement_not_intact_unit&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medication_context&quot;,
+      &quot;index&quot;: 0,
+      &quot;type&quot;: &quot;statement_not_intact_unit&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medication_context&quot;,
+      &quot;index&quot;: 1,
+      &quot;type&quot;: &quot;statement_not_intact_unit&quot;
+    }
+  ],
+  &quot;review_flags&quot;: [
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 0,
+      &quot;type&quot;: &quot;drug_detail_role_association_requires_review&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 1,
+      &quot;type&quot;: &quot;drug_detail_role_association_requires_review&quot;
+    }
+  ]
+}</pre></details></section>
+</div>
+</details>
+<h3>Prompt revision 2</h3><div class="grid">
+<section><h3>A — per-unit roles</h3><p>13.018 seconds; structural error: None; lexical evidence valid: True</p><h4>regular_medication (2 units)</h4><p>U1: [S01] 2026.10.04, 11:15.</p><p>U10: [S03] АД ихсэлттэй.</p><h4>administered_treatment (1 units)</h4><p>U6: [S02] 6 долоо хоног хоёр бугуй, гарын хурууны үеэр өвдөж хавдана.</p><h4>historical_medication (2 units)</h4><p>U4: DEV-002, 46 настай эмэгтэй.</p><p>U19: [S05] 2026.10.03-ны шинжилгээ: Hb 127 г/л, WBC 6.8 × 10⁹/л, PLT 310 × 10⁹/л, CRP 14 мг/л.</p><h4>planned_or_prescribed_treatment (3 units)</h4><p>U5: Өнөөдөр 10:00-д ирсэн.</p><p>U11: Амлодипин 5 мг өдөрт 1 удаа уудаг гэсэн.</p><p>U21: [S06] 10:15-д парацетамол 500 мг амаар нэг удаа өгсөн.</p><h4>explicitly_not_administered (2 units)</h4><p>U8: Гэмтэл аваагүй.</p><p>U12: Өнөөдрийн тунгаа уусан эсэхийг асуугаагүй.</p><details><summary>mixed_or_unclear (22 units) — REVIEW REQUIRED; not discarded</summary><p>U3: Демо эмч 02.</p><p>U7: Өглөөгүүр 30 орчим минут хөшинө.</p><p>U9: Халуурахыг үгүйсгэв.</p><p>U13: Эмийн харшилгүй гэж хэлэв.</p><p>U14: [S04] 10:05-д ерөнхий байдал дунд, ухаан саруул.</p><p>U15: АД 134/82 мм.муб, ЗЦ 82/мин, АТ 16/мин, SpO₂ 98% дэмжлэггүй, халуун 36.7 °C.</p><p>U16: Хоёр бугуй, хоёр гарын II–III MCP үе хавдаж, тэмтрэхэд эмзэг.</p><p>U17: Үе тус бүрийн хөдөлгөөний далайцыг үнэлээгүй.</p><p>U18: Өвдөлт 6/10 гэж хэлсэн.</p><p>U20: RF, anti-CCP хийгээгүй.</p><p>U22: 11:00-д өвдөлт 4/10 болсон гэж хэлэв.</p><p>U23: Энэ үзлэгээр өөр эмчилгээ хийгээгүй.</p><p>U24: [S07] 11:00-д ерөнхий байдал дунд, ухаан саруул.</p><p>U25: АД 128/80 мм.муб, ЗЦ 78/мин, АТ 16/мин, SpO₂ 98% дэмжлэггүй, халуун 36.6 °C.</p><p>U26: [S08] Үнэлгээ: олон үений өвдөлт, хавдар, шалтгаан тодруулах.</p><p>U27: Хавсарсан онош: артерийн даралт ихсэлт.</p><p>U28: [S09] Манай суманд ревматологийн эмч, anti-CCP шинжилгээ байхгүй.</p><p>U29: 6 долоо хоног үргэлжилсэн олон үений өвдөлт, хавдрын шалтгаан тодруулахаар Жишээ аймгийн НЭ-ийн дотрын амбулаторид төлөвлөгөөт журмаар илгээнэ.</p><p>U30: [S10] Хүлээн авах эмчээс үрэвсэлт үений өвчин байж болзошгүй эсэхийг үнэлж, шаардлагатай шинжилгээ болон цаашдын эмчилгээний төлөвлөгөө гаргахыг хүсэв.</p><p>U31: Аймгийн дотрын эмчийн үнэлгээний дараа сумын эмчид эргэн үзүүлнэ.</p><p>U32: [S11] ЦДШ, CRP-ийн хариуны хуулбарыг хавсаргав.</p><p>U33: Хүлээгдэж буй шинжилгээний хариу байхгүй.</p></details><details><summary>other (1 units)</summary><p>U2: Жишээ сумын ЭМТ.</p></details>
+<details><summary>Complete raw JSON, original units / offsets and validation flags</summary><pre>{
+  &quot;U1&quot;: &quot;regular_medication&quot;,
+  &quot;U2&quot;: &quot;other&quot;,
+  &quot;U3&quot;: &quot;mixed_or_unclear&quot;,
+  &quot;U4&quot;: &quot;historical_medication&quot;,
+  &quot;U5&quot;: &quot;planned_or_prescribed_treatment&quot;,
+  &quot;U6&quot;: &quot;administered_treatment&quot;,
+  &quot;U7&quot;: &quot;mixed_or_unclear&quot;,
+  &quot;U8&quot;: &quot;explicitly_not_administered&quot;,
+  &quot;U9&quot;: &quot;mixed_or_unclear&quot;,
+  &quot;U10&quot;: &quot;regular_medication&quot;,
+  &quot;U11&quot;: &quot;planned_or_prescribed_treatment&quot;,
+  &quot;U12&quot;: &quot;explicitly_not_administered&quot;,
+  &quot;U13&quot;: &quot;mixed_or_unclear&quot;,
+  &quot;U14&quot;: &quot;mixed_or_unclear&quot;,
+  &quot;U15&quot;: &quot;mixed_or_unclear&quot;,
+  &quot;U16&quot;: &quot;mixed_or_unclear&quot;,
+  &quot;U17&quot;: &quot;mixed_or_unclear&quot;,
+  &quot;U18&quot;: &quot;mixed_or_unclear&quot;,
+  &quot;U19&quot;: &quot;historical_medication&quot;,
+  &quot;U20&quot;: &quot;mixed_or_unclear&quot;,
+  &quot;U21&quot;: &quot;planned_or_prescribed_treatment&quot;,
+  &quot;U22&quot;: &quot;mixed_or_unclear&quot;,
+  &quot;U23&quot;: &quot;mixed_or_unclear&quot;,
+  &quot;U24&quot;: &quot;mixed_or_unclear&quot;,
+  &quot;U25&quot;: &quot;mixed_or_unclear&quot;,
+  &quot;U26&quot;: &quot;mixed_or_unclear&quot;,
+  &quot;U27&quot;: &quot;mixed_or_unclear&quot;,
+  &quot;U28&quot;: &quot;mixed_or_unclear&quot;,
+  &quot;U29&quot;: &quot;mixed_or_unclear&quot;,
+  &quot;U30&quot;: &quot;mixed_or_unclear&quot;,
+  &quot;U31&quot;: &quot;mixed_or_unclear&quot;,
+  &quot;U32&quot;: &quot;mixed_or_unclear&quot;,
+  &quot;U33&quot;: &quot;mixed_or_unclear&quot;
+}</pre><pre>{
+  &quot;source_mapping&quot;: {
+    &quot;U1&quot;: {
+      &quot;id&quot;: 1,
+      &quot;start&quot;: 0,
+      &quot;end&quot;: 24,
+      &quot;text&quot;: &quot;[S01] 2026.10.04, 11:15.&quot;,
+      &quot;model_text&quot;: &quot;2026.10.04, 11:15.&quot;
+    },
+    &quot;U2&quot;: {
+      &quot;id&quot;: 2,
+      &quot;start&quot;: 25,
+      &quot;end&quot;: 41,
+      &quot;text&quot;: &quot;Жишээ сумын ЭМТ.&quot;,
+      &quot;model_text&quot;: &quot;Жишээ сумын ЭМТ.&quot;
+    },
+    &quot;U3&quot;: {
+      &quot;id&quot;: 3,
+      &quot;start&quot;: 42,
+      &quot;end&quot;: 54,
+      &quot;text&quot;: &quot;Демо эмч 02.&quot;,
+      &quot;model_text&quot;: &quot;Демо эмч 02.&quot;
+    },
+    &quot;U4&quot;: {
+      &quot;id&quot;: 4,
+      &quot;start&quot;: 55,
+      &quot;end&quot;: 82,
+      &quot;text&quot;: &quot;DEV-002, 46 настай эмэгтэй.&quot;,
+      &quot;model_text&quot;: &quot;DEV-002, 46 настай эмэгтэй.&quot;
+    },
+    &quot;U5&quot;: {
+      &quot;id&quot;: 5,
+      &quot;start&quot;: 83,
+      &quot;end&quot;: 105,
+      &quot;text&quot;: &quot;Өнөөдөр 10:00-д ирсэн.&quot;,
+      &quot;model_text&quot;: &quot;Өнөөдөр 10:00-д ирсэн.&quot;
+    },
+    &quot;U6&quot;: {
+      &quot;id&quot;: 6,
+      &quot;start&quot;: 106,
+      &quot;end&quot;: 171,
+      &quot;text&quot;: &quot;[S02] 6 долоо хоног хоёр бугуй, гарын хурууны үеэр өвдөж хавдана.&quot;,
+      &quot;model_text&quot;: &quot;6 долоо хоног хоёр бугуй, гарын хурууны үеэр өвдөж хавдана.&quot;
+    },
+    &quot;U7&quot;: {
+      &quot;id&quot;: 7,
+      &quot;start&quot;: 172,
+      &quot;end&quot;: 204,
+      &quot;text&quot;: &quot;Өглөөгүүр 30 орчим минут хөшинө.&quot;,
+      &quot;model_text&quot;: &quot;Өглөөгүүр 30 орчим минут хөшинө.&quot;
+    },
+    &quot;U8&quot;: {
+      &quot;id&quot;: 8,
+      &quot;start&quot;: 205,
+      &quot;end&quot;: 220,
+      &quot;text&quot;: &quot;Гэмтэл аваагүй.&quot;,
+      &quot;model_text&quot;: &quot;Гэмтэл аваагүй.&quot;
+    },
+    &quot;U9&quot;: {
+      &quot;id&quot;: 9,
+      &quot;start&quot;: 221,
+      &quot;end&quot;: 241,
+      &quot;text&quot;: &quot;Халуурахыг үгүйсгэв.&quot;,
+      &quot;model_text&quot;: &quot;Халуурахыг үгүйсгэв.&quot;
+    },
+    &quot;U10&quot;: {
+      &quot;id&quot;: 10,
+      &quot;start&quot;: 242,
+      &quot;end&quot;: 261,
+      &quot;text&quot;: &quot;[S03] АД ихсэлттэй.&quot;,
+      &quot;model_text&quot;: &quot;АД ихсэлттэй.&quot;
+    },
+    &quot;U11&quot;: {
+      &quot;id&quot;: 11,
+      &quot;start&quot;: 262,
+      &quot;end&quot;: 302,
+      &quot;text&quot;: &quot;Амлодипин 5 мг өдөрт 1 удаа уудаг гэсэн.&quot;,
+      &quot;model_text&quot;: &quot;Амлодипин 5 мг өдөрт 1 удаа уудаг гэсэн.&quot;
+    },
+    &quot;U12&quot;: {
+      &quot;id&quot;: 12,
+      &quot;start&quot;: 303,
+      &quot;end&quot;: 345,
+      &quot;text&quot;: &quot;Өнөөдрийн тунгаа уусан эсэхийг асуугаагүй.&quot;,
+      &quot;model_text&quot;: &quot;Өнөөдрийн тунгаа уусан эсэхийг асуугаагүй.&quot;
+    },
+    &quot;U13&quot;: {
+      &quot;id&quot;: 13,
+      &quot;start&quot;: 346,
+      &quot;end&quot;: 372,
+      &quot;text&quot;: &quot;Эмийн харшилгүй гэж хэлэв.&quot;,
+      &quot;model_text&quot;: &quot;Эмийн харшилгүй гэж хэлэв.&quot;
+    },
+    &quot;U14&quot;: {
+      &quot;id&quot;: 14,
+      &quot;start&quot;: 373,
+      &quot;end&quot;: 421,
+      &quot;text&quot;: &quot;[S04] 10:05-д ерөнхий байдал дунд, ухаан саруул.&quot;,
+      &quot;model_text&quot;: &quot;10:05-д ерөнхий байдал дунд, ухаан саруул.&quot;
+    },
+    &quot;U15&quot;: {
+      &quot;id&quot;: 15,
+      &quot;start&quot;: 422,
+      &quot;end&quot;: 498,
+      &quot;text&quot;: &quot;АД 134/82 мм.муб, ЗЦ 82/мин, АТ 16/мин, SpO₂ 98% дэмжлэггүй, халуун 36.7 °C.&quot;,
+      &quot;model_text&quot;: &quot;АД 134/82 мм.муб, ЗЦ 82/мин, АТ 16/мин, SpO₂ 98% дэмжлэггүй, халуун 36.7 °C.&quot;
+    },
+    &quot;U16&quot;: {
+      &quot;id&quot;: 16,
+      &quot;start&quot;: 499,
+      &quot;end&quot;: 560,
+      &quot;text&quot;: &quot;Хоёр бугуй, хоёр гарын II–III MCP үе хавдаж, тэмтрэхэд эмзэг.&quot;,
+      &quot;model_text&quot;: &quot;Хоёр бугуй, хоёр гарын II–III MCP үе хавдаж, тэмтрэхэд эмзэг.&quot;
+    },
+    &quot;U17&quot;: {
+      &quot;id&quot;: 17,
+      &quot;start&quot;: 561,
+      &quot;end&quot;: 606,
+      &quot;text&quot;: &quot;Үе тус бүрийн хөдөлгөөний далайцыг үнэлээгүй.&quot;,
+      &quot;model_text&quot;: &quot;Үе тус бүрийн хөдөлгөөний далайцыг үнэлээгүй.&quot;
+    },
+    &quot;U18&quot;: {
+      &quot;id&quot;: 18,
+      &quot;start&quot;: 607,
+      &quot;end&quot;: 630,
+      &quot;text&quot;: &quot;Өвдөлт 6/10 гэж хэлсэн.&quot;,
+      &quot;model_text&quot;: &quot;Өвдөлт 6/10 гэж хэлсэн.&quot;
+    },
+    &quot;U19&quot;: {
+      &quot;id&quot;: 19,
+      &quot;start&quot;: 631,
+      &quot;end&quot;: 720,
+      &quot;text&quot;: &quot;[S05] 2026.10.03-ны шинжилгээ: Hb 127 г/л, WBC 6.8 × 10⁹/л, PLT 310 × 10⁹/л, CRP 14 мг/л.&quot;,
+      &quot;model_text&quot;: &quot;2026.10.03-ны шинжилгээ: Hb 127 г/л, WBC 6.8 × 10⁹/л, PLT 310 × 10⁹/л, CRP 14 мг/л.&quot;
+    },
+    &quot;U20&quot;: {
+      &quot;id&quot;: 20,
+      &quot;start&quot;: 721,
+      &quot;end&quot;: 744,
+      &quot;text&quot;: &quot;RF, anti-CCP хийгээгүй.&quot;,
+      &quot;model_text&quot;: &quot;RF, anti-CCP хийгээгүй.&quot;
+    },
+    &quot;U21&quot;: {
+      &quot;id&quot;: 21,
+      &quot;start&quot;: 745,
+      &quot;end&quot;: 799,
+      &quot;text&quot;: &quot;[S06] 10:15-д парацетамол 500 мг амаар нэг удаа өгсөн.&quot;,
+      &quot;model_text&quot;: &quot;10:15-д парацетамол 500 мг амаар нэг удаа өгсөн.&quot;
+    },
+    &quot;U22&quot;: {
+      &quot;id&quot;: 22,
+      &quot;start&quot;: 800,
+      &quot;end&quot;: 837,
+      &quot;text&quot;: &quot;11:00-д өвдөлт 4/10 болсон гэж хэлэв.&quot;,
+      &quot;model_text&quot;: &quot;11:00-д өвдөлт 4/10 болсон гэж хэлэв.&quot;
+    },
+    &quot;U23&quot;: {
+      &quot;id&quot;: 23,
+      &quot;start&quot;: 838,
+      &quot;end&quot;: 874,
+      &quot;text&quot;: &quot;Энэ үзлэгээр өөр эмчилгээ хийгээгүй.&quot;,
+      &quot;model_text&quot;: &quot;Энэ үзлэгээр өөр эмчилгээ хийгээгүй.&quot;
+    },
+    &quot;U24&quot;: {
+      &quot;id&quot;: 24,
+      &quot;start&quot;: 875,
+      &quot;end&quot;: 923,
+      &quot;text&quot;: &quot;[S07] 11:00-д ерөнхий байдал дунд, ухаан саруул.&quot;,
+      &quot;model_text&quot;: &quot;11:00-д ерөнхий байдал дунд, ухаан саруул.&quot;
+    },
+    &quot;U25&quot;: {
+      &quot;id&quot;: 25,
+      &quot;start&quot;: 924,
+      &quot;end&quot;: 1000,
+      &quot;text&quot;: &quot;АД 128/80 мм.муб, ЗЦ 78/мин, АТ 16/мин, SpO₂ 98% дэмжлэггүй, халуун 36.6 °C.&quot;,
+      &quot;model_text&quot;: &quot;АД 128/80 мм.муб, ЗЦ 78/мин, АТ 16/мин, SpO₂ 98% дэмжлэггүй, халуун 36.6 °C.&quot;
+    },
+    &quot;U26&quot;: {
+      &quot;id&quot;: 26,
+      &quot;start&quot;: 1001,
+      &quot;end&quot;: 1062,
+      &quot;text&quot;: &quot;[S08] Үнэлгээ: олон үений өвдөлт, хавдар, шалтгаан тодруулах.&quot;,
+      &quot;model_text&quot;: &quot;Үнэлгээ: олон үений өвдөлт, хавдар, шалтгаан тодруулах.&quot;
+    },
+    &quot;U27&quot;: {
+      &quot;id&quot;: 27,
+      &quot;start&quot;: 1063,
+      &quot;end&quot;: 1102,
+      &quot;text&quot;: &quot;Хавсарсан онош: артерийн даралт ихсэлт.&quot;,
+      &quot;model_text&quot;: &quot;Хавсарсан онош: артерийн даралт ихсэлт.&quot;
+    },
+    &quot;U28&quot;: {
+      &quot;id&quot;: 28,
+      &quot;start&quot;: 1103,
+      &quot;end&quot;: 1168,
+      &quot;text&quot;: &quot;[S09] Манай суманд ревматологийн эмч, anti-CCP шинжилгээ байхгүй.&quot;,
+      &quot;model_text&quot;: &quot;Манай суманд ревматологийн эмч, anti-CCP шинжилгээ байхгүй.&quot;
+    },
+    &quot;U29&quot;: {
+      &quot;id&quot;: 29,
+      &quot;start&quot;: 1169,
+      &quot;end&quot;: 1312,
+      &quot;text&quot;: &quot;6 долоо хоног үргэлжилсэн олон үений өвдөлт, хавдрын шалтгаан тодруулахаар Жишээ аймгийн НЭ-ийн дотрын амбулаторид төлөвлөгөөт журмаар илгээнэ.&quot;,
+      &quot;model_text&quot;: &quot;6 долоо хоног үргэлжилсэн олон үений өвдөлт, хавдрын шалтгаан тодруулахаар Жишээ аймгийн НЭ-ийн дотрын амбулаторид төлөвлөгөөт журмаар илгээнэ.&quot;
+    },
+    &quot;U30&quot;: {
+      &quot;id&quot;: 30,
+      &quot;start&quot;: 1313,
+      &quot;end&quot;: 1464,
+      &quot;text&quot;: &quot;[S10] Хүлээн авах эмчээс үрэвсэлт үений өвчин байж болзошгүй эсэхийг үнэлж, шаардлагатай шинжилгээ болон цаашдын эмчилгээний төлөвлөгөө гаргахыг хүсэв.&quot;,
+      &quot;model_text&quot;: &quot;Хүлээн авах эмчээс үрэвсэлт үений өвчин байж болзошгүй эсэхийг үнэлж, шаардлагатай шинжилгээ болон цаашдын эмчилгээний төлөвлөгөө гаргахыг хүсэв.&quot;
+    },
+    &quot;U31&quot;: {
+      &quot;id&quot;: 31,
+      &quot;start&quot;: 1465,
+      &quot;end&quot;: 1530,
+      &quot;text&quot;: &quot;Аймгийн дотрын эмчийн үнэлгээний дараа сумын эмчид эргэн үзүүлнэ.&quot;,
+      &quot;model_text&quot;: &quot;Аймгийн дотрын эмчийн үнэлгээний дараа сумын эмчид эргэн үзүүлнэ.&quot;
+    },
+    &quot;U32&quot;: {
+      &quot;id&quot;: 32,
+      &quot;start&quot;: 1531,
+      &quot;end&quot;: 1578,
+      &quot;text&quot;: &quot;[S11] ЦДШ, CRP-ийн хариуны хуулбарыг хавсаргав.&quot;,
+      &quot;model_text&quot;: &quot;ЦДШ, CRP-ийн хариуны хуулбарыг хавсаргав.&quot;
+    },
+    &quot;U33&quot;: {
+      &quot;id&quot;: 33,
+      &quot;start&quot;: 1579,
+      &quot;end&quot;: 1620,
+      &quot;text&quot;: &quot;Хүлээгдэж буй шинжилгээний хариу байхгүй.&quot;,
+      &quot;model_text&quot;: &quot;Хүлээгдэж буй шинжилгээний хариу байхгүй.&quot;
+    }
+  },
+  &quot;evidence_errors&quot;: [],
+  &quot;review_flags&quot;: [
+    {
+      &quot;source_unit&quot;: &quot;U3&quot;,
+      &quot;type&quot;: &quot;mixed_or_unclear_requires_review&quot;
+    },
+    {
+      &quot;source_unit&quot;: &quot;U7&quot;,
+      &quot;type&quot;: &quot;mixed_or_unclear_requires_review&quot;
+    },
+    {
+      &quot;source_unit&quot;: &quot;U9&quot;,
+      &quot;type&quot;: &quot;mixed_or_unclear_requires_review&quot;
+    },
+    {
+      &quot;source_unit&quot;: &quot;U13&quot;,
+      &quot;type&quot;: &quot;mixed_or_unclear_requires_review&quot;
+    },
+    {
+      &quot;source_unit&quot;: &quot;U14&quot;,
+      &quot;type&quot;: &quot;mixed_or_unclear_requires_review&quot;
+    },
+    {
+      &quot;source_unit&quot;: &quot;U15&quot;,
+      &quot;type&quot;: &quot;mixed_or_unclear_requires_review&quot;
+    },
+    {
+      &quot;source_unit&quot;: &quot;U16&quot;,
+      &quot;type&quot;: &quot;mixed_or_unclear_requires_review&quot;
+    },
+    {
+      &quot;source_unit&quot;: &quot;U17&quot;,
+      &quot;type&quot;: &quot;mixed_or_unclear_requires_review&quot;
+    },
+    {
+      &quot;source_unit&quot;: &quot;U18&quot;,
+      &quot;type&quot;: &quot;mixed_or_unclear_requires_review&quot;
+    },
+    {
+      &quot;source_unit&quot;: &quot;U20&quot;,
+      &quot;type&quot;: &quot;mixed_or_unclear_requires_review&quot;
+    },
+    {
+      &quot;source_unit&quot;: &quot;U22&quot;,
+      &quot;type&quot;: &quot;mixed_or_unclear_requires_review&quot;
+    },
+    {
+      &quot;source_unit&quot;: &quot;U23&quot;,
+      &quot;type&quot;: &quot;mixed_or_unclear_requires_review&quot;
+    },
+    {
+      &quot;source_unit&quot;: &quot;U24&quot;,
+      &quot;type&quot;: &quot;mixed_or_unclear_requires_review&quot;
+    },
+    {
+      &quot;source_unit&quot;: &quot;U25&quot;,
+      &quot;type&quot;: &quot;mixed_or_unclear_requires_review&quot;
+    },
+    {
+      &quot;source_unit&quot;: &quot;U26&quot;,
+      &quot;type&quot;: &quot;mixed_or_unclear_requires_review&quot;
+    },
+    {
+      &quot;source_unit&quot;: &quot;U27&quot;,
+      &quot;type&quot;: &quot;mixed_or_unclear_requires_review&quot;
+    },
+    {
+      &quot;source_unit&quot;: &quot;U28&quot;,
+      &quot;type&quot;: &quot;mixed_or_unclear_requires_review&quot;
+    },
+    {
+      &quot;source_unit&quot;: &quot;U29&quot;,
+      &quot;type&quot;: &quot;mixed_or_unclear_requires_review&quot;
+    },
+    {
+      &quot;source_unit&quot;: &quot;U30&quot;,
+      &quot;type&quot;: &quot;mixed_or_unclear_requires_review&quot;
+    },
+    {
+      &quot;source_unit&quot;: &quot;U31&quot;,
+      &quot;type&quot;: &quot;mixed_or_unclear_requires_review&quot;
+    },
+    {
+      &quot;source_unit&quot;: &quot;U32&quot;,
+      &quot;type&quot;: &quot;mixed_or_unclear_requires_review&quot;
+    },
+    {
+      &quot;source_unit&quot;: &quot;U33&quot;,
+      &quot;type&quot;: &quot;mixed_or_unclear_requires_review&quot;
+    }
+  ]
+}</pre></details></section>
+<section><h3>B — proposed values and evidence</h3><p>13.091 seconds; structural error: None; lexical evidence valid: False</p><p class="notice">Proposals only. Evidence errors and association checks require correction/review; no row is automatically accepted.</p><h4>medications</h4><div class="proposal"><p><b>role: </b>regular_medication</p><p><b>name: </b>Амлодипин</p><p><b>dose: </b>5 мг</p><p><b>route: </b>өдөрт 1 удаа</p><p><b>time: </b>өнөөдрийн тунгаа</p><p><b>frequency: </b>өдөрт 1 удаа</p><details><summary>Linked evidence: U11</summary><pre>[
+  {
+    &quot;source_unit&quot;: &quot;U11&quot;,
+    &quot;quote&quot;: &quot;Амлодипин 5 мг өдөрт 1 удаа уудаг гэсэн.&quot;
+  }
+]</pre></details></div><h4>allergies</h4><div class="proposal"><p><b>statement: </b>Эмийн харшилгүй гэж хэлэв.</p><details><summary>Linked evidence: U13</summary><pre>[
+  {
+    &quot;source_unit&quot;: &quot;U13&quot;,
+    &quot;quote&quot;: &quot;Эмийн харшилгүй гэж хэлэв.&quot;
+  }
+]</pre></details></div><h4>medication_context</h4><div class="proposal"><p><b>statement: </b>АД ихсэлттэй.</p><details><summary>Linked evidence: U10</summary><pre>[
+  {
+    &quot;source_unit&quot;: &quot;U10&quot;,
+    &quot;quote&quot;: &quot;АД ихсэлттэй.&quot;
+  }
+]</pre></details></div>
+<details><summary>Complete raw JSON, original units / offsets and validation flags</summary><pre>{
+  &quot;medications&quot;: [
+    {
+      &quot;role&quot;: &quot;regular_medication&quot;,
+      &quot;name&quot;: &quot;Амлодипин&quot;,
+      &quot;dose&quot;: &quot;5 мг&quot;,
+      &quot;route&quot;: &quot;өдөрт 1 удаа&quot;,
+      &quot;time&quot;: &quot;өнөөдрийн тунгаа&quot;,
+      &quot;frequency&quot;: &quot;өдөрт 1 удаа&quot;,
+      &quot;evidence&quot;: [
+        {
+          &quot;source_unit&quot;: &quot;U11&quot;,
+          &quot;quote&quot;: &quot;Амлодипин 5 мг өдөрт 1 удаа уудаг гэсэн.&quot;
+        }
+      ]
+    }
+  ],
+  &quot;allergies&quot;: [
+    {
+      &quot;statement&quot;: &quot;Эмийн харшилгүй гэж хэлэв.&quot;,
+      &quot;evidence&quot;: [
+        {
+          &quot;source_unit&quot;: &quot;U13&quot;,
+          &quot;quote&quot;: &quot;Эмийн харшилгүй гэж хэлэв.&quot;
+        }
+      ]
+    }
+  ],
+  &quot;medication_context&quot;: [
+    {
+      &quot;statement&quot;: &quot;АД ихсэлттэй.&quot;,
+      &quot;evidence&quot;: [
+        {
+          &quot;source_unit&quot;: &quot;U10&quot;,
+          &quot;quote&quot;: &quot;АД ихсэлттэй.&quot;
+        }
+      ]
+    }
+  ]
+}</pre><pre>{
+  &quot;source_mapping&quot;: {
+    &quot;U1&quot;: {
+      &quot;id&quot;: 1,
+      &quot;start&quot;: 0,
+      &quot;end&quot;: 24,
+      &quot;text&quot;: &quot;[S01] 2026.10.04, 11:15.&quot;,
+      &quot;model_text&quot;: &quot;2026.10.04, 11:15.&quot;
+    },
+    &quot;U2&quot;: {
+      &quot;id&quot;: 2,
+      &quot;start&quot;: 25,
+      &quot;end&quot;: 41,
+      &quot;text&quot;: &quot;Жишээ сумын ЭМТ.&quot;,
+      &quot;model_text&quot;: &quot;Жишээ сумын ЭМТ.&quot;
+    },
+    &quot;U3&quot;: {
+      &quot;id&quot;: 3,
+      &quot;start&quot;: 42,
+      &quot;end&quot;: 54,
+      &quot;text&quot;: &quot;Демо эмч 02.&quot;,
+      &quot;model_text&quot;: &quot;Демо эмч 02.&quot;
+    },
+    &quot;U4&quot;: {
+      &quot;id&quot;: 4,
+      &quot;start&quot;: 55,
+      &quot;end&quot;: 82,
+      &quot;text&quot;: &quot;DEV-002, 46 настай эмэгтэй.&quot;,
+      &quot;model_text&quot;: &quot;DEV-002, 46 настай эмэгтэй.&quot;
+    },
+    &quot;U5&quot;: {
+      &quot;id&quot;: 5,
+      &quot;start&quot;: 83,
+      &quot;end&quot;: 105,
+      &quot;text&quot;: &quot;Өнөөдөр 10:00-д ирсэн.&quot;,
+      &quot;model_text&quot;: &quot;Өнөөдөр 10:00-д ирсэн.&quot;
+    },
+    &quot;U6&quot;: {
+      &quot;id&quot;: 6,
+      &quot;start&quot;: 106,
+      &quot;end&quot;: 171,
+      &quot;text&quot;: &quot;[S02] 6 долоо хоног хоёр бугуй, гарын хурууны үеэр өвдөж хавдана.&quot;,
+      &quot;model_text&quot;: &quot;6 долоо хоног хоёр бугуй, гарын хурууны үеэр өвдөж хавдана.&quot;
+    },
+    &quot;U7&quot;: {
+      &quot;id&quot;: 7,
+      &quot;start&quot;: 172,
+      &quot;end&quot;: 204,
+      &quot;text&quot;: &quot;Өглөөгүүр 30 орчим минут хөшинө.&quot;,
+      &quot;model_text&quot;: &quot;Өглөөгүүр 30 орчим минут хөшинө.&quot;
+    },
+    &quot;U8&quot;: {
+      &quot;id&quot;: 8,
+      &quot;start&quot;: 205,
+      &quot;end&quot;: 220,
+      &quot;text&quot;: &quot;Гэмтэл аваагүй.&quot;,
+      &quot;model_text&quot;: &quot;Гэмтэл аваагүй.&quot;
+    },
+    &quot;U9&quot;: {
+      &quot;id&quot;: 9,
+      &quot;start&quot;: 221,
+      &quot;end&quot;: 241,
+      &quot;text&quot;: &quot;Халуурахыг үгүйсгэв.&quot;,
+      &quot;model_text&quot;: &quot;Халуурахыг үгүйсгэв.&quot;
+    },
+    &quot;U10&quot;: {
+      &quot;id&quot;: 10,
+      &quot;start&quot;: 242,
+      &quot;end&quot;: 261,
+      &quot;text&quot;: &quot;[S03] АД ихсэлттэй.&quot;,
+      &quot;model_text&quot;: &quot;АД ихсэлттэй.&quot;
+    },
+    &quot;U11&quot;: {
+      &quot;id&quot;: 11,
+      &quot;start&quot;: 262,
+      &quot;end&quot;: 302,
+      &quot;text&quot;: &quot;Амлодипин 5 мг өдөрт 1 удаа уудаг гэсэн.&quot;,
+      &quot;model_text&quot;: &quot;Амлодипин 5 мг өдөрт 1 удаа уудаг гэсэн.&quot;
+    },
+    &quot;U12&quot;: {
+      &quot;id&quot;: 12,
+      &quot;start&quot;: 303,
+      &quot;end&quot;: 345,
+      &quot;text&quot;: &quot;Өнөөдрийн тунгаа уусан эсэхийг асуугаагүй.&quot;,
+      &quot;model_text&quot;: &quot;Өнөөдрийн тунгаа уусан эсэхийг асуугаагүй.&quot;
+    },
+    &quot;U13&quot;: {
+      &quot;id&quot;: 13,
+      &quot;start&quot;: 346,
+      &quot;end&quot;: 372,
+      &quot;text&quot;: &quot;Эмийн харшилгүй гэж хэлэв.&quot;,
+      &quot;model_text&quot;: &quot;Эмийн харшилгүй гэж хэлэв.&quot;
+    },
+    &quot;U14&quot;: {
+      &quot;id&quot;: 14,
+      &quot;start&quot;: 373,
+      &quot;end&quot;: 421,
+      &quot;text&quot;: &quot;[S04] 10:05-д ерөнхий байдал дунд, ухаан саруул.&quot;,
+      &quot;model_text&quot;: &quot;10:05-д ерөнхий байдал дунд, ухаан саруул.&quot;
+    },
+    &quot;U15&quot;: {
+      &quot;id&quot;: 15,
+      &quot;start&quot;: 422,
+      &quot;end&quot;: 498,
+      &quot;text&quot;: &quot;АД 134/82 мм.муб, ЗЦ 82/мин, АТ 16/мин, SpO₂ 98% дэмжлэггүй, халуун 36.7 °C.&quot;,
+      &quot;model_text&quot;: &quot;АД 134/82 мм.муб, ЗЦ 82/мин, АТ 16/мин, SpO₂ 98% дэмжлэггүй, халуун 36.7 °C.&quot;
+    },
+    &quot;U16&quot;: {
+      &quot;id&quot;: 16,
+      &quot;start&quot;: 499,
+      &quot;end&quot;: 560,
+      &quot;text&quot;: &quot;Хоёр бугуй, хоёр гарын II–III MCP үе хавдаж, тэмтрэхэд эмзэг.&quot;,
+      &quot;model_text&quot;: &quot;Хоёр бугуй, хоёр гарын II–III MCP үе хавдаж, тэмтрэхэд эмзэг.&quot;
+    },
+    &quot;U17&quot;: {
+      &quot;id&quot;: 17,
+      &quot;start&quot;: 561,
+      &quot;end&quot;: 606,
+      &quot;text&quot;: &quot;Үе тус бүрийн хөдөлгөөний далайцыг үнэлээгүй.&quot;,
+      &quot;model_text&quot;: &quot;Үе тус бүрийн хөдөлгөөний далайцыг үнэлээгүй.&quot;
+    },
+    &quot;U18&quot;: {
+      &quot;id&quot;: 18,
+      &quot;start&quot;: 607,
+      &quot;end&quot;: 630,
+      &quot;text&quot;: &quot;Өвдөлт 6/10 гэж хэлсэн.&quot;,
+      &quot;model_text&quot;: &quot;Өвдөлт 6/10 гэж хэлсэн.&quot;
+    },
+    &quot;U19&quot;: {
+      &quot;id&quot;: 19,
+      &quot;start&quot;: 631,
+      &quot;end&quot;: 720,
+      &quot;text&quot;: &quot;[S05] 2026.10.03-ны шинжилгээ: Hb 127 г/л, WBC 6.8 × 10⁹/л, PLT 310 × 10⁹/л, CRP 14 мг/л.&quot;,
+      &quot;model_text&quot;: &quot;2026.10.03-ны шинжилгээ: Hb 127 г/л, WBC 6.8 × 10⁹/л, PLT 310 × 10⁹/л, CRP 14 мг/л.&quot;
+    },
+    &quot;U20&quot;: {
+      &quot;id&quot;: 20,
+      &quot;start&quot;: 721,
+      &quot;end&quot;: 744,
+      &quot;text&quot;: &quot;RF, anti-CCP хийгээгүй.&quot;,
+      &quot;model_text&quot;: &quot;RF, anti-CCP хийгээгүй.&quot;
+    },
+    &quot;U21&quot;: {
+      &quot;id&quot;: 21,
+      &quot;start&quot;: 745,
+      &quot;end&quot;: 799,
+      &quot;text&quot;: &quot;[S06] 10:15-д парацетамол 500 мг амаар нэг удаа өгсөн.&quot;,
+      &quot;model_text&quot;: &quot;10:15-д парацетамол 500 мг амаар нэг удаа өгсөн.&quot;
+    },
+    &quot;U22&quot;: {
+      &quot;id&quot;: 22,
+      &quot;start&quot;: 800,
+      &quot;end&quot;: 837,
+      &quot;text&quot;: &quot;11:00-д өвдөлт 4/10 болсон гэж хэлэв.&quot;,
+      &quot;model_text&quot;: &quot;11:00-д өвдөлт 4/10 болсон гэж хэлэв.&quot;
+    },
+    &quot;U23&quot;: {
+      &quot;id&quot;: 23,
+      &quot;start&quot;: 838,
+      &quot;end&quot;: 874,
+      &quot;text&quot;: &quot;Энэ үзлэгээр өөр эмчилгээ хийгээгүй.&quot;,
+      &quot;model_text&quot;: &quot;Энэ үзлэгээр өөр эмчилгээ хийгээгүй.&quot;
+    },
+    &quot;U24&quot;: {
+      &quot;id&quot;: 24,
+      &quot;start&quot;: 875,
+      &quot;end&quot;: 923,
+      &quot;text&quot;: &quot;[S07] 11:00-д ерөнхий байдал дунд, ухаан саруул.&quot;,
+      &quot;model_text&quot;: &quot;11:00-д ерөнхий байдал дунд, ухаан саруул.&quot;
+    },
+    &quot;U25&quot;: {
+      &quot;id&quot;: 25,
+      &quot;start&quot;: 924,
+      &quot;end&quot;: 1000,
+      &quot;text&quot;: &quot;АД 128/80 мм.муб, ЗЦ 78/мин, АТ 16/мин, SpO₂ 98% дэмжлэггүй, халуун 36.6 °C.&quot;,
+      &quot;model_text&quot;: &quot;АД 128/80 мм.муб, ЗЦ 78/мин, АТ 16/мин, SpO₂ 98% дэмжлэггүй, халуун 36.6 °C.&quot;
+    },
+    &quot;U26&quot;: {
+      &quot;id&quot;: 26,
+      &quot;start&quot;: 1001,
+      &quot;end&quot;: 1062,
+      &quot;text&quot;: &quot;[S08] Үнэлгээ: олон үений өвдөлт, хавдар, шалтгаан тодруулах.&quot;,
+      &quot;model_text&quot;: &quot;Үнэлгээ: олон үений өвдөлт, хавдар, шалтгаан тодруулах.&quot;
+    },
+    &quot;U27&quot;: {
+      &quot;id&quot;: 27,
+      &quot;start&quot;: 1063,
+      &quot;end&quot;: 1102,
+      &quot;text&quot;: &quot;Хавсарсан онош: артерийн даралт ихсэлт.&quot;,
+      &quot;model_text&quot;: &quot;Хавсарсан онош: артерийн даралт ихсэлт.&quot;
+    },
+    &quot;U28&quot;: {
+      &quot;id&quot;: 28,
+      &quot;start&quot;: 1103,
+      &quot;end&quot;: 1168,
+      &quot;text&quot;: &quot;[S09] Манай суманд ревматологийн эмч, anti-CCP шинжилгээ байхгүй.&quot;,
+      &quot;model_text&quot;: &quot;Манай суманд ревматологийн эмч, anti-CCP шинжилгээ байхгүй.&quot;
+    },
+    &quot;U29&quot;: {
+      &quot;id&quot;: 29,
+      &quot;start&quot;: 1169,
+      &quot;end&quot;: 1312,
+      &quot;text&quot;: &quot;6 долоо хоног үргэлжилсэн олон үений өвдөлт, хавдрын шалтгаан тодруулахаар Жишээ аймгийн НЭ-ийн дотрын амбулаторид төлөвлөгөөт журмаар илгээнэ.&quot;,
+      &quot;model_text&quot;: &quot;6 долоо хоног үргэлжилсэн олон үений өвдөлт, хавдрын шалтгаан тодруулахаар Жишээ аймгийн НЭ-ийн дотрын амбулаторид төлөвлөгөөт журмаар илгээнэ.&quot;
+    },
+    &quot;U30&quot;: {
+      &quot;id&quot;: 30,
+      &quot;start&quot;: 1313,
+      &quot;end&quot;: 1464,
+      &quot;text&quot;: &quot;[S10] Хүлээн авах эмчээс үрэвсэлт үений өвчин байж болзошгүй эсэхийг үнэлж, шаардлагатай шинжилгээ болон цаашдын эмчилгээний төлөвлөгөө гаргахыг хүсэв.&quot;,
+      &quot;model_text&quot;: &quot;Хүлээн авах эмчээс үрэвсэлт үений өвчин байж болзошгүй эсэхийг үнэлж, шаардлагатай шинжилгээ болон цаашдын эмчилгээний төлөвлөгөө гаргахыг хүсэв.&quot;
+    },
+    &quot;U31&quot;: {
+      &quot;id&quot;: 31,
+      &quot;start&quot;: 1465,
+      &quot;end&quot;: 1530,
+      &quot;text&quot;: &quot;Аймгийн дотрын эмчийн үнэлгээний дараа сумын эмчид эргэн үзүүлнэ.&quot;,
+      &quot;model_text&quot;: &quot;Аймгийн дотрын эмчийн үнэлгээний дараа сумын эмчид эргэн үзүүлнэ.&quot;
+    },
+    &quot;U32&quot;: {
+      &quot;id&quot;: 32,
+      &quot;start&quot;: 1531,
+      &quot;end&quot;: 1578,
+      &quot;text&quot;: &quot;[S11] ЦДШ, CRP-ийн хариуны хуулбарыг хавсаргав.&quot;,
+      &quot;model_text&quot;: &quot;ЦДШ, CRP-ийн хариуны хуулбарыг хавсаргав.&quot;
+    },
+    &quot;U33&quot;: {
+      &quot;id&quot;: 33,
+      &quot;start&quot;: 1579,
+      &quot;end&quot;: 1620,
+      &quot;text&quot;: &quot;Хүлээгдэж буй шинжилгээний хариу байхгүй.&quot;,
+      &quot;model_text&quot;: &quot;Хүлээгдэж буй шинжилгээний хариу байхгүй.&quot;
+    }
+  },
+  &quot;evidence_errors&quot;: [
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 0,
+      &quot;type&quot;: &quot;detail_not_in_linked_quote&quot;,
+      &quot;detail&quot;: &quot;time&quot;,
+      &quot;value&quot;: &quot;өнөөдрийн тунгаа&quot;
+    }
+  ],
+  &quot;review_flags&quot;: [
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 0,
+      &quot;type&quot;: &quot;drug_detail_role_association_requires_review&quot;
+    }
+  ]
+}</pre></details></section>
+</div>
+<div class="review"><strong>Clinician adjudication — unfilled:</strong> recovered / omitted facts; wrong roles or associations; allergy wording; unsupported proposals; mixed items; corrections required. Reviewer/date: __________. This sheet does not update review status.</div>
+<h2>dev-003</h2><p>provisional expected facts; not clinician-reviewed labels · fictional-003</p><div class="grid"><section><h3>Unchanged original note</h3><pre>Ханиалгагүй. Халуураагүй. Амьсгаадаагүй.
+Уушгинд шуугиан сонсогдоогүй.
+Эмийн харшилгүй.
+Эмчилгээ хийгээгүй.
+Шинжилгээ хийгдээгүй.</pre></section><section><h3>Frozen expected facts — NOT model input</h3><h4>Medication facts</h4><p>No named medication entries expected.</p><h4>allergies</h4><p>U5: Эмийн харшилгүй.</p><h4>context</h4><p>U6: Эмчилгээ хийгээгүй.</p><h4>Absent / must not infer</h4><ul><li>Drug names, doses, routes, timestamps and frequencies; do not create anonymous treatment rows</li><li>Do not turn no treatment into missing information</li></ul><details><summary>Provisional unit-role reference</summary><pre>{
+  &quot;U1&quot;: &quot;other&quot;,
+  &quot;U2&quot;: &quot;other&quot;,
+  &quot;U3&quot;: &quot;other&quot;,
+  &quot;U4&quot;: &quot;other&quot;,
+  &quot;U5&quot;: &quot;allergy_statement&quot;,
+  &quot;U6&quot;: &quot;explicitly_not_administered&quot;,
+  &quot;U7&quot;: &quot;other&quot;
+}</pre></details></section></div>
+<details><summary>Preserved first-run proposals — revision 1</summary>
+<h3>Prompt revision 1</h3><div class="grid">
+<section><h3>A — per-unit roles</h3><p>1.917 seconds; structural error: None; lexical evidence valid: True</p><details><summary>other (7 units)</summary><p>U1: Ханиалгагүй.</p><p>U2: Халуураагүй.</p><p>U3: Амьсгаадаагүй.</p><p>U4: Уушгинд шуугиан сонсогдоогүй.</p><p>U5: Эмийн харшилгүй.</p><p>U6: Эмчилгээ хийгээгүй.</p><p>U7: Шинжилгээ хийгдээгүй.</p></details>
+<details><summary>Complete raw JSON, original units / offsets and validation flags</summary><pre>{
+  &quot;U1&quot;: &quot;other&quot;,
+  &quot;U2&quot;: &quot;other&quot;,
+  &quot;U3&quot;: &quot;other&quot;,
+  &quot;U4&quot;: &quot;other&quot;,
+  &quot;U5&quot;: &quot;other&quot;,
+  &quot;U6&quot;: &quot;other&quot;,
+  &quot;U7&quot;: &quot;other&quot;
+}</pre><pre>{
+  &quot;source_mapping&quot;: {
+    &quot;U1&quot;: {
+      &quot;id&quot;: 1,
+      &quot;start&quot;: 0,
+      &quot;end&quot;: 12,
+      &quot;text&quot;: &quot;Ханиалгагүй.&quot;,
+      &quot;model_text&quot;: &quot;Ханиалгагүй.&quot;
+    },
+    &quot;U2&quot;: {
+      &quot;id&quot;: 2,
+      &quot;start&quot;: 13,
+      &quot;end&quot;: 25,
+      &quot;text&quot;: &quot;Халуураагүй.&quot;,
+      &quot;model_text&quot;: &quot;Халуураагүй.&quot;
+    },
+    &quot;U3&quot;: {
+      &quot;id&quot;: 3,
+      &quot;start&quot;: 26,
+      &quot;end&quot;: 40,
+      &quot;text&quot;: &quot;Амьсгаадаагүй.&quot;,
+      &quot;model_text&quot;: &quot;Амьсгаадаагүй.&quot;
+    },
+    &quot;U4&quot;: {
+      &quot;id&quot;: 4,
+      &quot;start&quot;: 41,
+      &quot;end&quot;: 70,
+      &quot;text&quot;: &quot;Уушгинд шуугиан сонсогдоогүй.&quot;,
+      &quot;model_text&quot;: &quot;Уушгинд шуугиан сонсогдоогүй.&quot;
+    },
+    &quot;U5&quot;: {
+      &quot;id&quot;: 5,
+      &quot;start&quot;: 71,
+      &quot;end&quot;: 87,
+      &quot;text&quot;: &quot;Эмийн харшилгүй.&quot;,
+      &quot;model_text&quot;: &quot;Эмийн харшилгүй.&quot;
+    },
+    &quot;U6&quot;: {
+      &quot;id&quot;: 6,
+      &quot;start&quot;: 88,
+      &quot;end&quot;: 107,
+      &quot;text&quot;: &quot;Эмчилгээ хийгээгүй.&quot;,
+      &quot;model_text&quot;: &quot;Эмчилгээ хийгээгүй.&quot;
+    },
+    &quot;U7&quot;: {
+      &quot;id&quot;: 7,
+      &quot;start&quot;: 108,
+      &quot;end&quot;: 129,
+      &quot;text&quot;: &quot;Шинжилгээ хийгдээгүй.&quot;,
+      &quot;model_text&quot;: &quot;Шинжилгээ хийгдээгүй.&quot;
+    }
+  },
+  &quot;evidence_errors&quot;: [],
+  &quot;review_flags&quot;: []
+}</pre></details></section>
+<section><h3>B — proposed values and evidence</h3><p>18.613 seconds; structural error: None; lexical evidence valid: False</p><p class="notice">Proposals only. Evidence errors and association checks require correction/review; no row is automatically accepted.</p><h4>medications</h4><div class="proposal"><p><b>role: </b>mixed_or_unclear</p><p><b>name: </b>Unknown</p><p><b>dose: </b>null</p><p><b>route: </b>null</p><p><b>time: </b>null</p><p><b>frequency: </b>null</p><details><summary>Linked evidence: U1, U2, U3, U4, U5, U6, U7</summary><pre>[
+  {
+    &quot;source_unit&quot;: &quot;U1&quot;,
+    &quot;quote&quot;: &quot;Ханиалгагүй&quot;
+  },
+  {
+    &quot;source_unit&quot;: &quot;U2&quot;,
+    &quot;quote&quot;: &quot;Халуураагүй&quot;
+  },
+  {
+    &quot;source_unit&quot;: &quot;U3&quot;,
+    &quot;quote&quot;: &quot;Амьсгаадаагүй&quot;
+  },
+  {
+    &quot;source_unit&quot;: &quot;U4&quot;,
+    &quot;quote&quot;: &quot;Уушгинд шуугиан сонсогдоогүй&quot;
+  },
+  {
+    &quot;source_unit&quot;: &quot;U5&quot;,
+    &quot;quote&quot;: &quot;Эмийн харшилгүй&quot;
+  },
+  {
+    &quot;source_unit&quot;: &quot;U6&quot;,
+    &quot;quote&quot;: &quot;Эмчилгээ хийгээгүй&quot;
+  },
+  {
+    &quot;source_unit&quot;: &quot;U7&quot;,
+    &quot;quote&quot;: &quot;Шинжилгээ хийгдээгүй&quot;
+  }
+]</pre></details></div><h4>allergies</h4><div class="proposal"><p><b>statement: </b>Ханиалгагүй</p><details><summary>Linked evidence: U1</summary><pre>[
+  {
+    &quot;source_unit&quot;: &quot;U1&quot;,
+    &quot;quote&quot;: &quot;Ханиалгагүй&quot;
+  }
+]</pre></details></div><div class="proposal"><p><b>statement: </b>Халуураагүй</p><details><summary>Linked evidence: U2</summary><pre>[
+  {
+    &quot;source_unit&quot;: &quot;U2&quot;,
+    &quot;quote&quot;: &quot;Халуураагүй&quot;
+  }
+]</pre></details></div><div class="proposal"><p><b>statement: </b>Амьсгаадаагүй</p><details><summary>Linked evidence: U3</summary><pre>[
+  {
+    &quot;source_unit&quot;: &quot;U3&quot;,
+    &quot;quote&quot;: &quot;Амьсгаадаагүй&quot;
+  }
+]</pre></details></div><div class="proposal"><p><b>statement: </b>Уушгинд шуугиан сонсогдоогүй</p><details><summary>Linked evidence: U4</summary><pre>[
+  {
+    &quot;source_unit&quot;: &quot;U4&quot;,
+    &quot;quote&quot;: &quot;Уушгинд шуугиан сонсогдоогүй&quot;
+  }
+]</pre></details></div><div class="proposal"><p><b>statement: </b>Эмийн харшилгүй</p><details><summary>Linked evidence: U5</summary><pre>[
+  {
+    &quot;source_unit&quot;: &quot;U5&quot;,
+    &quot;quote&quot;: &quot;Эмийн харшилгүй&quot;
+  }
+]</pre></details></div><div class="proposal"><p><b>statement: </b>Эмчилгээ хийгээгүй</p><details><summary>Linked evidence: U6</summary><pre>[
+  {
+    &quot;source_unit&quot;: &quot;U6&quot;,
+    &quot;quote&quot;: &quot;Эмчилгээ хийгээгүй&quot;
+  }
+]</pre></details></div><div class="proposal"><p><b>statement: </b>Шинжилгээ хийгдээгүй</p><details><summary>Linked evidence: U7</summary><pre>[
+  {
+    &quot;source_unit&quot;: &quot;U7&quot;,
+    &quot;quote&quot;: &quot;Шинжилгээ хийгдээгүй&quot;
+  }
+]</pre></details></div><h4>medication_context</h4><div class="proposal"><p><b>statement: </b>Today&#x27;s dose not asked</p><details><summary>Linked evidence: U1</summary><pre>[
+  {
+    &quot;source_unit&quot;: &quot;U1&quot;,
+    &quot;quote&quot;: &quot;Ханиалгагүй&quot;
+  }
+]</pre></details></div><div class="proposal"><p><b>statement: </b>No other treatment</p><details><summary>Linked evidence: U2</summary><pre>[
+  {
+    &quot;source_unit&quot;: &quot;U2&quot;,
+    &quot;quote&quot;: &quot;Халуураагүй&quot;
+  }
+]</pre></details></div><div class="proposal"><p><b>statement: </b>No treatment</p><details><summary>Linked evidence: U3</summary><pre>[
+  {
+    &quot;source_unit&quot;: &quot;U3&quot;,
+    &quot;quote&quot;: &quot;Амьсгаадаагүй&quot;
+  }
+]</pre></details></div>
+<details><summary>Complete raw JSON, original units / offsets and validation flags</summary><pre>{
+  &quot;medications&quot;: [
+    {
+      &quot;role&quot;: &quot;mixed_or_unclear&quot;,
+      &quot;name&quot;: &quot;Unknown&quot;,
+      &quot;dose&quot;: null,
+      &quot;route&quot;: null,
+      &quot;time&quot;: null,
+      &quot;frequency&quot;: null,
+      &quot;evidence&quot;: [
+        {
+          &quot;source_unit&quot;: &quot;U1&quot;,
+          &quot;quote&quot;: &quot;Ханиалгагүй&quot;
+        },
+        {
+          &quot;source_unit&quot;: &quot;U2&quot;,
+          &quot;quote&quot;: &quot;Халуураагүй&quot;
+        },
+        {
+          &quot;source_unit&quot;: &quot;U3&quot;,
+          &quot;quote&quot;: &quot;Амьсгаадаагүй&quot;
+        },
+        {
+          &quot;source_unit&quot;: &quot;U4&quot;,
+          &quot;quote&quot;: &quot;Уушгинд шуугиан сонсогдоогүй&quot;
+        },
+        {
+          &quot;source_unit&quot;: &quot;U5&quot;,
+          &quot;quote&quot;: &quot;Эмийн харшилгүй&quot;
+        },
+        {
+          &quot;source_unit&quot;: &quot;U6&quot;,
+          &quot;quote&quot;: &quot;Эмчилгээ хийгээгүй&quot;
+        },
+        {
+          &quot;source_unit&quot;: &quot;U7&quot;,
+          &quot;quote&quot;: &quot;Шинжилгээ хийгдээгүй&quot;
+        }
+      ]
+    }
+  ],
+  &quot;allergies&quot;: [
+    {
+      &quot;statement&quot;: &quot;Ханиалгагүй&quot;,
+      &quot;evidence&quot;: [
+        {
+          &quot;source_unit&quot;: &quot;U1&quot;,
+          &quot;quote&quot;: &quot;Ханиалгагүй&quot;
+        }
+      ]
+    },
+    {
+      &quot;statement&quot;: &quot;Халуураагүй&quot;,
+      &quot;evidence&quot;: [
+        {
+          &quot;source_unit&quot;: &quot;U2&quot;,
+          &quot;quote&quot;: &quot;Халуураагүй&quot;
+        }
+      ]
+    },
+    {
+      &quot;statement&quot;: &quot;Амьсгаадаагүй&quot;,
+      &quot;evidence&quot;: [
+        {
+          &quot;source_unit&quot;: &quot;U3&quot;,
+          &quot;quote&quot;: &quot;Амьсгаадаагүй&quot;
+        }
+      ]
+    },
+    {
+      &quot;statement&quot;: &quot;Уушгинд шуугиан сонсогдоогүй&quot;,
+      &quot;evidence&quot;: [
+        {
+          &quot;source_unit&quot;: &quot;U4&quot;,
+          &quot;quote&quot;: &quot;Уушгинд шуугиан сонсогдоогүй&quot;
+        }
+      ]
+    },
+    {
+      &quot;statement&quot;: &quot;Эмийн харшилгүй&quot;,
+      &quot;evidence&quot;: [
+        {
+          &quot;source_unit&quot;: &quot;U5&quot;,
+          &quot;quote&quot;: &quot;Эмийн харшилгүй&quot;
+        }
+      ]
+    },
+    {
+      &quot;statement&quot;: &quot;Эмчилгээ хийгээгүй&quot;,
+      &quot;evidence&quot;: [
+        {
+          &quot;source_unit&quot;: &quot;U6&quot;,
+          &quot;quote&quot;: &quot;Эмчилгээ хийгээгүй&quot;
+        }
+      ]
+    },
+    {
+      &quot;statement&quot;: &quot;Шинжилгээ хийгдээгүй&quot;,
+      &quot;evidence&quot;: [
+        {
+          &quot;source_unit&quot;: &quot;U7&quot;,
+          &quot;quote&quot;: &quot;Шинжилгээ хийгдээгүй&quot;
+        }
+      ]
+    }
+  ],
+  &quot;medication_context&quot;: [
+    {
+      &quot;statement&quot;: &quot;Today&#x27;s dose not asked&quot;,
+      &quot;evidence&quot;: [
+        {
+          &quot;source_unit&quot;: &quot;U1&quot;,
+          &quot;quote&quot;: &quot;Ханиалгагүй&quot;
+        }
+      ]
+    },
+    {
+      &quot;statement&quot;: &quot;No other treatment&quot;,
+      &quot;evidence&quot;: [
+        {
+          &quot;source_unit&quot;: &quot;U2&quot;,
+          &quot;quote&quot;: &quot;Халуураагүй&quot;
+        }
+      ]
+    },
+    {
+      &quot;statement&quot;: &quot;No treatment&quot;,
+      &quot;evidence&quot;: [
+        {
+          &quot;source_unit&quot;: &quot;U3&quot;,
+          &quot;quote&quot;: &quot;Амьсгаадаагүй&quot;
+        }
+      ]
+    }
+  ]
+}</pre><pre>{
+  &quot;source_mapping&quot;: {
+    &quot;U1&quot;: {
+      &quot;id&quot;: 1,
+      &quot;start&quot;: 0,
+      &quot;end&quot;: 12,
+      &quot;text&quot;: &quot;Ханиалгагүй.&quot;,
+      &quot;model_text&quot;: &quot;Ханиалгагүй.&quot;
+    },
+    &quot;U2&quot;: {
+      &quot;id&quot;: 2,
+      &quot;start&quot;: 13,
+      &quot;end&quot;: 25,
+      &quot;text&quot;: &quot;Халуураагүй.&quot;,
+      &quot;model_text&quot;: &quot;Халуураагүй.&quot;
+    },
+    &quot;U3&quot;: {
+      &quot;id&quot;: 3,
+      &quot;start&quot;: 26,
+      &quot;end&quot;: 40,
+      &quot;text&quot;: &quot;Амьсгаадаагүй.&quot;,
+      &quot;model_text&quot;: &quot;Амьсгаадаагүй.&quot;
+    },
+    &quot;U4&quot;: {
+      &quot;id&quot;: 4,
+      &quot;start&quot;: 41,
+      &quot;end&quot;: 70,
+      &quot;text&quot;: &quot;Уушгинд шуугиан сонсогдоогүй.&quot;,
+      &quot;model_text&quot;: &quot;Уушгинд шуугиан сонсогдоогүй.&quot;
+    },
+    &quot;U5&quot;: {
+      &quot;id&quot;: 5,
+      &quot;start&quot;: 71,
+      &quot;end&quot;: 87,
+      &quot;text&quot;: &quot;Эмийн харшилгүй.&quot;,
+      &quot;model_text&quot;: &quot;Эмийн харшилгүй.&quot;
+    },
+    &quot;U6&quot;: {
+      &quot;id&quot;: 6,
+      &quot;start&quot;: 88,
+      &quot;end&quot;: 107,
+      &quot;text&quot;: &quot;Эмчилгээ хийгээгүй.&quot;,
+      &quot;model_text&quot;: &quot;Эмчилгээ хийгээгүй.&quot;
+    },
+    &quot;U7&quot;: {
+      &quot;id&quot;: 7,
+      &quot;start&quot;: 108,
+      &quot;end&quot;: 129,
+      &quot;text&quot;: &quot;Шинжилгээ хийгдээгүй.&quot;,
+      &quot;model_text&quot;: &quot;Шинжилгээ хийгдээгүй.&quot;
+    }
+  },
+  &quot;evidence_errors&quot;: [
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 0,
+      &quot;type&quot;: &quot;detail_not_in_linked_quote&quot;,
+      &quot;detail&quot;: &quot;name&quot;,
+      &quot;value&quot;: &quot;Unknown&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;allergies&quot;,
+      &quot;index&quot;: 0,
+      &quot;type&quot;: &quot;statement_not_intact_unit&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;allergies&quot;,
+      &quot;index&quot;: 1,
+      &quot;type&quot;: &quot;statement_not_intact_unit&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;allergies&quot;,
+      &quot;index&quot;: 2,
+      &quot;type&quot;: &quot;statement_not_intact_unit&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;allergies&quot;,
+      &quot;index&quot;: 3,
+      &quot;type&quot;: &quot;statement_not_intact_unit&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;allergies&quot;,
+      &quot;index&quot;: 4,
+      &quot;type&quot;: &quot;statement_not_intact_unit&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;allergies&quot;,
+      &quot;index&quot;: 5,
+      &quot;type&quot;: &quot;statement_not_intact_unit&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;allergies&quot;,
+      &quot;index&quot;: 6,
+      &quot;type&quot;: &quot;statement_not_intact_unit&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medication_context&quot;,
+      &quot;index&quot;: 0,
+      &quot;type&quot;: &quot;detail_not_in_linked_quote&quot;,
+      &quot;detail&quot;: &quot;statement&quot;,
+      &quot;value&quot;: &quot;Today&#x27;s dose not asked&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medication_context&quot;,
+      &quot;index&quot;: 0,
+      &quot;type&quot;: &quot;statement_not_intact_unit&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medication_context&quot;,
+      &quot;index&quot;: 1,
+      &quot;type&quot;: &quot;detail_not_in_linked_quote&quot;,
+      &quot;detail&quot;: &quot;statement&quot;,
+      &quot;value&quot;: &quot;No other treatment&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medication_context&quot;,
+      &quot;index&quot;: 1,
+      &quot;type&quot;: &quot;statement_not_intact_unit&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medication_context&quot;,
+      &quot;index&quot;: 2,
+      &quot;type&quot;: &quot;detail_not_in_linked_quote&quot;,
+      &quot;detail&quot;: &quot;statement&quot;,
+      &quot;value&quot;: &quot;No treatment&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medication_context&quot;,
+      &quot;index&quot;: 2,
+      &quot;type&quot;: &quot;statement_not_intact_unit&quot;
+    }
+  ],
+  &quot;review_flags&quot;: [
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 0,
+      &quot;type&quot;: &quot;drug_detail_role_association_requires_review&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 0,
+      &quot;type&quot;: &quot;cross_unit_association_requires_review&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 0,
+      &quot;type&quot;: &quot;unclear_role_requires_review&quot;
+    }
+  ]
+}</pre></details></section>
+</div>
+</details>
+<h3>Prompt revision 2</h3><div class="grid">
+<section><h3>A — per-unit roles</h3><p>2.149 seconds; structural error: None; lexical evidence valid: True</p><h4>regular_medication (1 units)</h4><p>U1: Ханиалгагүй.</p><h4>administered_treatment (1 units)</h4><p>U5: Эмийн харшилгүй.</p><h4>historical_medication (1 units)</h4><p>U6: Эмчилгээ хийгээгүй.</p><h4>planned_or_prescribed_treatment (1 units)</h4><p>U3: Амьсгаадаагүй.</p><h4>explicitly_not_administered (1 units)</h4><p>U4: Уушгинд шуугиан сонсогдоогүй.</p><h4>allergy_statement (1 units)</h4><p>U7: Шинжилгээ хийгдээгүй.</p><details><summary>mixed_or_unclear (1 units) — REVIEW REQUIRED; not discarded</summary><p>U2: Халуураагүй.</p></details>
+<details><summary>Complete raw JSON, original units / offsets and validation flags</summary><pre>{
+  &quot;U1&quot;: &quot;regular_medication&quot;,
+  &quot;U2&quot;: &quot;mixed_or_unclear&quot;,
+  &quot;U3&quot;: &quot;planned_or_prescribed_treatment&quot;,
+  &quot;U4&quot;: &quot;explicitly_not_administered&quot;,
+  &quot;U5&quot;: &quot;administered_treatment&quot;,
+  &quot;U6&quot;: &quot;historical_medication&quot;,
+  &quot;U7&quot;: &quot;allergy_statement&quot;
+}</pre><pre>{
+  &quot;source_mapping&quot;: {
+    &quot;U1&quot;: {
+      &quot;id&quot;: 1,
+      &quot;start&quot;: 0,
+      &quot;end&quot;: 12,
+      &quot;text&quot;: &quot;Ханиалгагүй.&quot;,
+      &quot;model_text&quot;: &quot;Ханиалгагүй.&quot;
+    },
+    &quot;U2&quot;: {
+      &quot;id&quot;: 2,
+      &quot;start&quot;: 13,
+      &quot;end&quot;: 25,
+      &quot;text&quot;: &quot;Халуураагүй.&quot;,
+      &quot;model_text&quot;: &quot;Халуураагүй.&quot;
+    },
+    &quot;U3&quot;: {
+      &quot;id&quot;: 3,
+      &quot;start&quot;: 26,
+      &quot;end&quot;: 40,
+      &quot;text&quot;: &quot;Амьсгаадаагүй.&quot;,
+      &quot;model_text&quot;: &quot;Амьсгаадаагүй.&quot;
+    },
+    &quot;U4&quot;: {
+      &quot;id&quot;: 4,
+      &quot;start&quot;: 41,
+      &quot;end&quot;: 70,
+      &quot;text&quot;: &quot;Уушгинд шуугиан сонсогдоогүй.&quot;,
+      &quot;model_text&quot;: &quot;Уушгинд шуугиан сонсогдоогүй.&quot;
+    },
+    &quot;U5&quot;: {
+      &quot;id&quot;: 5,
+      &quot;start&quot;: 71,
+      &quot;end&quot;: 87,
+      &quot;text&quot;: &quot;Эмийн харшилгүй.&quot;,
+      &quot;model_text&quot;: &quot;Эмийн харшилгүй.&quot;
+    },
+    &quot;U6&quot;: {
+      &quot;id&quot;: 6,
+      &quot;start&quot;: 88,
+      &quot;end&quot;: 107,
+      &quot;text&quot;: &quot;Эмчилгээ хийгээгүй.&quot;,
+      &quot;model_text&quot;: &quot;Эмчилгээ хийгээгүй.&quot;
+    },
+    &quot;U7&quot;: {
+      &quot;id&quot;: 7,
+      &quot;start&quot;: 108,
+      &quot;end&quot;: 129,
+      &quot;text&quot;: &quot;Шинжилгээ хийгдээгүй.&quot;,
+      &quot;model_text&quot;: &quot;Шинжилгээ хийгдээгүй.&quot;
+    }
+  },
+  &quot;evidence_errors&quot;: [],
+  &quot;review_flags&quot;: [
+    {
+      &quot;source_unit&quot;: &quot;U2&quot;,
+      &quot;type&quot;: &quot;mixed_or_unclear_requires_review&quot;
+    }
+  ]
+}</pre></details></section>
+<section><h3>B — proposed values and evidence</h3><p>12.347 seconds; structural error: None; lexical evidence valid: False</p><p class="notice">Proposals only. Evidence errors and association checks require correction/review; no row is automatically accepted.</p><h4>medications</h4><div class="proposal"><p><b>role: </b>regular_medication</p><p><b>name: </b>Эмийн нэр</p><p><b>dose: </b>Тун</p><p><b>route: </b>Зам</p><p><b>time: </b>Цаг</p><p><b>frequency: </b>Давтамж</p><details><summary>Linked evidence: U1, U2, U3, U4, U5, U6, U7</summary><pre>[
+  {
+    &quot;source_unit&quot;: &quot;U1&quot;,
+    &quot;quote&quot;: &quot;Ханиалгагүй.&quot;
+  },
+  {
+    &quot;source_unit&quot;: &quot;U2&quot;,
+    &quot;quote&quot;: &quot;Халуураагүй.&quot;
+  },
+  {
+    &quot;source_unit&quot;: &quot;U3&quot;,
+    &quot;quote&quot;: &quot;Амьсгаадаагүй.&quot;
+  },
+  {
+    &quot;source_unit&quot;: &quot;U4&quot;,
+    &quot;quote&quot;: &quot;Уушгинд шуугиан сонсогдоогүй.&quot;
+  },
+  {
+    &quot;source_unit&quot;: &quot;U5&quot;,
+    &quot;quote&quot;: &quot;Эмийн харшилгүй.&quot;
+  },
+  {
+    &quot;source_unit&quot;: &quot;U6&quot;,
+    &quot;quote&quot;: &quot;Эмчилгээ хийгээгүй.&quot;
+  },
+  {
+    &quot;source_unit&quot;: &quot;U7&quot;,
+    &quot;quote&quot;: &quot;Шинжилгээ хийгдээгүй.&quot;
+  }
+]</pre></details></div><h4>allergies</h4><div class="proposal"><p><b>statement: </b>Харшилгүй</p><details><summary>Linked evidence: U5</summary><pre>[
+  {
+    &quot;source_unit&quot;: &quot;U5&quot;,
+    &quot;quote&quot;: &quot;Эмийн харшилгүй.&quot;
+  }
+]</pre></details></div><h4>medication_context</h4><div class="proposal"><p><b>statement: </b>Эм өгөөгүй, эмчилгээ хийгээгүй, өөр эмчилгээ хийгээгүй гэсэн шууд тэмдэглэл.</p><details><summary>Linked evidence: U6</summary><pre>[
+  {
+    &quot;source_unit&quot;: &quot;U6&quot;,
+    &quot;quote&quot;: &quot;Эмчилгээ хийгээгүй.&quot;
+  }
+]</pre></details></div>
+<details><summary>Complete raw JSON, original units / offsets and validation flags</summary><pre>{
+  &quot;medications&quot;: [
+    {
+      &quot;role&quot;: &quot;regular_medication&quot;,
+      &quot;name&quot;: &quot;Эмийн нэр&quot;,
+      &quot;dose&quot;: &quot;Тун&quot;,
+      &quot;route&quot;: &quot;Зам&quot;,
+      &quot;time&quot;: &quot;Цаг&quot;,
+      &quot;frequency&quot;: &quot;Давтамж&quot;,
+      &quot;evidence&quot;: [
+        {
+          &quot;source_unit&quot;: &quot;U1&quot;,
+          &quot;quote&quot;: &quot;Ханиалгагүй.&quot;
+        },
+        {
+          &quot;source_unit&quot;: &quot;U2&quot;,
+          &quot;quote&quot;: &quot;Халуураагүй.&quot;
+        },
+        {
+          &quot;source_unit&quot;: &quot;U3&quot;,
+          &quot;quote&quot;: &quot;Амьсгаадаагүй.&quot;
+        },
+        {
+          &quot;source_unit&quot;: &quot;U4&quot;,
+          &quot;quote&quot;: &quot;Уушгинд шуугиан сонсогдоогүй.&quot;
+        },
+        {
+          &quot;source_unit&quot;: &quot;U5&quot;,
+          &quot;quote&quot;: &quot;Эмийн харшилгүй.&quot;
+        },
+        {
+          &quot;source_unit&quot;: &quot;U6&quot;,
+          &quot;quote&quot;: &quot;Эмчилгээ хийгээгүй.&quot;
+        },
+        {
+          &quot;source_unit&quot;: &quot;U7&quot;,
+          &quot;quote&quot;: &quot;Шинжилгээ хийгдээгүй.&quot;
+        }
+      ]
+    }
+  ],
+  &quot;allergies&quot;: [
+    {
+      &quot;statement&quot;: &quot;Харшилгүй&quot;,
+      &quot;evidence&quot;: [
+        {
+          &quot;source_unit&quot;: &quot;U5&quot;,
+          &quot;quote&quot;: &quot;Эмийн харшилгүй.&quot;
+        }
+      ]
+    }
+  ],
+  &quot;medication_context&quot;: [
+    {
+      &quot;statement&quot;: &quot;Эм өгөөгүй, эмчилгээ хийгээгүй, өөр эмчилгээ хийгээгүй гэсэн шууд тэмдэглэл.&quot;,
+      &quot;evidence&quot;: [
+        {
+          &quot;source_unit&quot;: &quot;U6&quot;,
+          &quot;quote&quot;: &quot;Эмчилгээ хийгээгүй.&quot;
+        }
+      ]
+    }
+  ]
+}</pre><pre>{
+  &quot;source_mapping&quot;: {
+    &quot;U1&quot;: {
+      &quot;id&quot;: 1,
+      &quot;start&quot;: 0,
+      &quot;end&quot;: 12,
+      &quot;text&quot;: &quot;Ханиалгагүй.&quot;,
+      &quot;model_text&quot;: &quot;Ханиалгагүй.&quot;
+    },
+    &quot;U2&quot;: {
+      &quot;id&quot;: 2,
+      &quot;start&quot;: 13,
+      &quot;end&quot;: 25,
+      &quot;text&quot;: &quot;Халуураагүй.&quot;,
+      &quot;model_text&quot;: &quot;Халуураагүй.&quot;
+    },
+    &quot;U3&quot;: {
+      &quot;id&quot;: 3,
+      &quot;start&quot;: 26,
+      &quot;end&quot;: 40,
+      &quot;text&quot;: &quot;Амьсгаадаагүй.&quot;,
+      &quot;model_text&quot;: &quot;Амьсгаадаагүй.&quot;
+    },
+    &quot;U4&quot;: {
+      &quot;id&quot;: 4,
+      &quot;start&quot;: 41,
+      &quot;end&quot;: 70,
+      &quot;text&quot;: &quot;Уушгинд шуугиан сонсогдоогүй.&quot;,
+      &quot;model_text&quot;: &quot;Уушгинд шуугиан сонсогдоогүй.&quot;
+    },
+    &quot;U5&quot;: {
+      &quot;id&quot;: 5,
+      &quot;start&quot;: 71,
+      &quot;end&quot;: 87,
+      &quot;text&quot;: &quot;Эмийн харшилгүй.&quot;,
+      &quot;model_text&quot;: &quot;Эмийн харшилгүй.&quot;
+    },
+    &quot;U6&quot;: {
+      &quot;id&quot;: 6,
+      &quot;start&quot;: 88,
+      &quot;end&quot;: 107,
+      &quot;text&quot;: &quot;Эмчилгээ хийгээгүй.&quot;,
+      &quot;model_text&quot;: &quot;Эмчилгээ хийгээгүй.&quot;
+    },
+    &quot;U7&quot;: {
+      &quot;id&quot;: 7,
+      &quot;start&quot;: 108,
+      &quot;end&quot;: 129,
+      &quot;text&quot;: &quot;Шинжилгээ хийгдээгүй.&quot;,
+      &quot;model_text&quot;: &quot;Шинжилгээ хийгдээгүй.&quot;
+    }
+  },
+  &quot;evidence_errors&quot;: [
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 0,
+      &quot;type&quot;: &quot;detail_not_in_linked_quote&quot;,
+      &quot;detail&quot;: &quot;name&quot;,
+      &quot;value&quot;: &quot;Эмийн нэр&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 0,
+      &quot;type&quot;: &quot;detail_not_in_linked_quote&quot;,
+      &quot;detail&quot;: &quot;dose&quot;,
+      &quot;value&quot;: &quot;Тун&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 0,
+      &quot;type&quot;: &quot;detail_not_in_linked_quote&quot;,
+      &quot;detail&quot;: &quot;route&quot;,
+      &quot;value&quot;: &quot;Зам&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 0,
+      &quot;type&quot;: &quot;detail_not_in_linked_quote&quot;,
+      &quot;detail&quot;: &quot;time&quot;,
+      &quot;value&quot;: &quot;Цаг&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 0,
+      &quot;type&quot;: &quot;detail_not_in_linked_quote&quot;,
+      &quot;detail&quot;: &quot;frequency&quot;,
+      &quot;value&quot;: &quot;Давтамж&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;allergies&quot;,
+      &quot;index&quot;: 0,
+      &quot;type&quot;: &quot;detail_not_in_linked_quote&quot;,
+      &quot;detail&quot;: &quot;statement&quot;,
+      &quot;value&quot;: &quot;Харшилгүй&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;allergies&quot;,
+      &quot;index&quot;: 0,
+      &quot;type&quot;: &quot;statement_not_intact_unit&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medication_context&quot;,
+      &quot;index&quot;: 0,
+      &quot;type&quot;: &quot;detail_not_in_linked_quote&quot;,
+      &quot;detail&quot;: &quot;statement&quot;,
+      &quot;value&quot;: &quot;Эм өгөөгүй, эмчилгээ хийгээгүй, өөр эмчилгээ хийгээгүй гэсэн шууд тэмдэглэл.&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medication_context&quot;,
+      &quot;index&quot;: 0,
+      &quot;type&quot;: &quot;statement_not_intact_unit&quot;
+    }
+  ],
+  &quot;review_flags&quot;: [
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 0,
+      &quot;type&quot;: &quot;drug_detail_role_association_requires_review&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 0,
+      &quot;type&quot;: &quot;cross_unit_association_requires_review&quot;
+    }
+  ]
+}</pre></details></section>
+</div>
+<div class="review"><strong>Clinician adjudication — unfilled:</strong> recovered / omitted facts; wrong roles or associations; allergy wording; unsupported proposals; mixed items; corrections required. Reviewer/date: __________. This sheet does not update review status.</div>
+<h2>dev-004</h2><p>provisional expected facts; not clinician-reviewed labels · fictional-004</p><div class="grid"><section><h3>Unchanged original note</h3><pre>Өнөөдөр 09:00 цагт парацетамол 500 мг 1 шахмал уусан.
+Өмнөх тэмдэглэлд амоксициллин 250 мг өдөрт 3 удаа, 5 хоног хэрэглэсэн гэж бичсэн.
+Халуун 37.2 °C, АД 120/80 мм.муб, жин 62.5 кг.
+Глюкоз 5.6 ммоль/л.
+Пенициллинд тууралт гардаг гэж тэмдэглэсэн.</pre></section><section><h3>Frozen expected facts — NOT model input</h3><h4>Medication facts</h4><p>name: парацетамол • role: mixed_or_unclear • units: [&#x27;U1&#x27;] • dose: 500 мг 1 шахмал • route: None • time: Өнөөдөр 09:00 цагт • frequency: None</p><p>name: амоксициллин • role: historical_medication • units: [&#x27;U2&#x27;] • dose: 250 мг • route: None • time: None • frequency: өдөрт 3 удаа</p><h4>allergies</h4><p>U5: Пенициллинд тууралт гардаг гэж тэмдэглэсэн.</p><h4>context</h4><p>U2: Өмнөх тэмдэглэлд амоксициллин 250 мг өдөрт 3 удаа, 5 хоног хэрэглэсэн гэж бичсэн.</p><h4>Absent / must not infer</h4><ul><li>Reported taking does not establish encounter administration or ongoing regular medication</li><li>Explicit route, exact historical date; preserve 5 хоног duration in context without fabricating timestamp</li><li>No new treatment from glucose, vitals or allergy drug</li></ul><details><summary>Provisional unit-role reference</summary><pre>{
+  &quot;U1&quot;: &quot;mixed_or_unclear&quot;,
+  &quot;U2&quot;: &quot;historical_medication&quot;,
+  &quot;U3&quot;: &quot;other&quot;,
+  &quot;U4&quot;: &quot;other&quot;,
+  &quot;U5&quot;: &quot;allergy_statement&quot;
+}</pre></details></section></div>
+<details><summary>Preserved first-run proposals — revision 1</summary>
+<h3>Prompt revision 1</h3><div class="grid">
+<section><h3>A — per-unit roles</h3><p>1.357 seconds; structural error: None; lexical evidence valid: True</p><h4>administered_treatment (2 units)</h4><p>U1: Өнөөдөр 09:00 цагт парацетамол 500 мг 1 шахмал уусан.</p><p>U2: Өмнөх тэмдэглэлд амоксициллин 250 мг өдөрт 3 удаа, 5 хоног хэрэглэсэн гэж бичсэн.</p><details><summary>mixed_or_unclear (1 units) — REVIEW REQUIRED; not discarded</summary><p>U5: Пенициллинд тууралт гардаг гэж тэмдэглэсэн.</p></details><details><summary>other (2 units)</summary><p>U3: Халуун 37.2 °C, АД 120/80 мм.муб, жин 62.5 кг.</p><p>U4: Глюкоз 5.6 ммоль/л.</p></details>
+<details><summary>Complete raw JSON, original units / offsets and validation flags</summary><pre>{
+  &quot;U1&quot;: &quot;administered_treatment&quot;,
+  &quot;U2&quot;: &quot;administered_treatment&quot;,
+  &quot;U3&quot;: &quot;other&quot;,
+  &quot;U4&quot;: &quot;other&quot;,
+  &quot;U5&quot;: &quot;mixed_or_unclear&quot;
+}</pre><pre>{
+  &quot;source_mapping&quot;: {
+    &quot;U1&quot;: {
+      &quot;id&quot;: 1,
+      &quot;start&quot;: 0,
+      &quot;end&quot;: 53,
+      &quot;text&quot;: &quot;Өнөөдөр 09:00 цагт парацетамол 500 мг 1 шахмал уусан.&quot;,
+      &quot;model_text&quot;: &quot;Өнөөдөр 09:00 цагт парацетамол 500 мг 1 шахмал уусан.&quot;
+    },
+    &quot;U2&quot;: {
+      &quot;id&quot;: 2,
+      &quot;start&quot;: 54,
+      &quot;end&quot;: 135,
+      &quot;text&quot;: &quot;Өмнөх тэмдэглэлд амоксициллин 250 мг өдөрт 3 удаа, 5 хоног хэрэглэсэн гэж бичсэн.&quot;,
+      &quot;model_text&quot;: &quot;Өмнөх тэмдэглэлд амоксициллин 250 мг өдөрт 3 удаа, 5 хоног хэрэглэсэн гэж бичсэн.&quot;
+    },
+    &quot;U3&quot;: {
+      &quot;id&quot;: 3,
+      &quot;start&quot;: 136,
+      &quot;end&quot;: 182,
+      &quot;text&quot;: &quot;Халуун 37.2 °C, АД 120/80 мм.муб, жин 62.5 кг.&quot;,
+      &quot;model_text&quot;: &quot;Халуун 37.2 °C, АД 120/80 мм.муб, жин 62.5 кг.&quot;
+    },
+    &quot;U4&quot;: {
+      &quot;id&quot;: 4,
+      &quot;start&quot;: 183,
+      &quot;end&quot;: 202,
+      &quot;text&quot;: &quot;Глюкоз 5.6 ммоль/л.&quot;,
+      &quot;model_text&quot;: &quot;Глюкоз 5.6 ммоль/л.&quot;
+    },
+    &quot;U5&quot;: {
+      &quot;id&quot;: 5,
+      &quot;start&quot;: 203,
+      &quot;end&quot;: 246,
+      &quot;text&quot;: &quot;Пенициллинд тууралт гардаг гэж тэмдэглэсэн.&quot;,
+      &quot;model_text&quot;: &quot;Пенициллинд тууралт гардаг гэж тэмдэглэсэн.&quot;
+    }
+  },
+  &quot;evidence_errors&quot;: [],
+  &quot;review_flags&quot;: [
+    {
+      &quot;source_unit&quot;: &quot;U5&quot;,
+      &quot;type&quot;: &quot;mixed_or_unclear_requires_review&quot;
+    }
+  ]
+}</pre></details></section>
+<section><h3>B — proposed values and evidence</h3><p>12.957 seconds; structural error: None; lexical evidence valid: False</p><p class="notice">Proposals only. Evidence errors and association checks require correction/review; no row is automatically accepted.</p><h4>medications</h4><div class="proposal"><p><b>role: </b>administered_treatment</p><p><b>name: </b>Парацетамол</p><p><b>dose: </b>500 мг</p><p><b>route: </b>1 шахмал</p><p><b>time: </b>Өнөөдөр 09:00 цагт</p><p><b>frequency: </b>өдөрт 3 удаа</p><details><summary>Linked evidence: U1</summary><pre>[
+  {
+    &quot;source_unit&quot;: &quot;U1&quot;,
+    &quot;quote&quot;: &quot;Өнөөдөр 09:00 цагт парацетамол 500 мг 1 шахмал уусан.&quot;
+  }
+]</pre></details></div><div class="proposal"><p><b>role: </b>administered_treatment</p><p><b>name: </b>Амоксициллин</p><p><b>dose: </b>250 мг</p><p><b>route: </b>өдөрт 3 удаа</p><p><b>time: </b>өмнөх тэмдэглэлд</p><p><b>frequency: </b>өдөрт 3 удаа</p><details><summary>Linked evidence: U2</summary><pre>[
+  {
+    &quot;source_unit&quot;: &quot;U2&quot;,
+    &quot;quote&quot;: &quot;Өмнөх тэмдэглэлд амоксициллин 250 мг өдөрт 3 удаа, 5 хоног хэрэглэсэн гэж бичсэн.&quot;
+  }
+]</pre></details></div><h4>allergies</h4><div class="proposal"><p><b>statement: </b>Пенициллинд тууралт гардаг гэж тэмдэглэсэн.</p><details><summary>Linked evidence: U5</summary><pre>[
+  {
+    &quot;source_unit&quot;: &quot;U5&quot;,
+    &quot;quote&quot;: &quot;Пенициллинд тууралт гардаг гэж тэмдэглэсэн.&quot;
+  }
+]</pre></details></div><h4>medication_context</h4><div class="proposal"><p><b>statement: </b>Халуун 37.2 °C, АД 120/80 мм.муб, жин 62.5 кг.</p><details><summary>Linked evidence: U3</summary><pre>[
+  {
+    &quot;source_unit&quot;: &quot;U3&quot;,
+    &quot;quote&quot;: &quot;Халуун 37.2 °C, АД 120/80 мм.муб, жин 62.5 кг.&quot;
+  }
+]</pre></details></div><div class="proposal"><p><b>statement: </b>Глюкоз 5.6 ммоль/л.</p><details><summary>Linked evidence: U4</summary><pre>[
+  {
+    &quot;source_unit&quot;: &quot;U4&quot;,
+    &quot;quote&quot;: &quot;Глюкоз 5.6 ммоль/л.&quot;
+  }
+]</pre></details></div>
+<details><summary>Complete raw JSON, original units / offsets and validation flags</summary><pre>{
+  &quot;medications&quot;: [
+    {
+      &quot;role&quot;: &quot;administered_treatment&quot;,
+      &quot;name&quot;: &quot;Парацетамол&quot;,
+      &quot;dose&quot;: &quot;500 мг&quot;,
+      &quot;route&quot;: &quot;1 шахмал&quot;,
+      &quot;time&quot;: &quot;Өнөөдөр 09:00 цагт&quot;,
+      &quot;frequency&quot;: &quot;өдөрт 3 удаа&quot;,
+      &quot;evidence&quot;: [
+        {
+          &quot;source_unit&quot;: &quot;U1&quot;,
+          &quot;quote&quot;: &quot;Өнөөдөр 09:00 цагт парацетамол 500 мг 1 шахмал уусан.&quot;
+        }
+      ]
+    },
+    {
+      &quot;role&quot;: &quot;administered_treatment&quot;,
+      &quot;name&quot;: &quot;Амоксициллин&quot;,
+      &quot;dose&quot;: &quot;250 мг&quot;,
+      &quot;route&quot;: &quot;өдөрт 3 удаа&quot;,
+      &quot;time&quot;: &quot;өмнөх тэмдэглэлд&quot;,
+      &quot;frequency&quot;: &quot;өдөрт 3 удаа&quot;,
+      &quot;evidence&quot;: [
+        {
+          &quot;source_unit&quot;: &quot;U2&quot;,
+          &quot;quote&quot;: &quot;Өмнөх тэмдэглэлд амоксициллин 250 мг өдөрт 3 удаа, 5 хоног хэрэглэсэн гэж бичсэн.&quot;
+        }
+      ]
+    }
+  ],
+  &quot;allergies&quot;: [
+    {
+      &quot;statement&quot;: &quot;Пенициллинд тууралт гардаг гэж тэмдэглэсэн.&quot;,
+      &quot;evidence&quot;: [
+        {
+          &quot;source_unit&quot;: &quot;U5&quot;,
+          &quot;quote&quot;: &quot;Пенициллинд тууралт гардаг гэж тэмдэглэсэн.&quot;
+        }
+      ]
+    }
+  ],
+  &quot;medication_context&quot;: [
+    {
+      &quot;statement&quot;: &quot;Халуун 37.2 °C, АД 120/80 мм.муб, жин 62.5 кг.&quot;,
+      &quot;evidence&quot;: [
+        {
+          &quot;source_unit&quot;: &quot;U3&quot;,
+          &quot;quote&quot;: &quot;Халуун 37.2 °C, АД 120/80 мм.муб, жин 62.5 кг.&quot;
+        }
+      ]
+    },
+    {
+      &quot;statement&quot;: &quot;Глюкоз 5.6 ммоль/л.&quot;,
+      &quot;evidence&quot;: [
+        {
+          &quot;source_unit&quot;: &quot;U4&quot;,
+          &quot;quote&quot;: &quot;Глюкоз 5.6 ммоль/л.&quot;
+        }
+      ]
+    }
+  ]
+}</pre><pre>{
+  &quot;source_mapping&quot;: {
+    &quot;U1&quot;: {
+      &quot;id&quot;: 1,
+      &quot;start&quot;: 0,
+      &quot;end&quot;: 53,
+      &quot;text&quot;: &quot;Өнөөдөр 09:00 цагт парацетамол 500 мг 1 шахмал уусан.&quot;,
+      &quot;model_text&quot;: &quot;Өнөөдөр 09:00 цагт парацетамол 500 мг 1 шахмал уусан.&quot;
+    },
+    &quot;U2&quot;: {
+      &quot;id&quot;: 2,
+      &quot;start&quot;: 54,
+      &quot;end&quot;: 135,
+      &quot;text&quot;: &quot;Өмнөх тэмдэглэлд амоксициллин 250 мг өдөрт 3 удаа, 5 хоног хэрэглэсэн гэж бичсэн.&quot;,
+      &quot;model_text&quot;: &quot;Өмнөх тэмдэглэлд амоксициллин 250 мг өдөрт 3 удаа, 5 хоног хэрэглэсэн гэж бичсэн.&quot;
+    },
+    &quot;U3&quot;: {
+      &quot;id&quot;: 3,
+      &quot;start&quot;: 136,
+      &quot;end&quot;: 182,
+      &quot;text&quot;: &quot;Халуун 37.2 °C, АД 120/80 мм.муб, жин 62.5 кг.&quot;,
+      &quot;model_text&quot;: &quot;Халуун 37.2 °C, АД 120/80 мм.муб, жин 62.5 кг.&quot;
+    },
+    &quot;U4&quot;: {
+      &quot;id&quot;: 4,
+      &quot;start&quot;: 183,
+      &quot;end&quot;: 202,
+      &quot;text&quot;: &quot;Глюкоз 5.6 ммоль/л.&quot;,
+      &quot;model_text&quot;: &quot;Глюкоз 5.6 ммоль/л.&quot;
+    },
+    &quot;U5&quot;: {
+      &quot;id&quot;: 5,
+      &quot;start&quot;: 203,
+      &quot;end&quot;: 246,
+      &quot;text&quot;: &quot;Пенициллинд тууралт гардаг гэж тэмдэглэсэн.&quot;,
+      &quot;model_text&quot;: &quot;Пенициллинд тууралт гардаг гэж тэмдэглэсэн.&quot;
+    }
+  },
+  &quot;evidence_errors&quot;: [
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 0,
+      &quot;type&quot;: &quot;detail_not_in_linked_quote&quot;,
+      &quot;detail&quot;: &quot;name&quot;,
+      &quot;value&quot;: &quot;Парацетамол&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 0,
+      &quot;type&quot;: &quot;detail_not_in_linked_quote&quot;,
+      &quot;detail&quot;: &quot;frequency&quot;,
+      &quot;value&quot;: &quot;өдөрт 3 удаа&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 1,
+      &quot;type&quot;: &quot;detail_not_in_linked_quote&quot;,
+      &quot;detail&quot;: &quot;name&quot;,
+      &quot;value&quot;: &quot;Амоксициллин&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 1,
+      &quot;type&quot;: &quot;detail_not_in_linked_quote&quot;,
+      &quot;detail&quot;: &quot;time&quot;,
+      &quot;value&quot;: &quot;өмнөх тэмдэглэлд&quot;
+    }
+  ],
+  &quot;review_flags&quot;: [
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 0,
+      &quot;type&quot;: &quot;drug_detail_role_association_requires_review&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 1,
+      &quot;type&quot;: &quot;drug_detail_role_association_requires_review&quot;
+    }
+  ]
+}</pre></details></section>
+</div>
+</details>
+<h3>Prompt revision 2</h3><div class="grid">
+<section><h3>A — per-unit roles</h3><p>1.568 seconds; structural error: None; lexical evidence valid: True</p><h4>regular_medication (1 units)</h4><p>U1: Өнөөдөр 09:00 цагт парацетамол 500 мг 1 шахмал уусан.</p><h4>historical_medication (1 units)</h4><p>U2: Өмнөх тэмдэглэлд амоксициллин 250 мг өдөрт 3 удаа, 5 хоног хэрэглэсэн гэж бичсэн.</p><h4>planned_or_prescribed_treatment (1 units)</h4><p>U4: Глюкоз 5.6 ммоль/л.</p><h4>explicitly_not_administered (1 units)</h4><p>U5: Пенициллинд тууралт гардаг гэж тэмдэглэсэн.</p><details><summary>mixed_or_unclear (1 units) — REVIEW REQUIRED; not discarded</summary><p>U3: Халуун 37.2 °C, АД 120/80 мм.муб, жин 62.5 кг.</p></details>
+<details><summary>Complete raw JSON, original units / offsets and validation flags</summary><pre>{
+  &quot;U1&quot;: &quot;regular_medication&quot;,
+  &quot;U2&quot;: &quot;historical_medication&quot;,
+  &quot;U3&quot;: &quot;mixed_or_unclear&quot;,
+  &quot;U4&quot;: &quot;planned_or_prescribed_treatment&quot;,
+  &quot;U5&quot;: &quot;explicitly_not_administered&quot;
+}</pre><pre>{
+  &quot;source_mapping&quot;: {
+    &quot;U1&quot;: {
+      &quot;id&quot;: 1,
+      &quot;start&quot;: 0,
+      &quot;end&quot;: 53,
+      &quot;text&quot;: &quot;Өнөөдөр 09:00 цагт парацетамол 500 мг 1 шахмал уусан.&quot;,
+      &quot;model_text&quot;: &quot;Өнөөдөр 09:00 цагт парацетамол 500 мг 1 шахмал уусан.&quot;
+    },
+    &quot;U2&quot;: {
+      &quot;id&quot;: 2,
+      &quot;start&quot;: 54,
+      &quot;end&quot;: 135,
+      &quot;text&quot;: &quot;Өмнөх тэмдэглэлд амоксициллин 250 мг өдөрт 3 удаа, 5 хоног хэрэглэсэн гэж бичсэн.&quot;,
+      &quot;model_text&quot;: &quot;Өмнөх тэмдэглэлд амоксициллин 250 мг өдөрт 3 удаа, 5 хоног хэрэглэсэн гэж бичсэн.&quot;
+    },
+    &quot;U3&quot;: {
+      &quot;id&quot;: 3,
+      &quot;start&quot;: 136,
+      &quot;end&quot;: 182,
+      &quot;text&quot;: &quot;Халуун 37.2 °C, АД 120/80 мм.муб, жин 62.5 кг.&quot;,
+      &quot;model_text&quot;: &quot;Халуун 37.2 °C, АД 120/80 мм.муб, жин 62.5 кг.&quot;
+    },
+    &quot;U4&quot;: {
+      &quot;id&quot;: 4,
+      &quot;start&quot;: 183,
+      &quot;end&quot;: 202,
+      &quot;text&quot;: &quot;Глюкоз 5.6 ммоль/л.&quot;,
+      &quot;model_text&quot;: &quot;Глюкоз 5.6 ммоль/л.&quot;
+    },
+    &quot;U5&quot;: {
+      &quot;id&quot;: 5,
+      &quot;start&quot;: 203,
+      &quot;end&quot;: 246,
+      &quot;text&quot;: &quot;Пенициллинд тууралт гардаг гэж тэмдэглэсэн.&quot;,
+      &quot;model_text&quot;: &quot;Пенициллинд тууралт гардаг гэж тэмдэглэсэн.&quot;
+    }
+  },
+  &quot;evidence_errors&quot;: [],
+  &quot;review_flags&quot;: [
+    {
+      &quot;source_unit&quot;: &quot;U3&quot;,
+      &quot;type&quot;: &quot;mixed_or_unclear_requires_review&quot;
+    }
+  ]
+}</pre></details></section>
+<section><h3>B — proposed values and evidence</h3><p>29.483 seconds; structural error: None; lexical evidence valid: False</p><p class="notice">Proposals only. Evidence errors and association checks require correction/review; no row is automatically accepted.</p><h4>medications</h4><div class="proposal"><p><b>role: </b>regular_medication</p><p><b>name: </b>Парацетамол</p><p><b>dose: </b>500 мг</p><p><b>route: </b>1 шахмал</p><p><b>time: </b>09:00</p><p><b>frequency: </b>однаждүүнээр</p><details><summary>Linked evidence: U1</summary><pre>[
+  {
+    &quot;source_unit&quot;: &quot;U1&quot;,
+    &quot;quote&quot;: &quot;Өнөөдөр 09:00 цагт парацетамол 500 мг 1 шахмал уусан.&quot;
+  }
+]</pre></details></div><div class="proposal"><p><b>role: </b>historical_medication</p><p><b>name: </b>Амоксициллин</p><p><b>dose: </b>250 мг</p><p><b>route: </b>өдөрт 3 удаа</p><p><b>time: </b>өмнөх тэмдэглэлд</p><p><b>frequency: </b>5 хоног хэрэглэсэн</p><details><summary>Linked evidence: U2</summary><pre>[
+  {
+    &quot;source_unit&quot;: &quot;U2&quot;,
+    &quot;quote&quot;: &quot;Өмнөх тэмдэглэлд амоксициллин 250 мг өдөрт 3 удаа, 5 хоног хэрэглэсэн гэж бичсэн.&quot;
+  }
+]</pre></details></div><h4>allergies</h4><div class="proposal"><p><b>statement: </b>Харшилгүй</p><details><summary>Linked evidence: U3, U4, U5</summary><pre>[
+  {
+    &quot;source_unit&quot;: &quot;U3&quot;,
+    &quot;quote&quot;: &quot;Халуун 37.2 °C, АД 120/80 мм.муб, жин 62.5 кг.&quot;
+  },
+  {
+    &quot;source_unit&quot;: &quot;U4&quot;,
+    &quot;quote&quot;: &quot;Глюкоз 5.6 ммоль/л.&quot;
+  },
+  {
+    &quot;source_unit&quot;: &quot;U5&quot;,
+    &quot;quote&quot;: &quot;Пенициллинд тууралт гардаг гэж тэмдэглэсэн.&quot;
+  }
+]</pre></details></div><h4>medication_context</h4><div class="proposal"><p><b>statement: </b>Эм өгөөгүй, эмчилгээ хийгээгүй, өөр эмчилгээ хийгээгүй гэсэн шууд тэмдэглэл.</p><details><summary>Linked evidence: U3, U4, U5</summary><pre>[
+  {
+    &quot;source_unit&quot;: &quot;U3&quot;,
+    &quot;quote&quot;: &quot;Халуун 37.2 °C, АД 120/80 мм.муб, жин 62.5 кг.&quot;
+  },
+  {
+    &quot;source_unit&quot;: &quot;U4&quot;,
+    &quot;quote&quot;: &quot;Глюкоз 5.6 ммоль/л.&quot;
+  },
+  {
+    &quot;source_unit&quot;: &quot;U5&quot;,
+    &quot;quote&quot;: &quot;Пенициллинд тууралт гардаг гэж тэмдэглэсэн.&quot;
+  }
+]</pre></details></div>
+<details><summary>Complete raw JSON, original units / offsets and validation flags</summary><pre>{
+  &quot;medications&quot;: [
+    {
+      &quot;role&quot;: &quot;regular_medication&quot;,
+      &quot;name&quot;: &quot;Парацетамол&quot;,
+      &quot;dose&quot;: &quot;500 мг&quot;,
+      &quot;route&quot;: &quot;1 шахмал&quot;,
+      &quot;time&quot;: &quot;09:00&quot;,
+      &quot;frequency&quot;: &quot;однаждүүнээр&quot;,
+      &quot;evidence&quot;: [
+        {
+          &quot;source_unit&quot;: &quot;U1&quot;,
+          &quot;quote&quot;: &quot;Өнөөдөр 09:00 цагт парацетамол 500 мг 1 шахмал уусан.&quot;
+        }
+      ]
+    },
+    {
+      &quot;role&quot;: &quot;historical_medication&quot;,
+      &quot;name&quot;: &quot;Амоксициллин&quot;,
+      &quot;dose&quot;: &quot;250 мг&quot;,
+      &quot;route&quot;: &quot;өдөрт 3 удаа&quot;,
+      &quot;time&quot;: &quot;өмнөх тэмдэглэлд&quot;,
+      &quot;frequency&quot;: &quot;5 хоног хэрэглэсэн&quot;,
+      &quot;evidence&quot;: [
+        {
+          &quot;source_unit&quot;: &quot;U2&quot;,
+          &quot;quote&quot;: &quot;Өмнөх тэмдэглэлд амоксициллин 250 мг өдөрт 3 удаа, 5 хоног хэрэглэсэн гэж бичсэн.&quot;
+        }
+      ]
+    }
+  ],
+  &quot;allergies&quot;: [
+    {
+      &quot;statement&quot;: &quot;Харшилгүй&quot;,
+      &quot;evidence&quot;: [
+        {
+          &quot;source_unit&quot;: &quot;U3&quot;,
+          &quot;quote&quot;: &quot;Халуун 37.2 °C, АД 120/80 мм.муб, жин 62.5 кг.&quot;
+        },
+        {
+          &quot;source_unit&quot;: &quot;U4&quot;,
+          &quot;quote&quot;: &quot;Глюкоз 5.6 ммоль/л.&quot;
+        },
+        {
+          &quot;source_unit&quot;: &quot;U5&quot;,
+          &quot;quote&quot;: &quot;Пенициллинд тууралт гардаг гэж тэмдэглэсэн.&quot;
+        }
+      ]
+    }
+  ],
+  &quot;medication_context&quot;: [
+    {
+      &quot;statement&quot;: &quot;Эм өгөөгүй, эмчилгээ хийгээгүй, өөр эмчилгээ хийгээгүй гэсэн шууд тэмдэглэл.&quot;,
+      &quot;evidence&quot;: [
+        {
+          &quot;source_unit&quot;: &quot;U3&quot;,
+          &quot;quote&quot;: &quot;Халуун 37.2 °C, АД 120/80 мм.муб, жин 62.5 кг.&quot;
+        },
+        {
+          &quot;source_unit&quot;: &quot;U4&quot;,
+          &quot;quote&quot;: &quot;Глюкоз 5.6 ммоль/л.&quot;
+        },
+        {
+          &quot;source_unit&quot;: &quot;U5&quot;,
+          &quot;quote&quot;: &quot;Пенициллинд тууралт гардаг гэж тэмдэглэсэн.&quot;
+        }
+      ]
+    }
+  ]
+}</pre><pre>{
+  &quot;source_mapping&quot;: {
+    &quot;U1&quot;: {
+      &quot;id&quot;: 1,
+      &quot;start&quot;: 0,
+      &quot;end&quot;: 53,
+      &quot;text&quot;: &quot;Өнөөдөр 09:00 цагт парацетамол 500 мг 1 шахмал уусан.&quot;,
+      &quot;model_text&quot;: &quot;Өнөөдөр 09:00 цагт парацетамол 500 мг 1 шахмал уусан.&quot;
+    },
+    &quot;U2&quot;: {
+      &quot;id&quot;: 2,
+      &quot;start&quot;: 54,
+      &quot;end&quot;: 135,
+      &quot;text&quot;: &quot;Өмнөх тэмдэглэлд амоксициллин 250 мг өдөрт 3 удаа, 5 хоног хэрэглэсэн гэж бичсэн.&quot;,
+      &quot;model_text&quot;: &quot;Өмнөх тэмдэглэлд амоксициллин 250 мг өдөрт 3 удаа, 5 хоног хэрэглэсэн гэж бичсэн.&quot;
+    },
+    &quot;U3&quot;: {
+      &quot;id&quot;: 3,
+      &quot;start&quot;: 136,
+      &quot;end&quot;: 182,
+      &quot;text&quot;: &quot;Халуун 37.2 °C, АД 120/80 мм.муб, жин 62.5 кг.&quot;,
+      &quot;model_text&quot;: &quot;Халуун 37.2 °C, АД 120/80 мм.муб, жин 62.5 кг.&quot;
+    },
+    &quot;U4&quot;: {
+      &quot;id&quot;: 4,
+      &quot;start&quot;: 183,
+      &quot;end&quot;: 202,
+      &quot;text&quot;: &quot;Глюкоз 5.6 ммоль/л.&quot;,
+      &quot;model_text&quot;: &quot;Глюкоз 5.6 ммоль/л.&quot;
+    },
+    &quot;U5&quot;: {
+      &quot;id&quot;: 5,
+      &quot;start&quot;: 203,
+      &quot;end&quot;: 246,
+      &quot;text&quot;: &quot;Пенициллинд тууралт гардаг гэж тэмдэглэсэн.&quot;,
+      &quot;model_text&quot;: &quot;Пенициллинд тууралт гардаг гэж тэмдэглэсэн.&quot;
+    }
+  },
+  &quot;evidence_errors&quot;: [
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 0,
+      &quot;type&quot;: &quot;detail_not_in_linked_quote&quot;,
+      &quot;detail&quot;: &quot;name&quot;,
+      &quot;value&quot;: &quot;Парацетамол&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 0,
+      &quot;type&quot;: &quot;detail_not_in_linked_quote&quot;,
+      &quot;detail&quot;: &quot;frequency&quot;,
+      &quot;value&quot;: &quot;однаждүүнээр&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 1,
+      &quot;type&quot;: &quot;detail_not_in_linked_quote&quot;,
+      &quot;detail&quot;: &quot;name&quot;,
+      &quot;value&quot;: &quot;Амоксициллин&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 1,
+      &quot;type&quot;: &quot;detail_not_in_linked_quote&quot;,
+      &quot;detail&quot;: &quot;time&quot;,
+      &quot;value&quot;: &quot;өмнөх тэмдэглэлд&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;allergies&quot;,
+      &quot;index&quot;: 0,
+      &quot;type&quot;: &quot;detail_not_in_linked_quote&quot;,
+      &quot;detail&quot;: &quot;statement&quot;,
+      &quot;value&quot;: &quot;Харшилгүй&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;allergies&quot;,
+      &quot;index&quot;: 0,
+      &quot;type&quot;: &quot;statement_not_intact_unit&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medication_context&quot;,
+      &quot;index&quot;: 0,
+      &quot;type&quot;: &quot;detail_not_in_linked_quote&quot;,
+      &quot;detail&quot;: &quot;statement&quot;,
+      &quot;value&quot;: &quot;Эм өгөөгүй, эмчилгээ хийгээгүй, өөр эмчилгээ хийгээгүй гэсэн шууд тэмдэглэл.&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medication_context&quot;,
+      &quot;index&quot;: 0,
+      &quot;type&quot;: &quot;statement_not_intact_unit&quot;
+    }
+  ],
+  &quot;review_flags&quot;: [
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 0,
+      &quot;type&quot;: &quot;drug_detail_role_association_requires_review&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 1,
+      &quot;type&quot;: &quot;drug_detail_role_association_requires_review&quot;
+    }
+  ]
+}</pre></details></section>
+</div>
+<div class="review"><strong>Clinician adjudication — unfilled:</strong> recovered / omitted facts; wrong roles or associations; allergy wording; unsupported proposals; mixed items; corrections required. Reviewer/date: __________. This sheet does not update review status.</div>
+<h2>probe-med-001</h2><p>engineer-authored diagnostic expectations · probe-med-family-001</p><div class="grid"><section><h3>Unchanged original note</h3><pre>Тогтмол амлодипин 5 мг өдөрт нэг удаа уудаг, харин энэ үзлэгээр парацетамол 500 мг амаар 10:15-д өгсөн.
+Ибупрофен 200 мг амаар өгөхөөр төлөвлөсөн.
+Диклофенак өгөөгүй.
+Өвчтөн нэрийг нь санахгүй эм уусан гэж хэлсэн.
+Харшлыг асуугаагүй.
+Өмнөх тэмдэглэлд харшлын түүх тодорхойгүй гэж бичсэн.</pre></section><section><h3>Frozen expected facts — NOT model input</h3><h4>Medication facts</h4><p>name: амлодипин • role: regular_medication • units: [&#x27;U1&#x27;] • dose: 5 мг • route: None • time: None • frequency: өдөрт нэг удаа</p><p>name: парацетамол • role: administered_treatment • units: [&#x27;U1&#x27;] • dose: 500 мг • route: амаар • time: 10:15-д • frequency: None</p><p>name: Ибупрофен • role: planned_or_prescribed_treatment • units: [&#x27;U2&#x27;] • dose: 200 мг • route: амаар • time: None • frequency: None</p><p>name: Диклофенак • role: explicitly_not_administered • units: [&#x27;U3&#x27;] • dose: None • route: None • time: None • frequency: None</p><p>name: нэрийг нь санахгүй эм • role: mixed_or_unclear • units: [&#x27;U4&#x27;] • dose: None • route: None • time: None • frequency: None</p><h4>allergies</h4><p>U5: Харшлыг асуугаагүй.</p><p>U6: Өмнөх тэмдэглэлд харшлын түүх тодорхойгүй гэж бичсэн.</p><h4>context</h4><p>U4: Өвчтөн нэрийг нь санахгүй эм уусан гэж хэлсэн.</p><h4>Absent / must not infer</h4><ul><li>Do not transfer paracetamol 500 мг/амаар/10:15-д to amlodipine 5 мг</li><li>No evidence planned ibuprofen was given</li><li>No dose/route/time/frequency for not-given diclofenac or unnamed reported drug</li><li>Not asked and historical unknown allergy are not allergy absence</li></ul><details><summary>Provisional unit-role reference</summary><pre>{
+  &quot;U1&quot;: &quot;mixed_or_unclear&quot;,
+  &quot;U2&quot;: &quot;planned_or_prescribed_treatment&quot;,
+  &quot;U3&quot;: &quot;explicitly_not_administered&quot;,
+  &quot;U4&quot;: &quot;mixed_or_unclear&quot;,
+  &quot;U5&quot;: &quot;allergy_statement&quot;,
+  &quot;U6&quot;: &quot;allergy_statement&quot;
+}</pre></details></section></div>
+<details><summary>Preserved first-run proposals — revision 1</summary>
+<h3>Prompt revision 1</h3><div class="grid">
+<section><h3>A — per-unit roles</h3><p>1.905 seconds; structural error: None; lexical evidence valid: True</p><h4>administered_treatment (2 units)</h4><p>U1: Тогтмол амлодипин 5 мг өдөрт нэг удаа уудаг, харин энэ үзлэгээр парацетамол 500 мг амаар 10:15-д өгсөн.</p><p>U2: Ибупрофен 200 мг амаар өгөхөөр төлөвлөсөн.</p><h4>explicitly_not_administered (1 units)</h4><p>U3: Диклофенак өгөөгүй.</p><h4>allergy_statement (1 units)</h4><p>U4: Өвчтөн нэрийг нь санахгүй эм уусан гэж хэлсэн.</p><details><summary>mixed_or_unclear (2 units) — REVIEW REQUIRED; not discarded</summary><p>U5: Харшлыг асуугаагүй.</p><p>U6: Өмнөх тэмдэглэлд харшлын түүх тодорхойгүй гэж бичсэн.</p></details>
+<details><summary>Complete raw JSON, original units / offsets and validation flags</summary><pre>{
+  &quot;U1&quot;: &quot;administered_treatment&quot;,
+  &quot;U2&quot;: &quot;administered_treatment&quot;,
+  &quot;U3&quot;: &quot;explicitly_not_administered&quot;,
+  &quot;U4&quot;: &quot;allergy_statement&quot;,
+  &quot;U5&quot;: &quot;mixed_or_unclear&quot;,
+  &quot;U6&quot;: &quot;mixed_or_unclear&quot;
+}</pre><pre>{
+  &quot;source_mapping&quot;: {
+    &quot;U1&quot;: {
+      &quot;id&quot;: 1,
+      &quot;start&quot;: 0,
+      &quot;end&quot;: 103,
+      &quot;text&quot;: &quot;Тогтмол амлодипин 5 мг өдөрт нэг удаа уудаг, харин энэ үзлэгээр парацетамол 500 мг амаар 10:15-д өгсөн.&quot;,
+      &quot;model_text&quot;: &quot;Тогтмол амлодипин 5 мг өдөрт нэг удаа уудаг, харин энэ үзлэгээр парацетамол 500 мг амаар 10:15-д өгсөн.&quot;
+    },
+    &quot;U2&quot;: {
+      &quot;id&quot;: 2,
+      &quot;start&quot;: 104,
+      &quot;end&quot;: 146,
+      &quot;text&quot;: &quot;Ибупрофен 200 мг амаар өгөхөөр төлөвлөсөн.&quot;,
+      &quot;model_text&quot;: &quot;Ибупрофен 200 мг амаар өгөхөөр төлөвлөсөн.&quot;
+    },
+    &quot;U3&quot;: {
+      &quot;id&quot;: 3,
+      &quot;start&quot;: 147,
+      &quot;end&quot;: 166,
+      &quot;text&quot;: &quot;Диклофенак өгөөгүй.&quot;,
+      &quot;model_text&quot;: &quot;Диклофенак өгөөгүй.&quot;
+    },
+    &quot;U4&quot;: {
+      &quot;id&quot;: 4,
+      &quot;start&quot;: 167,
+      &quot;end&quot;: 213,
+      &quot;text&quot;: &quot;Өвчтөн нэрийг нь санахгүй эм уусан гэж хэлсэн.&quot;,
+      &quot;model_text&quot;: &quot;Өвчтөн нэрийг нь санахгүй эм уусан гэж хэлсэн.&quot;
+    },
+    &quot;U5&quot;: {
+      &quot;id&quot;: 5,
+      &quot;start&quot;: 214,
+      &quot;end&quot;: 233,
+      &quot;text&quot;: &quot;Харшлыг асуугаагүй.&quot;,
+      &quot;model_text&quot;: &quot;Харшлыг асуугаагүй.&quot;
+    },
+    &quot;U6&quot;: {
+      &quot;id&quot;: 6,
+      &quot;start&quot;: 234,
+      &quot;end&quot;: 287,
+      &quot;text&quot;: &quot;Өмнөх тэмдэглэлд харшлын түүх тодорхойгүй гэж бичсэн.&quot;,
+      &quot;model_text&quot;: &quot;Өмнөх тэмдэглэлд харшлын түүх тодорхойгүй гэж бичсэн.&quot;
+    }
+  },
+  &quot;evidence_errors&quot;: [],
+  &quot;review_flags&quot;: [
+    {
+      &quot;source_unit&quot;: &quot;U5&quot;,
+      &quot;type&quot;: &quot;mixed_or_unclear_requires_review&quot;
+    },
+    {
+      &quot;source_unit&quot;: &quot;U6&quot;,
+      &quot;type&quot;: &quot;mixed_or_unclear_requires_review&quot;
+    }
+  ]
+}</pre></details></section>
+<section><h3>B — proposed values and evidence</h3><p>27.886 seconds; structural error: None; lexical evidence valid: False</p><p class="notice">Proposals only. Evidence errors and association checks require correction/review; no row is automatically accepted.</p><h4>medications</h4><div class="proposal"><p><b>role: </b>administered_treatment</p><p><b>name: </b>амлодипин</p><p><b>dose: </b>5 мг</p><p><b>route: </b>өдөрт нэг удаа</p><p><b>time: </b>10:15</p><p><b>frequency: </b>нэг удаа</p><details><summary>Linked evidence: U1</summary><pre>[
+  {
+    &quot;source_unit&quot;: &quot;U1&quot;,
+    &quot;quote&quot;: &quot;Тогтмол амлодипин 5 мг өдөрт нэг удаа уудаг, харин энэ үзлэгээр парацетамол 500 мг амаар 10:15-д өгөснө.&quot;
+  }
+]</pre></details></div><div class="proposal"><p><b>role: </b>administered_treatment</p><p><b>name: </b>парацетамол</p><p><b>dose: </b>500 мг</p><p><b>route: </b>амаар</p><p><b>time: </b>10:15</p><p><b>frequency: </b>нэг удаа</p><details><summary>Linked evidence: U1</summary><pre>[
+  {
+    &quot;source_unit&quot;: &quot;U1&quot;,
+    &quot;quote&quot;: &quot;Тогтмол амлодипин 5 мг өдөрт нэг удаа уудаг, харин энэ үзлэгээр парацетамол 500 мг амаар 10:15-д өгөснө.&quot;
+  }
+]</pre></details></div><div class="proposal"><p><b>role: </b>administered_treatment</p><p><b>name: </b>ибупрофен</p><p><b>dose: </b>200 мг</p><p><b>route: </b>амаар</p><p><b>time: </b>өөр үе</p><p><b>frequency: </b>нэг удаа</p><details><summary>Linked evidence: U2</summary><pre>[
+  {
+    &quot;source_unit&quot;: &quot;U2&quot;,
+    &quot;quote&quot;: &quot;Ибупрофен 200 мг амаар өгөхөөр төлөвлөсөн.&quot;
+  }
+]</pre></details></div><div class="proposal"><p><b>role: </b>explicitly_not_administered</p><p><b>name: </b>диклофенак</p><p><b>dose: </b>өөр үе</p><p><b>route: </b>өгөөгүй</p><p><b>time: </b>өөр үе</p><p><b>frequency: </b>өөр үе</p><details><summary>Linked evidence: U3</summary><pre>[
+  {
+    &quot;source_unit&quot;: &quot;U3&quot;,
+    &quot;quote&quot;: &quot;Диклофенак өгөөгүй.&quot;
+  }
+]</pre></details></div><div class="proposal"><p><b>role: </b>historical_medication</p><p><b>name: </b>өвчтөн нэрийг нь санахгүй</p><p><b>dose: </b>өөр үе</p><p><b>route: </b>нэрийг нь</p><p><b>time: </b>өөр үе</p><p><b>frequency: </b>өөр үе</p><details><summary>Linked evidence: U4</summary><pre>[
+  {
+    &quot;source_unit&quot;: &quot;U4&quot;,
+    &quot;quote&quot;: &quot;Өвчтөн нэрийг нь санахгүй эм уусан гэж хэлсэн.&quot;
+  }
+]</pre></details></div><div class="proposal"><p><b>role: </b>mixed_or_unclear</p><p><b>name: </b>харшлыг асуугаагүй</p><p><b>dose: </b>өөр үе</p><p><b>route: </b>нэрийг нь</p><p><b>time: </b>өөр үе</p><p><b>frequency: </b>өөр үе</p><details><summary>Linked evidence: U5, U6</summary><pre>[
+  {
+    &quot;source_unit&quot;: &quot;U5&quot;,
+    &quot;quote&quot;: &quot;Харшлыг асуугаагүй.&quot;
+  },
+  {
+    &quot;source_unit&quot;: &quot;U6&quot;,
+    &quot;quote&quot;: &quot;Өмнөх тэмдэглэлд харшлын түүх тодорхойгүй гэж бичсэн.&quot;
+  }
+]</pre></details></div><h4>allergies</h4><div class="proposal"><p><b>statement: </b>Харшлыг асуугаагүй</p><details><summary>Linked evidence: U5, U6</summary><pre>[
+  {
+    &quot;source_unit&quot;: &quot;U5&quot;,
+    &quot;quote&quot;: &quot;Харшлыг асуугаагүй.&quot;
+  },
+  {
+    &quot;source_unit&quot;: &quot;U6&quot;,
+    &quot;quote&quot;: &quot;Өмнөх тэмдэглэлд харшлын түүх тодорхойгүй гэж бичсэн.&quot;
+  }
+]</pre></details></div><h4>medication_context</h4><div class="proposal"><p><b>statement: </b>today&#x27;s dose not asked</p><details><summary>Linked evidence: U1</summary><pre>[
+  {
+    &quot;source_unit&quot;: &quot;U1&quot;,
+    &quot;quote&quot;: &quot;Тогтмол амлодипин 5 мг өдөрт нэг удаа уудаг, харин энэ үзлэгээр парацетамол 500 мг амаар 10:15-д өгөснө.&quot;
+  }
+]</pre></details></div><div class="proposal"><p><b>statement: </b>no other treatment</p><details><summary>Linked evidence: U1</summary><pre>[
+  {
+    &quot;source_unit&quot;: &quot;U1&quot;,
+    &quot;quote&quot;: &quot;Тогтмол амлодипин 5 мг өдөрт нэг удаа уудаг, харин энэ үзлэгээр парацетамол 500 мг амаар 10:15-д өгөснө.&quot;
+  }
+]</pre></details></div>
+<details><summary>Complete raw JSON, original units / offsets and validation flags</summary><pre>{
+  &quot;medications&quot;: [
+    {
+      &quot;role&quot;: &quot;administered_treatment&quot;,
+      &quot;name&quot;: &quot;амлодипин&quot;,
+      &quot;dose&quot;: &quot;5 мг&quot;,
+      &quot;route&quot;: &quot;өдөрт нэг удаа&quot;,
+      &quot;time&quot;: &quot;10:15&quot;,
+      &quot;frequency&quot;: &quot;нэг удаа&quot;,
+      &quot;evidence&quot;: [
+        {
+          &quot;source_unit&quot;: &quot;U1&quot;,
+          &quot;quote&quot;: &quot;Тогтмол амлодипин 5 мг өдөрт нэг удаа уудаг, харин энэ үзлэгээр парацетамол 500 мг амаар 10:15-д өгөснө.&quot;
+        }
+      ]
+    },
+    {
+      &quot;role&quot;: &quot;administered_treatment&quot;,
+      &quot;name&quot;: &quot;парацетамол&quot;,
+      &quot;dose&quot;: &quot;500 мг&quot;,
+      &quot;route&quot;: &quot;амаар&quot;,
+      &quot;time&quot;: &quot;10:15&quot;,
+      &quot;frequency&quot;: &quot;нэг удаа&quot;,
+      &quot;evidence&quot;: [
+        {
+          &quot;source_unit&quot;: &quot;U1&quot;,
+          &quot;quote&quot;: &quot;Тогтмол амлодипин 5 мг өдөрт нэг удаа уудаг, харин энэ үзлэгээр парацетамол 500 мг амаар 10:15-д өгөснө.&quot;
+        }
+      ]
+    },
+    {
+      &quot;role&quot;: &quot;administered_treatment&quot;,
+      &quot;name&quot;: &quot;ибупрофен&quot;,
+      &quot;dose&quot;: &quot;200 мг&quot;,
+      &quot;route&quot;: &quot;амаар&quot;,
+      &quot;time&quot;: &quot;өөр үе&quot;,
+      &quot;frequency&quot;: &quot;нэг удаа&quot;,
+      &quot;evidence&quot;: [
+        {
+          &quot;source_unit&quot;: &quot;U2&quot;,
+          &quot;quote&quot;: &quot;Ибупрофен 200 мг амаар өгөхөөр төлөвлөсөн.&quot;
+        }
+      ]
+    },
+    {
+      &quot;role&quot;: &quot;explicitly_not_administered&quot;,
+      &quot;name&quot;: &quot;диклофенак&quot;,
+      &quot;dose&quot;: &quot;өөр үе&quot;,
+      &quot;route&quot;: &quot;өгөөгүй&quot;,
+      &quot;time&quot;: &quot;өөр үе&quot;,
+      &quot;frequency&quot;: &quot;өөр үе&quot;,
+      &quot;evidence&quot;: [
+        {
+          &quot;source_unit&quot;: &quot;U3&quot;,
+          &quot;quote&quot;: &quot;Диклофенак өгөөгүй.&quot;
+        }
+      ]
+    },
+    {
+      &quot;role&quot;: &quot;historical_medication&quot;,
+      &quot;name&quot;: &quot;өвчтөн нэрийг нь санахгүй&quot;,
+      &quot;dose&quot;: &quot;өөр үе&quot;,
+      &quot;route&quot;: &quot;нэрийг нь&quot;,
+      &quot;time&quot;: &quot;өөр үе&quot;,
+      &quot;frequency&quot;: &quot;өөр үе&quot;,
+      &quot;evidence&quot;: [
+        {
+          &quot;source_unit&quot;: &quot;U4&quot;,
+          &quot;quote&quot;: &quot;Өвчтөн нэрийг нь санахгүй эм уусан гэж хэлсэн.&quot;
+        }
+      ]
+    },
+    {
+      &quot;role&quot;: &quot;mixed_or_unclear&quot;,
+      &quot;name&quot;: &quot;харшлыг асуугаагүй&quot;,
+      &quot;dose&quot;: &quot;өөр үе&quot;,
+      &quot;route&quot;: &quot;нэрийг нь&quot;,
+      &quot;time&quot;: &quot;өөр үе&quot;,
+      &quot;frequency&quot;: &quot;өөр үе&quot;,
+      &quot;evidence&quot;: [
+        {
+          &quot;source_unit&quot;: &quot;U5&quot;,
+          &quot;quote&quot;: &quot;Харшлыг асуугаагүй.&quot;
+        },
+        {
+          &quot;source_unit&quot;: &quot;U6&quot;,
+          &quot;quote&quot;: &quot;Өмнөх тэмдэглэлд харшлын түүх тодорхойгүй гэж бичсэн.&quot;
+        }
+      ]
+    }
+  ],
+  &quot;allergies&quot;: [
+    {
+      &quot;statement&quot;: &quot;Харшлыг асуугаагүй&quot;,
+      &quot;evidence&quot;: [
+        {
+          &quot;source_unit&quot;: &quot;U5&quot;,
+          &quot;quote&quot;: &quot;Харшлыг асуугаагүй.&quot;
+        },
+        {
+          &quot;source_unit&quot;: &quot;U6&quot;,
+          &quot;quote&quot;: &quot;Өмнөх тэмдэглэлд харшлын түүх тодорхойгүй гэж бичсэн.&quot;
+        }
+      ]
+    }
+  ],
+  &quot;medication_context&quot;: [
+    {
+      &quot;statement&quot;: &quot;today&#x27;s dose not asked&quot;,
+      &quot;evidence&quot;: [
+        {
+          &quot;source_unit&quot;: &quot;U1&quot;,
+          &quot;quote&quot;: &quot;Тогтмол амлодипин 5 мг өдөрт нэг удаа уудаг, харин энэ үзлэгээр парацетамол 500 мг амаар 10:15-д өгөснө.&quot;
+        }
+      ]
+    },
+    {
+      &quot;statement&quot;: &quot;no other treatment&quot;,
+      &quot;evidence&quot;: [
+        {
+          &quot;source_unit&quot;: &quot;U1&quot;,
+          &quot;quote&quot;: &quot;Тогтмол амлодипин 5 мг өдөрт нэг удаа уудаг, харин энэ үзлэгээр парацетамол 500 мг амаар 10:15-д өгөснө.&quot;
+        }
+      ]
+    }
+  ]
+}</pre><pre>{
+  &quot;source_mapping&quot;: {
+    &quot;U1&quot;: {
+      &quot;id&quot;: 1,
+      &quot;start&quot;: 0,
+      &quot;end&quot;: 103,
+      &quot;text&quot;: &quot;Тогтмол амлодипин 5 мг өдөрт нэг удаа уудаг, харин энэ үзлэгээр парацетамол 500 мг амаар 10:15-д өгсөн.&quot;,
+      &quot;model_text&quot;: &quot;Тогтмол амлодипин 5 мг өдөрт нэг удаа уудаг, харин энэ үзлэгээр парацетамол 500 мг амаар 10:15-д өгсөн.&quot;
+    },
+    &quot;U2&quot;: {
+      &quot;id&quot;: 2,
+      &quot;start&quot;: 104,
+      &quot;end&quot;: 146,
+      &quot;text&quot;: &quot;Ибупрофен 200 мг амаар өгөхөөр төлөвлөсөн.&quot;,
+      &quot;model_text&quot;: &quot;Ибупрофен 200 мг амаар өгөхөөр төлөвлөсөн.&quot;
+    },
+    &quot;U3&quot;: {
+      &quot;id&quot;: 3,
+      &quot;start&quot;: 147,
+      &quot;end&quot;: 166,
+      &quot;text&quot;: &quot;Диклофенак өгөөгүй.&quot;,
+      &quot;model_text&quot;: &quot;Диклофенак өгөөгүй.&quot;
+    },
+    &quot;U4&quot;: {
+      &quot;id&quot;: 4,
+      &quot;start&quot;: 167,
+      &quot;end&quot;: 213,
+      &quot;text&quot;: &quot;Өвчтөн нэрийг нь санахгүй эм уусан гэж хэлсэн.&quot;,
+      &quot;model_text&quot;: &quot;Өвчтөн нэрийг нь санахгүй эм уусан гэж хэлсэн.&quot;
+    },
+    &quot;U5&quot;: {
+      &quot;id&quot;: 5,
+      &quot;start&quot;: 214,
+      &quot;end&quot;: 233,
+      &quot;text&quot;: &quot;Харшлыг асуугаагүй.&quot;,
+      &quot;model_text&quot;: &quot;Харшлыг асуугаагүй.&quot;
+    },
+    &quot;U6&quot;: {
+      &quot;id&quot;: 6,
+      &quot;start&quot;: 234,
+      &quot;end&quot;: 287,
+      &quot;text&quot;: &quot;Өмнөх тэмдэглэлд харшлын түүх тодорхойгүй гэж бичсэн.&quot;,
+      &quot;model_text&quot;: &quot;Өмнөх тэмдэглэлд харшлын түүх тодорхойгүй гэж бичсэн.&quot;
+    }
+  },
+  &quot;evidence_errors&quot;: [
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 0,
+      &quot;type&quot;: &quot;quote_mismatch&quot;,
+      &quot;evidence&quot;: {
+        &quot;source_unit&quot;: &quot;U1&quot;,
+        &quot;quote&quot;: &quot;Тогтмол амлодипин 5 мг өдөрт нэг удаа уудаг, харин энэ үзлэгээр парацетамол 500 мг амаар 10:15-д өгөснө.&quot;
+      }
+    },
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 1,
+      &quot;type&quot;: &quot;quote_mismatch&quot;,
+      &quot;evidence&quot;: {
+        &quot;source_unit&quot;: &quot;U1&quot;,
+        &quot;quote&quot;: &quot;Тогтмол амлодипин 5 мг өдөрт нэг удаа уудаг, харин энэ үзлэгээр парацетамол 500 мг амаар 10:15-д өгөснө.&quot;
+      }
+    },
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 2,
+      &quot;type&quot;: &quot;detail_not_in_linked_quote&quot;,
+      &quot;detail&quot;: &quot;name&quot;,
+      &quot;value&quot;: &quot;ибупрофен&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 2,
+      &quot;type&quot;: &quot;detail_not_in_linked_quote&quot;,
+      &quot;detail&quot;: &quot;time&quot;,
+      &quot;value&quot;: &quot;өөр үе&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 2,
+      &quot;type&quot;: &quot;detail_not_in_linked_quote&quot;,
+      &quot;detail&quot;: &quot;frequency&quot;,
+      &quot;value&quot;: &quot;нэг удаа&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 3,
+      &quot;type&quot;: &quot;detail_not_in_linked_quote&quot;,
+      &quot;detail&quot;: &quot;name&quot;,
+      &quot;value&quot;: &quot;диклофенак&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 3,
+      &quot;type&quot;: &quot;detail_not_in_linked_quote&quot;,
+      &quot;detail&quot;: &quot;dose&quot;,
+      &quot;value&quot;: &quot;өөр үе&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 3,
+      &quot;type&quot;: &quot;detail_not_in_linked_quote&quot;,
+      &quot;detail&quot;: &quot;time&quot;,
+      &quot;value&quot;: &quot;өөр үе&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 3,
+      &quot;type&quot;: &quot;detail_not_in_linked_quote&quot;,
+      &quot;detail&quot;: &quot;frequency&quot;,
+      &quot;value&quot;: &quot;өөр үе&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 4,
+      &quot;type&quot;: &quot;detail_not_in_linked_quote&quot;,
+      &quot;detail&quot;: &quot;name&quot;,
+      &quot;value&quot;: &quot;өвчтөн нэрийг нь санахгүй&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 4,
+      &quot;type&quot;: &quot;detail_not_in_linked_quote&quot;,
+      &quot;detail&quot;: &quot;dose&quot;,
+      &quot;value&quot;: &quot;өөр үе&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 4,
+      &quot;type&quot;: &quot;detail_not_in_linked_quote&quot;,
+      &quot;detail&quot;: &quot;time&quot;,
+      &quot;value&quot;: &quot;өөр үе&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 4,
+      &quot;type&quot;: &quot;detail_not_in_linked_quote&quot;,
+      &quot;detail&quot;: &quot;frequency&quot;,
+      &quot;value&quot;: &quot;өөр үе&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 5,
+      &quot;type&quot;: &quot;detail_not_in_linked_quote&quot;,
+      &quot;detail&quot;: &quot;name&quot;,
+      &quot;value&quot;: &quot;харшлыг асуугаагүй&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 5,
+      &quot;type&quot;: &quot;detail_not_in_linked_quote&quot;,
+      &quot;detail&quot;: &quot;dose&quot;,
+      &quot;value&quot;: &quot;өөр үе&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 5,
+      &quot;type&quot;: &quot;detail_not_in_linked_quote&quot;,
+      &quot;detail&quot;: &quot;route&quot;,
+      &quot;value&quot;: &quot;нэрийг нь&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 5,
+      &quot;type&quot;: &quot;detail_not_in_linked_quote&quot;,
+      &quot;detail&quot;: &quot;time&quot;,
+      &quot;value&quot;: &quot;өөр үе&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 5,
+      &quot;type&quot;: &quot;detail_not_in_linked_quote&quot;,
+      &quot;detail&quot;: &quot;frequency&quot;,
+      &quot;value&quot;: &quot;өөр үе&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;allergies&quot;,
+      &quot;index&quot;: 0,
+      &quot;type&quot;: &quot;statement_not_intact_unit&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medication_context&quot;,
+      &quot;index&quot;: 0,
+      &quot;type&quot;: &quot;quote_mismatch&quot;,
+      &quot;evidence&quot;: {
+        &quot;source_unit&quot;: &quot;U1&quot;,
+        &quot;quote&quot;: &quot;Тогтмол амлодипин 5 мг өдөрт нэг удаа уудаг, харин энэ үзлэгээр парацетамол 500 мг амаар 10:15-д өгөснө.&quot;
+      }
+    },
+    {
+      &quot;kind&quot;: &quot;medication_context&quot;,
+      &quot;index&quot;: 0,
+      &quot;type&quot;: &quot;detail_not_in_linked_quote&quot;,
+      &quot;detail&quot;: &quot;statement&quot;,
+      &quot;value&quot;: &quot;today&#x27;s dose not asked&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medication_context&quot;,
+      &quot;index&quot;: 0,
+      &quot;type&quot;: &quot;statement_not_intact_unit&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medication_context&quot;,
+      &quot;index&quot;: 1,
+      &quot;type&quot;: &quot;quote_mismatch&quot;,
+      &quot;evidence&quot;: {
+        &quot;source_unit&quot;: &quot;U1&quot;,
+        &quot;quote&quot;: &quot;Тогтмол амлодипин 5 мг өдөрт нэг удаа уудаг, харин энэ үзлэгээр парацетамол 500 мг амаар 10:15-д өгөснө.&quot;
+      }
+    },
+    {
+      &quot;kind&quot;: &quot;medication_context&quot;,
+      &quot;index&quot;: 1,
+      &quot;type&quot;: &quot;detail_not_in_linked_quote&quot;,
+      &quot;detail&quot;: &quot;statement&quot;,
+      &quot;value&quot;: &quot;no other treatment&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medication_context&quot;,
+      &quot;index&quot;: 1,
+      &quot;type&quot;: &quot;statement_not_intact_unit&quot;
+    }
+  ],
+  &quot;review_flags&quot;: [
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 0,
+      &quot;type&quot;: &quot;drug_detail_role_association_requires_review&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 1,
+      &quot;type&quot;: &quot;drug_detail_role_association_requires_review&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 2,
+      &quot;type&quot;: &quot;drug_detail_role_association_requires_review&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 3,
+      &quot;type&quot;: &quot;drug_detail_role_association_requires_review&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 4,
+      &quot;type&quot;: &quot;drug_detail_role_association_requires_review&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 5,
+      &quot;type&quot;: &quot;drug_detail_role_association_requires_review&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 5,
+      &quot;type&quot;: &quot;cross_unit_association_requires_review&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 5,
+      &quot;type&quot;: &quot;unclear_role_requires_review&quot;
+    }
+  ]
+}</pre></details></section>
+</div>
+</details>
+<h3>Prompt revision 2</h3><div class="grid">
+<section><h3>A — per-unit roles</h3><p>4.095 seconds; structural error: None; lexical evidence valid: True</p><h4>regular_medication (1 units)</h4><p>U1: Тогтмол амлодипин 5 мг өдөрт нэг удаа уудаг, харин энэ үзлэгээр парацетамол 500 мг амаар 10:15-д өгсөн.</p><h4>planned_or_prescribed_treatment (1 units)</h4><p>U2: Ибупрофен 200 мг амаар өгөхөөр төлөвлөсөн.</p><h4>explicitly_not_administered (1 units)</h4><p>U3: Диклофенак өгөөгүй.</p><h4>allergy_statement (1 units)</h4><p>U5: Харшлыг асуугаагүй.</p><details><summary>mixed_or_unclear (1 units) — REVIEW REQUIRED; not discarded</summary><p>U4: Өвчтөн нэрийг нь санахгүй эм уусан гэж хэлсэн.</p></details><details><summary>other (1 units)</summary><p>U6: Өмнөх тэмдэглэлд харшлын түүх тодорхойгүй гэж бичсэн.</p></details>
+<details><summary>Complete raw JSON, original units / offsets and validation flags</summary><pre>{
+  &quot;U1&quot;: &quot;regular_medication&quot;,
+  &quot;U2&quot;: &quot;planned_or_prescribed_treatment&quot;,
+  &quot;U3&quot;: &quot;explicitly_not_administered&quot;,
+  &quot;U4&quot;: &quot;mixed_or_unclear&quot;,
+  &quot;U5&quot;: &quot;allergy_statement&quot;,
+  &quot;U6&quot;: &quot;other&quot;
+}</pre><pre>{
+  &quot;source_mapping&quot;: {
+    &quot;U1&quot;: {
+      &quot;id&quot;: 1,
+      &quot;start&quot;: 0,
+      &quot;end&quot;: 103,
+      &quot;text&quot;: &quot;Тогтмол амлодипин 5 мг өдөрт нэг удаа уудаг, харин энэ үзлэгээр парацетамол 500 мг амаар 10:15-д өгсөн.&quot;,
+      &quot;model_text&quot;: &quot;Тогтмол амлодипин 5 мг өдөрт нэг удаа уудаг, харин энэ үзлэгээр парацетамол 500 мг амаар 10:15-д өгсөн.&quot;
+    },
+    &quot;U2&quot;: {
+      &quot;id&quot;: 2,
+      &quot;start&quot;: 104,
+      &quot;end&quot;: 146,
+      &quot;text&quot;: &quot;Ибупрофен 200 мг амаар өгөхөөр төлөвлөсөн.&quot;,
+      &quot;model_text&quot;: &quot;Ибупрофен 200 мг амаар өгөхөөр төлөвлөсөн.&quot;
+    },
+    &quot;U3&quot;: {
+      &quot;id&quot;: 3,
+      &quot;start&quot;: 147,
+      &quot;end&quot;: 166,
+      &quot;text&quot;: &quot;Диклофенак өгөөгүй.&quot;,
+      &quot;model_text&quot;: &quot;Диклофенак өгөөгүй.&quot;
+    },
+    &quot;U4&quot;: {
+      &quot;id&quot;: 4,
+      &quot;start&quot;: 167,
+      &quot;end&quot;: 213,
+      &quot;text&quot;: &quot;Өвчтөн нэрийг нь санахгүй эм уусан гэж хэлсэн.&quot;,
+      &quot;model_text&quot;: &quot;Өвчтөн нэрийг нь санахгүй эм уусан гэж хэлсэн.&quot;
+    },
+    &quot;U5&quot;: {
+      &quot;id&quot;: 5,
+      &quot;start&quot;: 214,
+      &quot;end&quot;: 233,
+      &quot;text&quot;: &quot;Харшлыг асуугаагүй.&quot;,
+      &quot;model_text&quot;: &quot;Харшлыг асуугаагүй.&quot;
+    },
+    &quot;U6&quot;: {
+      &quot;id&quot;: 6,
+      &quot;start&quot;: 234,
+      &quot;end&quot;: 287,
+      &quot;text&quot;: &quot;Өмнөх тэмдэглэлд харшлын түүх тодорхойгүй гэж бичсэн.&quot;,
+      &quot;model_text&quot;: &quot;Өмнөх тэмдэглэлд харшлын түүх тодорхойгүй гэж бичсэн.&quot;
+    }
+  },
+  &quot;evidence_errors&quot;: [],
+  &quot;review_flags&quot;: [
+    {
+      &quot;source_unit&quot;: &quot;U4&quot;,
+      &quot;type&quot;: &quot;mixed_or_unclear_requires_review&quot;
+    }
+  ]
+}</pre></details></section>
+<section><h3>B — proposed values and evidence</h3><p>34.348 seconds; structural error: None; lexical evidence valid: False</p><p class="notice">Proposals only. Evidence errors and association checks require correction/review; no row is automatically accepted.</p><h4>medications</h4><div class="proposal"><p><b>role: </b>regular_medication</p><p><b>name: </b>амлодипин</p><p><b>dose: </b>5 мг</p><p><b>route: </b>өдөрт нэг удаа</p><p><b>time: </b>10:15</p><p><b>frequency: </b>нэг удаа өдөрт</p><details><summary>Linked evidence: U1</summary><pre>[
+  {
+    &quot;source_unit&quot;: &quot;U1&quot;,
+    &quot;quote&quot;: &quot;Тогтмол амлодипин 5 мг өдөрт нэг удаа уудаг, харин энэ үзлэгээр парацетамол 500 мг амаар 10:15-д өгсөн.&quot;
+  }
+]</pre></details></div><div class="proposal"><p><b>role: </b>planned_or_prescribed_treatment</p><p><b>name: </b>парацетамол</p><p><b>dose: </b>500 мг</p><p><b>route: </b>амаар</p><p><b>time: </b>10:15</p><p><b>frequency: </b>нэг удаа өдөрт</p><details><summary>Linked evidence: U1</summary><pre>[
+  {
+    &quot;source_unit&quot;: &quot;U1&quot;,
+    &quot;quote&quot;: &quot;Тогтмол амлодипин 5 мг өдөрт нэг удаа уудаг, харин энэ үзлэгээр парацетамол 500 мг амаар 10:15-д өгсөн.&quot;
+  }
+]</pre></details></div><div class="proposal"><p><b>role: </b>historical_medication</p><p><b>name: </b>диклофенак</p><p><b>dose: </b>өгөөгүй</p><p><b>route: </b>өгөөгүй</p><p><b>time: </b>өгөөгүй</p><p><b>frequency: </b>өгөөгүй</p><details><summary>Linked evidence: U3</summary><pre>[
+  {
+    &quot;source_unit&quot;: &quot;U3&quot;,
+    &quot;quote&quot;: &quot;Диклофенак өгөөгүй.&quot;
+  }
+]</pre></details></div><h4>allergies</h4><div class="proposal"><p><b>statement: </b>Харшлыг асуугаагүй</p><details><summary>Linked evidence: U5</summary><pre>[
+  {
+    &quot;source_unit&quot;: &quot;U5&quot;,
+    &quot;quote&quot;: &quot;Харшлыг асуугаагүй.&quot;
+  }
+]</pre></details></div><h4>medication_context</h4><div class="proposal"><p><b>statement: </b>Өвчтөн нэрийг нь санахгүй эм уусан гэж хэлсэн.</p><details><summary>Linked evidence: U4</summary><pre>[
+  {
+    &quot;source_unit&quot;: &quot;U4&quot;,
+    &quot;quote&quot;: &quot;Өвчтөн нэрийг нь санахгүй эм уусан гэж хэлсэн.&quot;
+  }
+]</pre></details></div>
+<details><summary>Complete raw JSON, original units / offsets and validation flags</summary><pre>{
+  &quot;medications&quot;: [
+    {
+      &quot;role&quot;: &quot;regular_medication&quot;,
+      &quot;name&quot;: &quot;амлодипин&quot;,
+      &quot;dose&quot;: &quot;5 мг&quot;,
+      &quot;route&quot;: &quot;өдөрт нэг удаа&quot;,
+      &quot;time&quot;: &quot;10:15&quot;,
+      &quot;frequency&quot;: &quot;нэг удаа өдөрт&quot;,
+      &quot;evidence&quot;: [
+        {
+          &quot;source_unit&quot;: &quot;U1&quot;,
+          &quot;quote&quot;: &quot;Тогтмол амлодипин 5 мг өдөрт нэг удаа уудаг, харин энэ үзлэгээр парацетамол 500 мг амаар 10:15-д өгсөн.&quot;
+        }
+      ]
+    },
+    {
+      &quot;role&quot;: &quot;planned_or_prescribed_treatment&quot;,
+      &quot;name&quot;: &quot;парацетамол&quot;,
+      &quot;dose&quot;: &quot;500 мг&quot;,
+      &quot;route&quot;: &quot;амаар&quot;,
+      &quot;time&quot;: &quot;10:15&quot;,
+      &quot;frequency&quot;: &quot;нэг удаа өдөрт&quot;,
+      &quot;evidence&quot;: [
+        {
+          &quot;source_unit&quot;: &quot;U1&quot;,
+          &quot;quote&quot;: &quot;Тогтмол амлодипин 5 мг өдөрт нэг удаа уудаг, харин энэ үзлэгээр парацетамол 500 мг амаар 10:15-д өгсөн.&quot;
+        }
+      ]
+    },
+    {
+      &quot;role&quot;: &quot;historical_medication&quot;,
+      &quot;name&quot;: &quot;диклофенак&quot;,
+      &quot;dose&quot;: &quot;өгөөгүй&quot;,
+      &quot;route&quot;: &quot;өгөөгүй&quot;,
+      &quot;time&quot;: &quot;өгөөгүй&quot;,
+      &quot;frequency&quot;: &quot;өгөөгүй&quot;,
+      &quot;evidence&quot;: [
+        {
+          &quot;source_unit&quot;: &quot;U3&quot;,
+          &quot;quote&quot;: &quot;Диклофенак өгөөгүй.&quot;
+        }
+      ]
+    }
+  ],
+  &quot;allergies&quot;: [
+    {
+      &quot;statement&quot;: &quot;Харшлыг асуугаагүй&quot;,
+      &quot;evidence&quot;: [
+        {
+          &quot;source_unit&quot;: &quot;U5&quot;,
+          &quot;quote&quot;: &quot;Харшлыг асуугаагүй.&quot;
+        }
+      ]
+    }
+  ],
+  &quot;medication_context&quot;: [
+    {
+      &quot;statement&quot;: &quot;Өвчтөн нэрийг нь санахгүй эм уусан гэж хэлсэн.&quot;,
+      &quot;evidence&quot;: [
+        {
+          &quot;source_unit&quot;: &quot;U4&quot;,
+          &quot;quote&quot;: &quot;Өвчтөн нэрийг нь санахгүй эм уусан гэж хэлсэн.&quot;
+        }
+      ]
+    }
+  ]
+}</pre><pre>{
+  &quot;source_mapping&quot;: {
+    &quot;U1&quot;: {
+      &quot;id&quot;: 1,
+      &quot;start&quot;: 0,
+      &quot;end&quot;: 103,
+      &quot;text&quot;: &quot;Тогтмол амлодипин 5 мг өдөрт нэг удаа уудаг, харин энэ үзлэгээр парацетамол 500 мг амаар 10:15-д өгсөн.&quot;,
+      &quot;model_text&quot;: &quot;Тогтмол амлодипин 5 мг өдөрт нэг удаа уудаг, харин энэ үзлэгээр парацетамол 500 мг амаар 10:15-д өгсөн.&quot;
+    },
+    &quot;U2&quot;: {
+      &quot;id&quot;: 2,
+      &quot;start&quot;: 104,
+      &quot;end&quot;: 146,
+      &quot;text&quot;: &quot;Ибупрофен 200 мг амаар өгөхөөр төлөвлөсөн.&quot;,
+      &quot;model_text&quot;: &quot;Ибупрофен 200 мг амаар өгөхөөр төлөвлөсөн.&quot;
+    },
+    &quot;U3&quot;: {
+      &quot;id&quot;: 3,
+      &quot;start&quot;: 147,
+      &quot;end&quot;: 166,
+      &quot;text&quot;: &quot;Диклофенак өгөөгүй.&quot;,
+      &quot;model_text&quot;: &quot;Диклофенак өгөөгүй.&quot;
+    },
+    &quot;U4&quot;: {
+      &quot;id&quot;: 4,
+      &quot;start&quot;: 167,
+      &quot;end&quot;: 213,
+      &quot;text&quot;: &quot;Өвчтөн нэрийг нь санахгүй эм уусан гэж хэлсэн.&quot;,
+      &quot;model_text&quot;: &quot;Өвчтөн нэрийг нь санахгүй эм уусан гэж хэлсэн.&quot;
+    },
+    &quot;U5&quot;: {
+      &quot;id&quot;: 5,
+      &quot;start&quot;: 214,
+      &quot;end&quot;: 233,
+      &quot;text&quot;: &quot;Харшлыг асуугаагүй.&quot;,
+      &quot;model_text&quot;: &quot;Харшлыг асуугаагүй.&quot;
+    },
+    &quot;U6&quot;: {
+      &quot;id&quot;: 6,
+      &quot;start&quot;: 234,
+      &quot;end&quot;: 287,
+      &quot;text&quot;: &quot;Өмнөх тэмдэглэлд харшлын түүх тодорхойгүй гэж бичсэн.&quot;,
+      &quot;model_text&quot;: &quot;Өмнөх тэмдэглэлд харшлын түүх тодорхойгүй гэж бичсэн.&quot;
+    }
+  },
+  &quot;evidence_errors&quot;: [
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 0,
+      &quot;type&quot;: &quot;detail_not_in_linked_quote&quot;,
+      &quot;detail&quot;: &quot;frequency&quot;,
+      &quot;value&quot;: &quot;нэг удаа өдөрт&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 1,
+      &quot;type&quot;: &quot;detail_not_in_linked_quote&quot;,
+      &quot;detail&quot;: &quot;frequency&quot;,
+      &quot;value&quot;: &quot;нэг удаа өдөрт&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 2,
+      &quot;type&quot;: &quot;detail_not_in_linked_quote&quot;,
+      &quot;detail&quot;: &quot;name&quot;,
+      &quot;value&quot;: &quot;диклофенак&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;allergies&quot;,
+      &quot;index&quot;: 0,
+      &quot;type&quot;: &quot;statement_not_intact_unit&quot;
+    }
+  ],
+  &quot;review_flags&quot;: [
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 0,
+      &quot;type&quot;: &quot;drug_detail_role_association_requires_review&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 1,
+      &quot;type&quot;: &quot;drug_detail_role_association_requires_review&quot;
+    },
+    {
+      &quot;kind&quot;: &quot;medications&quot;,
+      &quot;index&quot;: 2,
+      &quot;type&quot;: &quot;drug_detail_role_association_requires_review&quot;
+    }
+  ]
+}</pre></details></section>
+</div>
+<div class="review"><strong>Clinician adjudication — unfilled:</strong> recovered / omitted facts; wrong roles or associations; allergy wording; unsupported proposals; mixed items; corrections required. Reviewer/date: __________. This sheet does not update review status.</div>
+</html>

@@ -103,3 +103,7 @@ See [readiness handoff](readiness/READINESS.md) for the cold offline test, hosti
 ## Bounded extraction recovery
 
 [Recovery audit, controlled results and concise printing](docs/extraction-recovery-v06.md): the installed 4B Thinking-2507 comparator and one five-group 1.7B design both remained unsuitable for broad v0.6 assignment on unreviewed development fixtures. **Serving defaults are unchanged.** Exact/missing/extra assignments, all requests and raw responses are preserved. A normally completed DEV-002 print fixture now uses two readable pages, separately from the three-page long-text stress check. No clinical validation, training, new model download or deployment is implied.
+
+## Medication/allergy representation comparison
+
+[Concise comparison report](evaluation/medication-v1/REPORT.md) and [clinician review sheet](evaluation/medication-v1/clinician-review.html): source-unit roles versus structured values/evidence on four unreviewed fictional development notes, using the same installed 1.7B model. Both first runs and the single prompt revisions are retained. **Neither candidate is integrated; the full v0.6 application and defaults remain unchanged.** [Detailed audit and fine-tuning/model-selection implications](docs/medication-representation-comparison.md) preserve both as subsequent options. No training, replacement-model download or deployment ran.

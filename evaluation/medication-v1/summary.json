@@ -1,0 +1,2001 @@
+{
+  "status": "Mechanical diagnostics against frozen unreviewed expectations; not clinical accuracy or cross-representation accuracy comparison",
+  "runs": [
+    {
+      "revision": 1,
+      "candidate": "A",
+      "case_id": "DEV-002",
+      "repeat": false,
+      "error": null,
+      "structural_valid": true,
+      "evidence_valid": true,
+      "evidence_errors": [],
+      "wall_seconds": 24.412,
+      "runtime_seconds": {
+        "load_duration": 3.6072,
+        "prompt_eval_duration": 4.7288,
+        "eval_duration": 16.0426,
+        "total_duration": 24.3985
+      },
+      "prompt_tokens": 1896,
+      "output_tokens": 378,
+      "cold_observed": true,
+      "review_flags": [
+        {
+          "source_unit": "U1",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U6",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U7",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U10",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U12",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U13",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U14",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U15",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U16",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U17",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U18",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U22",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U23",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U24",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U25",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U26",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U27",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U29",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U30",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U31",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U32",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U33",
+          "type": "mixed_or_unclear_requires_review"
+        }
+      ],
+      "role_differences": {
+        "U1": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U6": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U7": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U8": {
+          "expected": "other",
+          "actual": "explicitly_not_administered"
+        },
+        "U9": {
+          "expected": "other",
+          "actual": "explicitly_not_administered"
+        },
+        "U10": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U11": {
+          "expected": "regular_medication",
+          "actual": "administered_treatment"
+        },
+        "U12": {
+          "expected": "regular_medication",
+          "actual": "mixed_or_unclear"
+        },
+        "U13": {
+          "expected": "allergy_statement",
+          "actual": "mixed_or_unclear"
+        },
+        "U14": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U15": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U16": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U17": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U18": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U19": {
+          "expected": "other",
+          "actual": "historical_medication"
+        },
+        "U22": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U23": {
+          "expected": "explicitly_not_administered",
+          "actual": "mixed_or_unclear"
+        },
+        "U24": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U25": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U26": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U27": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U29": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U30": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U31": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U32": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U33": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        }
+      },
+      "relevant_units_correctly_organized": [
+        "U21"
+      ],
+      "relevant_units_in_other": [],
+      "relevant_units_requiring_mixed_review": [
+        "U12",
+        "U13",
+        "U23"
+      ],
+      "other_units_misclassified": [
+        "U1",
+        "U6",
+        "U7",
+        "U8",
+        "U9",
+        "U10",
+        "U14",
+        "U15",
+        "U16",
+        "U17",
+        "U18",
+        "U19",
+        "U22",
+        "U24",
+        "U25",
+        "U26",
+        "U27",
+        "U29",
+        "U30",
+        "U31",
+        "U32",
+        "U33"
+      ]
+    },
+    {
+      "revision": 1,
+      "candidate": "B",
+      "case_id": "DEV-002",
+      "repeat": false,
+      "error": null,
+      "structural_valid": true,
+      "evidence_valid": false,
+      "evidence_errors": [
+        {
+          "kind": "medications",
+          "index": 0,
+          "type": "detail_not_in_linked_quote",
+          "detail": "time",
+          "value": "өнөөдрийн тунгаа"
+        },
+        {
+          "kind": "medications",
+          "index": 1,
+          "type": "quote_mismatch",
+          "evidence": {
+            "source_unit": "U21",
+            "quote": "Парацетамол 500 мг амаар нэг удаа өгсөн."
+          }
+        },
+        {
+          "kind": "medications",
+          "index": 1,
+          "type": "detail_not_in_linked_quote",
+          "detail": "time",
+          "value": "10:15-д"
+        },
+        {
+          "kind": "allergies",
+          "index": 0,
+          "type": "statement_not_intact_unit"
+        },
+        {
+          "kind": "medication_context",
+          "index": 0,
+          "type": "statement_not_intact_unit"
+        },
+        {
+          "kind": "medication_context",
+          "index": 1,
+          "type": "statement_not_intact_unit"
+        }
+      ],
+      "wall_seconds": 16.815,
+      "runtime_seconds": {
+        "load_duration": 0.0099,
+        "prompt_eval_duration": 3.9709,
+        "eval_duration": 12.725,
+        "total_duration": 16.8081
+      },
+      "prompt_tokens": 2053,
+      "output_tokens": 563,
+      "cold_observed": false,
+      "review_flags": [
+        {
+          "kind": "medications",
+          "index": 0,
+          "type": "drug_detail_role_association_requires_review"
+        },
+        {
+          "kind": "medications",
+          "index": 1,
+          "type": "drug_detail_role_association_requires_review"
+        }
+      ],
+      "proposed_medication_entries": 2,
+      "proposed_allergy_statements": 1,
+      "allergy_exact_expected_statements": [],
+      "allergy_expected_not_intact": [
+        "Эмийн харшилгүй гэж хэлэв."
+      ]
+    },
+    {
+      "revision": 1,
+      "candidate": "B",
+      "case_id": "dev-003",
+      "repeat": false,
+      "error": null,
+      "structural_valid": true,
+      "evidence_valid": false,
+      "evidence_errors": [
+        {
+          "kind": "medications",
+          "index": 0,
+          "type": "detail_not_in_linked_quote",
+          "detail": "name",
+          "value": "Unknown"
+        },
+        {
+          "kind": "allergies",
+          "index": 0,
+          "type": "statement_not_intact_unit"
+        },
+        {
+          "kind": "allergies",
+          "index": 1,
+          "type": "statement_not_intact_unit"
+        },
+        {
+          "kind": "allergies",
+          "index": 2,
+          "type": "statement_not_intact_unit"
+        },
+        {
+          "kind": "allergies",
+          "index": 3,
+          "type": "statement_not_intact_unit"
+        },
+        {
+          "kind": "allergies",
+          "index": 4,
+          "type": "statement_not_intact_unit"
+        },
+        {
+          "kind": "allergies",
+          "index": 5,
+          "type": "statement_not_intact_unit"
+        },
+        {
+          "kind": "allergies",
+          "index": 6,
+          "type": "statement_not_intact_unit"
+        },
+        {
+          "kind": "medication_context",
+          "index": 0,
+          "type": "detail_not_in_linked_quote",
+          "detail": "statement",
+          "value": "Today's dose not asked"
+        },
+        {
+          "kind": "medication_context",
+          "index": 0,
+          "type": "statement_not_intact_unit"
+        },
+        {
+          "kind": "medication_context",
+          "index": 1,
+          "type": "detail_not_in_linked_quote",
+          "detail": "statement",
+          "value": "No other treatment"
+        },
+        {
+          "kind": "medication_context",
+          "index": 1,
+          "type": "statement_not_intact_unit"
+        },
+        {
+          "kind": "medication_context",
+          "index": 2,
+          "type": "detail_not_in_linked_quote",
+          "detail": "statement",
+          "value": "No treatment"
+        },
+        {
+          "kind": "medication_context",
+          "index": 2,
+          "type": "statement_not_intact_unit"
+        }
+      ],
+      "wall_seconds": 18.613,
+      "runtime_seconds": {
+        "load_duration": 0.005,
+        "prompt_eval_duration": 0.24,
+        "eval_duration": 18.2308,
+        "total_duration": 18.6088
+      },
+      "prompt_tokens": 721,
+      "output_tokens": 874,
+      "cold_observed": false,
+      "review_flags": [
+        {
+          "kind": "medications",
+          "index": 0,
+          "type": "drug_detail_role_association_requires_review"
+        },
+        {
+          "kind": "medications",
+          "index": 0,
+          "type": "cross_unit_association_requires_review"
+        },
+        {
+          "kind": "medications",
+          "index": 0,
+          "type": "unclear_role_requires_review"
+        }
+      ],
+      "proposed_medication_entries": 1,
+      "proposed_allergy_statements": 7,
+      "allergy_exact_expected_statements": [],
+      "allergy_expected_not_intact": [
+        "Эмийн харшилгүй."
+      ]
+    },
+    {
+      "revision": 1,
+      "candidate": "A",
+      "case_id": "dev-003",
+      "repeat": false,
+      "error": null,
+      "structural_valid": true,
+      "evidence_valid": true,
+      "evidence_errors": [],
+      "wall_seconds": 1.917,
+      "runtime_seconds": {
+        "load_duration": 0.0039,
+        "prompt_eval_duration": 0.6913,
+        "eval_duration": 1.1613,
+        "total_duration": 1.9135
+      },
+      "prompt_tokens": 564,
+      "output_tokens": 59,
+      "cold_observed": false,
+      "review_flags": [],
+      "role_differences": {
+        "U5": {
+          "expected": "allergy_statement",
+          "actual": "other"
+        },
+        "U6": {
+          "expected": "explicitly_not_administered",
+          "actual": "other"
+        }
+      },
+      "relevant_units_correctly_organized": [],
+      "relevant_units_in_other": [
+        "U5",
+        "U6"
+      ],
+      "relevant_units_requiring_mixed_review": [],
+      "other_units_misclassified": []
+    },
+    {
+      "revision": 1,
+      "candidate": "A",
+      "case_id": "dev-004",
+      "repeat": false,
+      "error": null,
+      "structural_valid": true,
+      "evidence_valid": true,
+      "evidence_errors": [],
+      "wall_seconds": 1.357,
+      "runtime_seconds": {
+        "load_duration": 0.0134,
+        "prompt_eval_duration": 0.3118,
+        "eval_duration": 1.0223,
+        "total_duration": 1.3554
+      },
+      "prompt_tokens": 621,
+      "output_tokens": 54,
+      "cold_observed": false,
+      "review_flags": [
+        {
+          "source_unit": "U5",
+          "type": "mixed_or_unclear_requires_review"
+        }
+      ],
+      "role_differences": {
+        "U1": {
+          "expected": "mixed_or_unclear",
+          "actual": "administered_treatment"
+        },
+        "U2": {
+          "expected": "historical_medication",
+          "actual": "administered_treatment"
+        },
+        "U5": {
+          "expected": "allergy_statement",
+          "actual": "mixed_or_unclear"
+        }
+      },
+      "relevant_units_correctly_organized": [],
+      "relevant_units_in_other": [],
+      "relevant_units_requiring_mixed_review": [
+        "U5"
+      ],
+      "other_units_misclassified": []
+    },
+    {
+      "revision": 1,
+      "candidate": "B",
+      "case_id": "dev-004",
+      "repeat": false,
+      "error": null,
+      "structural_valid": true,
+      "evidence_valid": false,
+      "evidence_errors": [
+        {
+          "kind": "medications",
+          "index": 0,
+          "type": "detail_not_in_linked_quote",
+          "detail": "name",
+          "value": "Парацетамол"
+        },
+        {
+          "kind": "medications",
+          "index": 0,
+          "type": "detail_not_in_linked_quote",
+          "detail": "frequency",
+          "value": "өдөрт 3 удаа"
+        },
+        {
+          "kind": "medications",
+          "index": 1,
+          "type": "detail_not_in_linked_quote",
+          "detail": "name",
+          "value": "Амоксициллин"
+        },
+        {
+          "kind": "medications",
+          "index": 1,
+          "type": "detail_not_in_linked_quote",
+          "detail": "time",
+          "value": "өмнөх тэмдэглэлд"
+        }
+      ],
+      "wall_seconds": 12.957,
+      "runtime_seconds": {
+        "load_duration": 0.0021,
+        "prompt_eval_duration": 0.3106,
+        "eval_duration": 12.6037,
+        "total_duration": 12.9482
+      },
+      "prompt_tokens": 778,
+      "output_tokens": 620,
+      "cold_observed": false,
+      "review_flags": [
+        {
+          "kind": "medications",
+          "index": 0,
+          "type": "drug_detail_role_association_requires_review"
+        },
+        {
+          "kind": "medications",
+          "index": 1,
+          "type": "drug_detail_role_association_requires_review"
+        }
+      ],
+      "proposed_medication_entries": 2,
+      "proposed_allergy_statements": 1,
+      "allergy_exact_expected_statements": [
+        "Пенициллинд тууралт гардаг гэж тэмдэглэсэн."
+      ],
+      "allergy_expected_not_intact": []
+    },
+    {
+      "revision": 1,
+      "candidate": "B",
+      "case_id": "probe-med-001",
+      "repeat": false,
+      "error": null,
+      "structural_valid": true,
+      "evidence_valid": false,
+      "evidence_errors": [
+        {
+          "kind": "medications",
+          "index": 0,
+          "type": "quote_mismatch",
+          "evidence": {
+            "source_unit": "U1",
+            "quote": "Тогтмол амлодипин 5 мг өдөрт нэг удаа уудаг, харин энэ үзлэгээр парацетамол 500 мг амаар 10:15-д өгөснө."
+          }
+        },
+        {
+          "kind": "medications",
+          "index": 1,
+          "type": "quote_mismatch",
+          "evidence": {
+            "source_unit": "U1",
+            "quote": "Тогтмол амлодипин 5 мг өдөрт нэг удаа уудаг, харин энэ үзлэгээр парацетамол 500 мг амаар 10:15-д өгөснө."
+          }
+        },
+        {
+          "kind": "medications",
+          "index": 2,
+          "type": "detail_not_in_linked_quote",
+          "detail": "name",
+          "value": "ибупрофен"
+        },
+        {
+          "kind": "medications",
+          "index": 2,
+          "type": "detail_not_in_linked_quote",
+          "detail": "time",
+          "value": "өөр үе"
+        },
+        {
+          "kind": "medications",
+          "index": 2,
+          "type": "detail_not_in_linked_quote",
+          "detail": "frequency",
+          "value": "нэг удаа"
+        },
+        {
+          "kind": "medications",
+          "index": 3,
+          "type": "detail_not_in_linked_quote",
+          "detail": "name",
+          "value": "диклофенак"
+        },
+        {
+          "kind": "medications",
+          "index": 3,
+          "type": "detail_not_in_linked_quote",
+          "detail": "dose",
+          "value": "өөр үе"
+        },
+        {
+          "kind": "medications",
+          "index": 3,
+          "type": "detail_not_in_linked_quote",
+          "detail": "time",
+          "value": "өөр үе"
+        },
+        {
+          "kind": "medications",
+          "index": 3,
+          "type": "detail_not_in_linked_quote",
+          "detail": "frequency",
+          "value": "өөр үе"
+        },
+        {
+          "kind": "medications",
+          "index": 4,
+          "type": "detail_not_in_linked_quote",
+          "detail": "name",
+          "value": "өвчтөн нэрийг нь санахгүй"
+        },
+        {
+          "kind": "medications",
+          "index": 4,
+          "type": "detail_not_in_linked_quote",
+          "detail": "dose",
+          "value": "өөр үе"
+        },
+        {
+          "kind": "medications",
+          "index": 4,
+          "type": "detail_not_in_linked_quote",
+          "detail": "time",
+          "value": "өөр үе"
+        },
+        {
+          "kind": "medications",
+          "index": 4,
+          "type": "detail_not_in_linked_quote",
+          "detail": "frequency",
+          "value": "өөр үе"
+        },
+        {
+          "kind": "medications",
+          "index": 5,
+          "type": "detail_not_in_linked_quote",
+          "detail": "name",
+          "value": "харшлыг асуугаагүй"
+        },
+        {
+          "kind": "medications",
+          "index": 5,
+          "type": "detail_not_in_linked_quote",
+          "detail": "dose",
+          "value": "өөр үе"
+        },
+        {
+          "kind": "medications",
+          "index": 5,
+          "type": "detail_not_in_linked_quote",
+          "detail": "route",
+          "value": "нэрийг нь"
+        },
+        {
+          "kind": "medications",
+          "index": 5,
+          "type": "detail_not_in_linked_quote",
+          "detail": "time",
+          "value": "өөр үе"
+        },
+        {
+          "kind": "medications",
+          "index": 5,
+          "type": "detail_not_in_linked_quote",
+          "detail": "frequency",
+          "value": "өөр үе"
+        },
+        {
+          "kind": "allergies",
+          "index": 0,
+          "type": "statement_not_intact_unit"
+        },
+        {
+          "kind": "medication_context",
+          "index": 0,
+          "type": "quote_mismatch",
+          "evidence": {
+            "source_unit": "U1",
+            "quote": "Тогтмол амлодипин 5 мг өдөрт нэг удаа уудаг, харин энэ үзлэгээр парацетамол 500 мг амаар 10:15-д өгөснө."
+          }
+        },
+        {
+          "kind": "medication_context",
+          "index": 0,
+          "type": "detail_not_in_linked_quote",
+          "detail": "statement",
+          "value": "today's dose not asked"
+        },
+        {
+          "kind": "medication_context",
+          "index": 0,
+          "type": "statement_not_intact_unit"
+        },
+        {
+          "kind": "medication_context",
+          "index": 1,
+          "type": "quote_mismatch",
+          "evidence": {
+            "source_unit": "U1",
+            "quote": "Тогтмол амлодипин 5 мг өдөрт нэг удаа уудаг, харин энэ үзлэгээр парацетамол 500 мг амаар 10:15-д өгөснө."
+          }
+        },
+        {
+          "kind": "medication_context",
+          "index": 1,
+          "type": "detail_not_in_linked_quote",
+          "detail": "statement",
+          "value": "no other treatment"
+        },
+        {
+          "kind": "medication_context",
+          "index": 1,
+          "type": "statement_not_intact_unit"
+        }
+      ],
+      "wall_seconds": 27.886,
+      "runtime_seconds": {
+        "load_duration": 0.0046,
+        "prompt_eval_duration": 0.3635,
+        "eval_duration": 27.4436,
+        "total_duration": 27.8799
+      },
+      "prompt_tokens": 824,
+      "output_tokens": 1317,
+      "cold_observed": false,
+      "review_flags": [
+        {
+          "kind": "medications",
+          "index": 0,
+          "type": "drug_detail_role_association_requires_review"
+        },
+        {
+          "kind": "medications",
+          "index": 1,
+          "type": "drug_detail_role_association_requires_review"
+        },
+        {
+          "kind": "medications",
+          "index": 2,
+          "type": "drug_detail_role_association_requires_review"
+        },
+        {
+          "kind": "medications",
+          "index": 3,
+          "type": "drug_detail_role_association_requires_review"
+        },
+        {
+          "kind": "medications",
+          "index": 4,
+          "type": "drug_detail_role_association_requires_review"
+        },
+        {
+          "kind": "medications",
+          "index": 5,
+          "type": "drug_detail_role_association_requires_review"
+        },
+        {
+          "kind": "medications",
+          "index": 5,
+          "type": "cross_unit_association_requires_review"
+        },
+        {
+          "kind": "medications",
+          "index": 5,
+          "type": "unclear_role_requires_review"
+        }
+      ],
+      "proposed_medication_entries": 6,
+      "proposed_allergy_statements": 1,
+      "allergy_exact_expected_statements": [],
+      "allergy_expected_not_intact": [
+        "Харшлыг асуугаагүй.",
+        "Өмнөх тэмдэглэлд харшлын түүх тодорхойгүй гэж бичсэн."
+      ]
+    },
+    {
+      "revision": 1,
+      "candidate": "A",
+      "case_id": "probe-med-001",
+      "repeat": false,
+      "error": null,
+      "structural_valid": true,
+      "evidence_valid": true,
+      "evidence_errors": [],
+      "wall_seconds": 1.905,
+      "runtime_seconds": {
+        "load_duration": 0.0071,
+        "prompt_eval_duration": 0.3561,
+        "eval_duration": 1.3924,
+        "total_duration": 1.9027
+      },
+      "prompt_tokens": 667,
+      "output_tokens": 72,
+      "cold_observed": false,
+      "review_flags": [
+        {
+          "source_unit": "U5",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U6",
+          "type": "mixed_or_unclear_requires_review"
+        }
+      ],
+      "role_differences": {
+        "U1": {
+          "expected": "mixed_or_unclear",
+          "actual": "administered_treatment"
+        },
+        "U2": {
+          "expected": "planned_or_prescribed_treatment",
+          "actual": "administered_treatment"
+        },
+        "U4": {
+          "expected": "mixed_or_unclear",
+          "actual": "allergy_statement"
+        },
+        "U5": {
+          "expected": "allergy_statement",
+          "actual": "mixed_or_unclear"
+        },
+        "U6": {
+          "expected": "allergy_statement",
+          "actual": "mixed_or_unclear"
+        }
+      },
+      "relevant_units_correctly_organized": [
+        "U3"
+      ],
+      "relevant_units_in_other": [],
+      "relevant_units_requiring_mixed_review": [
+        "U5",
+        "U6"
+      ],
+      "other_units_misclassified": []
+    },
+    {
+      "revision": 1,
+      "candidate": "A",
+      "case_id": "DEV-002",
+      "repeat": true,
+      "error": null,
+      "structural_valid": true,
+      "evidence_valid": true,
+      "evidence_errors": [],
+      "wall_seconds": 10.286,
+      "runtime_seconds": {
+        "load_duration": 0.0022,
+        "prompt_eval_duration": 1.9316,
+        "eval_duration": 8.3074,
+        "total_duration": 10.2575
+      },
+      "prompt_tokens": 1896,
+      "output_tokens": 378,
+      "cold_observed": false,
+      "review_flags": [
+        {
+          "source_unit": "U1",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U6",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U7",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U10",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U12",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U13",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U14",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U15",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U16",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U17",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U18",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U22",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U23",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U24",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U25",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U26",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U27",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U29",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U30",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U31",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U32",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U33",
+          "type": "mixed_or_unclear_requires_review"
+        }
+      ],
+      "role_differences": {
+        "U1": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U6": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U7": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U8": {
+          "expected": "other",
+          "actual": "explicitly_not_administered"
+        },
+        "U9": {
+          "expected": "other",
+          "actual": "explicitly_not_administered"
+        },
+        "U10": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U11": {
+          "expected": "regular_medication",
+          "actual": "administered_treatment"
+        },
+        "U12": {
+          "expected": "regular_medication",
+          "actual": "mixed_or_unclear"
+        },
+        "U13": {
+          "expected": "allergy_statement",
+          "actual": "mixed_or_unclear"
+        },
+        "U14": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U15": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U16": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U17": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U18": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U19": {
+          "expected": "other",
+          "actual": "historical_medication"
+        },
+        "U22": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U23": {
+          "expected": "explicitly_not_administered",
+          "actual": "mixed_or_unclear"
+        },
+        "U24": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U25": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U26": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U27": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U29": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U30": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U31": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U32": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U33": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        }
+      },
+      "relevant_units_correctly_organized": [
+        "U21"
+      ],
+      "relevant_units_in_other": [],
+      "relevant_units_requiring_mixed_review": [
+        "U12",
+        "U13",
+        "U23"
+      ],
+      "other_units_misclassified": [
+        "U1",
+        "U6",
+        "U7",
+        "U8",
+        "U9",
+        "U10",
+        "U14",
+        "U15",
+        "U16",
+        "U17",
+        "U18",
+        "U19",
+        "U22",
+        "U24",
+        "U25",
+        "U26",
+        "U27",
+        "U29",
+        "U30",
+        "U31",
+        "U32",
+        "U33"
+      ]
+    },
+    {
+      "revision": 1,
+      "candidate": "B",
+      "case_id": "DEV-002",
+      "repeat": true,
+      "error": null,
+      "structural_valid": true,
+      "evidence_valid": false,
+      "evidence_errors": [
+        {
+          "kind": "medications",
+          "index": 0,
+          "type": "detail_not_in_linked_quote",
+          "detail": "time",
+          "value": "өнөөдрийн тунгаа"
+        },
+        {
+          "kind": "medications",
+          "index": 1,
+          "type": "quote_mismatch",
+          "evidence": {
+            "source_unit": "U21",
+            "quote": "Парацетамол 500 мг амаар нэг удаа өгсөн."
+          }
+        },
+        {
+          "kind": "medications",
+          "index": 1,
+          "type": "detail_not_in_linked_quote",
+          "detail": "time",
+          "value": "10:15-д"
+        },
+        {
+          "kind": "allergies",
+          "index": 0,
+          "type": "statement_not_intact_unit"
+        },
+        {
+          "kind": "medication_context",
+          "index": 0,
+          "type": "statement_not_intact_unit"
+        },
+        {
+          "kind": "medication_context",
+          "index": 1,
+          "type": "statement_not_intact_unit"
+        }
+      ],
+      "wall_seconds": 15.701,
+      "runtime_seconds": {
+        "load_duration": 0.0083,
+        "prompt_eval_duration": 0.0527,
+        "eval_duration": 15.1528,
+        "total_duration": 15.6895
+      },
+      "prompt_tokens": 2053,
+      "output_tokens": 563,
+      "cold_observed": false,
+      "review_flags": [
+        {
+          "kind": "medications",
+          "index": 0,
+          "type": "drug_detail_role_association_requires_review"
+        },
+        {
+          "kind": "medications",
+          "index": 1,
+          "type": "drug_detail_role_association_requires_review"
+        }
+      ],
+      "proposed_medication_entries": 2,
+      "proposed_allergy_statements": 1,
+      "allergy_exact_expected_statements": [],
+      "allergy_expected_not_intact": [
+        "Эмийн харшилгүй гэж хэлэв."
+      ]
+    },
+    {
+      "revision": 2,
+      "candidate": "A",
+      "case_id": "DEV-002",
+      "repeat": false,
+      "error": null,
+      "structural_valid": true,
+      "evidence_valid": true,
+      "evidence_errors": [],
+      "wall_seconds": 13.018,
+      "runtime_seconds": {
+        "load_duration": 0.0048,
+        "prompt_eval_duration": 3.6573,
+        "eval_duration": 9.2438,
+        "total_duration": 13.0105
+      },
+      "prompt_tokens": 2983,
+      "output_tokens": 399,
+      "cold_observed": false,
+      "review_flags": [
+        {
+          "source_unit": "U3",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U7",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U9",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U13",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U14",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U15",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U16",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U17",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U18",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U20",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U22",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U23",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U24",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U25",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U26",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U27",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U28",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U29",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U30",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U31",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U32",
+          "type": "mixed_or_unclear_requires_review"
+        },
+        {
+          "source_unit": "U33",
+          "type": "mixed_or_unclear_requires_review"
+        }
+      ],
+      "role_differences": {
+        "U1": {
+          "expected": "other",
+          "actual": "regular_medication"
+        },
+        "U3": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U4": {
+          "expected": "other",
+          "actual": "historical_medication"
+        },
+        "U5": {
+          "expected": "other",
+          "actual": "planned_or_prescribed_treatment"
+        },
+        "U6": {
+          "expected": "other",
+          "actual": "administered_treatment"
+        },
+        "U7": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U8": {
+          "expected": "other",
+          "actual": "explicitly_not_administered"
+        },
+        "U9": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U10": {
+          "expected": "other",
+          "actual": "regular_medication"
+        },
+        "U11": {
+          "expected": "regular_medication",
+          "actual": "planned_or_prescribed_treatment"
+        },
+        "U12": {
+          "expected": "regular_medication",
+          "actual": "explicitly_not_administered"
+        },
+        "U13": {
+          "expected": "allergy_statement",
+          "actual": "mixed_or_unclear"
+        },
+        "U14": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U15": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U16": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U17": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U18": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U19": {
+          "expected": "other",
+          "actual": "historical_medication"
+        },
+        "U20": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U21": {
+          "expected": "administered_treatment",
+          "actual": "planned_or_prescribed_treatment"
+        },
+        "U22": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U23": {
+          "expected": "explicitly_not_administered",
+          "actual": "mixed_or_unclear"
+        },
+        "U24": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U25": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U26": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U27": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U28": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U29": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U30": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U31": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U32": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U33": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        }
+      },
+      "relevant_units_correctly_organized": [],
+      "relevant_units_in_other": [],
+      "relevant_units_requiring_mixed_review": [
+        "U13",
+        "U23"
+      ],
+      "other_units_misclassified": [
+        "U1",
+        "U3",
+        "U4",
+        "U5",
+        "U6",
+        "U7",
+        "U8",
+        "U9",
+        "U10",
+        "U14",
+        "U15",
+        "U16",
+        "U17",
+        "U18",
+        "U19",
+        "U20",
+        "U22",
+        "U24",
+        "U25",
+        "U26",
+        "U27",
+        "U28",
+        "U29",
+        "U30",
+        "U31",
+        "U32",
+        "U33"
+      ]
+    },
+    {
+      "revision": 2,
+      "candidate": "B",
+      "case_id": "DEV-002",
+      "repeat": false,
+      "error": null,
+      "structural_valid": true,
+      "evidence_valid": false,
+      "evidence_errors": [
+        {
+          "kind": "medications",
+          "index": 0,
+          "type": "detail_not_in_linked_quote",
+          "detail": "time",
+          "value": "өнөөдрийн тунгаа"
+        }
+      ],
+      "wall_seconds": 13.091,
+      "runtime_seconds": {
+        "load_duration": 0.0043,
+        "prompt_eval_duration": 4.5679,
+        "eval_duration": 8.3262,
+        "total_duration": 13.0796
+      },
+      "prompt_tokens": 3631,
+      "output_tokens": 311,
+      "cold_observed": false,
+      "review_flags": [
+        {
+          "kind": "medications",
+          "index": 0,
+          "type": "drug_detail_role_association_requires_review"
+        }
+      ],
+      "proposed_medication_entries": 1,
+      "proposed_allergy_statements": 1,
+      "allergy_exact_expected_statements": [
+        "Эмийн харшилгүй гэж хэлэв."
+      ],
+      "allergy_expected_not_intact": []
+    },
+    {
+      "revision": 2,
+      "candidate": "B",
+      "case_id": "dev-003",
+      "repeat": false,
+      "error": null,
+      "structural_valid": true,
+      "evidence_valid": false,
+      "evidence_errors": [
+        {
+          "kind": "medications",
+          "index": 0,
+          "type": "detail_not_in_linked_quote",
+          "detail": "name",
+          "value": "Эмийн нэр"
+        },
+        {
+          "kind": "medications",
+          "index": 0,
+          "type": "detail_not_in_linked_quote",
+          "detail": "dose",
+          "value": "Тун"
+        },
+        {
+          "kind": "medications",
+          "index": 0,
+          "type": "detail_not_in_linked_quote",
+          "detail": "route",
+          "value": "Зам"
+        },
+        {
+          "kind": "medications",
+          "index": 0,
+          "type": "detail_not_in_linked_quote",
+          "detail": "time",
+          "value": "Цаг"
+        },
+        {
+          "kind": "medications",
+          "index": 0,
+          "type": "detail_not_in_linked_quote",
+          "detail": "frequency",
+          "value": "Давтамж"
+        },
+        {
+          "kind": "allergies",
+          "index": 0,
+          "type": "detail_not_in_linked_quote",
+          "detail": "statement",
+          "value": "Харшилгүй"
+        },
+        {
+          "kind": "allergies",
+          "index": 0,
+          "type": "statement_not_intact_unit"
+        },
+        {
+          "kind": "medication_context",
+          "index": 0,
+          "type": "detail_not_in_linked_quote",
+          "detail": "statement",
+          "value": "Эм өгөөгүй, эмчилгээ хийгээгүй, өөр эмчилгээ хийгээгүй гэсэн шууд тэмдэглэл."
+        },
+        {
+          "kind": "medication_context",
+          "index": 0,
+          "type": "statement_not_intact_unit"
+        }
+      ],
+      "wall_seconds": 12.347,
+      "runtime_seconds": {
+        "load_duration": 0.0064,
+        "prompt_eval_duration": 0.2651,
+        "eval_duration": 12.0391,
+        "total_duration": 12.332
+      },
+      "prompt_tokens": 2299,
+      "output_tokens": 493,
+      "cold_observed": false,
+      "review_flags": [
+        {
+          "kind": "medications",
+          "index": 0,
+          "type": "drug_detail_role_association_requires_review"
+        },
+        {
+          "kind": "medications",
+          "index": 0,
+          "type": "cross_unit_association_requires_review"
+        }
+      ],
+      "proposed_medication_entries": 1,
+      "proposed_allergy_statements": 1,
+      "allergy_exact_expected_statements": [],
+      "allergy_expected_not_intact": [
+        "Эмийн харшилгүй."
+      ]
+    },
+    {
+      "revision": 2,
+      "candidate": "A",
+      "case_id": "dev-003",
+      "repeat": false,
+      "error": null,
+      "structural_valid": true,
+      "evidence_valid": true,
+      "evidence_errors": [],
+      "wall_seconds": 2.149,
+      "runtime_seconds": {
+        "load_duration": 0.0062,
+        "prompt_eval_duration": 0.2413,
+        "eval_duration": 1.6985,
+        "total_duration": 2.1455
+      },
+      "prompt_tokens": 1651,
+      "output_tokens": 84,
+      "cold_observed": false,
+      "review_flags": [
+        {
+          "source_unit": "U2",
+          "type": "mixed_or_unclear_requires_review"
+        }
+      ],
+      "role_differences": {
+        "U1": {
+          "expected": "other",
+          "actual": "regular_medication"
+        },
+        "U2": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U3": {
+          "expected": "other",
+          "actual": "planned_or_prescribed_treatment"
+        },
+        "U4": {
+          "expected": "other",
+          "actual": "explicitly_not_administered"
+        },
+        "U5": {
+          "expected": "allergy_statement",
+          "actual": "administered_treatment"
+        },
+        "U6": {
+          "expected": "explicitly_not_administered",
+          "actual": "historical_medication"
+        },
+        "U7": {
+          "expected": "other",
+          "actual": "allergy_statement"
+        }
+      },
+      "relevant_units_correctly_organized": [],
+      "relevant_units_in_other": [],
+      "relevant_units_requiring_mixed_review": [],
+      "other_units_misclassified": [
+        "U1",
+        "U2",
+        "U3",
+        "U4",
+        "U7"
+      ]
+    },
+    {
+      "revision": 2,
+      "candidate": "A",
+      "case_id": "dev-004",
+      "repeat": false,
+      "error": null,
+      "structural_valid": true,
+      "evidence_valid": true,
+      "evidence_errors": [],
+      "wall_seconds": 1.568,
+      "runtime_seconds": {
+        "load_duration": 0.0027,
+        "prompt_eval_duration": 0.3179,
+        "eval_duration": 1.2367,
+        "total_duration": 1.5652
+      },
+      "prompt_tokens": 1708,
+      "output_tokens": 62,
+      "cold_observed": false,
+      "review_flags": [
+        {
+          "source_unit": "U3",
+          "type": "mixed_or_unclear_requires_review"
+        }
+      ],
+      "role_differences": {
+        "U1": {
+          "expected": "mixed_or_unclear",
+          "actual": "regular_medication"
+        },
+        "U3": {
+          "expected": "other",
+          "actual": "mixed_or_unclear"
+        },
+        "U4": {
+          "expected": "other",
+          "actual": "planned_or_prescribed_treatment"
+        },
+        "U5": {
+          "expected": "allergy_statement",
+          "actual": "explicitly_not_administered"
+        }
+      },
+      "relevant_units_correctly_organized": [
+        "U2"
+      ],
+      "relevant_units_in_other": [],
+      "relevant_units_requiring_mixed_review": [],
+      "other_units_misclassified": [
+        "U3",
+        "U4"
+      ]
+    },
+    {
+      "revision": 2,
+      "candidate": "B",
+      "case_id": "dev-004",
+      "repeat": false,
+      "error": null,
+      "structural_valid": true,
+      "evidence_valid": false,
+      "evidence_errors": [
+        {
+          "kind": "medications",
+          "index": 0,
+          "type": "detail_not_in_linked_quote",
+          "detail": "name",
+          "value": "Парацетамол"
+        },
+        {
+          "kind": "medications",
+          "index": 0,
+          "type": "detail_not_in_linked_quote",
+          "detail": "frequency",
+          "value": "однаждүүнээр"
+        },
+        {
+          "kind": "medications",
+          "index": 1,
+          "type": "detail_not_in_linked_quote",
+          "detail": "name",
+          "value": "Амоксициллин"
+        },
+        {
+          "kind": "medications",
+          "index": 1,
+          "type": "detail_not_in_linked_quote",
+          "detail": "time",
+          "value": "өмнөх тэмдэглэлд"
+        },
+        {
+          "kind": "allergies",
+          "index": 0,
+          "type": "detail_not_in_linked_quote",
+          "detail": "statement",
+          "value": "Харшилгүй"
+        },
+        {
+          "kind": "allergies",
+          "index": 0,
+          "type": "statement_not_intact_unit"
+        },
+        {
+          "kind": "medication_context",
+          "index": 0,
+          "type": "detail_not_in_linked_quote",
+          "detail": "statement",
+          "value": "Эм өгөөгүй, эмчилгээ хийгээгүй, өөр эмчилгээ хийгээгүй гэсэн шууд тэмдэглэл."
+        },
+        {
+          "kind": "medication_context",
+          "index": 0,
+          "type": "statement_not_intact_unit"
+        }
+      ],
+      "wall_seconds": 29.483,
+      "runtime_seconds": {
+        "load_duration": 0.0027,
+        "prompt_eval_duration": 0.3379,
+        "eval_duration": 29.0202,
+        "total_duration": 29.4755
+      },
+      "prompt_tokens": 2356,
+      "output_tokens": 715,
+      "cold_observed": false,
+      "review_flags": [
+        {
+          "kind": "medications",
+          "index": 0,
+          "type": "drug_detail_role_association_requires_review"
+        },
+        {
+          "kind": "medications",
+          "index": 1,
+          "type": "drug_detail_role_association_requires_review"
+        }
+      ],
+      "proposed_medication_entries": 2,
+      "proposed_allergy_statements": 1,
+      "allergy_exact_expected_statements": [],
+      "allergy_expected_not_intact": [
+        "Пенициллинд тууралт гардаг гэж тэмдэглэсэн."
+      ]
+    },
+    {
+      "revision": 2,
+      "candidate": "B",
+      "case_id": "probe-med-001",
+      "repeat": false,
+      "error": null,
+      "structural_valid": true,
+      "evidence_valid": false,
+      "evidence_errors": [
+        {
+          "kind": "medications",
+          "index": 0,
+          "type": "detail_not_in_linked_quote",
+          "detail": "frequency",
+          "value": "нэг удаа өдөрт"
+        },
+        {
+          "kind": "medications",
+          "index": 1,
+          "type": "detail_not_in_linked_quote",
+          "detail": "frequency",
+          "value": "нэг удаа өдөрт"
+        },
+        {
+          "kind": "medications",
+          "index": 2,
+          "type": "detail_not_in_linked_quote",
+          "detail": "name",
+          "value": "диклофенак"
+        },
+        {
+          "kind": "allergies",
+          "index": 0,
+          "type": "statement_not_intact_unit"
+        }
+      ],
+      "wall_seconds": 34.348,
+      "runtime_seconds": {
+        "load_duration": 0.0075,
+        "prompt_eval_duration": 1.2512,
+        "eval_duration": 33.0592,
+        "total_duration": 34.3361
+      },
+      "prompt_tokens": 2402,
+      "output_tokens": 674,
+      "cold_observed": false,
+      "review_flags": [
+        {
+          "kind": "medications",
+          "index": 0,
+          "type": "drug_detail_role_association_requires_review"
+        },
+        {
+          "kind": "medications",
+          "index": 1,
+          "type": "drug_detail_role_association_requires_review"
+        },
+        {
+          "kind": "medications",
+          "index": 2,
+          "type": "drug_detail_role_association_requires_review"
+        }
+      ],
+      "proposed_medication_entries": 3,
+      "proposed_allergy_statements": 1,
+      "allergy_exact_expected_statements": [],
+      "allergy_expected_not_intact": [
+        "Харшлыг асуугаагүй.",
+        "Өмнөх тэмдэглэлд харшлын түүх тодорхойгүй гэж бичсэн."
+      ]
+    },
+    {
+      "revision": 2,
+      "candidate": "A",
+      "case_id": "probe-med-001",
+      "repeat": false,
+      "error": null,
+      "structural_valid": true,
+      "evidence_valid": true,
+      "evidence_errors": [],
+      "wall_seconds": 4.095,
+      "runtime_seconds": {
+        "load_duration": 0.0087,
+        "prompt_eval_duration": 0.6649,
+        "eval_duration": 2.8855,
+        "total_duration": 4.0865
+      },
+      "prompt_tokens": 1754,
+      "output_tokens": 69,
+      "cold_observed": false,
+      "review_flags": [
+        {
+          "source_unit": "U4",
+          "type": "mixed_or_unclear_requires_review"
+        }
+      ],
+      "role_differences": {
+        "U1": {
+          "expected": "mixed_or_unclear",
+          "actual": "regular_medication"
+        },
+        "U6": {
+          "expected": "allergy_statement",
+          "actual": "other"
+        }
+      },
+      "relevant_units_correctly_organized": [
+        "U2",
+        "U3",
+        "U5"
+      ],
+      "relevant_units_in_other": [
+        "U6"
+      ],
+      "relevant_units_requiring_mixed_review": [
+        "U4"
+      ],
+      "other_units_misclassified": []
+    }
+  ],
+  "repeatability": [
+    {
+      "candidate": "A",
+      "case_id": "DEV-002",
+      "prompt_revision": 1,
+      "exact_content_equal": true,
+      "first_wall_seconds": 24.412,
+      "repeat_wall_seconds": 10.286,
+      "limitation": "One repeat only, not general determinism."
+    },
+    {
+      "candidate": "B",
+      "case_id": "DEV-002",
+      "prompt_revision": 1,
+      "exact_content_equal": true,
+      "first_wall_seconds": 16.815,
+      "repeat_wall_seconds": 15.701,
+      "limitation": "One repeat only, not general determinism."
+    }
+  ]
+}

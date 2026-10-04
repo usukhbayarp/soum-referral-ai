@@ -1,0 +1,42 @@
+{
+  "started_utc": "2026-10-04T08:14:11+00:00",
+  "verification_completed_utc": "2026-10-04T08:29:33.544400+00:00",
+  "elapsed_minutes_through_verification": 15.38,
+  "experiments": [
+    {
+      "experiment_commit": "6fba15e63f84519ae2e625ae0aeafb5c63bca948",
+      "template_sha256": "ae370d884f108d16e7cc8fd5259ebc5773a0afa6e078b11f4ed7e39a27e0dfc4",
+      "frozen_file_hashes_match_commit": true,
+      "expected_checklist_sha256": "772c78ba57e5e6bb3b92c1871c51766520d7a933a7b137dfade5b0ddb07e122b"
+    },
+    {
+      "experiment_commit": "9a49f4a082ff3f8d7bdbcd67a48716572a054e5c",
+      "template_sha256": "ae370d884f108d16e7cc8fd5259ebc5773a0afa6e078b11f4ed7e39a27e0dfc4",
+      "frozen_file_hashes_match_commit": true,
+      "expected_checklist_sha256": "772c78ba57e5e6bb3b92c1871c51766520d7a933a7b137dfade5b0ddb07e122b"
+    }
+  ],
+  "requests": 18,
+  "prompt_revisions_per_candidate": 1,
+  "python_tests": 83,
+  "javascript_tests": 24,
+  "browser_review_sheet": "pass; exact original notes and no overflow, visually inspected",
+  "model_tags_unchanged": true,
+  "production_files_unchanged_from": "624411c9e10477ee4898412abcf03d08a8e0fd39",
+  "live_configuration": {
+    "model": "qwen3:1.7b",
+    "version": "experimental-0.6",
+    "prompt_version": "source-id-v06-1",
+    "deployment_mode": "local"
+  },
+  "liveness": {
+    "status": "ok",
+    "model": "qwen3:1.7b"
+  },
+  "reviewed_labels": 0,
+  "training_run": false,
+  "replacement_models_downloaded": false,
+  "deployment": false,
+  "clinical_validation": false,
+  "held_out_data_read": false
+}
