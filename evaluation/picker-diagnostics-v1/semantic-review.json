@@ -1,0 +1,39 @@
+{
+  "version": "diagnostic-semantic-review-1",
+  "reviewer": "Engineering assessment by coding agent; not clinician validation",
+  "control": [
+    {
+      "id": "roles-C",
+      "correct": false,
+      "reason": "Says no treatment during encounter, omitting given paracetamol and losing OTHER qualifier; contradicts reviewed administration."
+    },
+    {
+      "id": "negatives-C",
+      "correct": false,
+      "reason": "Repeats a malformed instruction about excluding examination/allergy/medicine/investigation, instead of answering that treatment was not performed."
+    },
+    {
+      "id": "investigations-C",
+      "correct": true,
+      "reason": "States exactly no treatment performed; excludes examination and investigation negatives."
+    }
+  ],
+  "hypothesis": "All three invalid JSON/contract: input units copied, trailing extra brace. No valid source selections or retrieved credit; all four positive occurrences remain unscorable.",
+  "candidate": [
+    {
+      "id": "roles-C",
+      "correct": false,
+      "reason": "Only says Treatment (Эмчилгээ.), omitting all given paracetamol details and no OTHER treatment statement."
+    },
+    {
+      "id": "negatives-C",
+      "correct": true,
+      "reason": "States no treatment was performed, without unrelated negatives."
+    },
+    {
+      "id": "investigations-C",
+      "correct": true,
+      "reason": "States no treatment was performed, without examination/investigation negatives."
+    }
+  ]
+}

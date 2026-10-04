@@ -1,0 +1,737 @@
+{
+  "version": "experimental-0.7",
+  "title": "Өвчтөн шилжүүлэх хураангуй",
+  "notice": "Туршилтын загвар 0.7 • Албан ёсны батлагдсан маягт биш • 13А-г орлохгүй",
+  "sections": [
+    {
+      "id": 1,
+      "label": "Өвчтөн болон байгууллага"
+    },
+    {
+      "id": 2,
+      "label": "Шилжүүлгийн зорилго"
+    },
+    {
+      "id": 3,
+      "label": "Эмнэлзүйн мэдээлэл"
+    },
+    {
+      "id": 4,
+      "label": "Өмнөх болон одоогийн байдал"
+    },
+    {
+      "id": 5,
+      "label": "Шинжилгээ болон эмчилгээ"
+    },
+    {
+      "id": 6,
+      "label": "Эмчийн хяналт ба баталгаажуулалт"
+    }
+  ],
+  "fields": [
+    {
+      "id": "identity_source",
+      "label": "Өвчтөн, байгууллагын эхийн санал",
+      "section": 1,
+      "manual": false,
+      "required": false,
+      "instruction": "Identity, age/sex, author, sending facility, note date and arrival.",
+      "kind": "source_suggestion"
+    },
+    {
+      "id": "patient",
+      "label": "Овог, нэр / demo ID",
+      "section": 1,
+      "manual": true,
+      "required": false,
+      "instruction": "",
+      "source_group": "identity_source"
+    },
+    {
+      "id": "age",
+      "label": "Нас",
+      "section": 1,
+      "manual": true,
+      "required": false,
+      "instruction": "",
+      "source_group": "identity_source"
+    },
+    {
+      "id": "sex",
+      "label": "Хүйс",
+      "section": 1,
+      "manual": true,
+      "required": false,
+      "instruction": "",
+      "source_group": "identity_source"
+    },
+    {
+      "id": "identifier",
+      "label": "Регистрийн дугаар (байвал)",
+      "section": 1,
+      "manual": true,
+      "required": false,
+      "instruction": "",
+      "source_group": "identity_source"
+    },
+    {
+      "id": "birth_date",
+      "label": "Төрсөн огноо (байвал)",
+      "section": 1,
+      "manual": true,
+      "required": false,
+      "instruction": "",
+      "source_group": "identity_source"
+    },
+    {
+      "id": "note_time",
+      "label": "Бичиг үйлдсэн огноо, цаг",
+      "section": 1,
+      "manual": true,
+      "required": false,
+      "instruction": "",
+      "source_group": "identity_source"
+    },
+    {
+      "id": "sending_facility",
+      "label": "Илгээгч байгууллага",
+      "section": 1,
+      "manual": true,
+      "required": false,
+      "instruction": "",
+      "source_group": "identity_source"
+    },
+    {
+      "id": "sending_clinician",
+      "label": "Илгээгч эмч",
+      "section": 1,
+      "manual": true,
+      "required": false,
+      "instruction": "",
+      "source_group": "identity_source"
+    },
+    {
+      "id": "phone",
+      "label": "Утас",
+      "section": 1,
+      "manual": true,
+      "required": false,
+      "instruction": "",
+      "source_group": "identity_source"
+    },
+    {
+      "id": "receiving",
+      "label": "Хүлээн авах байгууллага, тасаг / эмч",
+      "section": 1,
+      "manual": true,
+      "required": false,
+      "instruction": "",
+      "source_group": "referral"
+    },
+    {
+      "id": "receiving_phone",
+      "label": "Хүлээн авах байгууллагын утас (байвал)",
+      "section": 1,
+      "manual": true,
+      "required": false,
+      "instruction": ""
+    },
+    {
+      "id": "referral",
+      "label": "Шилжүүлэх шалтгаан",
+      "section": 2,
+      "manual": false,
+      "required": false,
+      "instruction": "Explicit referral reason and destination; preserve uncertainty. Do not decide urgency."
+    },
+    {
+      "id": "requested_action",
+      "label": "Хүсэж буй тусламж — бичсэн бол",
+      "section": 2,
+      "manual": false,
+      "required": false,
+      "instruction": "Explicit requested receiving-clinician action, not local follow-up plan."
+    },
+    {
+      "id": "referral_type_source",
+      "label": "Шилжүүлгийн төрөл — эхийн санал",
+      "section": 2,
+      "manual": false,
+      "required": false,
+      "instruction": "Only explicit doctor decision about planned/emergency referral. Include conflicting decisions.",
+      "kind": "source_suggestion"
+    },
+    {
+      "id": "referral_type",
+      "label": "Шилжүүлгийн төрөл — эмчийн тэмдэглэснээр",
+      "section": 2,
+      "manual": true,
+      "required": false,
+      "instruction": "",
+      "source_group": "referral_type_source",
+      "options": [
+        "Яаралтай",
+        "Төлөвлөгөөт",
+        "Тодруулаагүй"
+      ]
+    },
+    {
+      "id": "history",
+      "label": "Гол зовуурь, эхэлсэн хугацаа, явц",
+      "section": 3,
+      "manual": false,
+      "required": false,
+      "instruction": "Main complaint, duration, course and relevant negatives."
+    },
+    {
+      "id": "medical_history",
+      "label": "Холбогдох өвчний түүх",
+      "section": 3,
+      "manual": false,
+      "required": false,
+      "instruction": "Past medical history, not new diagnoses.",
+      "display_group": "Түүх ба тогтмол эм"
+    },
+    {
+      "id": "regular_medication",
+      "label": "Тогтмол эм",
+      "section": 3,
+      "manual": false,
+      "required": false,
+      "instruction": "Usual medication and whether today dose was asked/taken; NOT treatment administered this visit.",
+      "display_group": "Түүх ба тогтмол эм"
+    },
+    {
+      "id": "diagnosis",
+      "label": "Үндсэн онош / эмчийн үнэлгээ",
+      "section": 3,
+      "manual": false,
+      "required": false,
+      "instruction": "Documented primary assessment or diagnosis, retaining provisional/suspected wording. Never infer."
+    },
+    {
+      "id": "diagnosis_code",
+      "label": "Код байвал",
+      "section": 3,
+      "manual": true,
+      "required": false,
+      "instruction": "",
+      "source_group": "diagnosis"
+    },
+    {
+      "id": "comorbid",
+      "label": "Хавсарсан онош",
+      "section": 3,
+      "manual": false,
+      "required": false,
+      "instruction": "Explicitly documented comorbid diagnosis; no inferred diagnosis or ICD."
+    },
+    {
+      "id": "comorbid_code",
+      "label": "Хавсарсан оношийн код байвал",
+      "section": 3,
+      "manual": true,
+      "required": false,
+      "instruction": "",
+      "source_group": "comorbid"
+    },
+    {
+      "id": "allergies",
+      "label": "Харшил ба урвал",
+      "section": 3,
+      "manual": false,
+      "required": false,
+      "instruction": "Allergy including patient-reported absence, unknown, not asked; preserve attribution."
+    },
+    {
+      "id": "arrival_time",
+      "label": "Ирсэн огноо, цаг — үзлэгийн цагаас тусдаа",
+      "section": 4,
+      "manual": true,
+      "required": false,
+      "instruction": "",
+      "source_group": "identity_source"
+    },
+    {
+      "id": "initial_source",
+      "label": "Анхны үзлэг — эхийн санал",
+      "section": 4,
+      "manual": false,
+      "required": false,
+      "instruction": "INITIAL examination time, condition and vitals only. Never reuse as current observations.",
+      "kind": "source_suggestion"
+    },
+    {
+      "id": "current_source",
+      "label": "Одоогийн үзлэг — эхийн санал",
+      "section": 4,
+      "manual": false,
+      "required": false,
+      "instruction": "CURRENT/later observation time, condition and vitals only. Empty if not separately documented.",
+      "kind": "source_suggestion"
+    },
+    {
+      "id": "initial_time",
+      "label": "Анхны үзлэг — огноо, цаг",
+      "section": 4,
+      "manual": true,
+      "required": false,
+      "instruction": "",
+      "source_group": "initial_source"
+    },
+    {
+      "id": "initial_condition",
+      "label": "Анхны үзлэг — ерөнхий байдал, ухаан санаа",
+      "section": 4,
+      "manual": true,
+      "required": false,
+      "instruction": "",
+      "source_group": "initial_source"
+    },
+    {
+      "id": "initial_bp",
+      "label": "Анхны үзлэг — АД (мм.муб)",
+      "section": 4,
+      "manual": true,
+      "required": false,
+      "instruction": "",
+      "source_group": "initial_source"
+    },
+    {
+      "id": "initial_pulse",
+      "label": "Анхны үзлэг — ЗЦ (/мин)",
+      "section": 4,
+      "manual": true,
+      "required": false,
+      "instruction": "",
+      "source_group": "initial_source"
+    },
+    {
+      "id": "initial_resp",
+      "label": "Анхны үзлэг — АТ (/мин)",
+      "section": 4,
+      "manual": true,
+      "required": false,
+      "instruction": "",
+      "source_group": "initial_source"
+    },
+    {
+      "id": "initial_spo2",
+      "label": "Анхны үзлэг — SpO₂ (%)",
+      "section": 4,
+      "manual": true,
+      "required": false,
+      "instruction": "",
+      "source_group": "initial_source"
+    },
+    {
+      "id": "initial_temperature",
+      "label": "Анхны үзлэг — Халуун (°C)",
+      "section": 4,
+      "manual": true,
+      "required": false,
+      "instruction": "",
+      "source_group": "initial_source"
+    },
+    {
+      "id": "initial_oxygen_device",
+      "label": "Анхны үзлэг — хүчилтөрөгчийн төхөөрөмж",
+      "section": 4,
+      "manual": true,
+      "required": false,
+      "instruction": "",
+      "source_group": "initial_source"
+    },
+    {
+      "id": "initial_oxygen_flow",
+      "label": "Анхны үзлэг — хүчилтөрөгчийн урсгал (эхийн нэгжээр)",
+      "section": 4,
+      "manual": true,
+      "required": false,
+      "instruction": "",
+      "source_group": "initial_source"
+    },
+    {
+      "id": "initial_fio2",
+      "label": "Анхны үзлэг — FiO₂ (эхэд бичсэн нэгжээр)",
+      "section": 4,
+      "manual": true,
+      "required": false,
+      "instruction": "",
+      "source_group": "initial_source"
+    },
+    {
+      "id": "initial_oxygen_used",
+      "label": "Анхны үзлэг — хүчилтөрөгчийн дэмжлэг",
+      "section": 4,
+      "manual": true,
+      "required": false,
+      "instruction": "",
+      "options": [
+        "Өрөөний агаарт",
+        "Дэмжлэгтэй",
+        "Эхэд бичээгүй"
+      ]
+    },
+    {
+      "id": "current_time",
+      "label": "Одоогийн үзлэг — огноо, цаг",
+      "section": 4,
+      "manual": true,
+      "required": false,
+      "instruction": "",
+      "source_group": "current_source"
+    },
+    {
+      "id": "current_condition",
+      "label": "Одоогийн үзлэг — ерөнхий байдал, ухаан санаа",
+      "section": 4,
+      "manual": true,
+      "required": false,
+      "instruction": "",
+      "source_group": "current_source"
+    },
+    {
+      "id": "current_bp",
+      "label": "Одоогийн үзлэг — АД (мм.муб)",
+      "section": 4,
+      "manual": true,
+      "required": false,
+      "instruction": "",
+      "source_group": "current_source"
+    },
+    {
+      "id": "current_pulse",
+      "label": "Одоогийн үзлэг — ЗЦ (/мин)",
+      "section": 4,
+      "manual": true,
+      "required": false,
+      "instruction": "",
+      "source_group": "current_source"
+    },
+    {
+      "id": "current_resp",
+      "label": "Одоогийн үзлэг — АТ (/мин)",
+      "section": 4,
+      "manual": true,
+      "required": false,
+      "instruction": "",
+      "source_group": "current_source"
+    },
+    {
+      "id": "current_spo2",
+      "label": "Одоогийн үзлэг — SpO₂ (%)",
+      "section": 4,
+      "manual": true,
+      "required": false,
+      "instruction": "",
+      "source_group": "current_source"
+    },
+    {
+      "id": "current_temperature",
+      "label": "Одоогийн үзлэг — Халуун (°C)",
+      "section": 4,
+      "manual": true,
+      "required": false,
+      "instruction": "",
+      "source_group": "current_source"
+    },
+    {
+      "id": "current_oxygen_device",
+      "label": "Одоогийн үзлэг — хүчилтөрөгчийн төхөөрөмж",
+      "section": 4,
+      "manual": true,
+      "required": false,
+      "instruction": "",
+      "source_group": "current_source"
+    },
+    {
+      "id": "current_oxygen_flow",
+      "label": "Одоогийн үзлэг — хүчилтөрөгчийн урсгал (эхийн нэгжээр)",
+      "section": 4,
+      "manual": true,
+      "required": false,
+      "instruction": "",
+      "source_group": "current_source"
+    },
+    {
+      "id": "current_fio2",
+      "label": "Одоогийн үзлэг — FiO₂ (эхэд бичсэн нэгжээр)",
+      "section": 4,
+      "manual": true,
+      "required": false,
+      "instruction": "",
+      "source_group": "current_source"
+    },
+    {
+      "id": "current_oxygen_used",
+      "label": "Одоогийн үзлэг — хүчилтөрөгчийн дэмжлэг",
+      "section": 4,
+      "manual": true,
+      "required": false,
+      "instruction": "",
+      "options": [
+        "Өрөөний агаарт",
+        "Дэмжлэгтэй",
+        "Эхэд бичээгүй"
+      ]
+    },
+    {
+      "id": "examination",
+      "label": "Бодит үзлэгийн гол олдвор",
+      "section": 4,
+      "manual": false,
+      "required": false,
+      "instruction": "Physical examination and pain score; preserve not assessed and uncertainty."
+    },
+    {
+      "id": "investigations",
+      "label": "Шинжилгээний гол хариу, огноо, нэгж",
+      "section": 5,
+      "manual": false,
+      "required": false,
+      "instruction": "Investigation results/date/units and tests explicitly not performed; no invented result."
+    },
+    {
+      "id": "investigation_review",
+      "label": "Шинжилгээний нөхцөлийг эмч шалгах",
+      "section": 5,
+      "manual": true,
+      "required": false,
+      "instruction": "",
+      "options": [
+        "Шинжилгээ дурдаагүй",
+        "Чанарын / хийгээгүй / хүлээгдэж буй шинжилгээ — тоон нэгж шаардахгүй",
+        "Тоон хариу — огноо, хариу, нэгжийг шалгасан",
+        "Шинжилгээний огноо / хариу / нэгж дутуу",
+        "Тодорхойгүй — хянана"
+      ]
+    },
+    {
+      "id": "treatment_source",
+      "label": "Бодитоор хийсэн эмчилгээ ба ажилбар — эхийн санал",
+      "section": 5,
+      "manual": false,
+      "required": false,
+      "instruction": "Only treatment actually administered THIS VISIT, dose/route/time and explicit no-other/no-treatment. NOT regular medication.",
+      "kind": "source_suggestion"
+    },
+    {
+      "id": "pain_change",
+      "label": "Өвдөлтийн өөрчлөлт — эхийн хоёр үеийн мэдээлэл",
+      "section": 5,
+      "manual": false,
+      "required": false,
+      "instruction": "Initial AND later pain reports if change documented. Select both sources; do not infer causal treatment response.",
+      "kind": "source_suggestion"
+    },
+    {
+      "id": "treatment_status",
+      "label": "Энэ үзлэгээр бодитоор хийсэн эмчилгээ — эмчийн шалгалт",
+      "section": 5,
+      "manual": true,
+      "required": false,
+      "instruction": "",
+      "options": [
+        "Эм өгсөн",
+        "Зөвхөн ажилбар хийсэн",
+        "Эмчилгээ хийгээгүй гэж эхэд тэмдэглэсэн",
+        "Тодорхойгүй"
+      ]
+    },
+    {
+      "id": "treatment_rows",
+      "label": "Бодитоор хийсэн эмчилгээ ба ажилбар",
+      "section": 5,
+      "manual": true,
+      "required": false,
+      "instruction": "",
+      "source_group": "treatment_source",
+      "kind": "treatment_rows"
+    },
+    {
+      "id": "attached",
+      "label": "Хавсаргасан хариу",
+      "section": 5,
+      "manual": false,
+      "required": false,
+      "instruction": "Results explicitly attached, distinct from pending results.",
+      "display_group": "Нэмэлт мэдээлэл"
+    },
+    {
+      "id": "pending_results",
+      "label": "Хүлээгдэж буй хариу",
+      "section": 5,
+      "manual": false,
+      "required": false,
+      "instruction": "Pending results OR explicit statement none pending. Preserve absence.",
+      "display_group": "Нэмэлт мэдээлэл"
+    },
+    {
+      "id": "pending_status",
+      "label": "Хүлээгдэж буй хариу байгаа эсэх — эмчийн шалгалт",
+      "section": 5,
+      "manual": true,
+      "required": false,
+      "instruction": "",
+      "options": [
+        "Байгаа",
+        "Байхгүй гэж эхэд тэмдэглэсэн",
+        "Тодорхойгүй"
+      ],
+      "display_group": "Нэмэлт мэдээлэл"
+    },
+    {
+      "id": "pending_owner",
+      "label": "Хүлээгдэж буй хариуг хянах хүн",
+      "section": 5,
+      "manual": true,
+      "required": false,
+      "instruction": "",
+      "display_group": "Нэмэлт мэдээлэл"
+    },
+    {
+      "id": "pending_method",
+      "label": "Хүлээгдэж буй хариуг дамжуулах арга",
+      "section": 5,
+      "manual": true,
+      "required": false,
+      "instruction": "",
+      "display_group": "Нэмэлт мэдээлэл"
+    },
+    {
+      "id": "plan",
+      "label": "Эмчийн бичсэн цаашдын төлөвлөгөө",
+      "section": 5,
+      "manual": false,
+      "required": false,
+      "instruction": "Explicit follow-up/local plan, distinct from requested receiving-clinician action.",
+      "display_group": "Нэмэлт мэдээлэл"
+    },
+    {
+      "id": "transport_needed",
+      "label": "Эмнэлгийн зохион байгуулалттай тээвэрлэлт",
+      "section": 5,
+      "manual": true,
+      "required": false,
+      "instruction": "",
+      "options": [
+        "Зохион байгуулсан",
+        "Хамаарахгүй",
+        "Тодорхойгүй"
+      ],
+      "display_group": "Нэмэлт мэдээлэл"
+    },
+    {
+      "id": "transport",
+      "label": "Тээврийн хэрэгсэл, замын заалт (зохион байгуулсан бол)",
+      "section": 5,
+      "manual": true,
+      "required": false,
+      "instruction": "",
+      "display_group": "Нэмэлт мэдээлэл"
+    },
+    {
+      "id": "transport_staff",
+      "label": "Дагалдах эмч / эмнэлгийн ажилтан (зохион байгуулсан бол)",
+      "section": 5,
+      "manual": true,
+      "required": false,
+      "instruction": "",
+      "display_group": "Нэмэлт мэдээлэл"
+    },
+    {
+      "id": "agreement_needed",
+      "label": "Урьдчилан тохиролцох шаардлага (байвал)",
+      "section": 5,
+      "manual": true,
+      "required": false,
+      "instruction": "",
+      "options": [
+        "Шаардлагатай",
+        "Хамаарахгүй",
+        "Тодорхойгүй"
+      ],
+      "display_group": "Нэмэлт мэдээлэл"
+    },
+    {
+      "id": "agreement",
+      "label": "Тохиролцсон хүлээн авах эмч, цаг (байвал)",
+      "section": 5,
+      "manual": true,
+      "required": false,
+      "instruction": "",
+      "display_group": "Нэмэлт мэдээлэл"
+    },
+    {
+      "id": "review_notes",
+      "label": "Дутуу эсвэл зөрүүтэй мэдээлэл / тодруулах боломжгүй зүйл",
+      "section": 6,
+      "manual": true,
+      "required": false,
+      "instruction": ""
+    },
+    {
+      "id": "reviewer",
+      "label": "Хянасан эмч",
+      "section": 6,
+      "manual": true,
+      "required": false,
+      "instruction": ""
+    },
+    {
+      "id": "review_time",
+      "label": "Хяналтын огноо, цаг",
+      "section": 6,
+      "manual": true,
+      "required": false,
+      "instruction": ""
+    },
+    {
+      "id": "signature",
+      "label": "Гарын үсэг — автоматаар үүсгэхгүй",
+      "section": 6,
+      "manual": true,
+      "required": false,
+      "instruction": ""
+    },
+    {
+      "id": "stamp",
+      "label": "Эмнэлгийн тамга / тэмдэг — demo-д бөглөхгүй",
+      "section": 6,
+      "manual": true,
+      "required": false,
+      "instruction": ""
+    }
+  ],
+  "extraction_schema_version": "experimental-0.6",
+  "dataset_annotation_version": "source-assignments-v06-1",
+  "proposal_mapping": {
+    "identity_source": "identity_source",
+    "referral": "referral",
+    "requested_action": "requested_action",
+    "referral_type_source": "referral_type_source",
+    "history": "history",
+    "medical_history": "medical_history",
+    "regular_medication": "regular_medication",
+    "diagnosis": "diagnosis",
+    "comorbid": "comorbid",
+    "allergies": "allergies",
+    "initial_source": "initial_source",
+    "current_source": "current_source",
+    "examination": "examination",
+    "investigations": "investigations",
+    "treatment_source": "treatment_source",
+    "pain_change": "pain_change",
+    "attached": "attached",
+    "pending_results": "pending_results",
+    "plan": "plan"
+  },
+  "model": "qwen3:1.7b",
+  "prompt_version": "source-id-v06-1",
+  "output_schema_version": "source-id-v06-1",
+  "segmentation_version": "sentence-lines-1",
+  "max_chars": 3000,
+  "deployment_mode": "local",
+  "inference_timeout": 120.0
+}

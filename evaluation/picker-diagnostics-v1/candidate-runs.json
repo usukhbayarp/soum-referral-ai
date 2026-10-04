@@ -1,0 +1,2256 @@
+[
+  {
+    "id": "roles-A",
+    "case_id": "roles",
+    "condition": "A",
+    "model_digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+    "plan_sha256": "0ff2d4b44601a6ddd11c723076e6343054e6297557504e3923f135151f93ef5a",
+    "wire_request_utf8": "{\"model\": \"llama3.1:8b\", \"stream\": false, \"keep_alive\": 0, \"options\": {\"temperature\": 0, \"seed\": 42, \"num_ctx\": 16384, \"num_predict\": 512}, \"format\": {\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"ids\": {\"type\": \"array\", \"items\": {\"type\": \"integer\", \"enum\": [11, 12, 21, 23]}, \"uniqueItems\": true, \"maxItems\": 80}}, \"required\": [\"ids\"]}, \"messages\": [{\"role\": \"system\", \"content\": \"\\u0425\\u0438\\u0439\\u0441\\u044d\\u043d \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d, \\u0430\\u0436\\u0438\\u043b\\u0431\\u0430\\u0440\\u0442\\u0430\\u0439 \\u0445\\u043e\\u043b\\u0431\\u043e\\u043e\\u0442\\u043e\\u0439 \\u044d\\u0445\\u0438\\u0439\\u043d \\u0445\\u044d\\u0441\\u0433\\u0438\\u0439\\u043d id-\\u0433 \\u0441\\u043e\\u043d\\u0433\\u043e. \\u042d\\u043d\\u044d \\u04af\\u0437\\u043b\\u044d\\u0433\\u044d\\u044d\\u0440 \\u0445\\u0438\\u0439\\u0441\\u044d\\u043d \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d/\\u0430\\u0436\\u0438\\u043b\\u0431\\u0430\\u0440, \\u043c\\u04e9\\u043d \\u044d\\u043c \\u044d\\u0441\\u0432\\u044d\\u043b \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d \\u04e9\\u0433\\u04e9\\u04e9\\u0433\\u04af\\u0439 \\u0433\\u044d\\u0441\\u044d\\u043d \\u0448\\u0443\\u0443\\u0434 \\u0442\\u044d\\u043c\\u0434\\u044d\\u0433\\u043b\\u044d\\u043b\\u0438\\u0439\\u0433 \\u043e\\u0440\\u0443\\u0443\\u043b. \\u0425\\u044d\\u0440\\u044d\\u0433\\u0442\\u044d\\u0439 \\u0431\\u043e\\u043b \\u0446\\u0430\\u0433, \\u0434\\u0430\\u0440\\u0430\\u0430\\u0445 \\u0431\\u0430\\u0439\\u0434\\u0430\\u043b, \\u0442\\u04e9\\u043b\\u04e9\\u0432\\u043b\\u04e9\\u0441\\u04e9\\u043d \\u0431\\u043e\\u043b\\u043e\\u0432\\u0447 \\u0445\\u0438\\u0439\\u0433\\u044d\\u044d\\u0433\\u04af\\u0439 \\u04af\\u0439\\u043b\\u0434\\u043b\\u0438\\u0439\\u043d \\u0445\\u043e\\u043b\\u0431\\u043e\\u043e\\u0442\\u043e\\u0439 \\u0445\\u044d\\u0441\\u0433\\u0438\\u0439\\u0433 \\u0445\\u0430\\u043c\\u0442 \\u0441\\u043e\\u043d\\u0433\\u043e; \\u0442\\u04e9\\u043b\\u04e9\\u0432\\u043b\\u04e9\\u0441\\u043d\\u0438\\u0439\\u0433 \\u0445\\u0438\\u0439\\u0441\\u044d\\u043d \\u0433\\u044d\\u0436 \\u04af\\u0437\\u044d\\u0445\\u0433\\u04af\\u0439. \\u0417\\u04e9\\u0432\\u0445\\u04e9\\u043d \\u0442\\u043e\\u0433\\u0442\\u043c\\u043e\\u043b \\u044d\\u043c, \\u0433\\u044d\\u0440\\u044d\\u044d\\u0440 \\u0445\\u044d\\u0440\\u044d\\u0433\\u043b\\u044d\\u0441\\u044d\\u043d \\u044d\\u043c, \\u0445\\u0430\\u0440\\u0448\\u0438\\u043b, \\u04af\\u0437\\u043b\\u044d\\u0433, \\u0448\\u0438\\u043d\\u0436\\u0438\\u043b\\u0433\\u044d\\u044d \\u043d\\u044c \\u044d\\u043d\\u044d \\u04af\\u0437\\u043b\\u044d\\u0433\\u0438\\u0439\\u043d \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d \\u0431\\u0438\\u0448. \\u0425\\u043e\\u043b\\u0431\\u043e\\u0433\\u0434\\u043e\\u0445 \\u0445\\u044d\\u0441\\u044d\\u0433 \\u043e\\u043b\\u0434\\u043e\\u043e\\u0433\\u04af\\u0439 \\u0431\\u043e\\u043b ids \\u0445\\u043e\\u043e\\u0441\\u043e\\u043d \\u0431\\u0430\\u0439\\u043d\\u0430. \\u0417\\u04e9\\u0432\\u0445\\u04e9\\u043d ids \\u043c\\u0430\\u0441\\u0441\\u0438\\u0432\\u0442\\u0430\\u0439 JSON \\u0431\\u0443\\u0446\\u0430\\u0430; \\u0442\\u0435\\u043a\\u0441\\u0442, \\u0442\\u0443\\u043d, \\u0434\\u04af\\u0433\\u043d\\u044d\\u043b\\u0442 \\u0437\\u043e\\u0445\\u0438\\u043e\\u0445\\u0433\\u04af\\u0439.\"}, {\"role\": \"user\", \"content\": \"{\\\"units\\\":[{\\\"id\\\":11,\\\"text\\\":\\\"\\u0410\\u043c\\u043b\\u043e\\u0434\\u0438\\u043f\\u0438\\u043d 5 \\u043c\\u0433 \\u04e9\\u0434\\u04e9\\u0440\\u0442 1 \\u0443\\u0434\\u0430\\u0430 \\u0443\\u0443\\u0434\\u0430\\u0433 \\u0433\\u044d\\u0441\\u044d\\u043d.\\\"},{\\\"id\\\":12,\\\"text\\\":\\\"\\u04e8\\u043d\\u04e9\\u04e9\\u0434\\u0440\\u0438\\u0439\\u043d \\u0442\\u0443\\u043d\\u0433\\u0430\\u0430 \\u0443\\u0443\\u0441\\u0430\\u043d \\u044d\\u0441\\u044d\\u0445\\u0438\\u0439\\u0433 \\u0430\\u0441\\u0443\\u0443\\u0433\\u0430\\u0430\\u0433\\u04af\\u0439.\\\"},{\\\"id\\\":21,\\\"text\\\":\\\"10:15-\\u0434 \\u043f\\u0430\\u0440\\u0430\\u0446\\u0435\\u0442\\u0430\\u043c\\u043e\\u043b 500 \\u043c\\u0433 \\u0430\\u043c\\u0430\\u0430\\u0440 \\u043d\\u044d\\u0433 \\u0443\\u0434\\u0430\\u0430 \\u04e9\\u0433\\u0441\\u04e9\\u043d.\\\"},{\\\"id\\\":23,\\\"text\\\":\\\"\\u042d\\u043d\\u044d \\u04af\\u0437\\u043b\\u044d\\u0433\\u044d\\u044d\\u0440 \\u04e9\\u04e9\\u0440 \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d \\u0445\\u0438\\u0439\\u0433\\u044d\\u044d\\u0433\\u04af\\u0439.\\\"}]}\"}]}",
+    "status": "received",
+    "telemetry": [
+      {
+        "seconds": 0.506,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 1.029,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 1.605,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 2.126,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 2.642,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 3.163,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 3.685,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 4.272,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 4.797,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 5.328,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 5.854,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 6.372,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 6.894,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 7.432,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "4"
+      },
+      {
+        "seconds": 8.085,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "4"
+      },
+      {
+        "seconds": 8.599,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 9.126,
+        "ps": {
+          "models": [
+            {
+              "name": "llama3.1:8b",
+              "model": "llama3.1:8b",
+              "size": 6893170851,
+              "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                  "llama"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:48:08.750049+01:00",
+              "size_vram": 6893170851,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 9.64,
+        "ps": {
+          "models": [
+            {
+              "name": "llama3.1:8b",
+              "model": "llama3.1:8b",
+              "size": 6893170851,
+              "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                  "llama"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:48:09.263018+01:00",
+              "size_vram": 6893170851,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 10.204,
+        "ps": {
+          "models": [
+            {
+              "name": "llama3.1:8b",
+              "model": "llama3.1:8b",
+              "size": 6893170851,
+              "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                  "llama"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:48:09.847885+01:00",
+              "size_vram": 6893170851,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 10.735,
+        "ps": {
+          "models": [
+            {
+              "name": "llama3.1:8b",
+              "model": "llama3.1:8b",
+              "size": 6893170851,
+              "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                  "llama"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:48:10.357503+01:00",
+              "size_vram": 6893170851,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 11.254,
+        "ps": {
+          "models": [
+            {
+              "name": "llama3.1:8b",
+              "model": "llama3.1:8b",
+              "size": 6893170851,
+              "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                  "llama"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:48:10.877599+01:00",
+              "size_vram": 6893170851,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 11.774,
+        "ps": {
+          "models": [
+            {
+              "name": "llama3.1:8b",
+              "model": "llama3.1:8b",
+              "size": 6893170851,
+              "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                  "llama"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:48:11.396796+01:00",
+              "size_vram": 6893170851,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 12.3,
+        "ps": {
+          "models": [
+            {
+              "name": "llama3.1:8b",
+              "model": "llama3.1:8b",
+              "size": 6893170851,
+              "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                  "llama"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:48:11.923185+01:00",
+              "size_vram": 6893170851,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 12.813,
+        "ps": {
+          "models": [
+            {
+              "name": "llama3.1:8b",
+              "model": "llama3.1:8b",
+              "size": 6893170851,
+              "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                  "llama"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:48:12.436089+01:00",
+              "size_vram": 6893170851,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      }
+    ],
+    "raw_response": "{\"model\":\"llama3.1:8b\",\"created_at\":\"2026-10-04T11:48:12.821304Z\",\"message\":{\"role\":\"assistant\",\"content\":\"{\\\"ids\\\":[11,21,23]}\"},\"done\":true,\"done_reason\":\"stop\",\"total_duration\":13199186208,\"load_duration\":9019698166,\"prompt_eval_count\":520,\"prompt_eval_cached_count\":0,\"prompt_eval_duration\":3362761000,\"eval_count\":11,\"eval_duration\":795624000}",
+    "http_status": 200,
+    "complete": true,
+    "thinking_present": false,
+    "tokens": {
+      "prompt_eval_count": 520,
+      "eval_count": 11
+    },
+    "score": {
+      "selected": [
+        11,
+        21,
+        23
+      ],
+      "retrieved": [
+        21,
+        23
+      ],
+      "missing": [],
+      "extra": [
+        11
+      ],
+      "unreviewed": [],
+      "exact": false,
+      "empty": false
+    },
+    "valid": true,
+    "wall_seconds": 13.209838666953146
+  },
+  {
+    "id": "roles-B",
+    "case_id": "roles",
+    "condition": "B",
+    "model_digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+    "plan_sha256": "0ff2d4b44601a6ddd11c723076e6343054e6297557504e3923f135151f93ef5a",
+    "wire_request_utf8": "{\"model\": \"llama3.1:8b\", \"stream\": false, \"keep_alive\": 0, \"options\": {\"temperature\": 0, \"seed\": 42, \"num_ctx\": 16384, \"num_predict\": 512}, \"format\": {\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"ids\": {\"type\": \"array\", \"items\": {\"type\": \"integer\", \"enum\": [11, 12, 21, 23]}, \"uniqueItems\": true, \"maxItems\": 80}}, \"required\": [\"ids\"]}, \"messages\": [{\"role\": \"system\", \"content\": \"\\u0425\\u0438\\u0439\\u0441\\u044d\\u043d \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d, \\u0430\\u0436\\u0438\\u043b\\u0431\\u0430\\u0440\\u0442\\u0430\\u0439 \\u0445\\u043e\\u043b\\u0431\\u043e\\u043e\\u0442\\u043e\\u0439 \\u044d\\u0445\\u0438\\u0439\\u043d \\u0445\\u044d\\u0441\\u0433\\u0438\\u0439\\u043d id-\\u0433 \\u0441\\u043e\\u043d\\u0433\\u043e. \\u042d\\u043d\\u044d \\u04af\\u0437\\u043b\\u044d\\u0433\\u044d\\u044d\\u0440 \\u0445\\u0438\\u0439\\u0441\\u044d\\u043d \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d/\\u0430\\u0436\\u0438\\u043b\\u0431\\u0430\\u0440, \\u043c\\u04e9\\u043d \\u044d\\u043c \\u044d\\u0441\\u0432\\u044d\\u043b \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d \\u04e9\\u0433\\u04e9\\u04e9\\u0433\\u04af\\u0439 \\u0433\\u044d\\u0441\\u044d\\u043d \\u0448\\u0443\\u0443\\u0434 \\u0442\\u044d\\u043c\\u0434\\u044d\\u0433\\u043b\\u044d\\u043b\\u0438\\u0439\\u0433 \\u043e\\u0440\\u0443\\u0443\\u043b. \\u0425\\u044d\\u0440\\u044d\\u0433\\u0442\\u044d\\u0439 \\u0431\\u043e\\u043b \\u0446\\u0430\\u0433, \\u0434\\u0430\\u0440\\u0430\\u0430\\u0445 \\u0431\\u0430\\u0439\\u0434\\u0430\\u043b, \\u0442\\u04e9\\u043b\\u04e9\\u0432\\u043b\\u04e9\\u0441\\u04e9\\u043d \\u0431\\u043e\\u043b\\u043e\\u0432\\u0447 \\u0445\\u0438\\u0439\\u0433\\u044d\\u044d\\u0433\\u04af\\u0439 \\u04af\\u0439\\u043b\\u0434\\u043b\\u0438\\u0439\\u043d \\u0445\\u043e\\u043b\\u0431\\u043e\\u043e\\u0442\\u043e\\u0439 \\u0445\\u044d\\u0441\\u0433\\u0438\\u0439\\u0433 \\u0445\\u0430\\u043c\\u0442 \\u0441\\u043e\\u043d\\u0433\\u043e; \\u0442\\u04e9\\u043b\\u04e9\\u0432\\u043b\\u04e9\\u0441\\u043d\\u0438\\u0439\\u0433 \\u0445\\u0438\\u0439\\u0441\\u044d\\u043d \\u0433\\u044d\\u0436 \\u04af\\u0437\\u044d\\u0445\\u0433\\u04af\\u0439. \\u0417\\u04e9\\u0432\\u0445\\u04e9\\u043d \\u0442\\u043e\\u0433\\u0442\\u043c\\u043e\\u043b \\u044d\\u043c, \\u0433\\u044d\\u0440\\u044d\\u044d\\u0440 \\u0445\\u044d\\u0440\\u044d\\u0433\\u043b\\u044d\\u0441\\u044d\\u043d \\u044d\\u043c, \\u0445\\u0430\\u0440\\u0448\\u0438\\u043b, \\u04af\\u0437\\u043b\\u044d\\u0433, \\u0448\\u0438\\u043d\\u0436\\u0438\\u043b\\u0433\\u044d\\u044d \\u043d\\u044c \\u044d\\u043d\\u044d \\u04af\\u0437\\u043b\\u044d\\u0433\\u0438\\u0439\\u043d \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d \\u0431\\u0438\\u0448. \\u0425\\u043e\\u043b\\u0431\\u043e\\u0433\\u0434\\u043e\\u0445 \\u0445\\u044d\\u0441\\u044d\\u0433 \\u043e\\u043b\\u0434\\u043e\\u043e\\u0433\\u04af\\u0439 \\u0431\\u043e\\u043b ids \\u0445\\u043e\\u043e\\u0441\\u043e\\u043d \\u0431\\u0430\\u0439\\u043d\\u0430. \\u0417\\u04e9\\u0432\\u0445\\u04e9\\u043d ids \\u043c\\u0430\\u0441\\u0441\\u0438\\u0432\\u0442\\u0430\\u0439 JSON \\u0431\\u0443\\u0446\\u0430\\u0430; \\u0442\\u0435\\u043a\\u0441\\u0442, \\u0442\\u0443\\u043d, \\u0434\\u04af\\u0433\\u043d\\u044d\\u043b\\u0442 \\u0437\\u043e\\u0445\\u0438\\u043e\\u0445\\u0433\\u04af\\u0439.\"}, {\"role\": \"user\", \"content\": \"{\\\"units\\\":[{\\\"id\\\":11,\\\"text\\\":\\\"Reported taking amlodipine 5 mg once daily.\\\"},{\\\"id\\\":12,\\\"text\\\":\\\"Whether today's dose had been taken was not asked.\\\"},{\\\"id\\\":21,\\\"text\\\":\\\"At 10:15, paracetamol 500 mg was given orally once.\\\"},{\\\"id\\\":23,\\\"text\\\":\\\"No other treatment was performed during this encounter.\\\"}]}\"}]}",
+    "status": "received",
+    "telemetry": [
+      {
+        "seconds": 0.516,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 1.029,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 1.537,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 2.048,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 2.554,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 3.062,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 3.571,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 4.08,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 4.59,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 5.101,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 5.679,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 6.2,
+        "ps": {
+          "models": [
+            {
+              "name": "llama3.1:8b",
+              "model": "llama3.1:8b",
+              "size": 6893170851,
+              "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                  "llama"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:48:19.271943+01:00",
+              "size_vram": 6893170851,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 6.711,
+        "ps": {
+          "models": [
+            {
+              "name": "llama3.1:8b",
+              "model": "llama3.1:8b",
+              "size": 6893170851,
+              "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                  "llama"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:48:19.782972+01:00",
+              "size_vram": 6893170851,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 7.221,
+        "ps": {
+          "models": [
+            {
+              "name": "llama3.1:8b",
+              "model": "llama3.1:8b",
+              "size": 6893170851,
+              "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                  "llama"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:48:20.293321+01:00",
+              "size_vram": 6893170851,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 7.734,
+        "ps": {
+          "models": [
+            {
+              "name": "llama3.1:8b",
+              "model": "llama3.1:8b",
+              "size": 6893170851,
+              "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                  "llama"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:48:20.841384+01:00",
+              "size_vram": 6893170851,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 8.438,
+        "ps": {
+          "models": [
+            {
+              "name": "llama3.1:8b",
+              "model": "llama3.1:8b",
+              "size": 6893170851,
+              "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                  "llama"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:48:21.540449+01:00",
+              "size_vram": 6893170851,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 9.086,
+        "ps": {
+          "models": [
+            {
+              "name": "llama3.1:8b",
+              "model": "llama3.1:8b",
+              "size": 6893170851,
+              "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                  "llama"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:48:22.164446+01:00",
+              "size_vram": 6893170851,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 9.668,
+        "ps": {
+          "models": [
+            {
+              "name": "llama3.1:8b",
+              "model": "llama3.1:8b",
+              "size": 6893170851,
+              "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                  "llama"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:48:22.740393+01:00",
+              "size_vram": 6893170851,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      }
+    ],
+    "raw_response": "{\"model\":\"llama3.1:8b\",\"created_at\":\"2026-10-04T11:48:22.995277Z\",\"message\":{\"role\":\"assistant\",\"content\":\"{\\\"ids\\\":[11, 21]}\"},\"done\":true,\"done_reason\":\"stop\",\"total_duration\":9917123583,\"load_duration\":5870736708,\"prompt_eval_count\":449,\"prompt_eval_cached_count\":0,\"prompt_eval_duration\":3150462000,\"eval_count\":10,\"eval_duration\":865638000}",
+    "http_status": 200,
+    "complete": true,
+    "thinking_present": false,
+    "tokens": {
+      "prompt_eval_count": 449,
+      "eval_count": 10
+    },
+    "score": {
+      "selected": [
+        11,
+        21
+      ],
+      "retrieved": [
+        21
+      ],
+      "missing": [
+        23
+      ],
+      "extra": [
+        11
+      ],
+      "unreviewed": [],
+      "exact": false,
+      "empty": false
+    },
+    "valid": true,
+    "wall_seconds": 9.927696457947604
+  },
+  {
+    "id": "roles-C",
+    "case_id": "roles",
+    "condition": "C",
+    "model_digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+    "plan_sha256": "0ff2d4b44601a6ddd11c723076e6343054e6297557504e3923f135151f93ef5a",
+    "wire_request_utf8": "{\"model\": \"llama3.1:8b\", \"stream\": false, \"keep_alive\": 0, \"options\": {\"temperature\": 0, \"seed\": 42, \"num_ctx\": 16384, \"num_predict\": 512}, \"messages\": [{\"role\": \"user\", \"content\": \"\\u0410\\u043c\\u043b\\u043e\\u0434\\u0438\\u043f\\u0438\\u043d 5 \\u043c\\u0433 \\u04e9\\u0434\\u04e9\\u0440\\u0442 1 \\u0443\\u0434\\u0430\\u0430 \\u0443\\u0443\\u0434\\u0430\\u0433 \\u0433\\u044d\\u0441\\u044d\\u043d.\\n\\u04e8\\u043d\\u04e9\\u04e9\\u0434\\u0440\\u0438\\u0439\\u043d \\u0442\\u0443\\u043d\\u0433\\u0430\\u0430 \\u0443\\u0443\\u0441\\u0430\\u043d \\u044d\\u0441\\u044d\\u0445\\u0438\\u0439\\u0433 \\u0430\\u0441\\u0443\\u0443\\u0433\\u0430\\u0430\\u0433\\u04af\\u0439.\\n10:15-\\u0434 \\u043f\\u0430\\u0440\\u0430\\u0446\\u0435\\u0442\\u0430\\u043c\\u043e\\u043b 500 \\u043c\\u0433 \\u0430\\u043c\\u0430\\u0430\\u0440 \\u043d\\u044d\\u0433 \\u0443\\u0434\\u0430\\u0430 \\u04e9\\u0433\\u0441\\u04e9\\u043d.\\n\\u042d\\u043d\\u044d \\u04af\\u0437\\u043b\\u044d\\u0433\\u044d\\u044d\\u0440 \\u04e9\\u04e9\\u0440 \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d \\u0445\\u0438\\u0439\\u0433\\u044d\\u044d\\u0433\\u04af\\u0439.\\n\\n\\u042d\\u043d\\u044d \\u0442\\u044d\\u043c\\u0434\\u044d\\u0433\\u043b\\u044d\\u043b\\u0434 \\u044d\\u043d\\u044d \\u04af\\u0437\\u043b\\u044d\\u0433\\u044d\\u044d\\u0440 \\u044f\\u043c\\u0430\\u0440 \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d \\u0445\\u0438\\u0439\\u0441\\u044d\\u043d, \\u044d\\u0441\\u0432\\u044d\\u043b \\u0445\\u0438\\u0439\\u0433\\u044d\\u044d\\u0433\\u04af\\u0439 \\u0433\\u044d\\u0436 \\u0431\\u0438\\u0447\\u0441\\u044d\\u043d \\u0431\\u044d? \\u0417\\u04e9\\u0432\\u0445\\u04e9\\u043d \\u0442\\u044d\\u0440 \\u043c\\u044d\\u0434\\u044d\\u044d\\u043b\\u043b\\u0438\\u0439\\u0433 \\u043c\\u043e\\u043d\\u0433\\u043e\\u043b\\u043e\\u043e\\u0440 \\u0442\\u043e\\u0432\\u0447 \\u0445\\u0430\\u0440\\u0438\\u0443\\u043b. \\u0422\\u043e\\u0433\\u0442\\u043c\\u043e\\u043b \\u044d\\u043c, \\u0445\\u0430\\u0440\\u0448\\u0438\\u043b, \\u04af\\u0437\\u043b\\u044d\\u0433, \\u0448\\u0438\\u043d\\u0436\\u0438\\u043b\\u0433\\u044d\\u044d\\u0433 \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d \\u0433\\u044d\\u0436 \\u0431\\u04af\\u04af \\u043e\\u0440\\u0443\\u0443\\u043b; \\u0431\\u0438\\u0447\\u044d\\u044d\\u0433\\u04af\\u0439 \\u0437\\u04af\\u0439\\u043b \\u0431\\u04af\\u04af \\u043d\\u044d\\u043c.\"}]}",
+    "status": "received",
+    "telemetry": [
+      {
+        "seconds": 0.513,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 1.028,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 1.552,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 2.066,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 2.642,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 3.258,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 3.773,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 4.348,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "4"
+      },
+      {
+        "seconds": 4.869,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 5.402,
+        "ps": {
+          "models": [
+            {
+              "name": "llama3.1:8b",
+              "model": "llama3.1:8b",
+              "size": 6893170851,
+              "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                  "llama"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:48:28.422115+01:00",
+              "size_vram": 6893170851,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 5.914,
+        "ps": {
+          "models": [
+            {
+              "name": "llama3.1:8b",
+              "model": "llama3.1:8b",
+              "size": 6893170851,
+              "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                  "llama"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:48:28.934073+01:00",
+              "size_vram": 6893170851,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 6.582,
+        "ps": {
+          "models": [
+            {
+              "name": "llama3.1:8b",
+              "model": "llama3.1:8b",
+              "size": 6893170851,
+              "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                  "llama"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:48:29.605488+01:00",
+              "size_vram": 6893170851,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 7.109,
+        "ps": {
+          "models": [
+            {
+              "name": "llama3.1:8b",
+              "model": "llama3.1:8b",
+              "size": 6893170851,
+              "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                  "llama"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:48:30.128431+01:00",
+              "size_vram": 6893170851,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 7.634,
+        "ps": {
+          "models": [
+            {
+              "name": "llama3.1:8b",
+              "model": "llama3.1:8b",
+              "size": 6893170851,
+              "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                  "llama"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:48:30.653748+01:00",
+              "size_vram": 6893170851,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      }
+    ],
+    "raw_response": "{\"model\":\"llama3.1:8b\",\"created_at\":\"2026-10-04T11:48:31.053754Z\",\"message\":{\"role\":\"assistant\",\"content\":\"Эмчилгээ.\"},\"done\":true,\"done_reason\":\"stop\",\"total_duration\":8034040459,\"load_duration\":5160984042,\"prompt_eval_count\":291,\"prompt_eval_cached_count\":0,\"prompt_eval_duration\":2278016000,\"eval_count\":8,\"eval_duration\":585191000}",
+    "http_status": 200,
+    "complete": true,
+    "thinking_present": false,
+    "tokens": {
+      "prompt_eval_count": 291,
+      "eval_count": 8
+    },
+    "semantic_review": "pending; assess against frozen rubric; JSON validity not applicable",
+    "wall_seconds": 8.037963334005326
+  },
+  {
+    "id": "negatives-A",
+    "case_id": "negatives",
+    "condition": "A",
+    "model_digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+    "plan_sha256": "0ff2d4b44601a6ddd11c723076e6343054e6297557504e3923f135151f93ef5a",
+    "wire_request_utf8": "{\"model\": \"llama3.1:8b\", \"stream\": false, \"keep_alive\": 0, \"options\": {\"temperature\": 0, \"seed\": 42, \"num_ctx\": 16384, \"num_predict\": 512}, \"format\": {\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"ids\": {\"type\": \"array\", \"items\": {\"type\": \"integer\", \"enum\": [1, 2, 5, 6]}, \"uniqueItems\": true, \"maxItems\": 80}}, \"required\": [\"ids\"]}, \"messages\": [{\"role\": \"system\", \"content\": \"\\u0425\\u0438\\u0439\\u0441\\u044d\\u043d \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d, \\u0430\\u0436\\u0438\\u043b\\u0431\\u0430\\u0440\\u0442\\u0430\\u0439 \\u0445\\u043e\\u043b\\u0431\\u043e\\u043e\\u0442\\u043e\\u0439 \\u044d\\u0445\\u0438\\u0439\\u043d \\u0445\\u044d\\u0441\\u0433\\u0438\\u0439\\u043d id-\\u0433 \\u0441\\u043e\\u043d\\u0433\\u043e. \\u042d\\u043d\\u044d \\u04af\\u0437\\u043b\\u044d\\u0433\\u044d\\u044d\\u0440 \\u0445\\u0438\\u0439\\u0441\\u044d\\u043d \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d/\\u0430\\u0436\\u0438\\u043b\\u0431\\u0430\\u0440, \\u043c\\u04e9\\u043d \\u044d\\u043c \\u044d\\u0441\\u0432\\u044d\\u043b \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d \\u04e9\\u0433\\u04e9\\u04e9\\u0433\\u04af\\u0439 \\u0433\\u044d\\u0441\\u044d\\u043d \\u0448\\u0443\\u0443\\u0434 \\u0442\\u044d\\u043c\\u0434\\u044d\\u0433\\u043b\\u044d\\u043b\\u0438\\u0439\\u0433 \\u043e\\u0440\\u0443\\u0443\\u043b. \\u0425\\u044d\\u0440\\u044d\\u0433\\u0442\\u044d\\u0439 \\u0431\\u043e\\u043b \\u0446\\u0430\\u0433, \\u0434\\u0430\\u0440\\u0430\\u0430\\u0445 \\u0431\\u0430\\u0439\\u0434\\u0430\\u043b, \\u0442\\u04e9\\u043b\\u04e9\\u0432\\u043b\\u04e9\\u0441\\u04e9\\u043d \\u0431\\u043e\\u043b\\u043e\\u0432\\u0447 \\u0445\\u0438\\u0439\\u0433\\u044d\\u044d\\u0433\\u04af\\u0439 \\u04af\\u0439\\u043b\\u0434\\u043b\\u0438\\u0439\\u043d \\u0445\\u043e\\u043b\\u0431\\u043e\\u043e\\u0442\\u043e\\u0439 \\u0445\\u044d\\u0441\\u0433\\u0438\\u0439\\u0433 \\u0445\\u0430\\u043c\\u0442 \\u0441\\u043e\\u043d\\u0433\\u043e; \\u0442\\u04e9\\u043b\\u04e9\\u0432\\u043b\\u04e9\\u0441\\u043d\\u0438\\u0439\\u0433 \\u0445\\u0438\\u0439\\u0441\\u044d\\u043d \\u0433\\u044d\\u0436 \\u04af\\u0437\\u044d\\u0445\\u0433\\u04af\\u0439. \\u0417\\u04e9\\u0432\\u0445\\u04e9\\u043d \\u0442\\u043e\\u0433\\u0442\\u043c\\u043e\\u043b \\u044d\\u043c, \\u0433\\u044d\\u0440\\u044d\\u044d\\u0440 \\u0445\\u044d\\u0440\\u044d\\u0433\\u043b\\u044d\\u0441\\u044d\\u043d \\u044d\\u043c, \\u0445\\u0430\\u0440\\u0448\\u0438\\u043b, \\u04af\\u0437\\u043b\\u044d\\u0433, \\u0448\\u0438\\u043d\\u0436\\u0438\\u043b\\u0433\\u044d\\u044d \\u043d\\u044c \\u044d\\u043d\\u044d \\u04af\\u0437\\u043b\\u044d\\u0433\\u0438\\u0439\\u043d \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d \\u0431\\u0438\\u0448. \\u0425\\u043e\\u043b\\u0431\\u043e\\u0433\\u0434\\u043e\\u0445 \\u0445\\u044d\\u0441\\u044d\\u0433 \\u043e\\u043b\\u0434\\u043e\\u043e\\u0433\\u04af\\u0439 \\u0431\\u043e\\u043b ids \\u0445\\u043e\\u043e\\u0441\\u043e\\u043d \\u0431\\u0430\\u0439\\u043d\\u0430. \\u0417\\u04e9\\u0432\\u0445\\u04e9\\u043d ids \\u043c\\u0430\\u0441\\u0441\\u0438\\u0432\\u0442\\u0430\\u0439 JSON \\u0431\\u0443\\u0446\\u0430\\u0430; \\u0442\\u0435\\u043a\\u0441\\u0442, \\u0442\\u0443\\u043d, \\u0434\\u04af\\u0433\\u043d\\u044d\\u043b\\u0442 \\u0437\\u043e\\u0445\\u0438\\u043e\\u0445\\u0433\\u04af\\u0439.\"}, {\"role\": \"user\", \"content\": \"{\\\"units\\\":[{\\\"id\\\":1,\\\"text\\\":\\\"\\u0425\\u0430\\u043d\\u0438\\u0430\\u043b\\u0433\\u0430\\u0433\\u04af\\u0439.\\\"},{\\\"id\\\":2,\\\"text\\\":\\\"\\u0425\\u0430\\u043b\\u0443\\u0443\\u0440\\u0430\\u0430\\u0433\\u04af\\u0439.\\\"},{\\\"id\\\":5,\\\"text\\\":\\\"\\u042d\\u043c\\u0438\\u0439\\u043d \\u0445\\u0430\\u0440\\u0448\\u0438\\u043b\\u0433\\u04af\\u0439.\\\"},{\\\"id\\\":6,\\\"text\\\":\\\"\\u042d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d \\u0445\\u0438\\u0439\\u0433\\u044d\\u044d\\u0433\\u04af\\u0439.\\\"}]}\"}]}",
+    "status": "received",
+    "telemetry": [
+      {
+        "seconds": 0.52,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 1.201,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 1.711,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 2.234,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 2.782,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 3.295,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 3.806,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 4.322,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 4.842,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 5.363,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 5.872,
+        "ps": {
+          "models": [
+            {
+              "name": "llama3.1:8b",
+              "model": "llama3.1:8b",
+              "size": 6893170851,
+              "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                  "llama"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:48:37.08422+01:00",
+              "size_vram": 6893170851,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 6.382,
+        "ps": {
+          "models": [
+            {
+              "name": "llama3.1:8b",
+              "model": "llama3.1:8b",
+              "size": 6893170851,
+              "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                  "llama"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:48:37.59521+01:00",
+              "size_vram": 6893170851,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 6.897,
+        "ps": {
+          "models": [
+            {
+              "name": "llama3.1:8b",
+              "model": "llama3.1:8b",
+              "size": 6893170851,
+              "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                  "llama"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:48:38.110246+01:00",
+              "size_vram": 6893170851,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 7.417,
+        "ps": {
+          "models": [
+            {
+              "name": "llama3.1:8b",
+              "model": "llama3.1:8b",
+              "size": 6893170851,
+              "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                  "llama"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:48:38.62916+01:00",
+              "size_vram": 6893170851,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 7.93,
+        "ps": {
+          "models": [
+            {
+              "name": "llama3.1:8b",
+              "model": "llama3.1:8b",
+              "size": 6893170851,
+              "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                  "llama"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:48:39.142509+01:00",
+              "size_vram": 6893170851,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 8.441,
+        "ps": {
+          "models": [
+            {
+              "name": "llama3.1:8b",
+              "model": "llama3.1:8b",
+              "size": 6893170851,
+              "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                  "llama"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:48:39.655333+01:00",
+              "size_vram": 6893170851,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 8.963,
+        "ps": {
+          "models": [
+            {
+              "name": "llama3.1:8b",
+              "model": "llama3.1:8b",
+              "size": 6893170851,
+              "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                  "llama"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:48:40.197306+01:00",
+              "size_vram": 6893170851,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      }
+    ],
+    "raw_response": "{\"model\":\"llama3.1:8b\",\"created_at\":\"2026-10-04T11:48:40.371893Z\",\"message\":{\"role\":\"assistant\",\"content\":\"{\\\"ids\\\":[1,2,5,6]}\"},\"done\":true,\"done_reason\":\"stop\",\"total_duration\":9156535542,\"load_duration\":5395605375,\"prompt_eval_count\":443,\"prompt_eval_cached_count\":0,\"prompt_eval_duration\":2802115000,\"eval_count\":13,\"eval_duration\":954650000}",
+    "http_status": 200,
+    "complete": true,
+    "thinking_present": false,
+    "tokens": {
+      "prompt_eval_count": 443,
+      "eval_count": 13
+    },
+    "score": {
+      "selected": [
+        1,
+        2,
+        5,
+        6
+      ],
+      "retrieved": [
+        6
+      ],
+      "missing": [],
+      "extra": [
+        1,
+        2,
+        5
+      ],
+      "unreviewed": [],
+      "exact": false,
+      "empty": false
+    },
+    "valid": true,
+    "wall_seconds": 9.163348332978785
+  },
+  {
+    "id": "negatives-B",
+    "case_id": "negatives",
+    "condition": "B",
+    "model_digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+    "plan_sha256": "0ff2d4b44601a6ddd11c723076e6343054e6297557504e3923f135151f93ef5a",
+    "wire_request_utf8": "{\"model\": \"llama3.1:8b\", \"stream\": false, \"keep_alive\": 0, \"options\": {\"temperature\": 0, \"seed\": 42, \"num_ctx\": 16384, \"num_predict\": 512}, \"format\": {\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"ids\": {\"type\": \"array\", \"items\": {\"type\": \"integer\", \"enum\": [1, 2, 5, 6]}, \"uniqueItems\": true, \"maxItems\": 80}}, \"required\": [\"ids\"]}, \"messages\": [{\"role\": \"system\", \"content\": \"\\u0425\\u0438\\u0439\\u0441\\u044d\\u043d \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d, \\u0430\\u0436\\u0438\\u043b\\u0431\\u0430\\u0440\\u0442\\u0430\\u0439 \\u0445\\u043e\\u043b\\u0431\\u043e\\u043e\\u0442\\u043e\\u0439 \\u044d\\u0445\\u0438\\u0439\\u043d \\u0445\\u044d\\u0441\\u0433\\u0438\\u0439\\u043d id-\\u0433 \\u0441\\u043e\\u043d\\u0433\\u043e. \\u042d\\u043d\\u044d \\u04af\\u0437\\u043b\\u044d\\u0433\\u044d\\u044d\\u0440 \\u0445\\u0438\\u0439\\u0441\\u044d\\u043d \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d/\\u0430\\u0436\\u0438\\u043b\\u0431\\u0430\\u0440, \\u043c\\u04e9\\u043d \\u044d\\u043c \\u044d\\u0441\\u0432\\u044d\\u043b \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d \\u04e9\\u0433\\u04e9\\u04e9\\u0433\\u04af\\u0439 \\u0433\\u044d\\u0441\\u044d\\u043d \\u0448\\u0443\\u0443\\u0434 \\u0442\\u044d\\u043c\\u0434\\u044d\\u0433\\u043b\\u044d\\u043b\\u0438\\u0439\\u0433 \\u043e\\u0440\\u0443\\u0443\\u043b. \\u0425\\u044d\\u0440\\u044d\\u0433\\u0442\\u044d\\u0439 \\u0431\\u043e\\u043b \\u0446\\u0430\\u0433, \\u0434\\u0430\\u0440\\u0430\\u0430\\u0445 \\u0431\\u0430\\u0439\\u0434\\u0430\\u043b, \\u0442\\u04e9\\u043b\\u04e9\\u0432\\u043b\\u04e9\\u0441\\u04e9\\u043d \\u0431\\u043e\\u043b\\u043e\\u0432\\u0447 \\u0445\\u0438\\u0439\\u0433\\u044d\\u044d\\u0433\\u04af\\u0439 \\u04af\\u0439\\u043b\\u0434\\u043b\\u0438\\u0439\\u043d \\u0445\\u043e\\u043b\\u0431\\u043e\\u043e\\u0442\\u043e\\u0439 \\u0445\\u044d\\u0441\\u0433\\u0438\\u0439\\u0433 \\u0445\\u0430\\u043c\\u0442 \\u0441\\u043e\\u043d\\u0433\\u043e; \\u0442\\u04e9\\u043b\\u04e9\\u0432\\u043b\\u04e9\\u0441\\u043d\\u0438\\u0439\\u0433 \\u0445\\u0438\\u0439\\u0441\\u044d\\u043d \\u0433\\u044d\\u0436 \\u04af\\u0437\\u044d\\u0445\\u0433\\u04af\\u0439. \\u0417\\u04e9\\u0432\\u0445\\u04e9\\u043d \\u0442\\u043e\\u0433\\u0442\\u043c\\u043e\\u043b \\u044d\\u043c, \\u0433\\u044d\\u0440\\u044d\\u044d\\u0440 \\u0445\\u044d\\u0440\\u044d\\u0433\\u043b\\u044d\\u0441\\u044d\\u043d \\u044d\\u043c, \\u0445\\u0430\\u0440\\u0448\\u0438\\u043b, \\u04af\\u0437\\u043b\\u044d\\u0433, \\u0448\\u0438\\u043d\\u0436\\u0438\\u043b\\u0433\\u044d\\u044d \\u043d\\u044c \\u044d\\u043d\\u044d \\u04af\\u0437\\u043b\\u044d\\u0433\\u0438\\u0439\\u043d \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d \\u0431\\u0438\\u0448. \\u0425\\u043e\\u043b\\u0431\\u043e\\u0433\\u0434\\u043e\\u0445 \\u0445\\u044d\\u0441\\u044d\\u0433 \\u043e\\u043b\\u0434\\u043e\\u043e\\u0433\\u04af\\u0439 \\u0431\\u043e\\u043b ids \\u0445\\u043e\\u043e\\u0441\\u043e\\u043d \\u0431\\u0430\\u0439\\u043d\\u0430. \\u0417\\u04e9\\u0432\\u0445\\u04e9\\u043d ids \\u043c\\u0430\\u0441\\u0441\\u0438\\u0432\\u0442\\u0430\\u0439 JSON \\u0431\\u0443\\u0446\\u0430\\u0430; \\u0442\\u0435\\u043a\\u0441\\u0442, \\u0442\\u0443\\u043d, \\u0434\\u04af\\u0433\\u043d\\u044d\\u043b\\u0442 \\u0437\\u043e\\u0445\\u0438\\u043e\\u0445\\u0433\\u04af\\u0439.\"}, {\"role\": \"user\", \"content\": \"{\\\"units\\\":[{\\\"id\\\":1,\\\"text\\\":\\\"No cough.\\\"},{\\\"id\\\":2,\\\"text\\\":\\\"No fever.\\\"},{\\\"id\\\":5,\\\"text\\\":\\\"No medication allergy.\\\"},{\\\"id\\\":6,\\\"text\\\":\\\"No treatment was performed.\\\"}]}\"}]}",
+    "status": "received",
+    "telemetry": [
+      {
+        "seconds": 0.508,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 1.018,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 1.531,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 2.047,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 2.561,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 3.074,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 3.607,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 4.116,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 4.632,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 5.205,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 5.784,
+        "ps": {
+          "models": [
+            {
+              "name": "llama3.1:8b",
+              "model": "llama3.1:8b",
+              "size": 6893170851,
+              "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                  "llama"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:48:46.190046+01:00",
+              "size_vram": 6893170851,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 6.329,
+        "ps": {
+          "models": [
+            {
+              "name": "llama3.1:8b",
+              "model": "llama3.1:8b",
+              "size": 6893170851,
+              "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                  "llama"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:48:46.740164+01:00",
+              "size_vram": 6893170851,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 6.873,
+        "ps": {
+          "models": [
+            {
+              "name": "llama3.1:8b",
+              "model": "llama3.1:8b",
+              "size": 6893170851,
+              "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                  "llama"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:48:47.279017+01:00",
+              "size_vram": 6893170851,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 7.387,
+        "ps": {
+          "models": [
+            {
+              "name": "llama3.1:8b",
+              "model": "llama3.1:8b",
+              "size": 6893170851,
+              "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                  "llama"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:48:47.793188+01:00",
+              "size_vram": 6893170851,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 7.904,
+        "ps": {
+          "models": [
+            {
+              "name": "llama3.1:8b",
+              "model": "llama3.1:8b",
+              "size": 6893170851,
+              "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                  "llama"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:48:48.309868+01:00",
+              "size_vram": 6893170851,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      }
+    ],
+    "raw_response": "{\"model\":\"llama3.1:8b\",\"created_at\":\"2026-10-04T11:48:48.750426Z\",\"message\":{\"role\":\"assistant\",\"content\":\"{\\\"ids\\\": [1, 2, 5, 6]}\"},\"done\":true,\"done_reason\":\"stop\",\"total_duration\":8344860584,\"load_duration\":5379212292,\"prompt_eval_count\":412,\"prompt_eval_cached_count\":0,\"prompt_eval_duration\":2020856000,\"eval_count\":17,\"eval_duration\":911069000}",
+    "http_status": 200,
+    "complete": true,
+    "thinking_present": false,
+    "tokens": {
+      "prompt_eval_count": 412,
+      "eval_count": 17
+    },
+    "score": {
+      "selected": [
+        1,
+        2,
+        5,
+        6
+      ],
+      "retrieved": [
+        6
+      ],
+      "missing": [],
+      "extra": [
+        1,
+        2,
+        5
+      ],
+      "unreviewed": [],
+      "exact": false,
+      "empty": false
+    },
+    "valid": true,
+    "wall_seconds": 8.34995262499433
+  },
+  {
+    "id": "negatives-C",
+    "case_id": "negatives",
+    "condition": "C",
+    "model_digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+    "plan_sha256": "0ff2d4b44601a6ddd11c723076e6343054e6297557504e3923f135151f93ef5a",
+    "wire_request_utf8": "{\"model\": \"llama3.1:8b\", \"stream\": false, \"keep_alive\": 0, \"options\": {\"temperature\": 0, \"seed\": 42, \"num_ctx\": 16384, \"num_predict\": 512}, \"messages\": [{\"role\": \"user\", \"content\": \"\\u0425\\u0430\\u043d\\u0438\\u0430\\u043b\\u0433\\u0430\\u0433\\u04af\\u0439.\\n\\u0425\\u0430\\u043b\\u0443\\u0443\\u0440\\u0430\\u0430\\u0433\\u04af\\u0439.\\n\\u042d\\u043c\\u0438\\u0439\\u043d \\u0445\\u0430\\u0440\\u0448\\u0438\\u043b\\u0433\\u04af\\u0439.\\n\\u042d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d \\u0445\\u0438\\u0439\\u0433\\u044d\\u044d\\u0433\\u04af\\u0439.\\n\\n\\u042d\\u043d\\u044d \\u0442\\u044d\\u043c\\u0434\\u044d\\u0433\\u043b\\u044d\\u043b\\u0434 \\u044d\\u043d\\u044d \\u04af\\u0437\\u043b\\u044d\\u0433\\u044d\\u044d\\u0440 \\u044f\\u043c\\u0430\\u0440 \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d \\u0445\\u0438\\u0439\\u0441\\u044d\\u043d, \\u044d\\u0441\\u0432\\u044d\\u043b \\u0445\\u0438\\u0439\\u0433\\u044d\\u044d\\u0433\\u04af\\u0439 \\u0433\\u044d\\u0436 \\u0431\\u0438\\u0447\\u0441\\u044d\\u043d \\u0431\\u044d? \\u0417\\u04e9\\u0432\\u0445\\u04e9\\u043d \\u0442\\u044d\\u0440 \\u043c\\u044d\\u0434\\u044d\\u044d\\u043b\\u043b\\u0438\\u0439\\u0433 \\u043c\\u043e\\u043d\\u0433\\u043e\\u043b\\u043e\\u043e\\u0440 \\u0442\\u043e\\u0432\\u0447 \\u0445\\u0430\\u0440\\u0438\\u0443\\u043b. \\u0422\\u043e\\u0433\\u0442\\u043c\\u043e\\u043b \\u044d\\u043c, \\u0445\\u0430\\u0440\\u0448\\u0438\\u043b, \\u04af\\u0437\\u043b\\u044d\\u0433, \\u0448\\u0438\\u043d\\u0436\\u0438\\u043b\\u0433\\u044d\\u044d\\u0433 \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d \\u0433\\u044d\\u0436 \\u0431\\u04af\\u04af \\u043e\\u0440\\u0443\\u0443\\u043b; \\u0431\\u0438\\u0447\\u044d\\u044d\\u0433\\u04af\\u0439 \\u0437\\u04af\\u0439\\u043b \\u0431\\u04af\\u04af \\u043d\\u044d\\u043c.\"}]}",
+    "status": "received",
+    "telemetry": [
+      {
+        "seconds": 0.513,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 1.083,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 1.59,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 2.098,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 2.609,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 3.127,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 3.638,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 4.152,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 4.67,
+        "ps": {
+          "models": [
+            {
+              "name": "llama3.1:8b",
+              "model": "llama3.1:8b",
+              "size": 6893170851,
+              "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                  "llama"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:48:53.50971+01:00",
+              "size_vram": 6893170851,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 5.18,
+        "ps": {
+          "models": [
+            {
+              "name": "llama3.1:8b",
+              "model": "llama3.1:8b",
+              "size": 6893170851,
+              "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                  "llama"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:48:54.019702+01:00",
+              "size_vram": 6893170851,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 5.694,
+        "ps": {
+          "models": [
+            {
+              "name": "llama3.1:8b",
+              "model": "llama3.1:8b",
+              "size": 6893170851,
+              "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                  "llama"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:48:54.534881+01:00",
+              "size_vram": 6893170851,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      }
+    ],
+    "raw_response": "{\"model\":\"llama3.1:8b\",\"created_at\":\"2026-10-04T11:48:54.89821Z\",\"message\":{\"role\":\"assistant\",\"content\":\"Эмчилгээ хийгээгүй.\"},\"done\":true,\"done_reason\":\"stop\",\"total_duration\":6058408750,\"load_duration\":4157352375,\"prompt_eval_count\":214,\"prompt_eval_cached_count\":0,\"prompt_eval_duration\":1030194000,\"eval_count\":17,\"eval_duration\":865248000}",
+    "http_status": 200,
+    "complete": true,
+    "thinking_present": false,
+    "tokens": {
+      "prompt_eval_count": 214,
+      "eval_count": 17
+    },
+    "semantic_review": "pending; assess against frozen rubric; JSON validity not applicable",
+    "wall_seconds": 6.06104479089845
+  },
+  {
+    "id": "investigations-A",
+    "case_id": "investigations",
+    "condition": "A",
+    "model_digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+    "plan_sha256": "0ff2d4b44601a6ddd11c723076e6343054e6297557504e3923f135151f93ef5a",
+    "wire_request_utf8": "{\"model\": \"llama3.1:8b\", \"stream\": false, \"keep_alive\": 0, \"options\": {\"temperature\": 0, \"seed\": 42, \"num_ctx\": 16384, \"num_predict\": 512}, \"format\": {\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"ids\": {\"type\": \"array\", \"items\": {\"type\": \"integer\", \"enum\": [4, 6, 7]}, \"uniqueItems\": true, \"maxItems\": 80}}, \"required\": [\"ids\"]}, \"messages\": [{\"role\": \"system\", \"content\": \"\\u0425\\u0438\\u0439\\u0441\\u044d\\u043d \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d, \\u0430\\u0436\\u0438\\u043b\\u0431\\u0430\\u0440\\u0442\\u0430\\u0439 \\u0445\\u043e\\u043b\\u0431\\u043e\\u043e\\u0442\\u043e\\u0439 \\u044d\\u0445\\u0438\\u0439\\u043d \\u0445\\u044d\\u0441\\u0433\\u0438\\u0439\\u043d id-\\u0433 \\u0441\\u043e\\u043d\\u0433\\u043e. \\u042d\\u043d\\u044d \\u04af\\u0437\\u043b\\u044d\\u0433\\u044d\\u044d\\u0440 \\u0445\\u0438\\u0439\\u0441\\u044d\\u043d \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d/\\u0430\\u0436\\u0438\\u043b\\u0431\\u0430\\u0440, \\u043c\\u04e9\\u043d \\u044d\\u043c \\u044d\\u0441\\u0432\\u044d\\u043b \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d \\u04e9\\u0433\\u04e9\\u04e9\\u0433\\u04af\\u0439 \\u0433\\u044d\\u0441\\u044d\\u043d \\u0448\\u0443\\u0443\\u0434 \\u0442\\u044d\\u043c\\u0434\\u044d\\u0433\\u043b\\u044d\\u043b\\u0438\\u0439\\u0433 \\u043e\\u0440\\u0443\\u0443\\u043b. \\u0425\\u044d\\u0440\\u044d\\u0433\\u0442\\u044d\\u0439 \\u0431\\u043e\\u043b \\u0446\\u0430\\u0433, \\u0434\\u0430\\u0440\\u0430\\u0430\\u0445 \\u0431\\u0430\\u0439\\u0434\\u0430\\u043b, \\u0442\\u04e9\\u043b\\u04e9\\u0432\\u043b\\u04e9\\u0441\\u04e9\\u043d \\u0431\\u043e\\u043b\\u043e\\u0432\\u0447 \\u0445\\u0438\\u0439\\u0433\\u044d\\u044d\\u0433\\u04af\\u0439 \\u04af\\u0439\\u043b\\u0434\\u043b\\u0438\\u0439\\u043d \\u0445\\u043e\\u043b\\u0431\\u043e\\u043e\\u0442\\u043e\\u0439 \\u0445\\u044d\\u0441\\u0433\\u0438\\u0439\\u0433 \\u0445\\u0430\\u043c\\u0442 \\u0441\\u043e\\u043d\\u0433\\u043e; \\u0442\\u04e9\\u043b\\u04e9\\u0432\\u043b\\u04e9\\u0441\\u043d\\u0438\\u0439\\u0433 \\u0445\\u0438\\u0439\\u0441\\u044d\\u043d \\u0433\\u044d\\u0436 \\u04af\\u0437\\u044d\\u0445\\u0433\\u04af\\u0439. \\u0417\\u04e9\\u0432\\u0445\\u04e9\\u043d \\u0442\\u043e\\u0433\\u0442\\u043c\\u043e\\u043b \\u044d\\u043c, \\u0433\\u044d\\u0440\\u044d\\u044d\\u0440 \\u0445\\u044d\\u0440\\u044d\\u0433\\u043b\\u044d\\u0441\\u044d\\u043d \\u044d\\u043c, \\u0445\\u0430\\u0440\\u0448\\u0438\\u043b, \\u04af\\u0437\\u043b\\u044d\\u0433, \\u0448\\u0438\\u043d\\u0436\\u0438\\u043b\\u0433\\u044d\\u044d \\u043d\\u044c \\u044d\\u043d\\u044d \\u04af\\u0437\\u043b\\u044d\\u0433\\u0438\\u0439\\u043d \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d \\u0431\\u0438\\u0448. \\u0425\\u043e\\u043b\\u0431\\u043e\\u0433\\u0434\\u043e\\u0445 \\u0445\\u044d\\u0441\\u044d\\u0433 \\u043e\\u043b\\u0434\\u043e\\u043e\\u0433\\u04af\\u0439 \\u0431\\u043e\\u043b ids \\u0445\\u043e\\u043e\\u0441\\u043e\\u043d \\u0431\\u0430\\u0439\\u043d\\u0430. \\u0417\\u04e9\\u0432\\u0445\\u04e9\\u043d ids \\u043c\\u0430\\u0441\\u0441\\u0438\\u0432\\u0442\\u0430\\u0439 JSON \\u0431\\u0443\\u0446\\u0430\\u0430; \\u0442\\u0435\\u043a\\u0441\\u0442, \\u0442\\u0443\\u043d, \\u0434\\u04af\\u0433\\u043d\\u044d\\u043b\\u0442 \\u0437\\u043e\\u0445\\u0438\\u043e\\u0445\\u0433\\u04af\\u0439.\"}, {\"role\": \"user\", \"content\": \"{\\\"units\\\":[{\\\"id\\\":4,\\\"text\\\":\\\"\\u0423\\u0443\\u0448\\u0433\\u0438\\u043d\\u0434 \\u0448\\u0443\\u0443\\u0433\\u0438\\u0430\\u043d \\u0441\\u043e\\u043d\\u0441\\u043e\\u0433\\u0434\\u043e\\u043e\\u0433\\u04af\\u0439.\\\"},{\\\"id\\\":6,\\\"text\\\":\\\"\\u042d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d \\u0445\\u0438\\u0439\\u0433\\u044d\\u044d\\u0433\\u04af\\u0439.\\\"},{\\\"id\\\":7,\\\"text\\\":\\\"\\u0428\\u0438\\u043d\\u0436\\u0438\\u043b\\u0433\\u044d\\u044d \\u0445\\u0438\\u0439\\u0433\\u0434\\u044d\\u044d\\u0433\\u04af\\u0439.\\\"}]}\"}]}",
+    "status": "received",
+    "telemetry": [
+      {
+        "seconds": 0.523,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 1.038,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 1.545,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 2.084,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 2.684,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 3.197,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 3.711,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 4.371,
+        "ps": {
+          "models": [
+            {
+              "name": "llama3.1:8b",
+              "model": "llama3.1:8b",
+              "size": 6893170851,
+              "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                  "llama"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:48:59.359899+01:00",
+              "size_vram": 6893170851,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 4.929,
+        "ps": {
+          "models": [
+            {
+              "name": "llama3.1:8b",
+              "model": "llama3.1:8b",
+              "size": 6893170851,
+              "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                  "llama"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:48:59.918046+01:00",
+              "size_vram": 6893170851,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 5.44,
+        "ps": {
+          "models": [
+            {
+              "name": "llama3.1:8b",
+              "model": "llama3.1:8b",
+              "size": 6893170851,
+              "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                  "llama"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:49:00.429281+01:00",
+              "size_vram": 6893170851,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 6.039,
+        "ps": {
+          "models": [
+            {
+              "name": "llama3.1:8b",
+              "model": "llama3.1:8b",
+              "size": 6893170851,
+              "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                  "llama"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:49:01.028909+01:00",
+              "size_vram": 6893170851,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 6.57,
+        "ps": {
+          "models": [
+            {
+              "name": "llama3.1:8b",
+              "model": "llama3.1:8b",
+              "size": 6893170851,
+              "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                  "llama"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:49:01.558998+01:00",
+              "size_vram": 6893170851,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      }
+    ],
+    "raw_response": "{\"model\":\"llama3.1:8b\",\"created_at\":\"2026-10-04T11:49:01.896861Z\",\"message\":{\"role\":\"assistant\",\"content\":\"{\\\"ids\\\":[4,6,7]}\"},\"done\":true,\"done_reason\":\"stop\",\"total_duration\":6907029666,\"load_duration\":4179113750,\"prompt_eval_count\":443,\"prompt_eval_cached_count\":0,\"prompt_eval_duration\":2161852000,\"eval_count\":11,\"eval_duration\":557860000}",
+    "http_status": 200,
+    "complete": true,
+    "thinking_present": false,
+    "tokens": {
+      "prompt_eval_count": 443,
+      "eval_count": 11
+    },
+    "score": {
+      "selected": [
+        4,
+        6,
+        7
+      ],
+      "retrieved": [
+        6
+      ],
+      "missing": [],
+      "extra": [
+        4,
+        7
+      ],
+      "unreviewed": [],
+      "exact": false,
+      "empty": false
+    },
+    "valid": true,
+    "wall_seconds": 6.910223332932219
+  },
+  {
+    "id": "investigations-B",
+    "case_id": "investigations",
+    "condition": "B",
+    "model_digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+    "plan_sha256": "0ff2d4b44601a6ddd11c723076e6343054e6297557504e3923f135151f93ef5a",
+    "wire_request_utf8": "{\"model\": \"llama3.1:8b\", \"stream\": false, \"keep_alive\": 0, \"options\": {\"temperature\": 0, \"seed\": 42, \"num_ctx\": 16384, \"num_predict\": 512}, \"format\": {\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"ids\": {\"type\": \"array\", \"items\": {\"type\": \"integer\", \"enum\": [4, 6, 7]}, \"uniqueItems\": true, \"maxItems\": 80}}, \"required\": [\"ids\"]}, \"messages\": [{\"role\": \"system\", \"content\": \"\\u0425\\u0438\\u0439\\u0441\\u044d\\u043d \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d, \\u0430\\u0436\\u0438\\u043b\\u0431\\u0430\\u0440\\u0442\\u0430\\u0439 \\u0445\\u043e\\u043b\\u0431\\u043e\\u043e\\u0442\\u043e\\u0439 \\u044d\\u0445\\u0438\\u0439\\u043d \\u0445\\u044d\\u0441\\u0433\\u0438\\u0439\\u043d id-\\u0433 \\u0441\\u043e\\u043d\\u0433\\u043e. \\u042d\\u043d\\u044d \\u04af\\u0437\\u043b\\u044d\\u0433\\u044d\\u044d\\u0440 \\u0445\\u0438\\u0439\\u0441\\u044d\\u043d \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d/\\u0430\\u0436\\u0438\\u043b\\u0431\\u0430\\u0440, \\u043c\\u04e9\\u043d \\u044d\\u043c \\u044d\\u0441\\u0432\\u044d\\u043b \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d \\u04e9\\u0433\\u04e9\\u04e9\\u0433\\u04af\\u0439 \\u0433\\u044d\\u0441\\u044d\\u043d \\u0448\\u0443\\u0443\\u0434 \\u0442\\u044d\\u043c\\u0434\\u044d\\u0433\\u043b\\u044d\\u043b\\u0438\\u0439\\u0433 \\u043e\\u0440\\u0443\\u0443\\u043b. \\u0425\\u044d\\u0440\\u044d\\u0433\\u0442\\u044d\\u0439 \\u0431\\u043e\\u043b \\u0446\\u0430\\u0433, \\u0434\\u0430\\u0440\\u0430\\u0430\\u0445 \\u0431\\u0430\\u0439\\u0434\\u0430\\u043b, \\u0442\\u04e9\\u043b\\u04e9\\u0432\\u043b\\u04e9\\u0441\\u04e9\\u043d \\u0431\\u043e\\u043b\\u043e\\u0432\\u0447 \\u0445\\u0438\\u0439\\u0433\\u044d\\u044d\\u0433\\u04af\\u0439 \\u04af\\u0439\\u043b\\u0434\\u043b\\u0438\\u0439\\u043d \\u0445\\u043e\\u043b\\u0431\\u043e\\u043e\\u0442\\u043e\\u0439 \\u0445\\u044d\\u0441\\u0433\\u0438\\u0439\\u0433 \\u0445\\u0430\\u043c\\u0442 \\u0441\\u043e\\u043d\\u0433\\u043e; \\u0442\\u04e9\\u043b\\u04e9\\u0432\\u043b\\u04e9\\u0441\\u043d\\u0438\\u0439\\u0433 \\u0445\\u0438\\u0439\\u0441\\u044d\\u043d \\u0433\\u044d\\u0436 \\u04af\\u0437\\u044d\\u0445\\u0433\\u04af\\u0439. \\u0417\\u04e9\\u0432\\u0445\\u04e9\\u043d \\u0442\\u043e\\u0433\\u0442\\u043c\\u043e\\u043b \\u044d\\u043c, \\u0433\\u044d\\u0440\\u044d\\u044d\\u0440 \\u0445\\u044d\\u0440\\u044d\\u0433\\u043b\\u044d\\u0441\\u044d\\u043d \\u044d\\u043c, \\u0445\\u0430\\u0440\\u0448\\u0438\\u043b, \\u04af\\u0437\\u043b\\u044d\\u0433, \\u0448\\u0438\\u043d\\u0436\\u0438\\u043b\\u0433\\u044d\\u044d \\u043d\\u044c \\u044d\\u043d\\u044d \\u04af\\u0437\\u043b\\u044d\\u0433\\u0438\\u0439\\u043d \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d \\u0431\\u0438\\u0448. \\u0425\\u043e\\u043b\\u0431\\u043e\\u0433\\u0434\\u043e\\u0445 \\u0445\\u044d\\u0441\\u044d\\u0433 \\u043e\\u043b\\u0434\\u043e\\u043e\\u0433\\u04af\\u0439 \\u0431\\u043e\\u043b ids \\u0445\\u043e\\u043e\\u0441\\u043e\\u043d \\u0431\\u0430\\u0439\\u043d\\u0430. \\u0417\\u04e9\\u0432\\u0445\\u04e9\\u043d ids \\u043c\\u0430\\u0441\\u0441\\u0438\\u0432\\u0442\\u0430\\u0439 JSON \\u0431\\u0443\\u0446\\u0430\\u0430; \\u0442\\u0435\\u043a\\u0441\\u0442, \\u0442\\u0443\\u043d, \\u0434\\u04af\\u0433\\u043d\\u044d\\u043b\\u0442 \\u0437\\u043e\\u0445\\u0438\\u043e\\u0445\\u0433\\u04af\\u0439.\"}, {\"role\": \"user\", \"content\": \"{\\\"units\\\":[{\\\"id\\\":4,\\\"text\\\":\\\"No abnormal lung sounds were heard.\\\"},{\\\"id\\\":6,\\\"text\\\":\\\"No treatment was performed.\\\"},{\\\"id\\\":7,\\\"text\\\":\\\"Investigations were not performed.\\\"}]}\"}]}",
+    "status": "received",
+    "telemetry": [
+      {
+        "seconds": 0.511,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 1.023,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 1.531,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 2.037,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 2.552,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 3.072,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 3.589,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 4.095,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 4.612,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 5.127,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 5.638,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 6.155,
+        "ps": {
+          "models": [
+            {
+              "name": "llama3.1:8b",
+              "model": "llama3.1:8b",
+              "size": 6893170851,
+              "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                  "llama"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:49:08.133459+01:00",
+              "size_vram": 6893170851,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 6.671,
+        "ps": {
+          "models": [
+            {
+              "name": "llama3.1:8b",
+              "model": "llama3.1:8b",
+              "size": 6893170851,
+              "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                  "llama"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:49:08.64843+01:00",
+              "size_vram": 6893170851,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 7.187,
+        "ps": {
+          "models": [
+            {
+              "name": "llama3.1:8b",
+              "model": "llama3.1:8b",
+              "size": 6893170851,
+              "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                  "llama"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:49:09.164994+01:00",
+              "size_vram": 6893170851,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 7.704,
+        "ps": {
+          "models": [
+            {
+              "name": "llama3.1:8b",
+              "model": "llama3.1:8b",
+              "size": 6893170851,
+              "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                  "llama"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:49:09.682573+01:00",
+              "size_vram": 6893170851,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 8.219,
+        "ps": {
+          "models": [
+            {
+              "name": "llama3.1:8b",
+              "model": "llama3.1:8b",
+              "size": 6893170851,
+              "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                  "llama"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:49:10.196979+01:00",
+              "size_vram": 6893170851,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      }
+    ],
+    "raw_response": "{\"model\":\"llama3.1:8b\",\"created_at\":\"2026-10-04T11:49:10.626707Z\",\"message\":{\"role\":\"assistant\",\"content\":\"{\\\"ids\\\": [4, 6, 7]}\"},\"done\":true,\"done_reason\":\"stop\",\"total_duration\":8649354250,\"load_duration\":5924722125,\"prompt_eval_count\":409,\"prompt_eval_cached_count\":0,\"prompt_eval_duration\":1984837000,\"eval_count\":14,\"eval_duration\":728581000}",
+    "http_status": 200,
+    "complete": true,
+    "thinking_present": false,
+    "tokens": {
+      "prompt_eval_count": 409,
+      "eval_count": 14
+    },
+    "score": {
+      "selected": [
+        4,
+        6,
+        7
+      ],
+      "retrieved": [
+        6
+      ],
+      "missing": [],
+      "extra": [
+        4,
+        7
+      ],
+      "unreviewed": [],
+      "exact": false,
+      "empty": false
+    },
+    "valid": true,
+    "wall_seconds": 8.652377832913771
+  },
+  {
+    "id": "investigations-C",
+    "case_id": "investigations",
+    "condition": "C",
+    "model_digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+    "plan_sha256": "0ff2d4b44601a6ddd11c723076e6343054e6297557504e3923f135151f93ef5a",
+    "wire_request_utf8": "{\"model\": \"llama3.1:8b\", \"stream\": false, \"keep_alive\": 0, \"options\": {\"temperature\": 0, \"seed\": 42, \"num_ctx\": 16384, \"num_predict\": 512}, \"messages\": [{\"role\": \"user\", \"content\": \"\\u0423\\u0443\\u0448\\u0433\\u0438\\u043d\\u0434 \\u0448\\u0443\\u0443\\u0433\\u0438\\u0430\\u043d \\u0441\\u043e\\u043d\\u0441\\u043e\\u0433\\u0434\\u043e\\u043e\\u0433\\u04af\\u0439.\\n\\u042d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d \\u0445\\u0438\\u0439\\u0433\\u044d\\u044d\\u0433\\u04af\\u0439.\\n\\u0428\\u0438\\u043d\\u0436\\u0438\\u043b\\u0433\\u044d\\u044d \\u0445\\u0438\\u0439\\u0433\\u0434\\u044d\\u044d\\u0433\\u04af\\u0439.\\n\\n\\u042d\\u043d\\u044d \\u0442\\u044d\\u043c\\u0434\\u044d\\u0433\\u043b\\u044d\\u043b\\u0434 \\u044d\\u043d\\u044d \\u04af\\u0437\\u043b\\u044d\\u0433\\u044d\\u044d\\u0440 \\u044f\\u043c\\u0430\\u0440 \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d \\u0445\\u0438\\u0439\\u0441\\u044d\\u043d, \\u044d\\u0441\\u0432\\u044d\\u043b \\u0445\\u0438\\u0439\\u0433\\u044d\\u044d\\u0433\\u04af\\u0439 \\u0433\\u044d\\u0436 \\u0431\\u0438\\u0447\\u0441\\u044d\\u043d \\u0431\\u044d? \\u0417\\u04e9\\u0432\\u0445\\u04e9\\u043d \\u0442\\u044d\\u0440 \\u043c\\u044d\\u0434\\u044d\\u044d\\u043b\\u043b\\u0438\\u0439\\u0433 \\u043c\\u043e\\u043d\\u0433\\u043e\\u043b\\u043e\\u043e\\u0440 \\u0442\\u043e\\u0432\\u0447 \\u0445\\u0430\\u0440\\u0438\\u0443\\u043b. \\u0422\\u043e\\u0433\\u0442\\u043c\\u043e\\u043b \\u044d\\u043c, \\u0445\\u0430\\u0440\\u0448\\u0438\\u043b, \\u04af\\u0437\\u043b\\u044d\\u0433, \\u0448\\u0438\\u043d\\u0436\\u0438\\u043b\\u0433\\u044d\\u044d\\u0433 \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d \\u0433\\u044d\\u0436 \\u0431\\u04af\\u04af \\u043e\\u0440\\u0443\\u0443\\u043b; \\u0431\\u0438\\u0447\\u044d\\u044d\\u0433\\u04af\\u0439 \\u0437\\u04af\\u0439\\u043b \\u0431\\u04af\\u04af \\u043d\\u044d\\u043c.\"}]}",
+    "status": "received",
+    "telemetry": [
+      {
+        "seconds": 0.526,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 1.039,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 1.55,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 2.059,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 2.575,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 3.135,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 3.672,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 4.185,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 4.709,
+        "ps": {
+          "models": [
+            {
+              "name": "llama3.1:8b",
+              "model": "llama3.1:8b",
+              "size": 6893170851,
+              "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                  "llama"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:49:15.413936+01:00",
+              "size_vram": 6893170851,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 5.242,
+        "ps": {
+          "models": [
+            {
+              "name": "llama3.1:8b",
+              "model": "llama3.1:8b",
+              "size": 6893170851,
+              "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                  "llama"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:49:15.946522+01:00",
+              "size_vram": 6893170851,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 5.763,
+        "ps": {
+          "models": [
+            {
+              "name": "llama3.1:8b",
+              "model": "llama3.1:8b",
+              "size": 6893170851,
+              "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                  "llama"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:49:16.467058+01:00",
+              "size_vram": 6893170851,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 6.28,
+        "ps": {
+          "models": [
+            {
+              "name": "llama3.1:8b",
+              "model": "llama3.1:8b",
+              "size": 6893170851,
+              "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                  "llama"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:49:16.984254+01:00",
+              "size_vram": 6893170851,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      }
+    ],
+    "raw_response": "{\"model\":\"llama3.1:8b\",\"created_at\":\"2026-10-04T11:49:17.009341Z\",\"message\":{\"role\":\"assistant\",\"content\":\"Эмчилгээ хийгээгүй.\"},\"done\":true,\"done_reason\":\"stop\",\"total_duration\":6298177625,\"load_duration\":4361481083,\"prompt_eval_count\":221,\"prompt_eval_cached_count\":0,\"prompt_eval_duration\":1049104000,\"eval_count\":17,\"eval_duration\":882818000}",
+    "http_status": 200,
+    "complete": true,
+    "thinking_present": false,
+    "tokens": {
+      "prompt_eval_count": 221,
+      "eval_count": 17
+    },
+    "semantic_review": "pending; assess against frozen rubric; JSON validity not applicable",
+    "wall_seconds": 6.307949666050263
+  }
+]

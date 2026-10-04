@@ -1,0 +1,102 @@
+{
+  "reason": "Progress rolled back from 1036861376 to 93856 bytes at ~755s. Interrupted ONLY owned HTTP pull client PID1777 with SIGINT; shared Ollama2343 and web69834/85109 untouched. Installed download.go persists incomplete bytes on context cancellation. One resume planned, same model; no new candidate.",
+  "elapsed_seconds_approx": 1030,
+  "parts_after_cancellation": [
+    {
+      "N": 10,
+      "Offset": 2086745280,
+      "Size": 208674528,
+      "Completed": 35553600
+    },
+    {
+      "N": 11,
+      "Offset": 2295419808,
+      "Size": 208674528,
+      "Completed": 29356064
+    },
+    {
+      "N": 2,
+      "Offset": 417349056,
+      "Size": 208674528,
+      "Completed": 30603328
+    },
+    {
+      "N": 5,
+      "Offset": 1043372640,
+      "Size": 208674528,
+      "Completed": 30812768
+    },
+    {
+      "N": 4,
+      "Offset": 834698112,
+      "Size": 208674528,
+      "Completed": 32698560
+    },
+    {
+      "N": 3,
+      "Offset": 626023584,
+      "Size": 208674528,
+      "Completed": 42565856
+    },
+    {
+      "N": 13,
+      "Offset": 2712768864,
+      "Size": 208674528,
+      "Completed": 30074016
+    },
+    {
+      "N": 14,
+      "Offset": 2921443392,
+      "Size": 208674528,
+      "Completed": 40531712
+    },
+    {
+      "N": 15,
+      "Offset": 3130117920,
+      "Size": 208674528,
+      "Completed": 40625888
+    },
+    {
+      "N": 12,
+      "Offset": 2504094336,
+      "Size": 208674528,
+      "Completed": 36961920
+    },
+    {
+      "N": 8,
+      "Offset": 1669396224,
+      "Size": 208674528,
+      "Completed": 26289408
+    },
+    {
+      "N": 6,
+      "Offset": 1252047168,
+      "Size": 208674528,
+      "Completed": 17169536
+    },
+    {
+      "N": 1,
+      "Offset": 208674528,
+      "Size": 208674528,
+      "Completed": 37372384
+    },
+    {
+      "N": 0,
+      "Offset": 0,
+      "Size": 208674528,
+      "Completed": 30695936
+    },
+    {
+      "N": 7,
+      "Offset": 1460721696,
+      "Size": 208674528,
+      "Completed": 26562336
+    },
+    {
+      "N": 9,
+      "Offset": 1878070752,
+      "Size": 208674528,
+      "Completed": 35576544
+    }
+  ]
+}

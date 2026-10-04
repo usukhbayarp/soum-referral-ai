@@ -1,0 +1,1542 @@
+{
+  "version": "picker-diagnostics-1",
+  "frozen_at": "2026-10-04T11:21:29.302694+00:00",
+  "starting_commit": "cf44475a11e62bd9091f84270c080fbaa657733f",
+  "request_budget": 24,
+  "planned_initial_calls": 18,
+  "prompt_version": "treatment-picker-1 (A/B unchanged); direct-question-1 (C)",
+  "contract_version": "treatment-picker-1",
+  "cases": [
+    {
+      "case_id": "roles",
+      "original_case_id": "DEV-002",
+      "underlying_case_id": "DEV-002",
+      "split": "development",
+      "source_sha256": "99ef7a0ee70c2d3ffbe9aee5c4a46a0eb1eff0c13f1627ddc52e43da9eba3bf0",
+      "original_units": [
+        {
+          "id": 11,
+          "start": 262,
+          "end": 302,
+          "text": "Амлодипин 5 мг өдөрт 1 удаа уудаг гэсэн."
+        },
+        {
+          "id": 12,
+          "start": 303,
+          "end": 345,
+          "text": "Өнөөдрийн тунгаа уусан эсэхийг асуугаагүй."
+        },
+        {
+          "id": 21,
+          "start": 745,
+          "end": 799,
+          "text": "[S06] 10:15-д парацетамол 500 мг амаар нэг удаа өгсөн."
+        },
+        {
+          "id": 23,
+          "start": 838,
+          "end": 874,
+          "text": "Энэ үзлэгээр өөр эмчилгээ хийгээгүй."
+        }
+      ],
+      "mongolian": [
+        {
+          "id": 11,
+          "text": "Амлодипин 5 мг өдөрт 1 удаа уудаг гэсэн."
+        },
+        {
+          "id": 12,
+          "text": "Өнөөдрийн тунгаа уусан эсэхийг асуугаагүй."
+        },
+        {
+          "id": 21,
+          "text": "10:15-д парацетамол 500 мг амаар нэг удаа өгсөн."
+        },
+        {
+          "id": 23,
+          "text": "Энэ үзлэгээр өөр эмчилгээ хийгээгүй."
+        }
+      ],
+      "english": [
+        {
+          "id": 11,
+          "text": "Reported taking amlodipine 5 mg once daily."
+        },
+        {
+          "id": 12,
+          "text": "Whether today's dose had been taken was not asked."
+        },
+        {
+          "id": 21,
+          "text": "At 10:15, paracetamol 500 mg was given orally once."
+        },
+        {
+          "id": 23,
+          "text": "No other treatment was performed during this encounter."
+        }
+      ],
+      "expected_ids": [
+        21,
+        23
+      ],
+      "reviewed_negative_ids": [
+        11,
+        12
+      ],
+      "direct_question": "Энэ тэмдэглэлд энэ үзлэгээр ямар эмчилгээ хийсэн, эсвэл хийгээгүй гэж бичсэн бэ? Зөвхөн тэр мэдээллийг монголоор товч хариул. Тогтмол эм, харшил, үзлэг, шинжилгээг эмчилгээ гэж бүү оруул; бичээгүй зүйл бүү нэм.",
+      "direct_rubric": "Must retain paracetamol 500 mg oral once at 10:15 and no OTHER treatment; never regular amlodipine as encounter treatment or not-asked as not-taken.",
+      "translation_review": "Engineering diagnostic translation; NOT clinician reviewed; selection labels inherited only for these reviewed original units."
+    },
+    {
+      "case_id": "negatives",
+      "original_case_id": "dev-003",
+      "underlying_case_id": "fictional-003",
+      "split": "development",
+      "source_sha256": "d0344ccd9edd442935bce4c4129e952954c60632c51172b26a651d6907182a8c",
+      "original_units": [
+        {
+          "id": 1,
+          "start": 0,
+          "end": 12,
+          "text": "Ханиалгагүй."
+        },
+        {
+          "id": 2,
+          "start": 13,
+          "end": 25,
+          "text": "Халуураагүй."
+        },
+        {
+          "id": 5,
+          "start": 71,
+          "end": 87,
+          "text": "Эмийн харшилгүй."
+        },
+        {
+          "id": 6,
+          "start": 88,
+          "end": 107,
+          "text": "Эмчилгээ хийгээгүй."
+        }
+      ],
+      "mongolian": [
+        {
+          "id": 1,
+          "text": "Ханиалгагүй."
+        },
+        {
+          "id": 2,
+          "text": "Халуураагүй."
+        },
+        {
+          "id": 5,
+          "text": "Эмийн харшилгүй."
+        },
+        {
+          "id": 6,
+          "text": "Эмчилгээ хийгээгүй."
+        }
+      ],
+      "english": [
+        {
+          "id": 1,
+          "text": "No cough."
+        },
+        {
+          "id": 2,
+          "text": "No fever."
+        },
+        {
+          "id": 5,
+          "text": "No medication allergy."
+        },
+        {
+          "id": 6,
+          "text": "No treatment was performed."
+        }
+      ],
+      "expected_ids": [
+        6
+      ],
+      "reviewed_negative_ids": [
+        1,
+        2,
+        5
+      ],
+      "direct_question": "Энэ тэмдэглэлд энэ үзлэгээр ямар эмчилгээ хийсэн, эсвэл хийгээгүй гэж бичсэн бэ? Зөвхөн тэр мэдээллийг монголоор товч хариул. Тогтмол эм, харшил, үзлэг, шинжилгээг эмчилгээ гэж бүү оруул; бичээгүй зүйл бүү нэм.",
+      "direct_rubric": "Must state no treatment was performed. No fabricated administered treatment; no symptom/allergy/examination/investigation item categorized as treatment.",
+      "translation_review": "Engineering diagnostic translation; NOT clinician reviewed; selection labels inherited only for these reviewed original units."
+    },
+    {
+      "case_id": "investigations",
+      "original_case_id": "dev-003",
+      "underlying_case_id": "fictional-003",
+      "split": "development",
+      "source_sha256": "d0344ccd9edd442935bce4c4129e952954c60632c51172b26a651d6907182a8c",
+      "original_units": [
+        {
+          "id": 4,
+          "start": 41,
+          "end": 70,
+          "text": "Уушгинд шуугиан сонсогдоогүй."
+        },
+        {
+          "id": 6,
+          "start": 88,
+          "end": 107,
+          "text": "Эмчилгээ хийгээгүй."
+        },
+        {
+          "id": 7,
+          "start": 108,
+          "end": 129,
+          "text": "Шинжилгээ хийгдээгүй."
+        }
+      ],
+      "mongolian": [
+        {
+          "id": 4,
+          "text": "Уушгинд шуугиан сонсогдоогүй."
+        },
+        {
+          "id": 6,
+          "text": "Эмчилгээ хийгээгүй."
+        },
+        {
+          "id": 7,
+          "text": "Шинжилгээ хийгдээгүй."
+        }
+      ],
+      "english": [
+        {
+          "id": 4,
+          "text": "No abnormal lung sounds were heard."
+        },
+        {
+          "id": 6,
+          "text": "No treatment was performed."
+        },
+        {
+          "id": 7,
+          "text": "Investigations were not performed."
+        }
+      ],
+      "expected_ids": [
+        6
+      ],
+      "reviewed_negative_ids": [
+        4,
+        7
+      ],
+      "direct_question": "Энэ тэмдэглэлд энэ үзлэгээр ямар эмчилгээ хийсэн, эсвэл хийгээгүй гэж бичсэн бэ? Зөвхөн тэр мэдээллийг монголоор товч хариул. Тогтмол эм, харшил, үзлэг, шинжилгээг эмчилгээ гэж бүү оруул; бичээгүй зүйл бүү нэм.",
+      "direct_rubric": "Must state no treatment was performed. No fabricated administered treatment; no symptom/allergy/examination/investigation item categorized as treatment.",
+      "translation_review": "Engineering diagnostic translation; NOT clinician reviewed; selection labels inherited only for these reviewed original units."
+    }
+  ],
+  "jobs": {
+    "control": [
+      {
+        "id": "roles-A",
+        "case_id": "roles",
+        "condition": "A",
+        "request": {
+          "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+          "stream": false,
+          "think": false,
+          "keep_alive": 0,
+          "options": {
+            "temperature": 0,
+            "seed": 42,
+            "num_ctx": 16384,
+            "num_predict": 512
+          },
+          "format": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "ids": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "enum": [
+                    11,
+                    12,
+                    21,
+                    23
+                  ]
+                },
+                "uniqueItems": true,
+                "maxItems": 80
+              }
+            },
+            "required": [
+              "ids"
+            ]
+          },
+          "messages": [
+            {
+              "role": "system",
+              "content": "Хийсэн эмчилгээ, ажилбартай холбоотой эхийн хэсгийн id-г сонго. Энэ үзлэгээр хийсэн эмчилгээ/ажилбар, мөн эм эсвэл эмчилгээ өгөөгүй гэсэн шууд тэмдэглэлийг оруул. Хэрэгтэй бол цаг, дараах байдал, төлөвлөсөн боловч хийгээгүй үйлдлийн холбоотой хэсгийг хамт сонго; төлөвлөснийг хийсэн гэж үзэхгүй. Зөвхөн тогтмол эм, гэрээр хэрэглэсэн эм, харшил, үзлэг, шинжилгээ нь энэ үзлэгийн эмчилгээ биш. Холбогдох хэсэг олдоогүй бол ids хоосон байна. Зөвхөн ids массивтай JSON буцаа; текст, тун, дүгнэлт зохиохгүй."
+            },
+            {
+              "role": "user",
+              "content": "{\"units\":[{\"id\":11,\"text\":\"Амлодипин 5 мг өдөрт 1 удаа уудаг гэсэн.\"},{\"id\":12,\"text\":\"Өнөөдрийн тунгаа уусан эсэхийг асуугаагүй.\"},{\"id\":21,\"text\":\"10:15-д парацетамол 500 мг амаар нэг удаа өгсөн.\"},{\"id\":23,\"text\":\"Энэ үзлэгээр өөр эмчилгээ хийгээгүй.\"}]}"
+            }
+          ]
+        },
+        "units": [
+          {
+            "id": 11,
+            "start": 262,
+            "end": 302,
+            "text": "Амлодипин 5 мг өдөрт 1 удаа уудаг гэсэн."
+          },
+          {
+            "id": 12,
+            "start": 303,
+            "end": 345,
+            "text": "Өнөөдрийн тунгаа уусан эсэхийг асуугаагүй."
+          },
+          {
+            "id": 21,
+            "start": 745,
+            "end": 799,
+            "text": "[S06] 10:15-д парацетамол 500 мг амаар нэг удаа өгсөн."
+          },
+          {
+            "id": 23,
+            "start": 838,
+            "end": 874,
+            "text": "Энэ үзлэгээр өөр эмчилгээ хийгээгүй."
+          }
+        ],
+        "positive": [
+          21,
+          23
+        ],
+        "negative": [
+          11,
+          12
+        ]
+      },
+      {
+        "id": "roles-B",
+        "case_id": "roles",
+        "condition": "B",
+        "request": {
+          "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+          "stream": false,
+          "think": false,
+          "keep_alive": 0,
+          "options": {
+            "temperature": 0,
+            "seed": 42,
+            "num_ctx": 16384,
+            "num_predict": 512
+          },
+          "format": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "ids": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "enum": [
+                    11,
+                    12,
+                    21,
+                    23
+                  ]
+                },
+                "uniqueItems": true,
+                "maxItems": 80
+              }
+            },
+            "required": [
+              "ids"
+            ]
+          },
+          "messages": [
+            {
+              "role": "system",
+              "content": "Хийсэн эмчилгээ, ажилбартай холбоотой эхийн хэсгийн id-г сонго. Энэ үзлэгээр хийсэн эмчилгээ/ажилбар, мөн эм эсвэл эмчилгээ өгөөгүй гэсэн шууд тэмдэглэлийг оруул. Хэрэгтэй бол цаг, дараах байдал, төлөвлөсөн боловч хийгээгүй үйлдлийн холбоотой хэсгийг хамт сонго; төлөвлөснийг хийсэн гэж үзэхгүй. Зөвхөн тогтмол эм, гэрээр хэрэглэсэн эм, харшил, үзлэг, шинжилгээ нь энэ үзлэгийн эмчилгээ биш. Холбогдох хэсэг олдоогүй бол ids хоосон байна. Зөвхөн ids массивтай JSON буцаа; текст, тун, дүгнэлт зохиохгүй."
+            },
+            {
+              "role": "user",
+              "content": "{\"units\":[{\"id\":11,\"text\":\"Reported taking amlodipine 5 mg once daily.\"},{\"id\":12,\"text\":\"Whether today's dose had been taken was not asked.\"},{\"id\":21,\"text\":\"At 10:15, paracetamol 500 mg was given orally once.\"},{\"id\":23,\"text\":\"No other treatment was performed during this encounter.\"}]}"
+            }
+          ]
+        },
+        "units": [
+          {
+            "id": 11,
+            "start": 262,
+            "end": 302,
+            "text": "Амлодипин 5 мг өдөрт 1 удаа уудаг гэсэн."
+          },
+          {
+            "id": 12,
+            "start": 303,
+            "end": 345,
+            "text": "Өнөөдрийн тунгаа уусан эсэхийг асуугаагүй."
+          },
+          {
+            "id": 21,
+            "start": 745,
+            "end": 799,
+            "text": "[S06] 10:15-д парацетамол 500 мг амаар нэг удаа өгсөн."
+          },
+          {
+            "id": 23,
+            "start": 838,
+            "end": 874,
+            "text": "Энэ үзлэгээр өөр эмчилгээ хийгээгүй."
+          }
+        ],
+        "positive": [
+          21,
+          23
+        ],
+        "negative": [
+          11,
+          12
+        ]
+      },
+      {
+        "id": "roles-C",
+        "case_id": "roles",
+        "condition": "C",
+        "request": {
+          "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+          "stream": false,
+          "think": false,
+          "keep_alive": 0,
+          "options": {
+            "temperature": 0,
+            "seed": 42,
+            "num_ctx": 16384,
+            "num_predict": 512
+          },
+          "messages": [
+            {
+              "role": "user",
+              "content": "Амлодипин 5 мг өдөрт 1 удаа уудаг гэсэн.\nӨнөөдрийн тунгаа уусан эсэхийг асуугаагүй.\n10:15-д парацетамол 500 мг амаар нэг удаа өгсөн.\nЭнэ үзлэгээр өөр эмчилгээ хийгээгүй.\n\nЭнэ тэмдэглэлд энэ үзлэгээр ямар эмчилгээ хийсэн, эсвэл хийгээгүй гэж бичсэн бэ? Зөвхөн тэр мэдээллийг монголоор товч хариул. Тогтмол эм, харшил, үзлэг, шинжилгээг эмчилгээ гэж бүү оруул; бичээгүй зүйл бүү нэм."
+            }
+          ]
+        },
+        "units": [
+          {
+            "id": 11,
+            "start": 262,
+            "end": 302,
+            "text": "Амлодипин 5 мг өдөрт 1 удаа уудаг гэсэн."
+          },
+          {
+            "id": 12,
+            "start": 303,
+            "end": 345,
+            "text": "Өнөөдрийн тунгаа уусан эсэхийг асуугаагүй."
+          },
+          {
+            "id": 21,
+            "start": 745,
+            "end": 799,
+            "text": "[S06] 10:15-д парацетамол 500 мг амаар нэг удаа өгсөн."
+          },
+          {
+            "id": 23,
+            "start": 838,
+            "end": 874,
+            "text": "Энэ үзлэгээр өөр эмчилгээ хийгээгүй."
+          }
+        ],
+        "positive": [
+          21,
+          23
+        ],
+        "negative": [
+          11,
+          12
+        ]
+      },
+      {
+        "id": "negatives-A",
+        "case_id": "negatives",
+        "condition": "A",
+        "request": {
+          "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+          "stream": false,
+          "think": false,
+          "keep_alive": 0,
+          "options": {
+            "temperature": 0,
+            "seed": 42,
+            "num_ctx": 16384,
+            "num_predict": 512
+          },
+          "format": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "ids": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "enum": [
+                    1,
+                    2,
+                    5,
+                    6
+                  ]
+                },
+                "uniqueItems": true,
+                "maxItems": 80
+              }
+            },
+            "required": [
+              "ids"
+            ]
+          },
+          "messages": [
+            {
+              "role": "system",
+              "content": "Хийсэн эмчилгээ, ажилбартай холбоотой эхийн хэсгийн id-г сонго. Энэ үзлэгээр хийсэн эмчилгээ/ажилбар, мөн эм эсвэл эмчилгээ өгөөгүй гэсэн шууд тэмдэглэлийг оруул. Хэрэгтэй бол цаг, дараах байдал, төлөвлөсөн боловч хийгээгүй үйлдлийн холбоотой хэсгийг хамт сонго; төлөвлөснийг хийсэн гэж үзэхгүй. Зөвхөн тогтмол эм, гэрээр хэрэглэсэн эм, харшил, үзлэг, шинжилгээ нь энэ үзлэгийн эмчилгээ биш. Холбогдох хэсэг олдоогүй бол ids хоосон байна. Зөвхөн ids массивтай JSON буцаа; текст, тун, дүгнэлт зохиохгүй."
+            },
+            {
+              "role": "user",
+              "content": "{\"units\":[{\"id\":1,\"text\":\"Ханиалгагүй.\"},{\"id\":2,\"text\":\"Халуураагүй.\"},{\"id\":5,\"text\":\"Эмийн харшилгүй.\"},{\"id\":6,\"text\":\"Эмчилгээ хийгээгүй.\"}]}"
+            }
+          ]
+        },
+        "units": [
+          {
+            "id": 1,
+            "start": 0,
+            "end": 12,
+            "text": "Ханиалгагүй."
+          },
+          {
+            "id": 2,
+            "start": 13,
+            "end": 25,
+            "text": "Халуураагүй."
+          },
+          {
+            "id": 5,
+            "start": 71,
+            "end": 87,
+            "text": "Эмийн харшилгүй."
+          },
+          {
+            "id": 6,
+            "start": 88,
+            "end": 107,
+            "text": "Эмчилгээ хийгээгүй."
+          }
+        ],
+        "positive": [
+          6
+        ],
+        "negative": [
+          1,
+          2,
+          5
+        ]
+      },
+      {
+        "id": "negatives-B",
+        "case_id": "negatives",
+        "condition": "B",
+        "request": {
+          "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+          "stream": false,
+          "think": false,
+          "keep_alive": 0,
+          "options": {
+            "temperature": 0,
+            "seed": 42,
+            "num_ctx": 16384,
+            "num_predict": 512
+          },
+          "format": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "ids": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "enum": [
+                    1,
+                    2,
+                    5,
+                    6
+                  ]
+                },
+                "uniqueItems": true,
+                "maxItems": 80
+              }
+            },
+            "required": [
+              "ids"
+            ]
+          },
+          "messages": [
+            {
+              "role": "system",
+              "content": "Хийсэн эмчилгээ, ажилбартай холбоотой эхийн хэсгийн id-г сонго. Энэ үзлэгээр хийсэн эмчилгээ/ажилбар, мөн эм эсвэл эмчилгээ өгөөгүй гэсэн шууд тэмдэглэлийг оруул. Хэрэгтэй бол цаг, дараах байдал, төлөвлөсөн боловч хийгээгүй үйлдлийн холбоотой хэсгийг хамт сонго; төлөвлөснийг хийсэн гэж үзэхгүй. Зөвхөн тогтмол эм, гэрээр хэрэглэсэн эм, харшил, үзлэг, шинжилгээ нь энэ үзлэгийн эмчилгээ биш. Холбогдох хэсэг олдоогүй бол ids хоосон байна. Зөвхөн ids массивтай JSON буцаа; текст, тун, дүгнэлт зохиохгүй."
+            },
+            {
+              "role": "user",
+              "content": "{\"units\":[{\"id\":1,\"text\":\"No cough.\"},{\"id\":2,\"text\":\"No fever.\"},{\"id\":5,\"text\":\"No medication allergy.\"},{\"id\":6,\"text\":\"No treatment was performed.\"}]}"
+            }
+          ]
+        },
+        "units": [
+          {
+            "id": 1,
+            "start": 0,
+            "end": 12,
+            "text": "Ханиалгагүй."
+          },
+          {
+            "id": 2,
+            "start": 13,
+            "end": 25,
+            "text": "Халуураагүй."
+          },
+          {
+            "id": 5,
+            "start": 71,
+            "end": 87,
+            "text": "Эмийн харшилгүй."
+          },
+          {
+            "id": 6,
+            "start": 88,
+            "end": 107,
+            "text": "Эмчилгээ хийгээгүй."
+          }
+        ],
+        "positive": [
+          6
+        ],
+        "negative": [
+          1,
+          2,
+          5
+        ]
+      },
+      {
+        "id": "negatives-C",
+        "case_id": "negatives",
+        "condition": "C",
+        "request": {
+          "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+          "stream": false,
+          "think": false,
+          "keep_alive": 0,
+          "options": {
+            "temperature": 0,
+            "seed": 42,
+            "num_ctx": 16384,
+            "num_predict": 512
+          },
+          "messages": [
+            {
+              "role": "user",
+              "content": "Ханиалгагүй.\nХалуураагүй.\nЭмийн харшилгүй.\nЭмчилгээ хийгээгүй.\n\nЭнэ тэмдэглэлд энэ үзлэгээр ямар эмчилгээ хийсэн, эсвэл хийгээгүй гэж бичсэн бэ? Зөвхөн тэр мэдээллийг монголоор товч хариул. Тогтмол эм, харшил, үзлэг, шинжилгээг эмчилгээ гэж бүү оруул; бичээгүй зүйл бүү нэм."
+            }
+          ]
+        },
+        "units": [
+          {
+            "id": 1,
+            "start": 0,
+            "end": 12,
+            "text": "Ханиалгагүй."
+          },
+          {
+            "id": 2,
+            "start": 13,
+            "end": 25,
+            "text": "Халуураагүй."
+          },
+          {
+            "id": 5,
+            "start": 71,
+            "end": 87,
+            "text": "Эмийн харшилгүй."
+          },
+          {
+            "id": 6,
+            "start": 88,
+            "end": 107,
+            "text": "Эмчилгээ хийгээгүй."
+          }
+        ],
+        "positive": [
+          6
+        ],
+        "negative": [
+          1,
+          2,
+          5
+        ]
+      },
+      {
+        "id": "investigations-A",
+        "case_id": "investigations",
+        "condition": "A",
+        "request": {
+          "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+          "stream": false,
+          "think": false,
+          "keep_alive": 0,
+          "options": {
+            "temperature": 0,
+            "seed": 42,
+            "num_ctx": 16384,
+            "num_predict": 512
+          },
+          "format": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "ids": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "enum": [
+                    4,
+                    6,
+                    7
+                  ]
+                },
+                "uniqueItems": true,
+                "maxItems": 80
+              }
+            },
+            "required": [
+              "ids"
+            ]
+          },
+          "messages": [
+            {
+              "role": "system",
+              "content": "Хийсэн эмчилгээ, ажилбартай холбоотой эхийн хэсгийн id-г сонго. Энэ үзлэгээр хийсэн эмчилгээ/ажилбар, мөн эм эсвэл эмчилгээ өгөөгүй гэсэн шууд тэмдэглэлийг оруул. Хэрэгтэй бол цаг, дараах байдал, төлөвлөсөн боловч хийгээгүй үйлдлийн холбоотой хэсгийг хамт сонго; төлөвлөснийг хийсэн гэж үзэхгүй. Зөвхөн тогтмол эм, гэрээр хэрэглэсэн эм, харшил, үзлэг, шинжилгээ нь энэ үзлэгийн эмчилгээ биш. Холбогдох хэсэг олдоогүй бол ids хоосон байна. Зөвхөн ids массивтай JSON буцаа; текст, тун, дүгнэлт зохиохгүй."
+            },
+            {
+              "role": "user",
+              "content": "{\"units\":[{\"id\":4,\"text\":\"Уушгинд шуугиан сонсогдоогүй.\"},{\"id\":6,\"text\":\"Эмчилгээ хийгээгүй.\"},{\"id\":7,\"text\":\"Шинжилгээ хийгдээгүй.\"}]}"
+            }
+          ]
+        },
+        "units": [
+          {
+            "id": 4,
+            "start": 41,
+            "end": 70,
+            "text": "Уушгинд шуугиан сонсогдоогүй."
+          },
+          {
+            "id": 6,
+            "start": 88,
+            "end": 107,
+            "text": "Эмчилгээ хийгээгүй."
+          },
+          {
+            "id": 7,
+            "start": 108,
+            "end": 129,
+            "text": "Шинжилгээ хийгдээгүй."
+          }
+        ],
+        "positive": [
+          6
+        ],
+        "negative": [
+          4,
+          7
+        ]
+      },
+      {
+        "id": "investigations-B",
+        "case_id": "investigations",
+        "condition": "B",
+        "request": {
+          "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+          "stream": false,
+          "think": false,
+          "keep_alive": 0,
+          "options": {
+            "temperature": 0,
+            "seed": 42,
+            "num_ctx": 16384,
+            "num_predict": 512
+          },
+          "format": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "ids": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "enum": [
+                    4,
+                    6,
+                    7
+                  ]
+                },
+                "uniqueItems": true,
+                "maxItems": 80
+              }
+            },
+            "required": [
+              "ids"
+            ]
+          },
+          "messages": [
+            {
+              "role": "system",
+              "content": "Хийсэн эмчилгээ, ажилбартай холбоотой эхийн хэсгийн id-г сонго. Энэ үзлэгээр хийсэн эмчилгээ/ажилбар, мөн эм эсвэл эмчилгээ өгөөгүй гэсэн шууд тэмдэглэлийг оруул. Хэрэгтэй бол цаг, дараах байдал, төлөвлөсөн боловч хийгээгүй үйлдлийн холбоотой хэсгийг хамт сонго; төлөвлөснийг хийсэн гэж үзэхгүй. Зөвхөн тогтмол эм, гэрээр хэрэглэсэн эм, харшил, үзлэг, шинжилгээ нь энэ үзлэгийн эмчилгээ биш. Холбогдох хэсэг олдоогүй бол ids хоосон байна. Зөвхөн ids массивтай JSON буцаа; текст, тун, дүгнэлт зохиохгүй."
+            },
+            {
+              "role": "user",
+              "content": "{\"units\":[{\"id\":4,\"text\":\"No abnormal lung sounds were heard.\"},{\"id\":6,\"text\":\"No treatment was performed.\"},{\"id\":7,\"text\":\"Investigations were not performed.\"}]}"
+            }
+          ]
+        },
+        "units": [
+          {
+            "id": 4,
+            "start": 41,
+            "end": 70,
+            "text": "Уушгинд шуугиан сонсогдоогүй."
+          },
+          {
+            "id": 6,
+            "start": 88,
+            "end": 107,
+            "text": "Эмчилгээ хийгээгүй."
+          },
+          {
+            "id": 7,
+            "start": 108,
+            "end": 129,
+            "text": "Шинжилгээ хийгдээгүй."
+          }
+        ],
+        "positive": [
+          6
+        ],
+        "negative": [
+          4,
+          7
+        ]
+      },
+      {
+        "id": "investigations-C",
+        "case_id": "investigations",
+        "condition": "C",
+        "request": {
+          "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+          "stream": false,
+          "think": false,
+          "keep_alive": 0,
+          "options": {
+            "temperature": 0,
+            "seed": 42,
+            "num_ctx": 16384,
+            "num_predict": 512
+          },
+          "messages": [
+            {
+              "role": "user",
+              "content": "Уушгинд шуугиан сонсогдоогүй.\nЭмчилгээ хийгээгүй.\nШинжилгээ хийгдээгүй.\n\nЭнэ тэмдэглэлд энэ үзлэгээр ямар эмчилгээ хийсэн, эсвэл хийгээгүй гэж бичсэн бэ? Зөвхөн тэр мэдээллийг монголоор товч хариул. Тогтмол эм, харшил, үзлэг, шинжилгээг эмчилгээ гэж бүү оруул; бичээгүй зүйл бүү нэм."
+            }
+          ]
+        },
+        "units": [
+          {
+            "id": 4,
+            "start": 41,
+            "end": 70,
+            "text": "Уушгинд шуугиан сонсогдоогүй."
+          },
+          {
+            "id": 6,
+            "start": 88,
+            "end": 107,
+            "text": "Эмчилгээ хийгээгүй."
+          },
+          {
+            "id": 7,
+            "start": 108,
+            "end": 129,
+            "text": "Шинжилгээ хийгдээгүй."
+          }
+        ],
+        "positive": [
+          6
+        ],
+        "negative": [
+          4,
+          7
+        ]
+      }
+    ],
+    "candidate": [
+      {
+        "id": "roles-A",
+        "case_id": "roles",
+        "condition": "A",
+        "request": {
+          "model": "gemma3:4b-it-q4_K_M",
+          "stream": false,
+          "keep_alive": 0,
+          "options": {
+            "temperature": 0,
+            "seed": 42,
+            "num_ctx": 16384,
+            "num_predict": 512
+          },
+          "format": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "ids": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "enum": [
+                    11,
+                    12,
+                    21,
+                    23
+                  ]
+                },
+                "uniqueItems": true,
+                "maxItems": 80
+              }
+            },
+            "required": [
+              "ids"
+            ]
+          },
+          "messages": [
+            {
+              "role": "system",
+              "content": "Хийсэн эмчилгээ, ажилбартай холбоотой эхийн хэсгийн id-г сонго. Энэ үзлэгээр хийсэн эмчилгээ/ажилбар, мөн эм эсвэл эмчилгээ өгөөгүй гэсэн шууд тэмдэглэлийг оруул. Хэрэгтэй бол цаг, дараах байдал, төлөвлөсөн боловч хийгээгүй үйлдлийн холбоотой хэсгийг хамт сонго; төлөвлөснийг хийсэн гэж үзэхгүй. Зөвхөн тогтмол эм, гэрээр хэрэглэсэн эм, харшил, үзлэг, шинжилгээ нь энэ үзлэгийн эмчилгээ биш. Холбогдох хэсэг олдоогүй бол ids хоосон байна. Зөвхөн ids массивтай JSON буцаа; текст, тун, дүгнэлт зохиохгүй."
+            },
+            {
+              "role": "user",
+              "content": "{\"units\":[{\"id\":11,\"text\":\"Амлодипин 5 мг өдөрт 1 удаа уудаг гэсэн.\"},{\"id\":12,\"text\":\"Өнөөдрийн тунгаа уусан эсэхийг асуугаагүй.\"},{\"id\":21,\"text\":\"10:15-д парацетамол 500 мг амаар нэг удаа өгсөн.\"},{\"id\":23,\"text\":\"Энэ үзлэгээр өөр эмчилгээ хийгээгүй.\"}]}"
+            }
+          ]
+        },
+        "units": [
+          {
+            "id": 11,
+            "start": 262,
+            "end": 302,
+            "text": "Амлодипин 5 мг өдөрт 1 удаа уудаг гэсэн."
+          },
+          {
+            "id": 12,
+            "start": 303,
+            "end": 345,
+            "text": "Өнөөдрийн тунгаа уусан эсэхийг асуугаагүй."
+          },
+          {
+            "id": 21,
+            "start": 745,
+            "end": 799,
+            "text": "[S06] 10:15-д парацетамол 500 мг амаар нэг удаа өгсөн."
+          },
+          {
+            "id": 23,
+            "start": 838,
+            "end": 874,
+            "text": "Энэ үзлэгээр өөр эмчилгээ хийгээгүй."
+          }
+        ],
+        "positive": [
+          21,
+          23
+        ],
+        "negative": [
+          11,
+          12
+        ]
+      },
+      {
+        "id": "roles-B",
+        "case_id": "roles",
+        "condition": "B",
+        "request": {
+          "model": "gemma3:4b-it-q4_K_M",
+          "stream": false,
+          "keep_alive": 0,
+          "options": {
+            "temperature": 0,
+            "seed": 42,
+            "num_ctx": 16384,
+            "num_predict": 512
+          },
+          "format": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "ids": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "enum": [
+                    11,
+                    12,
+                    21,
+                    23
+                  ]
+                },
+                "uniqueItems": true,
+                "maxItems": 80
+              }
+            },
+            "required": [
+              "ids"
+            ]
+          },
+          "messages": [
+            {
+              "role": "system",
+              "content": "Хийсэн эмчилгээ, ажилбартай холбоотой эхийн хэсгийн id-г сонго. Энэ үзлэгээр хийсэн эмчилгээ/ажилбар, мөн эм эсвэл эмчилгээ өгөөгүй гэсэн шууд тэмдэглэлийг оруул. Хэрэгтэй бол цаг, дараах байдал, төлөвлөсөн боловч хийгээгүй үйлдлийн холбоотой хэсгийг хамт сонго; төлөвлөснийг хийсэн гэж үзэхгүй. Зөвхөн тогтмол эм, гэрээр хэрэглэсэн эм, харшил, үзлэг, шинжилгээ нь энэ үзлэгийн эмчилгээ биш. Холбогдох хэсэг олдоогүй бол ids хоосон байна. Зөвхөн ids массивтай JSON буцаа; текст, тун, дүгнэлт зохиохгүй."
+            },
+            {
+              "role": "user",
+              "content": "{\"units\":[{\"id\":11,\"text\":\"Reported taking amlodipine 5 mg once daily.\"},{\"id\":12,\"text\":\"Whether today's dose had been taken was not asked.\"},{\"id\":21,\"text\":\"At 10:15, paracetamol 500 mg was given orally once.\"},{\"id\":23,\"text\":\"No other treatment was performed during this encounter.\"}]}"
+            }
+          ]
+        },
+        "units": [
+          {
+            "id": 11,
+            "start": 262,
+            "end": 302,
+            "text": "Амлодипин 5 мг өдөрт 1 удаа уудаг гэсэн."
+          },
+          {
+            "id": 12,
+            "start": 303,
+            "end": 345,
+            "text": "Өнөөдрийн тунгаа уусан эсэхийг асуугаагүй."
+          },
+          {
+            "id": 21,
+            "start": 745,
+            "end": 799,
+            "text": "[S06] 10:15-д парацетамол 500 мг амаар нэг удаа өгсөн."
+          },
+          {
+            "id": 23,
+            "start": 838,
+            "end": 874,
+            "text": "Энэ үзлэгээр өөр эмчилгээ хийгээгүй."
+          }
+        ],
+        "positive": [
+          21,
+          23
+        ],
+        "negative": [
+          11,
+          12
+        ]
+      },
+      {
+        "id": "roles-C",
+        "case_id": "roles",
+        "condition": "C",
+        "request": {
+          "model": "gemma3:4b-it-q4_K_M",
+          "stream": false,
+          "keep_alive": 0,
+          "options": {
+            "temperature": 0,
+            "seed": 42,
+            "num_ctx": 16384,
+            "num_predict": 512
+          },
+          "messages": [
+            {
+              "role": "user",
+              "content": "Амлодипин 5 мг өдөрт 1 удаа уудаг гэсэн.\nӨнөөдрийн тунгаа уусан эсэхийг асуугаагүй.\n10:15-д парацетамол 500 мг амаар нэг удаа өгсөн.\nЭнэ үзлэгээр өөр эмчилгээ хийгээгүй.\n\nЭнэ тэмдэглэлд энэ үзлэгээр ямар эмчилгээ хийсэн, эсвэл хийгээгүй гэж бичсэн бэ? Зөвхөн тэр мэдээллийг монголоор товч хариул. Тогтмол эм, харшил, үзлэг, шинжилгээг эмчилгээ гэж бүү оруул; бичээгүй зүйл бүү нэм."
+            }
+          ]
+        },
+        "units": [
+          {
+            "id": 11,
+            "start": 262,
+            "end": 302,
+            "text": "Амлодипин 5 мг өдөрт 1 удаа уудаг гэсэн."
+          },
+          {
+            "id": 12,
+            "start": 303,
+            "end": 345,
+            "text": "Өнөөдрийн тунгаа уусан эсэхийг асуугаагүй."
+          },
+          {
+            "id": 21,
+            "start": 745,
+            "end": 799,
+            "text": "[S06] 10:15-д парацетамол 500 мг амаар нэг удаа өгсөн."
+          },
+          {
+            "id": 23,
+            "start": 838,
+            "end": 874,
+            "text": "Энэ үзлэгээр өөр эмчилгээ хийгээгүй."
+          }
+        ],
+        "positive": [
+          21,
+          23
+        ],
+        "negative": [
+          11,
+          12
+        ]
+      },
+      {
+        "id": "negatives-A",
+        "case_id": "negatives",
+        "condition": "A",
+        "request": {
+          "model": "gemma3:4b-it-q4_K_M",
+          "stream": false,
+          "keep_alive": 0,
+          "options": {
+            "temperature": 0,
+            "seed": 42,
+            "num_ctx": 16384,
+            "num_predict": 512
+          },
+          "format": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "ids": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "enum": [
+                    1,
+                    2,
+                    5,
+                    6
+                  ]
+                },
+                "uniqueItems": true,
+                "maxItems": 80
+              }
+            },
+            "required": [
+              "ids"
+            ]
+          },
+          "messages": [
+            {
+              "role": "system",
+              "content": "Хийсэн эмчилгээ, ажилбартай холбоотой эхийн хэсгийн id-г сонго. Энэ үзлэгээр хийсэн эмчилгээ/ажилбар, мөн эм эсвэл эмчилгээ өгөөгүй гэсэн шууд тэмдэглэлийг оруул. Хэрэгтэй бол цаг, дараах байдал, төлөвлөсөн боловч хийгээгүй үйлдлийн холбоотой хэсгийг хамт сонго; төлөвлөснийг хийсэн гэж үзэхгүй. Зөвхөн тогтмол эм, гэрээр хэрэглэсэн эм, харшил, үзлэг, шинжилгээ нь энэ үзлэгийн эмчилгээ биш. Холбогдох хэсэг олдоогүй бол ids хоосон байна. Зөвхөн ids массивтай JSON буцаа; текст, тун, дүгнэлт зохиохгүй."
+            },
+            {
+              "role": "user",
+              "content": "{\"units\":[{\"id\":1,\"text\":\"Ханиалгагүй.\"},{\"id\":2,\"text\":\"Халуураагүй.\"},{\"id\":5,\"text\":\"Эмийн харшилгүй.\"},{\"id\":6,\"text\":\"Эмчилгээ хийгээгүй.\"}]}"
+            }
+          ]
+        },
+        "units": [
+          {
+            "id": 1,
+            "start": 0,
+            "end": 12,
+            "text": "Ханиалгагүй."
+          },
+          {
+            "id": 2,
+            "start": 13,
+            "end": 25,
+            "text": "Халуураагүй."
+          },
+          {
+            "id": 5,
+            "start": 71,
+            "end": 87,
+            "text": "Эмийн харшилгүй."
+          },
+          {
+            "id": 6,
+            "start": 88,
+            "end": 107,
+            "text": "Эмчилгээ хийгээгүй."
+          }
+        ],
+        "positive": [
+          6
+        ],
+        "negative": [
+          1,
+          2,
+          5
+        ]
+      },
+      {
+        "id": "negatives-B",
+        "case_id": "negatives",
+        "condition": "B",
+        "request": {
+          "model": "gemma3:4b-it-q4_K_M",
+          "stream": false,
+          "keep_alive": 0,
+          "options": {
+            "temperature": 0,
+            "seed": 42,
+            "num_ctx": 16384,
+            "num_predict": 512
+          },
+          "format": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "ids": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "enum": [
+                    1,
+                    2,
+                    5,
+                    6
+                  ]
+                },
+                "uniqueItems": true,
+                "maxItems": 80
+              }
+            },
+            "required": [
+              "ids"
+            ]
+          },
+          "messages": [
+            {
+              "role": "system",
+              "content": "Хийсэн эмчилгээ, ажилбартай холбоотой эхийн хэсгийн id-г сонго. Энэ үзлэгээр хийсэн эмчилгээ/ажилбар, мөн эм эсвэл эмчилгээ өгөөгүй гэсэн шууд тэмдэглэлийг оруул. Хэрэгтэй бол цаг, дараах байдал, төлөвлөсөн боловч хийгээгүй үйлдлийн холбоотой хэсгийг хамт сонго; төлөвлөснийг хийсэн гэж үзэхгүй. Зөвхөн тогтмол эм, гэрээр хэрэглэсэн эм, харшил, үзлэг, шинжилгээ нь энэ үзлэгийн эмчилгээ биш. Холбогдох хэсэг олдоогүй бол ids хоосон байна. Зөвхөн ids массивтай JSON буцаа; текст, тун, дүгнэлт зохиохгүй."
+            },
+            {
+              "role": "user",
+              "content": "{\"units\":[{\"id\":1,\"text\":\"No cough.\"},{\"id\":2,\"text\":\"No fever.\"},{\"id\":5,\"text\":\"No medication allergy.\"},{\"id\":6,\"text\":\"No treatment was performed.\"}]}"
+            }
+          ]
+        },
+        "units": [
+          {
+            "id": 1,
+            "start": 0,
+            "end": 12,
+            "text": "Ханиалгагүй."
+          },
+          {
+            "id": 2,
+            "start": 13,
+            "end": 25,
+            "text": "Халуураагүй."
+          },
+          {
+            "id": 5,
+            "start": 71,
+            "end": 87,
+            "text": "Эмийн харшилгүй."
+          },
+          {
+            "id": 6,
+            "start": 88,
+            "end": 107,
+            "text": "Эмчилгээ хийгээгүй."
+          }
+        ],
+        "positive": [
+          6
+        ],
+        "negative": [
+          1,
+          2,
+          5
+        ]
+      },
+      {
+        "id": "negatives-C",
+        "case_id": "negatives",
+        "condition": "C",
+        "request": {
+          "model": "gemma3:4b-it-q4_K_M",
+          "stream": false,
+          "keep_alive": 0,
+          "options": {
+            "temperature": 0,
+            "seed": 42,
+            "num_ctx": 16384,
+            "num_predict": 512
+          },
+          "messages": [
+            {
+              "role": "user",
+              "content": "Ханиалгагүй.\nХалуураагүй.\nЭмийн харшилгүй.\nЭмчилгээ хийгээгүй.\n\nЭнэ тэмдэглэлд энэ үзлэгээр ямар эмчилгээ хийсэн, эсвэл хийгээгүй гэж бичсэн бэ? Зөвхөн тэр мэдээллийг монголоор товч хариул. Тогтмол эм, харшил, үзлэг, шинжилгээг эмчилгээ гэж бүү оруул; бичээгүй зүйл бүү нэм."
+            }
+          ]
+        },
+        "units": [
+          {
+            "id": 1,
+            "start": 0,
+            "end": 12,
+            "text": "Ханиалгагүй."
+          },
+          {
+            "id": 2,
+            "start": 13,
+            "end": 25,
+            "text": "Халуураагүй."
+          },
+          {
+            "id": 5,
+            "start": 71,
+            "end": 87,
+            "text": "Эмийн харшилгүй."
+          },
+          {
+            "id": 6,
+            "start": 88,
+            "end": 107,
+            "text": "Эмчилгээ хийгээгүй."
+          }
+        ],
+        "positive": [
+          6
+        ],
+        "negative": [
+          1,
+          2,
+          5
+        ]
+      },
+      {
+        "id": "investigations-A",
+        "case_id": "investigations",
+        "condition": "A",
+        "request": {
+          "model": "gemma3:4b-it-q4_K_M",
+          "stream": false,
+          "keep_alive": 0,
+          "options": {
+            "temperature": 0,
+            "seed": 42,
+            "num_ctx": 16384,
+            "num_predict": 512
+          },
+          "format": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "ids": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "enum": [
+                    4,
+                    6,
+                    7
+                  ]
+                },
+                "uniqueItems": true,
+                "maxItems": 80
+              }
+            },
+            "required": [
+              "ids"
+            ]
+          },
+          "messages": [
+            {
+              "role": "system",
+              "content": "Хийсэн эмчилгээ, ажилбартай холбоотой эхийн хэсгийн id-г сонго. Энэ үзлэгээр хийсэн эмчилгээ/ажилбар, мөн эм эсвэл эмчилгээ өгөөгүй гэсэн шууд тэмдэглэлийг оруул. Хэрэгтэй бол цаг, дараах байдал, төлөвлөсөн боловч хийгээгүй үйлдлийн холбоотой хэсгийг хамт сонго; төлөвлөснийг хийсэн гэж үзэхгүй. Зөвхөн тогтмол эм, гэрээр хэрэглэсэн эм, харшил, үзлэг, шинжилгээ нь энэ үзлэгийн эмчилгээ биш. Холбогдох хэсэг олдоогүй бол ids хоосон байна. Зөвхөн ids массивтай JSON буцаа; текст, тун, дүгнэлт зохиохгүй."
+            },
+            {
+              "role": "user",
+              "content": "{\"units\":[{\"id\":4,\"text\":\"Уушгинд шуугиан сонсогдоогүй.\"},{\"id\":6,\"text\":\"Эмчилгээ хийгээгүй.\"},{\"id\":7,\"text\":\"Шинжилгээ хийгдээгүй.\"}]}"
+            }
+          ]
+        },
+        "units": [
+          {
+            "id": 4,
+            "start": 41,
+            "end": 70,
+            "text": "Уушгинд шуугиан сонсогдоогүй."
+          },
+          {
+            "id": 6,
+            "start": 88,
+            "end": 107,
+            "text": "Эмчилгээ хийгээгүй."
+          },
+          {
+            "id": 7,
+            "start": 108,
+            "end": 129,
+            "text": "Шинжилгээ хийгдээгүй."
+          }
+        ],
+        "positive": [
+          6
+        ],
+        "negative": [
+          4,
+          7
+        ]
+      },
+      {
+        "id": "investigations-B",
+        "case_id": "investigations",
+        "condition": "B",
+        "request": {
+          "model": "gemma3:4b-it-q4_K_M",
+          "stream": false,
+          "keep_alive": 0,
+          "options": {
+            "temperature": 0,
+            "seed": 42,
+            "num_ctx": 16384,
+            "num_predict": 512
+          },
+          "format": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "ids": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "enum": [
+                    4,
+                    6,
+                    7
+                  ]
+                },
+                "uniqueItems": true,
+                "maxItems": 80
+              }
+            },
+            "required": [
+              "ids"
+            ]
+          },
+          "messages": [
+            {
+              "role": "system",
+              "content": "Хийсэн эмчилгээ, ажилбартай холбоотой эхийн хэсгийн id-г сонго. Энэ үзлэгээр хийсэн эмчилгээ/ажилбар, мөн эм эсвэл эмчилгээ өгөөгүй гэсэн шууд тэмдэглэлийг оруул. Хэрэгтэй бол цаг, дараах байдал, төлөвлөсөн боловч хийгээгүй үйлдлийн холбоотой хэсгийг хамт сонго; төлөвлөснийг хийсэн гэж үзэхгүй. Зөвхөн тогтмол эм, гэрээр хэрэглэсэн эм, харшил, үзлэг, шинжилгээ нь энэ үзлэгийн эмчилгээ биш. Холбогдох хэсэг олдоогүй бол ids хоосон байна. Зөвхөн ids массивтай JSON буцаа; текст, тун, дүгнэлт зохиохгүй."
+            },
+            {
+              "role": "user",
+              "content": "{\"units\":[{\"id\":4,\"text\":\"No abnormal lung sounds were heard.\"},{\"id\":6,\"text\":\"No treatment was performed.\"},{\"id\":7,\"text\":\"Investigations were not performed.\"}]}"
+            }
+          ]
+        },
+        "units": [
+          {
+            "id": 4,
+            "start": 41,
+            "end": 70,
+            "text": "Уушгинд шуугиан сонсогдоогүй."
+          },
+          {
+            "id": 6,
+            "start": 88,
+            "end": 107,
+            "text": "Эмчилгээ хийгээгүй."
+          },
+          {
+            "id": 7,
+            "start": 108,
+            "end": 129,
+            "text": "Шинжилгээ хийгдээгүй."
+          }
+        ],
+        "positive": [
+          6
+        ],
+        "negative": [
+          4,
+          7
+        ]
+      },
+      {
+        "id": "investigations-C",
+        "case_id": "investigations",
+        "condition": "C",
+        "request": {
+          "model": "gemma3:4b-it-q4_K_M",
+          "stream": false,
+          "keep_alive": 0,
+          "options": {
+            "temperature": 0,
+            "seed": 42,
+            "num_ctx": 16384,
+            "num_predict": 512
+          },
+          "messages": [
+            {
+              "role": "user",
+              "content": "Уушгинд шуугиан сонсогдоогүй.\nЭмчилгээ хийгээгүй.\nШинжилгээ хийгдээгүй.\n\nЭнэ тэмдэглэлд энэ үзлэгээр ямар эмчилгээ хийсэн, эсвэл хийгээгүй гэж бичсэн бэ? Зөвхөн тэр мэдээллийг монголоор товч хариул. Тогтмол эм, харшил, үзлэг, шинжилгээг эмчилгээ гэж бүү оруул; бичээгүй зүйл бүү нэм."
+            }
+          ]
+        },
+        "units": [
+          {
+            "id": 4,
+            "start": 41,
+            "end": 70,
+            "text": "Уушгинд шуугиан сонсогдоогүй."
+          },
+          {
+            "id": 6,
+            "start": 88,
+            "end": 107,
+            "text": "Эмчилгээ хийгээгүй."
+          },
+          {
+            "id": 7,
+            "start": 108,
+            "end": 129,
+            "text": "Шинжилгээ хийгдээгүй."
+          }
+        ],
+        "positive": [
+          6
+        ],
+        "negative": [
+          4,
+          7
+        ]
+      }
+    ]
+  },
+  "controls": "A vs B changes ONLY source language; unchanged Mongolian system instruction, original IDs, schema, settings. C removes IDs, schema and system prompt, uses direct MN question: not a causal isolation of schema alone.",
+  "scoring": "Keep all attempts. ID validity uses application resolver plus complete/no-thinking; exact, retrieved, missing, reviewed extras, unreviewed, empty separately. Direct answers manually judged using frozen per-case rubric, not JSON. Invalid counts stay in denominator.",
+  "limitations": "Three derived snippets from TWO correlated development families, no new clinical facts, no clinician approval of translations. No general clinical accuracy/time-saving inference.",
+  "candidate_rationale": "Google Gemma3 4B IT, Q4_K_M via native Ollama template; distinct family, documented 140+ languages but no task-specific Mongolian evidence. Cached Llama3.1 8B is larger with narrower documented language scope; Qwen VL not distinct family. One new download, estimated ~3.3GB disk / fits 16GiB at 16K sequential text inference; measure actual.",
+  "full_note_gate": "Only if candidate A gets all 3 exact (4/4 positive selections, zero irrelevant), permit original 3 development notes; partial labels scored without inventing negatives."
+}

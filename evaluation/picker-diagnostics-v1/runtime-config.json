@@ -1,0 +1,39 @@
+{
+  "manifest": {
+    "schemaVersion": 2,
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "config": {
+      "mediaType": "application/vnd.docker.container.image.v1+json",
+      "digest": "sha256:cc31d9ff2c7076e44c77ce3f286a2f6ab02eaaeaa5133ac75ec01d83ba17da91",
+      "size": 151
+    },
+    "layers": [
+      {
+        "mediaType": "application/vnd.ollama.image.model",
+        "digest": "sha256:8392d13c0aac3c5d4ff52a888ee85815b1b42835ea9b45468741151dfa306ca0",
+        "size": 2497280320
+      },
+      {
+        "mediaType": "application/vnd.ollama.image.template",
+        "digest": "sha256:ae370d884f108d16e7cc8fd5259ebc5773a0afa6e078b11f4ed7e39a27e0dfc4",
+        "size": 1723
+      },
+      {
+        "mediaType": "application/vnd.ollama.image.params",
+        "digest": "sha256:7cedf7d9b530b0563338288c4d0f9d0831975e14e087b4effdc0c84b8ee6a9b8",
+        "size": 44
+      }
+    ]
+  },
+  "config": {
+    "model_format": "gguf",
+    "model_family": "qwen3",
+    "model_families": [
+      "qwen3"
+    ],
+    "model_type": "4.0B",
+    "file_type": "Q4_K_M",
+    "architecture": "amd64",
+    "os": "linux"
+  }
+}

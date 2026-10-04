@@ -1,0 +1,49 @@
+{
+  "checked_at": "2026-10-04T11:26:48.139167+00:00",
+  "sources": [
+    {
+      "url": "https://huggingface.co/Qwen/Qwen3-4B",
+      "scope": "Original dual-mode Qwen3; non-thinking hard switch and /no_think soft instruction documented. Publisher non-thinking sampling suggestion differs from fixed greedy extraction setting; not a demonstrated bug."
+    },
+    {
+      "url": "https://raw.githubusercontent.com/ollama/ollama/v0.34.0/server/routes.go",
+      "scope": "Installed release source: _debug_render_only returns rendered template before completion; supports think and format. Used render-only audit, zero generation."
+    },
+    {
+      "url": "https://raw.githubusercontent.com/ollama/ollama/v0.34.0/server/prompt.go",
+      "scope": "Installed release renders messages through model renderer/template; request does not include manually wrapped chat tokens."
+    },
+    {
+      "url": "https://raw.githubusercontent.com/ollama/ollama/v0.34.0/api/types.go",
+      "scope": "think/format/options/keep_alive fields and num_ctx/num_predict supported."
+    },
+    {
+      "url": "https://docs.ollama.com/capabilities/structured-outputs",
+      "scope": "JSON schema constrains format; application still validates IDs, duplicates and semantics remain outside schema."
+    },
+    {
+      "url": "https://ai.google.dev/gemma/docs/core/model_card_3",
+      "scope": "Google Gemma3: instruction-tuned 4B, 140+ languages; no clinical Mongolian validation inferred."
+    },
+    {
+      "url": "https://ollama.com/library/gemma3:4b-it-q4_K_M",
+      "scope": "Native supported Ollama model, 4.3B metadata, Q4_K_M, approximately 3.3GB, requires Ollama 0.6 or later."
+    },
+    {
+      "url": "https://ai.google.dev/gemma/docs/core/prompt-structure",
+      "scope": "Gemma3 IT supports user/model roles; put system instructions in first user turn."
+    },
+    {
+      "url": "https://ai.google.dev/gemma/terms",
+      "scope": "Custom Gemma terms, not Apache; local fictional engineering use compatible with stated use, redistribution/hosting carries notices/restrictions."
+    },
+    {
+      "url": "https://ai.google.dev/gemma/prohibited_use_policy",
+      "scope": "No clinical approval inferred; local fictional diagnostic only, not automated medical decision-making."
+    },
+    {
+      "url": "https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct",
+      "scope": "Sole tested alternative: Meta instruction-tuned 8B, eight supported languages excluding Mongolian; Llama3.1 Community License. Used cached distribution pinned by actual digest."
+    }
+  ]
+}

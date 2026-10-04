@@ -1,0 +1,349 @@
+{
+  "status": "Gemma acquisition stopped after repeated progress rollback; no inference; no completed model installed",
+  "retained_partial_bytes": 865685184,
+  "parts": [
+    {
+      "N": 10,
+      "Offset": 2086745280,
+      "Size": 208674528,
+      "Completed": 43591744
+    },
+    {
+      "N": 11,
+      "Offset": 2295419808,
+      "Size": 208674528,
+      "Completed": 45272736
+    },
+    {
+      "N": 2,
+      "Offset": 417349056,
+      "Size": 208674528,
+      "Completed": 56443264
+    },
+    {
+      "N": 5,
+      "Offset": 1043372640,
+      "Size": 208674528,
+      "Completed": 36790368
+    },
+    {
+      "N": 4,
+      "Offset": 834698112,
+      "Size": 208674528,
+      "Completed": 51091136
+    },
+    {
+      "N": 3,
+      "Offset": 626023584,
+      "Size": 208674528,
+      "Completed": 69425504
+    },
+    {
+      "N": 13,
+      "Offset": 2712768864,
+      "Size": 208674528,
+      "Completed": 63018464
+    },
+    {
+      "N": 14,
+      "Offset": 2921443392,
+      "Size": 208674528,
+      "Completed": 61025408
+    },
+    {
+      "N": 15,
+      "Offset": 3130117920,
+      "Size": 208674528,
+      "Completed": 68976544
+    },
+    {
+      "N": 12,
+      "Offset": 2504094336,
+      "Size": 208674528,
+      "Completed": 53116416
+    },
+    {
+      "N": 8,
+      "Offset": 1669396224,
+      "Size": 208674528,
+      "Completed": 42624512
+    },
+    {
+      "N": 6,
+      "Offset": 1252047168,
+      "Size": 208674528,
+      "Completed": 42172800
+    },
+    {
+      "N": 1,
+      "Offset": 208674528,
+      "Size": 208674528,
+      "Completed": 65338976
+    },
+    {
+      "N": 0,
+      "Offset": 0,
+      "Size": 208674528,
+      "Completed": 49701376
+    },
+    {
+      "N": 7,
+      "Offset": 1460721696,
+      "Size": 208674528,
+      "Completed": 53095584
+    },
+    {
+      "N": 9,
+      "Offset": 1878070752,
+      "Size": 208674528,
+      "Completed": 64000352
+    }
+  ],
+  "tags_after": {
+    "models": [
+      {
+        "name": "soum-qwen3-4b-medfacts:pilot1-step4",
+        "model": "soum-qwen3-4b-medfacts:pilot1-step4",
+        "modified_at": "2026-10-04T11:51:26.183894922+01:00",
+        "size": 2497282270,
+        "digest": "476c1eddc6d929c4adaec05dabd2f5c0462fb1f22e2d8fe269e92744b5766a02",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen3",
+          "families": [
+            "qwen3"
+          ],
+          "parameter_size": "4.0B",
+          "quantization_level": "Q4_K_M",
+          "context_length": 65536,
+          "embedding_length": 2560
+        },
+        "capabilities": [
+          "completion",
+          "tools",
+          "thinking"
+        ]
+      },
+      {
+        "name": "soum-qwen3-4b-medfacts:pilot1-step2",
+        "model": "soum-qwen3-4b-medfacts:pilot1-step2",
+        "modified_at": "2026-10-04T11:47:54.21936114+01:00",
+        "size": 2497282270,
+        "digest": "76249ac3b5f580251328d34c8c1bb08ec285d203824ec8c6bb8a01ea8bdfb50f",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen3",
+          "families": [
+            "qwen3"
+          ],
+          "parameter_size": "4.0B",
+          "quantization_level": "Q4_K_M",
+          "context_length": 65536,
+          "embedding_length": 2560
+        },
+        "capabilities": [
+          "completion",
+          "tools",
+          "thinking"
+        ]
+      },
+      {
+        "name": "soum-qwen3-4b-pipeline-test:step3-sparse-v08",
+        "model": "soum-qwen3-4b-pipeline-test:step3-sparse-v08",
+        "modified_at": "2026-10-04T11:06:34.170821069+01:00",
+        "size": 2497282238,
+        "digest": "7eaab334438b28c63290c3e526d12aeacc937810a6504482cbfe40cb55405bbe",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen3",
+          "families": [
+            "qwen3"
+          ],
+          "parameter_size": "4.0B",
+          "quantization_level": "Q4_K_M",
+          "context_length": 65536,
+          "embedding_length": 2560
+        },
+        "capabilities": [
+          "completion",
+          "tools",
+          "thinking"
+        ]
+      },
+      {
+        "name": "soum-qwen3-4b-control:mlx128-52a5ab34",
+        "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+        "modified_at": "2026-10-04T10:40:20.579373243+01:00",
+        "size": 2497282238,
+        "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen3",
+          "families": [
+            "qwen3"
+          ],
+          "parameter_size": "4.0B",
+          "quantization_level": "Q4_K_M",
+          "context_length": 65536,
+          "embedding_length": 2560
+        },
+        "capabilities": [
+          "completion",
+          "tools",
+          "thinking"
+        ]
+      },
+      {
+        "name": "soum-qwen3-4b-original:q4_k_m-bc640142",
+        "model": "soum-qwen3-4b-original:q4_k_m-bc640142",
+        "modified_at": "2026-10-04T09:46:34.042243228+01:00",
+        "size": 2497282174,
+        "digest": "afefb6cebde01e54ec2207c28172a3abafea0dcaa990cf542c765d6ea6b4fe1d",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen3",
+          "families": [
+            "qwen3"
+          ],
+          "parameter_size": "4.0B",
+          "quantization_level": "Q4_K_M",
+          "context_length": 40960,
+          "embedding_length": 2560
+        },
+        "capabilities": [
+          "completion",
+          "tools",
+          "thinking"
+        ]
+      },
+      {
+        "name": "soum-qwen3-1.7b-untuned-control:mlx4-roundtrip-20261004",
+        "model": "soum-qwen3-1.7b-untuned-control:mlx4-roundtrip-20261004",
+        "modified_at": "2026-10-04T07:12:48.221199016+01:00",
+        "size": 1107410814,
+        "digest": "e6a6e54bcc9d597d1700b25e24e5b769ca18333015079b50ead7ecaa269bfa75",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen3",
+          "families": [
+            "qwen3"
+          ],
+          "parameter_size": "1.7B",
+          "quantization_level": "Q4_K_M",
+          "context_length": 40960,
+          "embedding_length": 2048
+        },
+        "capabilities": [
+          "completion",
+          "tools",
+          "thinking"
+        ]
+      },
+      {
+        "name": "qwen3:1.7b",
+        "model": "qwen3:1.7b",
+        "modified_at": "2026-10-04T06:22:10.288174805+01:00",
+        "size": 1359293444,
+        "digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen3",
+          "families": [
+            "qwen3"
+          ],
+          "parameter_size": "2.0B",
+          "quantization_level": "Q4_K_M",
+          "context_length": 40960,
+          "embedding_length": 2048
+        },
+        "capabilities": [
+          "completion",
+          "tools",
+          "thinking"
+        ]
+      },
+      {
+        "name": "llama3.1:8b",
+        "model": "llama3.1:8b",
+        "modified_at": "2026-02-08T20:46:20.534831363Z",
+        "size": 4920753328,
+        "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "llama",
+          "families": [
+            "llama"
+          ],
+          "parameter_size": "8.0B",
+          "quantization_level": "Q4_K_M",
+          "context_length": 131072,
+          "embedding_length": 4096
+        },
+        "capabilities": [
+          "completion",
+          "tools"
+        ]
+      },
+      {
+        "name": "qwen3-vl:4b",
+        "model": "qwen3-vl:4b",
+        "modified_at": "2026-01-09T15:36:47.48924237Z",
+        "size": 3295636135,
+        "digest": "1343d82ebee38e26a4dd6b0180b915eb91550184e67c505dea97509571c8f683",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen3vl",
+          "families": [
+            "qwen3vl"
+          ],
+          "parameter_size": "4.4B",
+          "quantization_level": "Q4_K_M",
+          "context_length": 262144,
+          "embedding_length": 2560
+        },
+        "capabilities": [
+          "vision",
+          "completion",
+          "tools",
+          "thinking"
+        ]
+      },
+      {
+        "name": "qwen3:4b",
+        "model": "qwen3:4b",
+        "modified_at": "2026-01-09T15:22:44.021666973Z",
+        "size": 2497293931,
+        "digest": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen3",
+          "families": [
+            "qwen3"
+          ],
+          "parameter_size": "4.0B",
+          "quantization_level": "Q4_K_M",
+          "context_length": 262144,
+          "embedding_length": 2560
+        },
+        "capabilities": [
+          "completion",
+          "tools",
+          "thinking"
+        ]
+      }
+    ]
+  },
+  "client_stopped": true,
+  "shared_service_untouched": true,
+  "fallback": "Only cached llama3.1:8b will be evaluated; frozen before candidate inference"
+}

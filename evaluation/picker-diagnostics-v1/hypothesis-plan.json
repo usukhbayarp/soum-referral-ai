@@ -1,0 +1,186 @@
+{
+  "version": "picker-diagnostics-schema-check-1",
+  "frozen_at": "2026-10-04T11:22:40.230478+00:00",
+  "hypothesis": "Constrained decoding contributes to indiscriminate ID selection. Three control A requests changed ONLY by removing top-level format; still require ids JSON in unchanged system prompt. Same parser/labels/settings. No template/model/prompt change, no retries. Success requires valid selections; malformed prose is retained as invalid.",
+  "evidence_before": "Control A all three overselect; B all three select every unit; C only investigations answers no treatment correctly. No observed schema implementation defect.",
+  "jobs": {
+    "hypothesis": [
+      {
+        "id": "roles-A-no-format",
+        "case_id": "roles",
+        "condition": "A",
+        "request": {
+          "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+          "stream": false,
+          "think": false,
+          "keep_alive": 0,
+          "options": {
+            "temperature": 0,
+            "seed": 42,
+            "num_ctx": 16384,
+            "num_predict": 512
+          },
+          "messages": [
+            {
+              "role": "system",
+              "content": "Хийсэн эмчилгээ, ажилбартай холбоотой эхийн хэсгийн id-г сонго. Энэ үзлэгээр хийсэн эмчилгээ/ажилбар, мөн эм эсвэл эмчилгээ өгөөгүй гэсэн шууд тэмдэглэлийг оруул. Хэрэгтэй бол цаг, дараах байдал, төлөвлөсөн боловч хийгээгүй үйлдлийн холбоотой хэсгийг хамт сонго; төлөвлөснийг хийсэн гэж үзэхгүй. Зөвхөн тогтмол эм, гэрээр хэрэглэсэн эм, харшил, үзлэг, шинжилгээ нь энэ үзлэгийн эмчилгээ биш. Холбогдох хэсэг олдоогүй бол ids хоосон байна. Зөвхөн ids массивтай JSON буцаа; текст, тун, дүгнэлт зохиохгүй."
+            },
+            {
+              "role": "user",
+              "content": "{\"units\":[{\"id\":11,\"text\":\"Амлодипин 5 мг өдөрт 1 удаа уудаг гэсэн.\"},{\"id\":12,\"text\":\"Өнөөдрийн тунгаа уусан эсэхийг асуугаагүй.\"},{\"id\":21,\"text\":\"10:15-д парацетамол 500 мг амаар нэг удаа өгсөн.\"},{\"id\":23,\"text\":\"Энэ үзлэгээр өөр эмчилгээ хийгээгүй.\"}]}"
+            }
+          ]
+        },
+        "units": [
+          {
+            "id": 11,
+            "start": 262,
+            "end": 302,
+            "text": "Амлодипин 5 мг өдөрт 1 удаа уудаг гэсэн."
+          },
+          {
+            "id": 12,
+            "start": 303,
+            "end": 345,
+            "text": "Өнөөдрийн тунгаа уусан эсэхийг асуугаагүй."
+          },
+          {
+            "id": 21,
+            "start": 745,
+            "end": 799,
+            "text": "[S06] 10:15-д парацетамол 500 мг амаар нэг удаа өгсөн."
+          },
+          {
+            "id": 23,
+            "start": 838,
+            "end": 874,
+            "text": "Энэ үзлэгээр өөр эмчилгээ хийгээгүй."
+          }
+        ],
+        "positive": [
+          21,
+          23
+        ],
+        "negative": [
+          11,
+          12
+        ]
+      },
+      {
+        "id": "negatives-A-no-format",
+        "case_id": "negatives",
+        "condition": "A",
+        "request": {
+          "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+          "stream": false,
+          "think": false,
+          "keep_alive": 0,
+          "options": {
+            "temperature": 0,
+            "seed": 42,
+            "num_ctx": 16384,
+            "num_predict": 512
+          },
+          "messages": [
+            {
+              "role": "system",
+              "content": "Хийсэн эмчилгээ, ажилбартай холбоотой эхийн хэсгийн id-г сонго. Энэ үзлэгээр хийсэн эмчилгээ/ажилбар, мөн эм эсвэл эмчилгээ өгөөгүй гэсэн шууд тэмдэглэлийг оруул. Хэрэгтэй бол цаг, дараах байдал, төлөвлөсөн боловч хийгээгүй үйлдлийн холбоотой хэсгийг хамт сонго; төлөвлөснийг хийсэн гэж үзэхгүй. Зөвхөн тогтмол эм, гэрээр хэрэглэсэн эм, харшил, үзлэг, шинжилгээ нь энэ үзлэгийн эмчилгээ биш. Холбогдох хэсэг олдоогүй бол ids хоосон байна. Зөвхөн ids массивтай JSON буцаа; текст, тун, дүгнэлт зохиохгүй."
+            },
+            {
+              "role": "user",
+              "content": "{\"units\":[{\"id\":1,\"text\":\"Ханиалгагүй.\"},{\"id\":2,\"text\":\"Халуураагүй.\"},{\"id\":5,\"text\":\"Эмийн харшилгүй.\"},{\"id\":6,\"text\":\"Эмчилгээ хийгээгүй.\"}]}"
+            }
+          ]
+        },
+        "units": [
+          {
+            "id": 1,
+            "start": 0,
+            "end": 12,
+            "text": "Ханиалгагүй."
+          },
+          {
+            "id": 2,
+            "start": 13,
+            "end": 25,
+            "text": "Халуураагүй."
+          },
+          {
+            "id": 5,
+            "start": 71,
+            "end": 87,
+            "text": "Эмийн харшилгүй."
+          },
+          {
+            "id": 6,
+            "start": 88,
+            "end": 107,
+            "text": "Эмчилгээ хийгээгүй."
+          }
+        ],
+        "positive": [
+          6
+        ],
+        "negative": [
+          1,
+          2,
+          5
+        ]
+      },
+      {
+        "id": "investigations-A-no-format",
+        "case_id": "investigations",
+        "condition": "A",
+        "request": {
+          "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+          "stream": false,
+          "think": false,
+          "keep_alive": 0,
+          "options": {
+            "temperature": 0,
+            "seed": 42,
+            "num_ctx": 16384,
+            "num_predict": 512
+          },
+          "messages": [
+            {
+              "role": "system",
+              "content": "Хийсэн эмчилгээ, ажилбартай холбоотой эхийн хэсгийн id-г сонго. Энэ үзлэгээр хийсэн эмчилгээ/ажилбар, мөн эм эсвэл эмчилгээ өгөөгүй гэсэн шууд тэмдэглэлийг оруул. Хэрэгтэй бол цаг, дараах байдал, төлөвлөсөн боловч хийгээгүй үйлдлийн холбоотой хэсгийг хамт сонго; төлөвлөснийг хийсэн гэж үзэхгүй. Зөвхөн тогтмол эм, гэрээр хэрэглэсэн эм, харшил, үзлэг, шинжилгээ нь энэ үзлэгийн эмчилгээ биш. Холбогдох хэсэг олдоогүй бол ids хоосон байна. Зөвхөн ids массивтай JSON буцаа; текст, тун, дүгнэлт зохиохгүй."
+            },
+            {
+              "role": "user",
+              "content": "{\"units\":[{\"id\":4,\"text\":\"Уушгинд шуугиан сонсогдоогүй.\"},{\"id\":6,\"text\":\"Эмчилгээ хийгээгүй.\"},{\"id\":7,\"text\":\"Шинжилгээ хийгдээгүй.\"}]}"
+            }
+          ]
+        },
+        "units": [
+          {
+            "id": 4,
+            "start": 41,
+            "end": 70,
+            "text": "Уушгинд шуугиан сонсогдоогүй."
+          },
+          {
+            "id": 6,
+            "start": 88,
+            "end": 107,
+            "text": "Эмчилгээ хийгээгүй."
+          },
+          {
+            "id": 7,
+            "start": 108,
+            "end": 129,
+            "text": "Шинжилгээ хийгдээгүй."
+          }
+        ],
+        "positive": [
+          6
+        ],
+        "negative": [
+          4,
+          7
+        ]
+      }
+    ]
+  }
+}

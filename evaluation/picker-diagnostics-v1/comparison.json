@@ -1,0 +1,218 @@
+{
+  "generation_requests": 21,
+  "render_only_requests": 2,
+  "full_note_requests": 0,
+  "full_note_gate": "FAILED: candidate A 0/3 exact, all overselect reviewed irrelevant passages. No full-note inference.",
+  "groups": [
+    {
+      "stage": "control",
+      "condition": "A",
+      "attempts": 3,
+      "seconds": 17.399784665904008,
+      "complete": 3,
+      "thinking": 0,
+      "prompt_tokens": [
+        515,
+        433,
+        432
+      ],
+      "output_tokens": [
+        13,
+        12,
+        10
+      ],
+      "valid": 3,
+      "exact": 0,
+      "retrieved": 4,
+      "reviewed_positive_occurrences": 4,
+      "missing": 0,
+      "extra": 6,
+      "unreviewed": 0,
+      "unscorable_positive": 0,
+      "empty": 0
+    },
+    {
+      "stage": "control",
+      "condition": "B",
+      "attempts": 3,
+      "seconds": 14.187968960148282,
+      "complete": 3,
+      "thinking": 0,
+      "prompt_tokens": [
+        448,
+        403,
+        400
+      ],
+      "output_tokens": [
+        16,
+        12,
+        10
+      ],
+      "valid": 3,
+      "exact": 0,
+      "retrieved": 4,
+      "reviewed_positive_occurrences": 4,
+      "missing": 0,
+      "extra": 7,
+      "unreviewed": 0,
+      "unscorable_positive": 0,
+      "empty": 0
+    },
+    {
+      "stage": "control",
+      "condition": "C",
+      "attempts": 3,
+      "seconds": 14.875344040920027,
+      "complete": 3,
+      "thinking": 0,
+      "prompt_tokens": [
+        289,
+        211,
+        217
+      ],
+      "output_tokens": [
+        28,
+        46,
+        17
+      ],
+      "semantic_correct": 1
+    },
+    {
+      "stage": "hypothesis",
+      "condition": "A",
+      "attempts": 3,
+      "seconds": 48.11689783411566,
+      "complete": 3,
+      "thinking": 0,
+      "prompt_tokens": [
+        515,
+        433,
+        432
+      ],
+      "output_tokens": [
+        160,
+        78,
+        77
+      ],
+      "valid": 0,
+      "exact": 0,
+      "retrieved": 0,
+      "reviewed_positive_occurrences": 4,
+      "missing": 0,
+      "extra": 0,
+      "unreviewed": 0,
+      "unscorable_positive": 4,
+      "empty": 0
+    },
+    {
+      "stage": "candidate",
+      "condition": "A",
+      "attempts": 3,
+      "seconds": 29.28341033286415,
+      "complete": 3,
+      "thinking": 0,
+      "prompt_tokens": [
+        520,
+        443,
+        443
+      ],
+      "output_tokens": [
+        11,
+        13,
+        11
+      ],
+      "valid": 3,
+      "exact": 0,
+      "retrieved": 4,
+      "reviewed_positive_occurrences": 4,
+      "missing": 0,
+      "extra": 6,
+      "unreviewed": 0,
+      "unscorable_positive": 0,
+      "empty": 0
+    },
+    {
+      "stage": "candidate",
+      "condition": "B",
+      "attempts": 3,
+      "seconds": 26.930026915855706,
+      "complete": 3,
+      "thinking": 0,
+      "prompt_tokens": [
+        449,
+        412,
+        409
+      ],
+      "output_tokens": [
+        10,
+        17,
+        14
+      ],
+      "valid": 3,
+      "exact": 0,
+      "retrieved": 3,
+      "reviewed_positive_occurrences": 4,
+      "missing": 1,
+      "extra": 6,
+      "unreviewed": 0,
+      "unscorable_positive": 0,
+      "empty": 0
+    },
+    {
+      "stage": "candidate",
+      "condition": "C",
+      "attempts": 3,
+      "seconds": 20.40695779095404,
+      "complete": 3,
+      "thinking": 0,
+      "prompt_tokens": [
+        291,
+        214,
+        221
+      ],
+      "output_tokens": [
+        8,
+        17,
+        17
+      ],
+      "semantic_correct": 2
+    }
+  ],
+  "resources": {
+    "control": {
+      "peak_ollama_size_bytes": 5106921635,
+      "peak_ollama_vram_bytes": 5106921635,
+      "pressure_levels": [
+        "1",
+        "2",
+        "4"
+      ],
+      "critical_samples": 1,
+      "sample_count": 83,
+      "metric_caveat": "Ollama reports model residency/allocation, not total process RSS or total system memory. Pressure samples are system-wide and not exclusively attributable to this job."
+    },
+    "hypothesis": {
+      "peak_ollama_size_bytes": 5106921635,
+      "peak_ollama_vram_bytes": 5106921635,
+      "pressure_levels": [
+        "1",
+        "2"
+      ],
+      "critical_samples": 0,
+      "sample_count": 90,
+      "metric_caveat": "Ollama reports model residency/allocation, not total process RSS or total system memory. Pressure samples are system-wide and not exclusively attributable to this job."
+    },
+    "candidate": {
+      "peak_ollama_size_bytes": 6893170851,
+      "peak_ollama_vram_bytes": 6893170851,
+      "pressure_levels": [
+        "1",
+        "2",
+        "4"
+      ],
+      "critical_samples": 3,
+      "sample_count": 139,
+      "metric_caveat": "Ollama reports model residency/allocation, not total process RSS or total system memory. Pressure samples are system-wide and not exclusively attributable to this job."
+    }
+  }
+}

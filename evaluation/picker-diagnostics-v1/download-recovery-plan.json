@@ -1,0 +1,7 @@
+{
+  "model": "gemma3:4b-it-q4_K_M",
+  "max_resume_windows": 3,
+  "seconds_per_window": 480,
+  "purpose": "Same single candidate; preserve partial byte progress by closing owned pull HTTP stream between windows. No service restart; leave caches intact if blocked.",
+  "pid": 16706
+}

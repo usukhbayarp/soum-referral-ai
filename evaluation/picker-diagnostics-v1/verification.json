@@ -1,0 +1,33 @@
+{
+  "verified_at": "2026-10-04T11:51:33.763878+00:00",
+  "tests": "11 passed in 0.19s; .venv/bin/pytest -q tests/test_picker_diagnostics.py",
+  "tags_before_equal_after": true,
+  "no_new_model_installed": true,
+  "ps_after": {
+    "models": []
+  },
+  "configs": {
+    "8000": {
+      "version": "experimental-0.7",
+      "revision": null,
+      "model": "qwen3:1.7b",
+      "prompt_version": "source-id-v06-1",
+      "treatment_picker_enabled": null,
+      "deployment_mode": "local"
+    },
+    "8001": {
+      "version": "experimental-0.8",
+      "revision": "clinician-placement-picker-3",
+      "model": "qwen3:1.7b",
+      "prompt_version": "source-id-v06-1",
+      "treatment_picker_enabled": true,
+      "deployment_mode": "local"
+    }
+  },
+  "listeners": "COMMAND   PID                 USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME\nPython  69834 usukhbayar.purevdorj    6u  IPv4 0x2de7be992779eaa1      0t0  TCP 127.0.0.1:8000 (LISTEN)\nPython  85109 usukhbayar.purevdorj    6u  IPv4 0x5380e4e6429c3226      0t0  TCP 127.0.0.1:8001 (LISTEN)\n",
+  "memory_pressure_level_after": "1",
+  "disk_free_bytes_after": 26768199680,
+  "application_files_changed": false,
+  "full_note_gate": "not passed; 0 extra full-note calls",
+  "decision": "D: keep picker disabled by default; corrected manual form remains available in preview; no model promotion."
+}

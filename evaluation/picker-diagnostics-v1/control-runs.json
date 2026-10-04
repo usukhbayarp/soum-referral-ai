@@ -1,0 +1,1846 @@
+[
+  {
+    "id": "roles-A",
+    "case_id": "roles",
+    "condition": "A",
+    "model_digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+    "plan_sha256": "e5d1b6c0146de584fd250de2a918398db3f9c9eef9b71293329d1dd60f73773d",
+    "wire_request_utf8": "{\"model\": \"soum-qwen3-4b-control:mlx128-52a5ab34\", \"stream\": false, \"think\": false, \"keep_alive\": 0, \"options\": {\"temperature\": 0, \"seed\": 42, \"num_ctx\": 16384, \"num_predict\": 512}, \"format\": {\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"ids\": {\"type\": \"array\", \"items\": {\"type\": \"integer\", \"enum\": [11, 12, 21, 23]}, \"uniqueItems\": true, \"maxItems\": 80}}, \"required\": [\"ids\"]}, \"messages\": [{\"role\": \"system\", \"content\": \"\\u0425\\u0438\\u0439\\u0441\\u044d\\u043d \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d, \\u0430\\u0436\\u0438\\u043b\\u0431\\u0430\\u0440\\u0442\\u0430\\u0439 \\u0445\\u043e\\u043b\\u0431\\u043e\\u043e\\u0442\\u043e\\u0439 \\u044d\\u0445\\u0438\\u0439\\u043d \\u0445\\u044d\\u0441\\u0433\\u0438\\u0439\\u043d id-\\u0433 \\u0441\\u043e\\u043d\\u0433\\u043e. \\u042d\\u043d\\u044d \\u04af\\u0437\\u043b\\u044d\\u0433\\u044d\\u044d\\u0440 \\u0445\\u0438\\u0439\\u0441\\u044d\\u043d \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d/\\u0430\\u0436\\u0438\\u043b\\u0431\\u0430\\u0440, \\u043c\\u04e9\\u043d \\u044d\\u043c \\u044d\\u0441\\u0432\\u044d\\u043b \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d \\u04e9\\u0433\\u04e9\\u04e9\\u0433\\u04af\\u0439 \\u0433\\u044d\\u0441\\u044d\\u043d \\u0448\\u0443\\u0443\\u0434 \\u0442\\u044d\\u043c\\u0434\\u044d\\u0433\\u043b\\u044d\\u043b\\u0438\\u0439\\u0433 \\u043e\\u0440\\u0443\\u0443\\u043b. \\u0425\\u044d\\u0440\\u044d\\u0433\\u0442\\u044d\\u0439 \\u0431\\u043e\\u043b \\u0446\\u0430\\u0433, \\u0434\\u0430\\u0440\\u0430\\u0430\\u0445 \\u0431\\u0430\\u0439\\u0434\\u0430\\u043b, \\u0442\\u04e9\\u043b\\u04e9\\u0432\\u043b\\u04e9\\u0441\\u04e9\\u043d \\u0431\\u043e\\u043b\\u043e\\u0432\\u0447 \\u0445\\u0438\\u0439\\u0433\\u044d\\u044d\\u0433\\u04af\\u0439 \\u04af\\u0439\\u043b\\u0434\\u043b\\u0438\\u0439\\u043d \\u0445\\u043e\\u043b\\u0431\\u043e\\u043e\\u0442\\u043e\\u0439 \\u0445\\u044d\\u0441\\u0433\\u0438\\u0439\\u0433 \\u0445\\u0430\\u043c\\u0442 \\u0441\\u043e\\u043d\\u0433\\u043e; \\u0442\\u04e9\\u043b\\u04e9\\u0432\\u043b\\u04e9\\u0441\\u043d\\u0438\\u0439\\u0433 \\u0445\\u0438\\u0439\\u0441\\u044d\\u043d \\u0433\\u044d\\u0436 \\u04af\\u0437\\u044d\\u0445\\u0433\\u04af\\u0439. \\u0417\\u04e9\\u0432\\u0445\\u04e9\\u043d \\u0442\\u043e\\u0433\\u0442\\u043c\\u043e\\u043b \\u044d\\u043c, \\u0433\\u044d\\u0440\\u044d\\u044d\\u0440 \\u0445\\u044d\\u0440\\u044d\\u0433\\u043b\\u044d\\u0441\\u044d\\u043d \\u044d\\u043c, \\u0445\\u0430\\u0440\\u0448\\u0438\\u043b, \\u04af\\u0437\\u043b\\u044d\\u0433, \\u0448\\u0438\\u043d\\u0436\\u0438\\u043b\\u0433\\u044d\\u044d \\u043d\\u044c \\u044d\\u043d\\u044d \\u04af\\u0437\\u043b\\u044d\\u0433\\u0438\\u0439\\u043d \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d \\u0431\\u0438\\u0448. \\u0425\\u043e\\u043b\\u0431\\u043e\\u0433\\u0434\\u043e\\u0445 \\u0445\\u044d\\u0441\\u044d\\u0433 \\u043e\\u043b\\u0434\\u043e\\u043e\\u0433\\u04af\\u0439 \\u0431\\u043e\\u043b ids \\u0445\\u043e\\u043e\\u0441\\u043e\\u043d \\u0431\\u0430\\u0439\\u043d\\u0430. \\u0417\\u04e9\\u0432\\u0445\\u04e9\\u043d ids \\u043c\\u0430\\u0441\\u0441\\u0438\\u0432\\u0442\\u0430\\u0439 JSON \\u0431\\u0443\\u0446\\u0430\\u0430; \\u0442\\u0435\\u043a\\u0441\\u0442, \\u0442\\u0443\\u043d, \\u0434\\u04af\\u0433\\u043d\\u044d\\u043b\\u0442 \\u0437\\u043e\\u0445\\u0438\\u043e\\u0445\\u0433\\u04af\\u0439.\"}, {\"role\": \"user\", \"content\": \"{\\\"units\\\":[{\\\"id\\\":11,\\\"text\\\":\\\"\\u0410\\u043c\\u043b\\u043e\\u0434\\u0438\\u043f\\u0438\\u043d 5 \\u043c\\u0433 \\u04e9\\u0434\\u04e9\\u0440\\u0442 1 \\u0443\\u0434\\u0430\\u0430 \\u0443\\u0443\\u0434\\u0430\\u0433 \\u0433\\u044d\\u0441\\u044d\\u043d.\\\"},{\\\"id\\\":12,\\\"text\\\":\\\"\\u04e8\\u043d\\u04e9\\u04e9\\u0434\\u0440\\u0438\\u0439\\u043d \\u0442\\u0443\\u043d\\u0433\\u0430\\u0430 \\u0443\\u0443\\u0441\\u0430\\u043d \\u044d\\u0441\\u044d\\u0445\\u0438\\u0439\\u0433 \\u0430\\u0441\\u0443\\u0443\\u0433\\u0430\\u0430\\u0433\\u04af\\u0439.\\\"},{\\\"id\\\":21,\\\"text\\\":\\\"10:15-\\u0434 \\u043f\\u0430\\u0440\\u0430\\u0446\\u0435\\u0442\\u0430\\u043c\\u043e\\u043b 500 \\u043c\\u0433 \\u0430\\u043c\\u0430\\u0430\\u0440 \\u043d\\u044d\\u0433 \\u0443\\u0434\\u0430\\u0430 \\u04e9\\u0433\\u0441\\u04e9\\u043d.\\\"},{\\\"id\\\":23,\\\"text\\\":\\\"\\u042d\\u043d\\u044d \\u04af\\u0437\\u043b\\u044d\\u0433\\u044d\\u044d\\u0440 \\u04e9\\u04e9\\u0440 \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d \\u0445\\u0438\\u0439\\u0433\\u044d\\u044d\\u0433\\u04af\\u0439.\\\"}]}\"}]}",
+    "status": "received",
+    "telemetry": [
+      {
+        "seconds": 0.509,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 1.033,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 1.593,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 2.409,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 2.926,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 3.437,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "4"
+      },
+      {
+        "seconds": 3.953,
+        "ps": {
+          "models": [
+            {
+              "name": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "size": 5050204159,
+              "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "qwen3",
+                "families": [
+                  "qwen3"
+                ],
+                "parameter_size": "4.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:21:33.461077+01:00",
+              "size_vram": 5050204159,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 4.478,
+        "ps": {
+          "models": [
+            {
+              "name": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "size": 5050204159,
+              "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "qwen3",
+                "families": [
+                  "qwen3"
+                ],
+                "parameter_size": "4.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:21:33.985966+01:00",
+              "size_vram": 5050204159,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 4.99,
+        "ps": {
+          "models": [
+            {
+              "name": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "size": 5050204159,
+              "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "qwen3",
+                "families": [
+                  "qwen3"
+                ],
+                "parameter_size": "4.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:21:34.498642+01:00",
+              "size_vram": 5050204159,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 5.503,
+        "ps": {
+          "models": [
+            {
+              "name": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "size": 5050204159,
+              "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "qwen3",
+                "families": [
+                  "qwen3"
+                ],
+                "parameter_size": "4.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:21:35.012127+01:00",
+              "size_vram": 5050204159,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      }
+    ],
+    "raw_response": "{\"model\":\"soum-qwen3-4b-control:mlx128-52a5ab34\",\"created_at\":\"2026-10-04T11:21:35.346007Z\",\"message\":{\"role\":\"assistant\",\"content\":\"{\\\"ids\\\":[11,21,23]}\"},\"done\":true,\"done_reason\":\"stop\",\"total_duration\":5838279875,\"load_duration\":3869683459,\"prompt_eval_count\":515,\"prompt_eval_cached_count\":0,\"prompt_eval_duration\":1488285000,\"eval_count\":13,\"eval_duration\":464877000}",
+    "http_status": 200,
+    "complete": true,
+    "thinking_present": false,
+    "tokens": {
+      "prompt_eval_count": 515,
+      "eval_count": 13
+    },
+    "score": {
+      "selected": [
+        11,
+        21,
+        23
+      ],
+      "retrieved": [
+        21,
+        23
+      ],
+      "missing": [],
+      "extra": [
+        11
+      ],
+      "unreviewed": [],
+      "exact": false,
+      "empty": false
+    },
+    "valid": true,
+    "wall_seconds": 5.841954041970894
+  },
+  {
+    "id": "roles-B",
+    "case_id": "roles",
+    "condition": "B",
+    "model_digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+    "plan_sha256": "e5d1b6c0146de584fd250de2a918398db3f9c9eef9b71293329d1dd60f73773d",
+    "wire_request_utf8": "{\"model\": \"soum-qwen3-4b-control:mlx128-52a5ab34\", \"stream\": false, \"think\": false, \"keep_alive\": 0, \"options\": {\"temperature\": 0, \"seed\": 42, \"num_ctx\": 16384, \"num_predict\": 512}, \"format\": {\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"ids\": {\"type\": \"array\", \"items\": {\"type\": \"integer\", \"enum\": [11, 12, 21, 23]}, \"uniqueItems\": true, \"maxItems\": 80}}, \"required\": [\"ids\"]}, \"messages\": [{\"role\": \"system\", \"content\": \"\\u0425\\u0438\\u0439\\u0441\\u044d\\u043d \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d, \\u0430\\u0436\\u0438\\u043b\\u0431\\u0430\\u0440\\u0442\\u0430\\u0439 \\u0445\\u043e\\u043b\\u0431\\u043e\\u043e\\u0442\\u043e\\u0439 \\u044d\\u0445\\u0438\\u0439\\u043d \\u0445\\u044d\\u0441\\u0433\\u0438\\u0439\\u043d id-\\u0433 \\u0441\\u043e\\u043d\\u0433\\u043e. \\u042d\\u043d\\u044d \\u04af\\u0437\\u043b\\u044d\\u0433\\u044d\\u044d\\u0440 \\u0445\\u0438\\u0439\\u0441\\u044d\\u043d \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d/\\u0430\\u0436\\u0438\\u043b\\u0431\\u0430\\u0440, \\u043c\\u04e9\\u043d \\u044d\\u043c \\u044d\\u0441\\u0432\\u044d\\u043b \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d \\u04e9\\u0433\\u04e9\\u04e9\\u0433\\u04af\\u0439 \\u0433\\u044d\\u0441\\u044d\\u043d \\u0448\\u0443\\u0443\\u0434 \\u0442\\u044d\\u043c\\u0434\\u044d\\u0433\\u043b\\u044d\\u043b\\u0438\\u0439\\u0433 \\u043e\\u0440\\u0443\\u0443\\u043b. \\u0425\\u044d\\u0440\\u044d\\u0433\\u0442\\u044d\\u0439 \\u0431\\u043e\\u043b \\u0446\\u0430\\u0433, \\u0434\\u0430\\u0440\\u0430\\u0430\\u0445 \\u0431\\u0430\\u0439\\u0434\\u0430\\u043b, \\u0442\\u04e9\\u043b\\u04e9\\u0432\\u043b\\u04e9\\u0441\\u04e9\\u043d \\u0431\\u043e\\u043b\\u043e\\u0432\\u0447 \\u0445\\u0438\\u0439\\u0433\\u044d\\u044d\\u0433\\u04af\\u0439 \\u04af\\u0439\\u043b\\u0434\\u043b\\u0438\\u0439\\u043d \\u0445\\u043e\\u043b\\u0431\\u043e\\u043e\\u0442\\u043e\\u0439 \\u0445\\u044d\\u0441\\u0433\\u0438\\u0439\\u0433 \\u0445\\u0430\\u043c\\u0442 \\u0441\\u043e\\u043d\\u0433\\u043e; \\u0442\\u04e9\\u043b\\u04e9\\u0432\\u043b\\u04e9\\u0441\\u043d\\u0438\\u0439\\u0433 \\u0445\\u0438\\u0439\\u0441\\u044d\\u043d \\u0433\\u044d\\u0436 \\u04af\\u0437\\u044d\\u0445\\u0433\\u04af\\u0439. \\u0417\\u04e9\\u0432\\u0445\\u04e9\\u043d \\u0442\\u043e\\u0433\\u0442\\u043c\\u043e\\u043b \\u044d\\u043c, \\u0433\\u044d\\u0440\\u044d\\u044d\\u0440 \\u0445\\u044d\\u0440\\u044d\\u0433\\u043b\\u044d\\u0441\\u044d\\u043d \\u044d\\u043c, \\u0445\\u0430\\u0440\\u0448\\u0438\\u043b, \\u04af\\u0437\\u043b\\u044d\\u0433, \\u0448\\u0438\\u043d\\u0436\\u0438\\u043b\\u0433\\u044d\\u044d \\u043d\\u044c \\u044d\\u043d\\u044d \\u04af\\u0437\\u043b\\u044d\\u0433\\u0438\\u0439\\u043d \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d \\u0431\\u0438\\u0448. \\u0425\\u043e\\u043b\\u0431\\u043e\\u0433\\u0434\\u043e\\u0445 \\u0445\\u044d\\u0441\\u044d\\u0433 \\u043e\\u043b\\u0434\\u043e\\u043e\\u0433\\u04af\\u0439 \\u0431\\u043e\\u043b ids \\u0445\\u043e\\u043e\\u0441\\u043e\\u043d \\u0431\\u0430\\u0439\\u043d\\u0430. \\u0417\\u04e9\\u0432\\u0445\\u04e9\\u043d ids \\u043c\\u0430\\u0441\\u0441\\u0438\\u0432\\u0442\\u0430\\u0439 JSON \\u0431\\u0443\\u0446\\u0430\\u0430; \\u0442\\u0435\\u043a\\u0441\\u0442, \\u0442\\u0443\\u043d, \\u0434\\u04af\\u0433\\u043d\\u044d\\u043b\\u0442 \\u0437\\u043e\\u0445\\u0438\\u043e\\u0445\\u0433\\u04af\\u0439.\"}, {\"role\": \"user\", \"content\": \"{\\\"units\\\":[{\\\"id\\\":11,\\\"text\\\":\\\"Reported taking amlodipine 5 mg once daily.\\\"},{\\\"id\\\":12,\\\"text\\\":\\\"Whether today's dose had been taken was not asked.\\\"},{\\\"id\\\":21,\\\"text\\\":\\\"At 10:15, paracetamol 500 mg was given orally once.\\\"},{\\\"id\\\":23,\\\"text\\\":\\\"No other treatment was performed during this encounter.\\\"}]}\"}]}",
+    "status": "received",
+    "telemetry": [
+      {
+        "seconds": 0.515,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 1.03,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 1.538,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 2.06,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 2.587,
+        "ps": {
+          "models": [
+            {
+              "name": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "size": 5106921635,
+              "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "qwen3",
+                "families": [
+                  "qwen3"
+                ],
+                "parameter_size": "4.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:21:38.054841+01:00",
+              "size_vram": 5106921635,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 3.185,
+        "ps": {
+          "models": [
+            {
+              "name": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "size": 5106921635,
+              "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "qwen3",
+                "families": [
+                  "qwen3"
+                ],
+                "parameter_size": "4.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:21:38.652653+01:00",
+              "size_vram": 5106921635,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 3.766,
+        "ps": {
+          "models": [
+            {
+              "name": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "size": 5106921635,
+              "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "qwen3",
+                "families": [
+                  "qwen3"
+                ],
+                "parameter_size": "4.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:21:39.23112+01:00",
+              "size_vram": 5106921635,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 4.296,
+        "ps": {
+          "models": [
+            {
+              "name": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "size": 5106921635,
+              "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "qwen3",
+                "families": [
+                  "qwen3"
+                ],
+                "parameter_size": "4.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:21:39.761461+01:00",
+              "size_vram": 5106921635,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 4.807,
+        "ps": {
+          "models": [
+            {
+              "name": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "size": 5106921635,
+              "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "qwen3",
+                "families": [
+                  "qwen3"
+                ],
+                "parameter_size": "4.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:21:40.272342+01:00",
+              "size_vram": 5106921635,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      }
+    ],
+    "raw_response": "{\"model\":\"soum-qwen3-4b-control:mlx128-52a5ab34\",\"created_at\":\"2026-10-04T11:21:40.459115Z\",\"message\":{\"role\":\"assistant\",\"content\":\"{\\\"ids\\\":[11,12,21,23]}\"},\"done\":true,\"done_reason\":\"stop\",\"total_duration\":4994131750,\"load_duration\":2585681708,\"prompt_eval_count\":448,\"prompt_eval_cached_count\":0,\"prompt_eval_duration\":1788749000,\"eval_count\":16,\"eval_duration\":603753000}",
+    "http_status": 200,
+    "complete": true,
+    "thinking_present": false,
+    "tokens": {
+      "prompt_eval_count": 448,
+      "eval_count": 16
+    },
+    "score": {
+      "selected": [
+        11,
+        12,
+        21,
+        23
+      ],
+      "retrieved": [
+        21,
+        23
+      ],
+      "missing": [],
+      "extra": [
+        11,
+        12
+      ],
+      "unreviewed": [],
+      "exact": false,
+      "empty": false
+    },
+    "valid": true,
+    "wall_seconds": 4.998719459050335
+  },
+  {
+    "id": "roles-C",
+    "case_id": "roles",
+    "condition": "C",
+    "model_digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+    "plan_sha256": "e5d1b6c0146de584fd250de2a918398db3f9c9eef9b71293329d1dd60f73773d",
+    "wire_request_utf8": "{\"model\": \"soum-qwen3-4b-control:mlx128-52a5ab34\", \"stream\": false, \"think\": false, \"keep_alive\": 0, \"options\": {\"temperature\": 0, \"seed\": 42, \"num_ctx\": 16384, \"num_predict\": 512}, \"messages\": [{\"role\": \"user\", \"content\": \"\\u0410\\u043c\\u043b\\u043e\\u0434\\u0438\\u043f\\u0438\\u043d 5 \\u043c\\u0433 \\u04e9\\u0434\\u04e9\\u0440\\u0442 1 \\u0443\\u0434\\u0430\\u0430 \\u0443\\u0443\\u0434\\u0430\\u0433 \\u0433\\u044d\\u0441\\u044d\\u043d.\\n\\u04e8\\u043d\\u04e9\\u04e9\\u0434\\u0440\\u0438\\u0439\\u043d \\u0442\\u0443\\u043d\\u0433\\u0430\\u0430 \\u0443\\u0443\\u0441\\u0430\\u043d \\u044d\\u0441\\u044d\\u0445\\u0438\\u0439\\u0433 \\u0430\\u0441\\u0443\\u0443\\u0433\\u0430\\u0430\\u0433\\u04af\\u0439.\\n10:15-\\u0434 \\u043f\\u0430\\u0440\\u0430\\u0446\\u0435\\u0442\\u0430\\u043c\\u043e\\u043b 500 \\u043c\\u0433 \\u0430\\u043c\\u0430\\u0430\\u0440 \\u043d\\u044d\\u0433 \\u0443\\u0434\\u0430\\u0430 \\u04e9\\u0433\\u0441\\u04e9\\u043d.\\n\\u042d\\u043d\\u044d \\u04af\\u0437\\u043b\\u044d\\u0433\\u044d\\u044d\\u0440 \\u04e9\\u04e9\\u0440 \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d \\u0445\\u0438\\u0439\\u0433\\u044d\\u044d\\u0433\\u04af\\u0439.\\n\\n\\u042d\\u043d\\u044d \\u0442\\u044d\\u043c\\u0434\\u044d\\u0433\\u043b\\u044d\\u043b\\u0434 \\u044d\\u043d\\u044d \\u04af\\u0437\\u043b\\u044d\\u0433\\u044d\\u044d\\u0440 \\u044f\\u043c\\u0430\\u0440 \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d \\u0445\\u0438\\u0439\\u0441\\u044d\\u043d, \\u044d\\u0441\\u0432\\u044d\\u043b \\u0445\\u0438\\u0439\\u0433\\u044d\\u044d\\u0433\\u04af\\u0439 \\u0433\\u044d\\u0436 \\u0431\\u0438\\u0447\\u0441\\u044d\\u043d \\u0431\\u044d? \\u0417\\u04e9\\u0432\\u0445\\u04e9\\u043d \\u0442\\u044d\\u0440 \\u043c\\u044d\\u0434\\u044d\\u044d\\u043b\\u043b\\u0438\\u0439\\u0433 \\u043c\\u043e\\u043d\\u0433\\u043e\\u043b\\u043e\\u043e\\u0440 \\u0442\\u043e\\u0432\\u0447 \\u0445\\u0430\\u0440\\u0438\\u0443\\u043b. \\u0422\\u043e\\u0433\\u0442\\u043c\\u043e\\u043b \\u044d\\u043c, \\u0445\\u0430\\u0440\\u0448\\u0438\\u043b, \\u04af\\u0437\\u043b\\u044d\\u0433, \\u0448\\u0438\\u043d\\u0436\\u0438\\u043b\\u0433\\u044d\\u044d\\u0433 \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d \\u0433\\u044d\\u0436 \\u0431\\u04af\\u04af \\u043e\\u0440\\u0443\\u0443\\u043b; \\u0431\\u0438\\u0447\\u044d\\u044d\\u0433\\u04af\\u0439 \\u0437\\u04af\\u0439\\u043b \\u0431\\u04af\\u04af \\u043d\\u044d\\u043c.\"}]}",
+    "status": "received",
+    "telemetry": [
+      {
+        "seconds": 0.519,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 1.034,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 1.563,
+        "ps": {
+          "models": [
+            {
+              "name": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "size": 5050204159,
+              "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "qwen3",
+                "families": [
+                  "qwen3"
+                ],
+                "parameter_size": "4.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:21:42.051479+01:00",
+              "size_vram": 5050204159,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 2.076,
+        "ps": {
+          "models": [
+            {
+              "name": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "size": 5050204159,
+              "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "qwen3",
+                "families": [
+                  "qwen3"
+                ],
+                "parameter_size": "4.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:21:42.595464+01:00",
+              "size_vram": 5050204159,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 2.653,
+        "ps": {
+          "models": [
+            {
+              "name": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "size": 5050204159,
+              "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "qwen3",
+                "families": [
+                  "qwen3"
+                ],
+                "parameter_size": "4.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:21:43.141692+01:00",
+              "size_vram": 5050204159,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 3.164,
+        "ps": {
+          "models": [
+            {
+              "name": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "size": 5050204159,
+              "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "qwen3",
+                "families": [
+                  "qwen3"
+                ],
+                "parameter_size": "4.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:21:43.654978+01:00",
+              "size_vram": 5050204159,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      }
+    ],
+    "raw_response": "{\"model\":\"soum-qwen3-4b-control:mlx128-52a5ab34\",\"created_at\":\"2026-10-04T11:21:44.141563Z\",\"message\":{\"role\":\"assistant\",\"content\":\"Энэ үзлэгээр эмчилгээ хийгээгүй.\"},\"done\":true,\"done_reason\":\"stop\",\"total_duration\":3647086375,\"load_duration\":1352977000,\"prompt_eval_count\":289,\"prompt_eval_cached_count\":0,\"prompt_eval_duration\":1063164000,\"eval_count\":28,\"eval_duration\":1219857000}",
+    "http_status": 200,
+    "complete": true,
+    "thinking_present": false,
+    "tokens": {
+      "prompt_eval_count": 289,
+      "eval_count": 28
+    },
+    "semantic_review": "pending; assess against frozen rubric; JSON validity not applicable",
+    "wall_seconds": 3.659791750018485
+  },
+  {
+    "id": "negatives-A",
+    "case_id": "negatives",
+    "condition": "A",
+    "model_digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+    "plan_sha256": "e5d1b6c0146de584fd250de2a918398db3f9c9eef9b71293329d1dd60f73773d",
+    "wire_request_utf8": "{\"model\": \"soum-qwen3-4b-control:mlx128-52a5ab34\", \"stream\": false, \"think\": false, \"keep_alive\": 0, \"options\": {\"temperature\": 0, \"seed\": 42, \"num_ctx\": 16384, \"num_predict\": 512}, \"format\": {\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"ids\": {\"type\": \"array\", \"items\": {\"type\": \"integer\", \"enum\": [1, 2, 5, 6]}, \"uniqueItems\": true, \"maxItems\": 80}}, \"required\": [\"ids\"]}, \"messages\": [{\"role\": \"system\", \"content\": \"\\u0425\\u0438\\u0439\\u0441\\u044d\\u043d \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d, \\u0430\\u0436\\u0438\\u043b\\u0431\\u0430\\u0440\\u0442\\u0430\\u0439 \\u0445\\u043e\\u043b\\u0431\\u043e\\u043e\\u0442\\u043e\\u0439 \\u044d\\u0445\\u0438\\u0439\\u043d \\u0445\\u044d\\u0441\\u0433\\u0438\\u0439\\u043d id-\\u0433 \\u0441\\u043e\\u043d\\u0433\\u043e. \\u042d\\u043d\\u044d \\u04af\\u0437\\u043b\\u044d\\u0433\\u044d\\u044d\\u0440 \\u0445\\u0438\\u0439\\u0441\\u044d\\u043d \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d/\\u0430\\u0436\\u0438\\u043b\\u0431\\u0430\\u0440, \\u043c\\u04e9\\u043d \\u044d\\u043c \\u044d\\u0441\\u0432\\u044d\\u043b \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d \\u04e9\\u0433\\u04e9\\u04e9\\u0433\\u04af\\u0439 \\u0433\\u044d\\u0441\\u044d\\u043d \\u0448\\u0443\\u0443\\u0434 \\u0442\\u044d\\u043c\\u0434\\u044d\\u0433\\u043b\\u044d\\u043b\\u0438\\u0439\\u0433 \\u043e\\u0440\\u0443\\u0443\\u043b. \\u0425\\u044d\\u0440\\u044d\\u0433\\u0442\\u044d\\u0439 \\u0431\\u043e\\u043b \\u0446\\u0430\\u0433, \\u0434\\u0430\\u0440\\u0430\\u0430\\u0445 \\u0431\\u0430\\u0439\\u0434\\u0430\\u043b, \\u0442\\u04e9\\u043b\\u04e9\\u0432\\u043b\\u04e9\\u0441\\u04e9\\u043d \\u0431\\u043e\\u043b\\u043e\\u0432\\u0447 \\u0445\\u0438\\u0439\\u0433\\u044d\\u044d\\u0433\\u04af\\u0439 \\u04af\\u0439\\u043b\\u0434\\u043b\\u0438\\u0439\\u043d \\u0445\\u043e\\u043b\\u0431\\u043e\\u043e\\u0442\\u043e\\u0439 \\u0445\\u044d\\u0441\\u0433\\u0438\\u0439\\u0433 \\u0445\\u0430\\u043c\\u0442 \\u0441\\u043e\\u043d\\u0433\\u043e; \\u0442\\u04e9\\u043b\\u04e9\\u0432\\u043b\\u04e9\\u0441\\u043d\\u0438\\u0439\\u0433 \\u0445\\u0438\\u0439\\u0441\\u044d\\u043d \\u0433\\u044d\\u0436 \\u04af\\u0437\\u044d\\u0445\\u0433\\u04af\\u0439. \\u0417\\u04e9\\u0432\\u0445\\u04e9\\u043d \\u0442\\u043e\\u0433\\u0442\\u043c\\u043e\\u043b \\u044d\\u043c, \\u0433\\u044d\\u0440\\u044d\\u044d\\u0440 \\u0445\\u044d\\u0440\\u044d\\u0433\\u043b\\u044d\\u0441\\u044d\\u043d \\u044d\\u043c, \\u0445\\u0430\\u0440\\u0448\\u0438\\u043b, \\u04af\\u0437\\u043b\\u044d\\u0433, \\u0448\\u0438\\u043d\\u0436\\u0438\\u043b\\u0433\\u044d\\u044d \\u043d\\u044c \\u044d\\u043d\\u044d \\u04af\\u0437\\u043b\\u044d\\u0433\\u0438\\u0439\\u043d \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d \\u0431\\u0438\\u0448. \\u0425\\u043e\\u043b\\u0431\\u043e\\u0433\\u0434\\u043e\\u0445 \\u0445\\u044d\\u0441\\u044d\\u0433 \\u043e\\u043b\\u0434\\u043e\\u043e\\u0433\\u04af\\u0439 \\u0431\\u043e\\u043b ids \\u0445\\u043e\\u043e\\u0441\\u043e\\u043d \\u0431\\u0430\\u0439\\u043d\\u0430. \\u0417\\u04e9\\u0432\\u0445\\u04e9\\u043d ids \\u043c\\u0430\\u0441\\u0441\\u0438\\u0432\\u0442\\u0430\\u0439 JSON \\u0431\\u0443\\u0446\\u0430\\u0430; \\u0442\\u0435\\u043a\\u0441\\u0442, \\u0442\\u0443\\u043d, \\u0434\\u04af\\u0433\\u043d\\u044d\\u043b\\u0442 \\u0437\\u043e\\u0445\\u0438\\u043e\\u0445\\u0433\\u04af\\u0439.\"}, {\"role\": \"user\", \"content\": \"{\\\"units\\\":[{\\\"id\\\":1,\\\"text\\\":\\\"\\u0425\\u0430\\u043d\\u0438\\u0430\\u043b\\u0433\\u0430\\u0433\\u04af\\u0439.\\\"},{\\\"id\\\":2,\\\"text\\\":\\\"\\u0425\\u0430\\u043b\\u0443\\u0443\\u0440\\u0430\\u0430\\u0433\\u04af\\u0439.\\\"},{\\\"id\\\":5,\\\"text\\\":\\\"\\u042d\\u043c\\u0438\\u0439\\u043d \\u0445\\u0430\\u0440\\u0448\\u0438\\u043b\\u0433\\u04af\\u0439.\\\"},{\\\"id\\\":6,\\\"text\\\":\\\"\\u042d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d \\u0445\\u0438\\u0439\\u0433\\u044d\\u044d\\u0433\\u04af\\u0439.\\\"}]}\"}]}",
+    "status": "received",
+    "telemetry": [
+      {
+        "seconds": 0.526,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 1.042,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 1.598,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 2.124,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 2.641,
+        "ps": {
+          "models": [
+            {
+              "name": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "size": 5106921635,
+              "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "qwen3",
+                "families": [
+                  "qwen3"
+                ],
+                "parameter_size": "4.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:21:46.871075+01:00",
+              "size_vram": 5106921635,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 3.164,
+        "ps": {
+          "models": [
+            {
+              "name": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "size": 5106921635,
+              "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "qwen3",
+                "families": [
+                  "qwen3"
+                ],
+                "parameter_size": "4.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:21:47.39207+01:00",
+              "size_vram": 5106921635,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 3.686,
+        "ps": {
+          "models": [
+            {
+              "name": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "size": 5106921635,
+              "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "qwen3",
+                "families": [
+                  "qwen3"
+                ],
+                "parameter_size": "4.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:21:47.914268+01:00",
+              "size_vram": 5106921635,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 4.202,
+        "ps": {
+          "models": [
+            {
+              "name": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "size": 5106921635,
+              "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "qwen3",
+                "families": [
+                  "qwen3"
+                ],
+                "parameter_size": "4.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:21:48.431219+01:00",
+              "size_vram": 5106921635,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 4.72,
+        "ps": {
+          "models": [
+            {
+              "name": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "size": 5106921635,
+              "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "qwen3",
+                "families": [
+                  "qwen3"
+                ],
+                "parameter_size": "4.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:21:48.956214+01:00",
+              "size_vram": 5106921635,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 5.243,
+        "ps": {
+          "models": [
+            {
+              "name": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "size": 5106921635,
+              "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "qwen3",
+                "families": [
+                  "qwen3"
+                ],
+                "parameter_size": "4.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:21:49.522544+01:00",
+              "size_vram": 5106921635,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 5.835,
+        "ps": {
+          "models": [
+            {
+              "name": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "size": 5106921635,
+              "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "qwen3",
+                "families": [
+                  "qwen3"
+                ],
+                "parameter_size": "4.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:21:50.062789+01:00",
+              "size_vram": 5106921635,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      }
+    ],
+    "raw_response": "{\"model\":\"soum-qwen3-4b-control:mlx128-52a5ab34\",\"created_at\":\"2026-10-04T11:21:50.44914Z\",\"message\":{\"role\":\"assistant\",\"content\":\"{\\\"ids\\\":[1,2,5,6]}\"},\"done\":true,\"done_reason\":\"stop\",\"total_duration\":6220032208,\"load_duration\":2626897125,\"prompt_eval_count\":433,\"prompt_eval_cached_count\":0,\"prompt_eval_duration\":2917120000,\"eval_count\":12,\"eval_duration\":669217000}",
+    "http_status": 200,
+    "complete": true,
+    "thinking_present": false,
+    "tokens": {
+      "prompt_eval_count": 433,
+      "eval_count": 12
+    },
+    "score": {
+      "selected": [
+        1,
+        2,
+        5,
+        6
+      ],
+      "retrieved": [
+        6
+      ],
+      "missing": [],
+      "extra": [
+        1,
+        2,
+        5
+      ],
+      "unreviewed": [],
+      "exact": false,
+      "empty": false
+    },
+    "valid": true,
+    "wall_seconds": 6.224614207982086
+  },
+  {
+    "id": "negatives-B",
+    "case_id": "negatives",
+    "condition": "B",
+    "model_digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+    "plan_sha256": "e5d1b6c0146de584fd250de2a918398db3f9c9eef9b71293329d1dd60f73773d",
+    "wire_request_utf8": "{\"model\": \"soum-qwen3-4b-control:mlx128-52a5ab34\", \"stream\": false, \"think\": false, \"keep_alive\": 0, \"options\": {\"temperature\": 0, \"seed\": 42, \"num_ctx\": 16384, \"num_predict\": 512}, \"format\": {\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"ids\": {\"type\": \"array\", \"items\": {\"type\": \"integer\", \"enum\": [1, 2, 5, 6]}, \"uniqueItems\": true, \"maxItems\": 80}}, \"required\": [\"ids\"]}, \"messages\": [{\"role\": \"system\", \"content\": \"\\u0425\\u0438\\u0439\\u0441\\u044d\\u043d \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d, \\u0430\\u0436\\u0438\\u043b\\u0431\\u0430\\u0440\\u0442\\u0430\\u0439 \\u0445\\u043e\\u043b\\u0431\\u043e\\u043e\\u0442\\u043e\\u0439 \\u044d\\u0445\\u0438\\u0439\\u043d \\u0445\\u044d\\u0441\\u0433\\u0438\\u0439\\u043d id-\\u0433 \\u0441\\u043e\\u043d\\u0433\\u043e. \\u042d\\u043d\\u044d \\u04af\\u0437\\u043b\\u044d\\u0433\\u044d\\u044d\\u0440 \\u0445\\u0438\\u0439\\u0441\\u044d\\u043d \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d/\\u0430\\u0436\\u0438\\u043b\\u0431\\u0430\\u0440, \\u043c\\u04e9\\u043d \\u044d\\u043c \\u044d\\u0441\\u0432\\u044d\\u043b \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d \\u04e9\\u0433\\u04e9\\u04e9\\u0433\\u04af\\u0439 \\u0433\\u044d\\u0441\\u044d\\u043d \\u0448\\u0443\\u0443\\u0434 \\u0442\\u044d\\u043c\\u0434\\u044d\\u0433\\u043b\\u044d\\u043b\\u0438\\u0439\\u0433 \\u043e\\u0440\\u0443\\u0443\\u043b. \\u0425\\u044d\\u0440\\u044d\\u0433\\u0442\\u044d\\u0439 \\u0431\\u043e\\u043b \\u0446\\u0430\\u0433, \\u0434\\u0430\\u0440\\u0430\\u0430\\u0445 \\u0431\\u0430\\u0439\\u0434\\u0430\\u043b, \\u0442\\u04e9\\u043b\\u04e9\\u0432\\u043b\\u04e9\\u0441\\u04e9\\u043d \\u0431\\u043e\\u043b\\u043e\\u0432\\u0447 \\u0445\\u0438\\u0439\\u0433\\u044d\\u044d\\u0433\\u04af\\u0439 \\u04af\\u0439\\u043b\\u0434\\u043b\\u0438\\u0439\\u043d \\u0445\\u043e\\u043b\\u0431\\u043e\\u043e\\u0442\\u043e\\u0439 \\u0445\\u044d\\u0441\\u0433\\u0438\\u0439\\u0433 \\u0445\\u0430\\u043c\\u0442 \\u0441\\u043e\\u043d\\u0433\\u043e; \\u0442\\u04e9\\u043b\\u04e9\\u0432\\u043b\\u04e9\\u0441\\u043d\\u0438\\u0439\\u0433 \\u0445\\u0438\\u0439\\u0441\\u044d\\u043d \\u0433\\u044d\\u0436 \\u04af\\u0437\\u044d\\u0445\\u0433\\u04af\\u0439. \\u0417\\u04e9\\u0432\\u0445\\u04e9\\u043d \\u0442\\u043e\\u0433\\u0442\\u043c\\u043e\\u043b \\u044d\\u043c, \\u0433\\u044d\\u0440\\u044d\\u044d\\u0440 \\u0445\\u044d\\u0440\\u044d\\u0433\\u043b\\u044d\\u0441\\u044d\\u043d \\u044d\\u043c, \\u0445\\u0430\\u0440\\u0448\\u0438\\u043b, \\u04af\\u0437\\u043b\\u044d\\u0433, \\u0448\\u0438\\u043d\\u0436\\u0438\\u043b\\u0433\\u044d\\u044d \\u043d\\u044c \\u044d\\u043d\\u044d \\u04af\\u0437\\u043b\\u044d\\u0433\\u0438\\u0439\\u043d \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d \\u0431\\u0438\\u0448. \\u0425\\u043e\\u043b\\u0431\\u043e\\u0433\\u0434\\u043e\\u0445 \\u0445\\u044d\\u0441\\u044d\\u0433 \\u043e\\u043b\\u0434\\u043e\\u043e\\u0433\\u04af\\u0439 \\u0431\\u043e\\u043b ids \\u0445\\u043e\\u043e\\u0441\\u043e\\u043d \\u0431\\u0430\\u0439\\u043d\\u0430. \\u0417\\u04e9\\u0432\\u0445\\u04e9\\u043d ids \\u043c\\u0430\\u0441\\u0441\\u0438\\u0432\\u0442\\u0430\\u0439 JSON \\u0431\\u0443\\u0446\\u0430\\u0430; \\u0442\\u0435\\u043a\\u0441\\u0442, \\u0442\\u0443\\u043d, \\u0434\\u04af\\u0433\\u043d\\u044d\\u043b\\u0442 \\u0437\\u043e\\u0445\\u0438\\u043e\\u0445\\u0433\\u04af\\u0439.\"}, {\"role\": \"user\", \"content\": \"{\\\"units\\\":[{\\\"id\\\":1,\\\"text\\\":\\\"No cough.\\\"},{\\\"id\\\":2,\\\"text\\\":\\\"No fever.\\\"},{\\\"id\\\":5,\\\"text\\\":\\\"No medication allergy.\\\"},{\\\"id\\\":6,\\\"text\\\":\\\"No treatment was performed.\\\"}]}\"}]}",
+    "status": "received",
+    "telemetry": [
+      {
+        "seconds": 0.526,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 1.042,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 1.562,
+        "ps": {
+          "models": [
+            {
+              "name": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "size": 5050204159,
+              "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "qwen3",
+                "families": [
+                  "qwen3"
+                ],
+                "parameter_size": "4.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:21:52.079986+01:00",
+              "size_vram": 5050204159,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 2.074,
+        "ps": {
+          "models": [
+            {
+              "name": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "size": 5050204159,
+              "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "qwen3",
+                "families": [
+                  "qwen3"
+                ],
+                "parameter_size": "4.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:21:52.591767+01:00",
+              "size_vram": 5050204159,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 2.59,
+        "ps": {
+          "models": [
+            {
+              "name": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "size": 5050204159,
+              "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "qwen3",
+                "families": [
+                  "qwen3"
+                ],
+                "parameter_size": "4.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:21:53.109547+01:00",
+              "size_vram": 5050204159,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 3.103,
+        "ps": {
+          "models": [
+            {
+              "name": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "size": 5050204159,
+              "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "qwen3",
+                "families": [
+                  "qwen3"
+                ],
+                "parameter_size": "4.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:21:53.621441+01:00",
+              "size_vram": 5050204159,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 3.614,
+        "ps": {
+          "models": [
+            {
+              "name": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "size": 5050204159,
+              "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "qwen3",
+                "families": [
+                  "qwen3"
+                ],
+                "parameter_size": "4.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:21:54.133921+01:00",
+              "size_vram": 5050204159,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 4.134,
+        "ps": {
+          "models": [
+            {
+              "name": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "size": 5050204159,
+              "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "qwen3",
+                "families": [
+                  "qwen3"
+                ],
+                "parameter_size": "4.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:21:54.652886+01:00",
+              "size_vram": 5050204159,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      }
+    ],
+    "raw_response": "{\"model\":\"soum-qwen3-4b-control:mlx128-52a5ab34\",\"created_at\":\"2026-10-04T11:21:54.783388Z\",\"message\":{\"role\":\"assistant\",\"content\":\"{\\\"ids\\\":[1,2,5,6]}\"},\"done\":true,\"done_reason\":\"stop\",\"total_duration\":4265242792,\"load_duration\":1330755708,\"prompt_eval_count\":403,\"prompt_eval_cached_count\":0,\"prompt_eval_duration\":2141027999,\"eval_count\":12,\"eval_duration\":787949000}",
+    "http_status": 200,
+    "complete": true,
+    "thinking_present": false,
+    "tokens": {
+      "prompt_eval_count": 403,
+      "eval_count": 12
+    },
+    "score": {
+      "selected": [
+        1,
+        2,
+        5,
+        6
+      ],
+      "retrieved": [
+        6
+      ],
+      "missing": [],
+      "extra": [
+        1,
+        2,
+        5
+      ],
+      "unreviewed": [],
+      "exact": false,
+      "empty": false
+    },
+    "valid": true,
+    "wall_seconds": 4.269607792026363
+  },
+  {
+    "id": "negatives-C",
+    "case_id": "negatives",
+    "condition": "C",
+    "model_digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+    "plan_sha256": "e5d1b6c0146de584fd250de2a918398db3f9c9eef9b71293329d1dd60f73773d",
+    "wire_request_utf8": "{\"model\": \"soum-qwen3-4b-control:mlx128-52a5ab34\", \"stream\": false, \"think\": false, \"keep_alive\": 0, \"options\": {\"temperature\": 0, \"seed\": 42, \"num_ctx\": 16384, \"num_predict\": 512}, \"messages\": [{\"role\": \"user\", \"content\": \"\\u0425\\u0430\\u043d\\u0438\\u0430\\u043b\\u0433\\u0430\\u0433\\u04af\\u0439.\\n\\u0425\\u0430\\u043b\\u0443\\u0443\\u0440\\u0430\\u0430\\u0433\\u04af\\u0439.\\n\\u042d\\u043c\\u0438\\u0439\\u043d \\u0445\\u0430\\u0440\\u0448\\u0438\\u043b\\u0433\\u04af\\u0439.\\n\\u042d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d \\u0445\\u0438\\u0439\\u0433\\u044d\\u044d\\u0433\\u04af\\u0439.\\n\\n\\u042d\\u043d\\u044d \\u0442\\u044d\\u043c\\u0434\\u044d\\u0433\\u043b\\u044d\\u043b\\u0434 \\u044d\\u043d\\u044d \\u04af\\u0437\\u043b\\u044d\\u0433\\u044d\\u044d\\u0440 \\u044f\\u043c\\u0430\\u0440 \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d \\u0445\\u0438\\u0439\\u0441\\u044d\\u043d, \\u044d\\u0441\\u0432\\u044d\\u043b \\u0445\\u0438\\u0439\\u0433\\u044d\\u044d\\u0433\\u04af\\u0439 \\u0433\\u044d\\u0436 \\u0431\\u0438\\u0447\\u0441\\u044d\\u043d \\u0431\\u044d? \\u0417\\u04e9\\u0432\\u0445\\u04e9\\u043d \\u0442\\u044d\\u0440 \\u043c\\u044d\\u0434\\u044d\\u044d\\u043b\\u043b\\u0438\\u0439\\u0433 \\u043c\\u043e\\u043d\\u0433\\u043e\\u043b\\u043e\\u043e\\u0440 \\u0442\\u043e\\u0432\\u0447 \\u0445\\u0430\\u0440\\u0438\\u0443\\u043b. \\u0422\\u043e\\u0433\\u0442\\u043c\\u043e\\u043b \\u044d\\u043c, \\u0445\\u0430\\u0440\\u0448\\u0438\\u043b, \\u04af\\u0437\\u043b\\u044d\\u0433, \\u0448\\u0438\\u043d\\u0436\\u0438\\u043b\\u0433\\u044d\\u044d\\u0433 \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d \\u0433\\u044d\\u0436 \\u0431\\u04af\\u04af \\u043e\\u0440\\u0443\\u0443\\u043b; \\u0431\\u0438\\u0447\\u044d\\u044d\\u0433\\u04af\\u0439 \\u0437\\u04af\\u0439\\u043b \\u0431\\u04af\\u04af \\u043d\\u044d\\u043c.\"}]}",
+    "status": "received",
+    "telemetry": [
+      {
+        "seconds": 0.508,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 1.037,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 1.561,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 2.322,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 2.905,
+        "ps": {
+          "models": [
+            {
+              "name": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "size": 5050204159,
+              "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "qwen3",
+                "families": [
+                  "qwen3"
+                ],
+                "parameter_size": "4.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:21:57.715589+01:00",
+              "size_vram": 5050204159,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 3.422,
+        "ps": {
+          "models": [
+            {
+              "name": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "size": 5050204159,
+              "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "qwen3",
+                "families": [
+                  "qwen3"
+                ],
+                "parameter_size": "4.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:21:58.232418+01:00",
+              "size_vram": 5050204159,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 3.938,
+        "ps": {
+          "models": [
+            {
+              "name": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "size": 5050204159,
+              "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "qwen3",
+                "families": [
+                  "qwen3"
+                ],
+                "parameter_size": "4.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:21:58.748427+01:00",
+              "size_vram": 5050204159,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 4.474,
+        "ps": {
+          "models": [
+            {
+              "name": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "size": 5050204159,
+              "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "qwen3",
+                "families": [
+                  "qwen3"
+                ],
+                "parameter_size": "4.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:21:59.28657+01:00",
+              "size_vram": 5050204159,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 5.003,
+        "ps": {
+          "models": [
+            {
+              "name": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "size": 5050204159,
+              "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "qwen3",
+                "families": [
+                  "qwen3"
+                ],
+                "parameter_size": "4.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:21:59.81233+01:00",
+              "size_vram": 5050204159,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 5.515,
+        "ps": {
+          "models": [
+            {
+              "name": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "size": 5050204159,
+              "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "qwen3",
+                "families": [
+                  "qwen3"
+                ],
+                "parameter_size": "4.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:22:00.325258+01:00",
+              "size_vram": 5050204159,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 6.033,
+        "ps": {
+          "models": [
+            {
+              "name": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "size": 5050204159,
+              "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "qwen3",
+                "families": [
+                  "qwen3"
+                ],
+                "parameter_size": "4.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:22:00.844434+01:00",
+              "size_vram": 5050204159,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 6.551,
+        "ps": {
+          "models": [
+            {
+              "name": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "size": 5050204159,
+              "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "qwen3",
+                "families": [
+                  "qwen3"
+                ],
+                "parameter_size": "4.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:22:01.361882+01:00",
+              "size_vram": 5050204159,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      }
+    ],
+    "raw_response": "{\"model\":\"soum-qwen3-4b-control:mlx128-52a5ab34\",\"created_at\":\"2026-10-04T11:22:01.820003Z\",\"message\":{\"role\":\"assistant\",\"content\":\"Хүнсэн үзлэг, харшил, эм, шинжилгээг эмчилгээ гэж бүү оруул.\"},\"done\":true,\"done_reason\":\"stop\",\"total_duration\":7010645708,\"load_duration\":2583376708,\"prompt_eval_count\":211,\"prompt_eval_cached_count\":0,\"prompt_eval_duration\":1142425000,\"eval_count\":46,\"eval_duration\":3279434000}",
+    "http_status": 200,
+    "complete": true,
+    "thinking_present": false,
+    "tokens": {
+      "prompt_eval_count": 211,
+      "eval_count": 46
+    },
+    "semantic_review": "pending; assess against frozen rubric; JSON validity not applicable",
+    "wall_seconds": 7.012050374993123
+  },
+  {
+    "id": "investigations-A",
+    "case_id": "investigations",
+    "condition": "A",
+    "model_digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+    "plan_sha256": "e5d1b6c0146de584fd250de2a918398db3f9c9eef9b71293329d1dd60f73773d",
+    "wire_request_utf8": "{\"model\": \"soum-qwen3-4b-control:mlx128-52a5ab34\", \"stream\": false, \"think\": false, \"keep_alive\": 0, \"options\": {\"temperature\": 0, \"seed\": 42, \"num_ctx\": 16384, \"num_predict\": 512}, \"format\": {\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"ids\": {\"type\": \"array\", \"items\": {\"type\": \"integer\", \"enum\": [4, 6, 7]}, \"uniqueItems\": true, \"maxItems\": 80}}, \"required\": [\"ids\"]}, \"messages\": [{\"role\": \"system\", \"content\": \"\\u0425\\u0438\\u0439\\u0441\\u044d\\u043d \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d, \\u0430\\u0436\\u0438\\u043b\\u0431\\u0430\\u0440\\u0442\\u0430\\u0439 \\u0445\\u043e\\u043b\\u0431\\u043e\\u043e\\u0442\\u043e\\u0439 \\u044d\\u0445\\u0438\\u0439\\u043d \\u0445\\u044d\\u0441\\u0433\\u0438\\u0439\\u043d id-\\u0433 \\u0441\\u043e\\u043d\\u0433\\u043e. \\u042d\\u043d\\u044d \\u04af\\u0437\\u043b\\u044d\\u0433\\u044d\\u044d\\u0440 \\u0445\\u0438\\u0439\\u0441\\u044d\\u043d \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d/\\u0430\\u0436\\u0438\\u043b\\u0431\\u0430\\u0440, \\u043c\\u04e9\\u043d \\u044d\\u043c \\u044d\\u0441\\u0432\\u044d\\u043b \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d \\u04e9\\u0433\\u04e9\\u04e9\\u0433\\u04af\\u0439 \\u0433\\u044d\\u0441\\u044d\\u043d \\u0448\\u0443\\u0443\\u0434 \\u0442\\u044d\\u043c\\u0434\\u044d\\u0433\\u043b\\u044d\\u043b\\u0438\\u0439\\u0433 \\u043e\\u0440\\u0443\\u0443\\u043b. \\u0425\\u044d\\u0440\\u044d\\u0433\\u0442\\u044d\\u0439 \\u0431\\u043e\\u043b \\u0446\\u0430\\u0433, \\u0434\\u0430\\u0440\\u0430\\u0430\\u0445 \\u0431\\u0430\\u0439\\u0434\\u0430\\u043b, \\u0442\\u04e9\\u043b\\u04e9\\u0432\\u043b\\u04e9\\u0441\\u04e9\\u043d \\u0431\\u043e\\u043b\\u043e\\u0432\\u0447 \\u0445\\u0438\\u0439\\u0433\\u044d\\u044d\\u0433\\u04af\\u0439 \\u04af\\u0439\\u043b\\u0434\\u043b\\u0438\\u0439\\u043d \\u0445\\u043e\\u043b\\u0431\\u043e\\u043e\\u0442\\u043e\\u0439 \\u0445\\u044d\\u0441\\u0433\\u0438\\u0439\\u0433 \\u0445\\u0430\\u043c\\u0442 \\u0441\\u043e\\u043d\\u0433\\u043e; \\u0442\\u04e9\\u043b\\u04e9\\u0432\\u043b\\u04e9\\u0441\\u043d\\u0438\\u0439\\u0433 \\u0445\\u0438\\u0439\\u0441\\u044d\\u043d \\u0433\\u044d\\u0436 \\u04af\\u0437\\u044d\\u0445\\u0433\\u04af\\u0439. \\u0417\\u04e9\\u0432\\u0445\\u04e9\\u043d \\u0442\\u043e\\u0433\\u0442\\u043c\\u043e\\u043b \\u044d\\u043c, \\u0433\\u044d\\u0440\\u044d\\u044d\\u0440 \\u0445\\u044d\\u0440\\u044d\\u0433\\u043b\\u044d\\u0441\\u044d\\u043d \\u044d\\u043c, \\u0445\\u0430\\u0440\\u0448\\u0438\\u043b, \\u04af\\u0437\\u043b\\u044d\\u0433, \\u0448\\u0438\\u043d\\u0436\\u0438\\u043b\\u0433\\u044d\\u044d \\u043d\\u044c \\u044d\\u043d\\u044d \\u04af\\u0437\\u043b\\u044d\\u0433\\u0438\\u0439\\u043d \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d \\u0431\\u0438\\u0448. \\u0425\\u043e\\u043b\\u0431\\u043e\\u0433\\u0434\\u043e\\u0445 \\u0445\\u044d\\u0441\\u044d\\u0433 \\u043e\\u043b\\u0434\\u043e\\u043e\\u0433\\u04af\\u0439 \\u0431\\u043e\\u043b ids \\u0445\\u043e\\u043e\\u0441\\u043e\\u043d \\u0431\\u0430\\u0439\\u043d\\u0430. \\u0417\\u04e9\\u0432\\u0445\\u04e9\\u043d ids \\u043c\\u0430\\u0441\\u0441\\u0438\\u0432\\u0442\\u0430\\u0439 JSON \\u0431\\u0443\\u0446\\u0430\\u0430; \\u0442\\u0435\\u043a\\u0441\\u0442, \\u0442\\u0443\\u043d, \\u0434\\u04af\\u0433\\u043d\\u044d\\u043b\\u0442 \\u0437\\u043e\\u0445\\u0438\\u043e\\u0445\\u0433\\u04af\\u0439.\"}, {\"role\": \"user\", \"content\": \"{\\\"units\\\":[{\\\"id\\\":4,\\\"text\\\":\\\"\\u0423\\u0443\\u0448\\u0433\\u0438\\u043d\\u0434 \\u0448\\u0443\\u0443\\u0433\\u0438\\u0430\\u043d \\u0441\\u043e\\u043d\\u0441\\u043e\\u0433\\u0434\\u043e\\u043e\\u0433\\u04af\\u0439.\\\"},{\\\"id\\\":6,\\\"text\\\":\\\"\\u042d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d \\u0445\\u0438\\u0439\\u0433\\u044d\\u044d\\u0433\\u04af\\u0439.\\\"},{\\\"id\\\":7,\\\"text\\\":\\\"\\u0428\\u0438\\u043d\\u0436\\u0438\\u043b\\u0433\\u044d\\u044d \\u0445\\u0438\\u0439\\u0433\\u0434\\u044d\\u044d\\u0433\\u04af\\u0439.\\\"}]}\"}]}",
+    "status": "received",
+    "telemetry": [
+      {
+        "seconds": 0.511,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 1.021,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 1.532,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 2.064,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 2.598,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 3.11,
+        "ps": {
+          "models": [
+            {
+              "name": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "size": 5106921635,
+              "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "qwen3",
+                "families": [
+                  "qwen3"
+                ],
+                "parameter_size": "4.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:22:05.079756+01:00",
+              "size_vram": 5106921635,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 3.623,
+        "ps": {
+          "models": [
+            {
+              "name": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "size": 5106921635,
+              "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "qwen3",
+                "families": [
+                  "qwen3"
+                ],
+                "parameter_size": "4.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:22:05.594033+01:00",
+              "size_vram": 5106921635,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 4.165,
+        "ps": {
+          "models": [
+            {
+              "name": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "size": 5106921635,
+              "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "qwen3",
+                "families": [
+                  "qwen3"
+                ],
+                "parameter_size": "4.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:22:06.156523+01:00",
+              "size_vram": 5106921635,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 4.703,
+        "ps": {
+          "models": [
+            {
+              "name": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "size": 5106921635,
+              "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "qwen3",
+                "families": [
+                  "qwen3"
+                ],
+                "parameter_size": "4.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:22:06.672972+01:00",
+              "size_vram": 5106921635,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 5.216,
+        "ps": {
+          "models": [
+            {
+              "name": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "size": 5106921635,
+              "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "qwen3",
+                "families": [
+                  "qwen3"
+                ],
+                "parameter_size": "4.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:22:07.185979+01:00",
+              "size_vram": 5106921635,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      }
+    ],
+    "raw_response": "{\"model\":\"soum-qwen3-4b-control:mlx128-52a5ab34\",\"created_at\":\"2026-10-04T11:22:07.300571Z\",\"message\":{\"role\":\"assistant\",\"content\":\"{\\\"ids\\\":[4,6,7]}\"},\"done\":true,\"done_reason\":\"stop\",\"total_duration\":5331424000,\"load_duration\":2617197333,\"prompt_eval_count\":432,\"prompt_eval_cached_count\":0,\"prompt_eval_duration\":2135887000,\"eval_count\":10,\"eval_duration\":573266000}",
+    "http_status": 200,
+    "complete": true,
+    "thinking_present": false,
+    "tokens": {
+      "prompt_eval_count": 432,
+      "eval_count": 10
+    },
+    "score": {
+      "selected": [
+        4,
+        6,
+        7
+      ],
+      "retrieved": [
+        6
+      ],
+      "missing": [],
+      "extra": [
+        4,
+        7
+      ],
+      "unreviewed": [],
+      "exact": false,
+      "empty": false
+    },
+    "valid": true,
+    "wall_seconds": 5.3332164159510285
+  },
+  {
+    "id": "investigations-B",
+    "case_id": "investigations",
+    "condition": "B",
+    "model_digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+    "plan_sha256": "e5d1b6c0146de584fd250de2a918398db3f9c9eef9b71293329d1dd60f73773d",
+    "wire_request_utf8": "{\"model\": \"soum-qwen3-4b-control:mlx128-52a5ab34\", \"stream\": false, \"think\": false, \"keep_alive\": 0, \"options\": {\"temperature\": 0, \"seed\": 42, \"num_ctx\": 16384, \"num_predict\": 512}, \"format\": {\"type\": \"object\", \"additionalProperties\": false, \"properties\": {\"ids\": {\"type\": \"array\", \"items\": {\"type\": \"integer\", \"enum\": [4, 6, 7]}, \"uniqueItems\": true, \"maxItems\": 80}}, \"required\": [\"ids\"]}, \"messages\": [{\"role\": \"system\", \"content\": \"\\u0425\\u0438\\u0439\\u0441\\u044d\\u043d \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d, \\u0430\\u0436\\u0438\\u043b\\u0431\\u0430\\u0440\\u0442\\u0430\\u0439 \\u0445\\u043e\\u043b\\u0431\\u043e\\u043e\\u0442\\u043e\\u0439 \\u044d\\u0445\\u0438\\u0439\\u043d \\u0445\\u044d\\u0441\\u0433\\u0438\\u0439\\u043d id-\\u0433 \\u0441\\u043e\\u043d\\u0433\\u043e. \\u042d\\u043d\\u044d \\u04af\\u0437\\u043b\\u044d\\u0433\\u044d\\u044d\\u0440 \\u0445\\u0438\\u0439\\u0441\\u044d\\u043d \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d/\\u0430\\u0436\\u0438\\u043b\\u0431\\u0430\\u0440, \\u043c\\u04e9\\u043d \\u044d\\u043c \\u044d\\u0441\\u0432\\u044d\\u043b \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d \\u04e9\\u0433\\u04e9\\u04e9\\u0433\\u04af\\u0439 \\u0433\\u044d\\u0441\\u044d\\u043d \\u0448\\u0443\\u0443\\u0434 \\u0442\\u044d\\u043c\\u0434\\u044d\\u0433\\u043b\\u044d\\u043b\\u0438\\u0439\\u0433 \\u043e\\u0440\\u0443\\u0443\\u043b. \\u0425\\u044d\\u0440\\u044d\\u0433\\u0442\\u044d\\u0439 \\u0431\\u043e\\u043b \\u0446\\u0430\\u0433, \\u0434\\u0430\\u0440\\u0430\\u0430\\u0445 \\u0431\\u0430\\u0439\\u0434\\u0430\\u043b, \\u0442\\u04e9\\u043b\\u04e9\\u0432\\u043b\\u04e9\\u0441\\u04e9\\u043d \\u0431\\u043e\\u043b\\u043e\\u0432\\u0447 \\u0445\\u0438\\u0439\\u0433\\u044d\\u044d\\u0433\\u04af\\u0439 \\u04af\\u0439\\u043b\\u0434\\u043b\\u0438\\u0439\\u043d \\u0445\\u043e\\u043b\\u0431\\u043e\\u043e\\u0442\\u043e\\u0439 \\u0445\\u044d\\u0441\\u0433\\u0438\\u0439\\u0433 \\u0445\\u0430\\u043c\\u0442 \\u0441\\u043e\\u043d\\u0433\\u043e; \\u0442\\u04e9\\u043b\\u04e9\\u0432\\u043b\\u04e9\\u0441\\u043d\\u0438\\u0439\\u0433 \\u0445\\u0438\\u0439\\u0441\\u044d\\u043d \\u0433\\u044d\\u0436 \\u04af\\u0437\\u044d\\u0445\\u0433\\u04af\\u0439. \\u0417\\u04e9\\u0432\\u0445\\u04e9\\u043d \\u0442\\u043e\\u0433\\u0442\\u043c\\u043e\\u043b \\u044d\\u043c, \\u0433\\u044d\\u0440\\u044d\\u044d\\u0440 \\u0445\\u044d\\u0440\\u044d\\u0433\\u043b\\u044d\\u0441\\u044d\\u043d \\u044d\\u043c, \\u0445\\u0430\\u0440\\u0448\\u0438\\u043b, \\u04af\\u0437\\u043b\\u044d\\u0433, \\u0448\\u0438\\u043d\\u0436\\u0438\\u043b\\u0433\\u044d\\u044d \\u043d\\u044c \\u044d\\u043d\\u044d \\u04af\\u0437\\u043b\\u044d\\u0433\\u0438\\u0439\\u043d \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d \\u0431\\u0438\\u0448. \\u0425\\u043e\\u043b\\u0431\\u043e\\u0433\\u0434\\u043e\\u0445 \\u0445\\u044d\\u0441\\u044d\\u0433 \\u043e\\u043b\\u0434\\u043e\\u043e\\u0433\\u04af\\u0439 \\u0431\\u043e\\u043b ids \\u0445\\u043e\\u043e\\u0441\\u043e\\u043d \\u0431\\u0430\\u0439\\u043d\\u0430. \\u0417\\u04e9\\u0432\\u0445\\u04e9\\u043d ids \\u043c\\u0430\\u0441\\u0441\\u0438\\u0432\\u0442\\u0430\\u0439 JSON \\u0431\\u0443\\u0446\\u0430\\u0430; \\u0442\\u0435\\u043a\\u0441\\u0442, \\u0442\\u0443\\u043d, \\u0434\\u04af\\u0433\\u043d\\u044d\\u043b\\u0442 \\u0437\\u043e\\u0445\\u0438\\u043e\\u0445\\u0433\\u04af\\u0439.\"}, {\"role\": \"user\", \"content\": \"{\\\"units\\\":[{\\\"id\\\":4,\\\"text\\\":\\\"No abnormal lung sounds were heard.\\\"},{\\\"id\\\":6,\\\"text\\\":\\\"No treatment was performed.\\\"},{\\\"id\\\":7,\\\"text\\\":\\\"Investigations were not performed.\\\"}]}\"}]}",
+    "status": "received",
+    "telemetry": [
+      {
+        "seconds": 0.516,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 1.035,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 1.548,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 2.065,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 2.581,
+        "ps": {
+          "models": [
+            {
+              "name": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "size": 5050204159,
+              "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "qwen3",
+                "families": [
+                  "qwen3"
+                ],
+                "parameter_size": "4.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:22:09.906781+01:00",
+              "size_vram": 5050204159,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 3.098,
+        "ps": {
+          "models": [
+            {
+              "name": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "size": 5050204159,
+              "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "qwen3",
+                "families": [
+                  "qwen3"
+                ],
+                "parameter_size": "4.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:22:10.423672+01:00",
+              "size_vram": 5050204159,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 3.61,
+        "ps": {
+          "models": [
+            {
+              "name": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "size": 5050204159,
+              "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "qwen3",
+                "families": [
+                  "qwen3"
+                ],
+                "parameter_size": "4.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:22:10.93564+01:00",
+              "size_vram": 5050204159,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 4.126,
+        "ps": {
+          "models": [
+            {
+              "name": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "size": 5050204159,
+              "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "qwen3",
+                "families": [
+                  "qwen3"
+                ],
+                "parameter_size": "4.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:22:11.452646+01:00",
+              "size_vram": 5050204159,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      },
+      {
+        "seconds": 4.644,
+        "ps": {
+          "models": [
+            {
+              "name": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "size": 5050204159,
+              "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "qwen3",
+                "families": [
+                  "qwen3"
+                ],
+                "parameter_size": "4.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:22:11.971671+01:00",
+              "size_vram": 5050204159,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "2"
+      }
+    ],
+    "raw_response": "{\"model\":\"soum-qwen3-4b-control:mlx128-52a5ab34\",\"created_at\":\"2026-10-04T11:22:12.242944Z\",\"message\":{\"role\":\"assistant\",\"content\":\"{\\\"ids\\\":[4,6,7]}\"},\"done\":true,\"done_reason\":\"stop\",\"total_duration\":4917954625,\"load_duration\":2334740125,\"prompt_eval_count\":400,\"prompt_eval_cached_count\":0,\"prompt_eval_duration\":1947780000,\"eval_count\":10,\"eval_duration\":632411000}",
+    "http_status": 200,
+    "complete": true,
+    "thinking_present": false,
+    "tokens": {
+      "prompt_eval_count": 400,
+      "eval_count": 10
+    },
+    "score": {
+      "selected": [
+        4,
+        6,
+        7
+      ],
+      "retrieved": [
+        6
+      ],
+      "missing": [],
+      "extra": [
+        4,
+        7
+      ],
+      "unreviewed": [],
+      "exact": false,
+      "empty": false
+    },
+    "valid": true,
+    "wall_seconds": 4.919641709071584
+  },
+  {
+    "id": "investigations-C",
+    "case_id": "investigations",
+    "condition": "C",
+    "model_digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+    "plan_sha256": "e5d1b6c0146de584fd250de2a918398db3f9c9eef9b71293329d1dd60f73773d",
+    "wire_request_utf8": "{\"model\": \"soum-qwen3-4b-control:mlx128-52a5ab34\", \"stream\": false, \"think\": false, \"keep_alive\": 0, \"options\": {\"temperature\": 0, \"seed\": 42, \"num_ctx\": 16384, \"num_predict\": 512}, \"messages\": [{\"role\": \"user\", \"content\": \"\\u0423\\u0443\\u0448\\u0433\\u0438\\u043d\\u0434 \\u0448\\u0443\\u0443\\u0433\\u0438\\u0430\\u043d \\u0441\\u043e\\u043d\\u0441\\u043e\\u0433\\u0434\\u043e\\u043e\\u0433\\u04af\\u0439.\\n\\u042d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d \\u0445\\u0438\\u0439\\u0433\\u044d\\u044d\\u0433\\u04af\\u0439.\\n\\u0428\\u0438\\u043d\\u0436\\u0438\\u043b\\u0433\\u044d\\u044d \\u0445\\u0438\\u0439\\u0433\\u0434\\u044d\\u044d\\u0433\\u04af\\u0439.\\n\\n\\u042d\\u043d\\u044d \\u0442\\u044d\\u043c\\u0434\\u044d\\u0433\\u043b\\u044d\\u043b\\u0434 \\u044d\\u043d\\u044d \\u04af\\u0437\\u043b\\u044d\\u0433\\u044d\\u044d\\u0440 \\u044f\\u043c\\u0430\\u0440 \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d \\u0445\\u0438\\u0439\\u0441\\u044d\\u043d, \\u044d\\u0441\\u0432\\u044d\\u043b \\u0445\\u0438\\u0439\\u0433\\u044d\\u044d\\u0433\\u04af\\u0439 \\u0433\\u044d\\u0436 \\u0431\\u0438\\u0447\\u0441\\u044d\\u043d \\u0431\\u044d? \\u0417\\u04e9\\u0432\\u0445\\u04e9\\u043d \\u0442\\u044d\\u0440 \\u043c\\u044d\\u0434\\u044d\\u044d\\u043b\\u043b\\u0438\\u0439\\u0433 \\u043c\\u043e\\u043d\\u0433\\u043e\\u043b\\u043e\\u043e\\u0440 \\u0442\\u043e\\u0432\\u0447 \\u0445\\u0430\\u0440\\u0438\\u0443\\u043b. \\u0422\\u043e\\u0433\\u0442\\u043c\\u043e\\u043b \\u044d\\u043c, \\u0445\\u0430\\u0440\\u0448\\u0438\\u043b, \\u04af\\u0437\\u043b\\u044d\\u0433, \\u0448\\u0438\\u043d\\u0436\\u0438\\u043b\\u0433\\u044d\\u044d\\u0433 \\u044d\\u043c\\u0447\\u0438\\u043b\\u0433\\u044d\\u044d \\u0433\\u044d\\u0436 \\u0431\\u04af\\u04af \\u043e\\u0440\\u0443\\u0443\\u043b; \\u0431\\u0438\\u0447\\u044d\\u044d\\u0433\\u04af\\u0439 \\u0437\\u04af\\u0439\\u043b \\u0431\\u04af\\u04af \\u043d\\u044d\\u043c.\"}]}",
+    "status": "received",
+    "telemetry": [
+      {
+        "seconds": 0.511,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 1.027,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 1.537,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 2.055,
+        "ps": {
+          "models": []
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 2.57,
+        "ps": {
+          "models": [
+            {
+              "name": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "size": 5106921635,
+              "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "qwen3",
+                "families": [
+                  "qwen3"
+                ],
+                "parameter_size": "4.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:22:14.915729+01:00",
+              "size_vram": 5106921635,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 3.086,
+        "ps": {
+          "models": [
+            {
+              "name": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "size": 5106921635,
+              "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "qwen3",
+                "families": [
+                  "qwen3"
+                ],
+                "parameter_size": "4.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:22:15.432314+01:00",
+              "size_vram": 5106921635,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 3.604,
+        "ps": {
+          "models": [
+            {
+              "name": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "size": 5106921635,
+              "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "qwen3",
+                "families": [
+                  "qwen3"
+                ],
+                "parameter_size": "4.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:22:15.94996+01:00",
+              "size_vram": 5106921635,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "1"
+      },
+      {
+        "seconds": 4.118,
+        "ps": {
+          "models": [
+            {
+              "name": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+              "size": 5106921635,
+              "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+              "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "qwen3",
+                "families": [
+                  "qwen3"
+                ],
+                "parameter_size": "4.0B",
+                "quantization_level": "Q4_K_M"
+              },
+              "expires_at": "2026-10-04T12:22:16.463943+01:00",
+              "size_vram": 5106921635,
+              "context_length": 16384
+            }
+          ]
+        },
+        "pressure_level": "1"
+      }
+    ],
+    "raw_response": "{\"model\":\"soum-qwen3-4b-control:mlx128-52a5ab34\",\"created_at\":\"2026-10-04T11:22:16.545793Z\",\"message\":{\"role\":\"assistant\",\"content\":\"Эмчилгээ хийгээгүй.\"},\"done\":true,\"done_reason\":\"stop\",\"total_duration\":4200865375,\"load_duration\":2068325250,\"prompt_eval_count\":217,\"prompt_eval_cached_count\":0,\"prompt_eval_duration\":1125045000,\"eval_count\":17,\"eval_duration\":1004099000}",
+    "http_status": 200,
+    "complete": true,
+    "thinking_present": false,
+    "tokens": {
+      "prompt_eval_count": 217,
+      "eval_count": 17
+    },
+    "semantic_review": "pending; assess against frozen rubric; JSON validity not applicable",
+    "wall_seconds": 4.203501915908419
+  }
+]

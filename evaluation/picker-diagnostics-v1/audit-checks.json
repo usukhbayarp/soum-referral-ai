@@ -1,0 +1,47 @@
+{
+  "cases": [
+    {
+      "case": "DEV-002",
+      "saved_request_equals_current_builder": true,
+      "original_offsets_exact": true,
+      "selected_ids_resolve": [
+        23
+      ]
+    },
+    {
+      "case": "dev-003",
+      "saved_request_equals_current_builder": true,
+      "original_offsets_exact": true,
+      "selected_ids_resolve": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "case": "dev-004",
+      "saved_request_equals_current_builder": true,
+      "original_offsets_exact": true,
+      "selected_ids_resolve": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  ],
+  "render_boundaries": "exactly system,user,assistant; one empty think block; /no_think suffix",
+  "provenance": "Original Qwen/Qwen3-4B-MLX-4bit@52a5ab34fa604bc8af6d3ce0cac0cab10b7eb495; dequantized/converted control, not original official GGUF nor Thinking-2507. Historical exporter validation not repeated.",
+  "no_demonstrated_integration_defect": true,
+  "remaining_hypotheses": [
+    "Mongolian instruction comprehension (B retains MN instruction)",
+    "converted control capability / quantization effects; not isolated against original weights here",
+    "task copying bias; no schema causality established"
+  ],
+  "focused_tests": "11 passed in 0.19s; .venv/bin/pytest -q tests/test_picker_diagnostics.py"
+}
