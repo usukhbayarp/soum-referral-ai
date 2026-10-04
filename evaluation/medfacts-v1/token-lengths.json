@@ -1,0 +1,21 @@
+{
+  "lengths": [
+    {
+      "case_id": "TRAIN-001",
+      "full_tokens": 2690,
+      "prompt_tokens": 1982,
+      "completion_tokens": 708,
+      "completion_only_mask_verified": true
+    },
+    {
+      "case_id": "TRAIN-002",
+      "full_tokens": 2727,
+      "prompt_tokens": 2017,
+      "completion_tokens": 710,
+      "completion_only_mask_verified": true
+    }
+  ],
+  "maximum": 2727,
+  "truncated": false,
+  "quality_training_started": false
+}

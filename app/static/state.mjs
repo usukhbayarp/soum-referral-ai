@@ -78,7 +78,8 @@ export function isCurrent(state, ticket) {
 export function acceptResponse(state, ticket, result, config = {}) {
   if (!isCurrent(state, ticket)) return false;
   state.units = result.units;
-  for (const [id, value] of Object.entries(result.fields)) {
+  for (const [sourceId, value] of Object.entries(result.fields)) {
+    const id = config.proposal_mapping?.[sourceId] || sourceId;
     if (!state.fields[id]) continue;
     if (state.fields[id].status !== "manual") {
       state.fields[id] = {

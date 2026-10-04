@@ -1,0 +1,37 @@
+{
+  "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+  "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+  "contract_hashes": {
+    "experiments/medfacts-v1/contract.json": "123f595bbd90da4577735e28b5b7e5892c61fc885124fd50607c1b01962ab3aa",
+    "experiments/medfacts-v1/prompt.txt": "a7508ea96d19b401118bcb6eb08ae4db07aa5998fa29a63d1bd9ba7bcb99d4c8"
+  },
+  "cases": [
+    {
+      "case_id": "DEV-002",
+      "source_sha256": "99ef7a0ee70c2d3ffbe9aee5c4a46a0eb1eff0c13f1627ddc52e43da9eba3bf0",
+      "underlying_case_id": "DEV-002"
+    },
+    {
+      "case_id": "dev-003",
+      "source_sha256": "d0344ccd9edd442935bce4c4129e952954c60632c51172b26a651d6907182a8c",
+      "underlying_case_id": "fictional-003"
+    },
+    {
+      "case_id": "dev-004",
+      "source_sha256": "b1620b52ebfed2a10f136acc4e37ab5b2bb85752ff898462e6b878d58571b561",
+      "underlying_case_id": "fictional-004"
+    }
+  ],
+  "requests": 3,
+  "retries": 0,
+  "timeout_seconds": 120,
+  "settings": {
+    "temperature": 0,
+    "seed": 42,
+    "num_ctx": 16384,
+    "num_predict": 3200
+  },
+  "train_cases_included": false,
+  "dev_whole_target_loss": false,
+  "source_note_unchanged": true
+}

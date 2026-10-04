@@ -1,0 +1,915 @@
+[
+  {
+    "case_id": "DEV-002",
+    "underlying_case_id": "DEV-002",
+    "source_note": "[S01] 2026.10.04, 11:15. Жишээ сумын ЭМТ. Демо эмч 02. DEV-002, 46 настай эмэгтэй. Өнөөдөр 10:00-д ирсэн.\n[S02] 6 долоо хоног хоёр бугуй, гарын хурууны үеэр өвдөж хавдана. Өглөөгүүр 30 орчим минут хөшинө. Гэмтэл аваагүй. Халуурахыг үгүйсгэв.\n[S03] АД ихсэлттэй. Амлодипин 5 мг өдөрт 1 удаа уудаг гэсэн. Өнөөдрийн тунгаа уусан эсэхийг асуугаагүй. Эмийн харшилгүй гэж хэлэв.\n[S04] 10:05-д ерөнхий байдал дунд, ухаан саруул. АД 134/82 мм.муб, ЗЦ 82/мин, АТ 16/мин, SpO₂ 98% дэмжлэггүй, халуун 36.7 °C. Хоёр бугуй, хоёр гарын II–III MCP үе хавдаж, тэмтрэхэд эмзэг. Үе тус бүрийн хөдөлгөөний далайцыг үнэлээгүй. Өвдөлт 6/10 гэж хэлсэн.\n[S05] 2026.10.03-ны шинжилгээ: Hb 127 г/л, WBC 6.8 × 10⁹/л, PLT 310 × 10⁹/л, CRP 14 мг/л. RF, anti-CCP хийгээгүй.\n[S06] 10:15-д парацетамол 500 мг амаар нэг удаа өгсөн. 11:00-д өвдөлт 4/10 болсон гэж хэлэв. Энэ үзлэгээр өөр эмчилгээ хийгээгүй.\n[S07] 11:00-д ерөнхий байдал дунд, ухаан саруул. АД 128/80 мм.муб, ЗЦ 78/мин, АТ 16/мин, SpO₂ 98% дэмжлэггүй, халуун 36.6 °C.\n[S08] Үнэлгээ: олон үений өвдөлт, хавдар, шалтгаан тодруулах. Хавсарсан онош: артерийн даралт ихсэлт.\n[S09] Манай суманд ревматологийн эмч, anti-CCP шинжилгээ байхгүй. 6 долоо хоног үргэлжилсэн олон үений өвдөлт, хавдрын шалтгаан тодруулахаар Жишээ аймгийн НЭ-ийн дотрын амбулаторид төлөвлөгөөт журмаар илгээнэ.\n[S10] Хүлээн авах эмчээс үрэвсэлт үений өвчин байж болзошгүй эсэхийг үнэлж, шаардлагатай шинжилгээ болон цаашдын эмчилгээний төлөвлөгөө гаргахыг хүсэв. Аймгийн дотрын эмчийн үнэлгээний дараа сумын эмчид эргэн үзүүлнэ.\n[S11] ЦДШ, CRP-ийн хариуны хуулбарыг хавсаргав. Хүлээгдэж буй шинжилгээний хариу байхгүй.",
+    "synthetic_origin": "AI-generated fictional example supplied by clinician; awaiting final clinician review",
+    "clinician_review_status": "partial",
+    "split": "development",
+    "label_kind": "provisional expected facts; not clinician-reviewed labels",
+    "source_version": "original-immutable; evaluation/medication-v1/cases.json",
+    "source_sha256": "99ef7a0ee70c2d3ffbe9aee5c4a46a0eb1eff0c13f1627ddc52e43da9eba3bf0",
+    "source_mapping": {
+      "U1": {
+        "id": 1,
+        "start": 0,
+        "end": 24,
+        "text": "[S01] 2026.10.04, 11:15.",
+        "model_text": "2026.10.04, 11:15.",
+        "original_s_id": "S01"
+      },
+      "U2": {
+        "id": 2,
+        "start": 25,
+        "end": 41,
+        "text": "Жишээ сумын ЭМТ.",
+        "model_text": "Жишээ сумын ЭМТ.",
+        "original_s_id": "S01"
+      },
+      "U3": {
+        "id": 3,
+        "start": 42,
+        "end": 54,
+        "text": "Демо эмч 02.",
+        "model_text": "Демо эмч 02.",
+        "original_s_id": "S01"
+      },
+      "U4": {
+        "id": 4,
+        "start": 55,
+        "end": 82,
+        "text": "DEV-002, 46 настай эмэгтэй.",
+        "model_text": "DEV-002, 46 настай эмэгтэй.",
+        "original_s_id": "S01"
+      },
+      "U5": {
+        "id": 5,
+        "start": 83,
+        "end": 105,
+        "text": "Өнөөдөр 10:00-д ирсэн.",
+        "model_text": "Өнөөдөр 10:00-д ирсэн.",
+        "original_s_id": "S01"
+      },
+      "U6": {
+        "id": 6,
+        "start": 106,
+        "end": 171,
+        "text": "[S02] 6 долоо хоног хоёр бугуй, гарын хурууны үеэр өвдөж хавдана.",
+        "model_text": "6 долоо хоног хоёр бугуй, гарын хурууны үеэр өвдөж хавдана.",
+        "original_s_id": "S02"
+      },
+      "U7": {
+        "id": 7,
+        "start": 172,
+        "end": 204,
+        "text": "Өглөөгүүр 30 орчим минут хөшинө.",
+        "model_text": "Өглөөгүүр 30 орчим минут хөшинө.",
+        "original_s_id": "S02"
+      },
+      "U8": {
+        "id": 8,
+        "start": 205,
+        "end": 220,
+        "text": "Гэмтэл аваагүй.",
+        "model_text": "Гэмтэл аваагүй.",
+        "original_s_id": "S02"
+      },
+      "U9": {
+        "id": 9,
+        "start": 221,
+        "end": 241,
+        "text": "Халуурахыг үгүйсгэв.",
+        "model_text": "Халуурахыг үгүйсгэв.",
+        "original_s_id": "S02"
+      },
+      "U10": {
+        "id": 10,
+        "start": 242,
+        "end": 261,
+        "text": "[S03] АД ихсэлттэй.",
+        "model_text": "АД ихсэлттэй.",
+        "original_s_id": "S03"
+      },
+      "U11": {
+        "id": 11,
+        "start": 262,
+        "end": 302,
+        "text": "Амлодипин 5 мг өдөрт 1 удаа уудаг гэсэн.",
+        "model_text": "Амлодипин 5 мг өдөрт 1 удаа уудаг гэсэн.",
+        "original_s_id": "S03"
+      },
+      "U12": {
+        "id": 12,
+        "start": 303,
+        "end": 345,
+        "text": "Өнөөдрийн тунгаа уусан эсэхийг асуугаагүй.",
+        "model_text": "Өнөөдрийн тунгаа уусан эсэхийг асуугаагүй.",
+        "original_s_id": "S03"
+      },
+      "U13": {
+        "id": 13,
+        "start": 346,
+        "end": 372,
+        "text": "Эмийн харшилгүй гэж хэлэв.",
+        "model_text": "Эмийн харшилгүй гэж хэлэв.",
+        "original_s_id": "S03"
+      },
+      "U14": {
+        "id": 14,
+        "start": 373,
+        "end": 421,
+        "text": "[S04] 10:05-д ерөнхий байдал дунд, ухаан саруул.",
+        "model_text": "10:05-д ерөнхий байдал дунд, ухаан саруул.",
+        "original_s_id": "S04"
+      },
+      "U15": {
+        "id": 15,
+        "start": 422,
+        "end": 498,
+        "text": "АД 134/82 мм.муб, ЗЦ 82/мин, АТ 16/мин, SpO₂ 98% дэмжлэггүй, халуун 36.7 °C.",
+        "model_text": "АД 134/82 мм.муб, ЗЦ 82/мин, АТ 16/мин, SpO₂ 98% дэмжлэггүй, халуун 36.7 °C.",
+        "original_s_id": "S04"
+      },
+      "U16": {
+        "id": 16,
+        "start": 499,
+        "end": 560,
+        "text": "Хоёр бугуй, хоёр гарын II–III MCP үе хавдаж, тэмтрэхэд эмзэг.",
+        "model_text": "Хоёр бугуй, хоёр гарын II–III MCP үе хавдаж, тэмтрэхэд эмзэг.",
+        "original_s_id": "S04"
+      },
+      "U17": {
+        "id": 17,
+        "start": 561,
+        "end": 606,
+        "text": "Үе тус бүрийн хөдөлгөөний далайцыг үнэлээгүй.",
+        "model_text": "Үе тус бүрийн хөдөлгөөний далайцыг үнэлээгүй.",
+        "original_s_id": "S04"
+      },
+      "U18": {
+        "id": 18,
+        "start": 607,
+        "end": 630,
+        "text": "Өвдөлт 6/10 гэж хэлсэн.",
+        "model_text": "Өвдөлт 6/10 гэж хэлсэн.",
+        "original_s_id": "S04"
+      },
+      "U19": {
+        "id": 19,
+        "start": 631,
+        "end": 720,
+        "text": "[S05] 2026.10.03-ны шинжилгээ: Hb 127 г/л, WBC 6.8 × 10⁹/л, PLT 310 × 10⁹/л, CRP 14 мг/л.",
+        "model_text": "2026.10.03-ны шинжилгээ: Hb 127 г/л, WBC 6.8 × 10⁹/л, PLT 310 × 10⁹/л, CRP 14 мг/л.",
+        "original_s_id": "S05"
+      },
+      "U20": {
+        "id": 20,
+        "start": 721,
+        "end": 744,
+        "text": "RF, anti-CCP хийгээгүй.",
+        "model_text": "RF, anti-CCP хийгээгүй.",
+        "original_s_id": "S05"
+      },
+      "U21": {
+        "id": 21,
+        "start": 745,
+        "end": 799,
+        "text": "[S06] 10:15-д парацетамол 500 мг амаар нэг удаа өгсөн.",
+        "model_text": "10:15-д парацетамол 500 мг амаар нэг удаа өгсөн.",
+        "original_s_id": "S06"
+      },
+      "U22": {
+        "id": 22,
+        "start": 800,
+        "end": 837,
+        "text": "11:00-д өвдөлт 4/10 болсон гэж хэлэв.",
+        "model_text": "11:00-д өвдөлт 4/10 болсон гэж хэлэв.",
+        "original_s_id": "S06"
+      },
+      "U23": {
+        "id": 23,
+        "start": 838,
+        "end": 874,
+        "text": "Энэ үзлэгээр өөр эмчилгээ хийгээгүй.",
+        "model_text": "Энэ үзлэгээр өөр эмчилгээ хийгээгүй.",
+        "original_s_id": "S06"
+      },
+      "U24": {
+        "id": 24,
+        "start": 875,
+        "end": 923,
+        "text": "[S07] 11:00-д ерөнхий байдал дунд, ухаан саруул.",
+        "model_text": "11:00-д ерөнхий байдал дунд, ухаан саруул.",
+        "original_s_id": "S07"
+      },
+      "U25": {
+        "id": 25,
+        "start": 924,
+        "end": 1000,
+        "text": "АД 128/80 мм.муб, ЗЦ 78/мин, АТ 16/мин, SpO₂ 98% дэмжлэггүй, халуун 36.6 °C.",
+        "model_text": "АД 128/80 мм.муб, ЗЦ 78/мин, АТ 16/мин, SpO₂ 98% дэмжлэггүй, халуун 36.6 °C.",
+        "original_s_id": "S07"
+      },
+      "U26": {
+        "id": 26,
+        "start": 1001,
+        "end": 1062,
+        "text": "[S08] Үнэлгээ: олон үений өвдөлт, хавдар, шалтгаан тодруулах.",
+        "model_text": "Үнэлгээ: олон үений өвдөлт, хавдар, шалтгаан тодруулах.",
+        "original_s_id": "S08"
+      },
+      "U27": {
+        "id": 27,
+        "start": 1063,
+        "end": 1102,
+        "text": "Хавсарсан онош: артерийн даралт ихсэлт.",
+        "model_text": "Хавсарсан онош: артерийн даралт ихсэлт.",
+        "original_s_id": "S08"
+      },
+      "U28": {
+        "id": 28,
+        "start": 1103,
+        "end": 1168,
+        "text": "[S09] Манай суманд ревматологийн эмч, anti-CCP шинжилгээ байхгүй.",
+        "model_text": "Манай суманд ревматологийн эмч, anti-CCP шинжилгээ байхгүй.",
+        "original_s_id": "S09"
+      },
+      "U29": {
+        "id": 29,
+        "start": 1169,
+        "end": 1312,
+        "text": "6 долоо хоног үргэлжилсэн олон үений өвдөлт, хавдрын шалтгаан тодруулахаар Жишээ аймгийн НЭ-ийн дотрын амбулаторид төлөвлөгөөт журмаар илгээнэ.",
+        "model_text": "6 долоо хоног үргэлжилсэн олон үений өвдөлт, хавдрын шалтгаан тодруулахаар Жишээ аймгийн НЭ-ийн дотрын амбулаторид төлөвлөгөөт журмаар илгээнэ.",
+        "original_s_id": "S09"
+      },
+      "U30": {
+        "id": 30,
+        "start": 1313,
+        "end": 1464,
+        "text": "[S10] Хүлээн авах эмчээс үрэвсэлт үений өвчин байж болзошгүй эсэхийг үнэлж, шаардлагатай шинжилгээ болон цаашдын эмчилгээний төлөвлөгөө гаргахыг хүсэв.",
+        "model_text": "Хүлээн авах эмчээс үрэвсэлт үений өвчин байж болзошгүй эсэхийг үнэлж, шаардлагатай шинжилгээ болон цаашдын эмчилгээний төлөвлөгөө гаргахыг хүсэв.",
+        "original_s_id": "S10"
+      },
+      "U31": {
+        "id": 31,
+        "start": 1465,
+        "end": 1530,
+        "text": "Аймгийн дотрын эмчийн үнэлгээний дараа сумын эмчид эргэн үзүүлнэ.",
+        "model_text": "Аймгийн дотрын эмчийн үнэлгээний дараа сумын эмчид эргэн үзүүлнэ.",
+        "original_s_id": "S10"
+      },
+      "U32": {
+        "id": 32,
+        "start": 1531,
+        "end": 1578,
+        "text": "[S11] ЦДШ, CRP-ийн хариуны хуулбарыг хавсаргав.",
+        "model_text": "ЦДШ, CRP-ийн хариуны хуулбарыг хавсаргав.",
+        "original_s_id": "S11"
+      },
+      "U33": {
+        "id": 33,
+        "start": 1579,
+        "end": 1620,
+        "text": "Хүлээгдэж буй шинжилгээний хариу байхгүй.",
+        "model_text": "Хүлээгдэж буй шинжилгээний хариу байхгүй.",
+        "original_s_id": "S11"
+      }
+    },
+    "review_status": "partial",
+    "unreviewed_remainder": true,
+    "whole_note_training_eligible": false,
+    "reviewed_A_v2_labels": {
+      "U11": "regular_medication",
+      "U12": "regular_medication",
+      "U13": "allergy_statement",
+      "U21": "administered_treatment",
+      "U23": "explicitly_not_administered"
+    },
+    "reviewed_form_categories": {
+      "regular_medication": [
+        "U11",
+        "U12"
+      ],
+      "allergies": [
+        "U13"
+      ],
+      "treatment_source": [
+        "U21",
+        "U23"
+      ]
+    },
+    "decisions": [
+      {
+        "units": [
+          "U11"
+        ],
+        "scope": "drug-associated facts",
+        "clinical_decision": "Amlodipine 5 mg orally once daily is regular medication, not encounter administration; frequency is not administration time.",
+        "facts": {
+          "drug": "Амлодипин",
+          "dose": "5 мг",
+          "route": "oral",
+          "frequency": "өдөрт 1 удаа",
+          "time": null
+        },
+        "reviewer": "А. Балжинням",
+        "review_date": "2026-10-04",
+        "review_status": "approved within stated scope; clarification facts apply only to a confirmed added source"
+      },
+      {
+        "units": [
+          "U12"
+        ],
+        "scope": "uncertainty",
+        "clinical_decision": "Today dose NOT ASKED; neither not taken nor not administered.",
+        "facts": {},
+        "reviewer": "А. Балжинням",
+        "review_date": "2026-10-04",
+        "review_status": "approved within stated scope; clarification facts apply only to a confirmed added source"
+      },
+      {
+        "units": [
+          "U13"
+        ],
+        "scope": "patient attribution",
+        "clinical_decision": "Preserve Эмийн харшилгүй гэж хэлэв as patient-reported absence.",
+        "facts": {},
+        "reviewer": "А. Балжинням",
+        "review_date": "2026-10-04",
+        "review_status": "approved within stated scope; clarification facts apply only to a confirmed added source"
+      },
+      {
+        "units": [
+          "U21"
+        ],
+        "scope": "drug-associated facts",
+        "clinical_decision": "Paracetamol 500 mg orally once at 10:15 actually administered this encounter; no full date inferred.",
+        "facts": {
+          "drug": "парацетамол",
+          "dose": "500 мг",
+          "route": "oral",
+          "frequency": "нэг удаа",
+          "time": "10:15"
+        },
+        "reviewer": "А. Балжинням",
+        "review_date": "2026-10-04",
+        "review_status": "approved within stated scope; clarification facts apply only to a confirmed added source"
+      },
+      {
+        "units": [
+          "U23"
+        ],
+        "scope": "explicit absence",
+        "clinical_decision": "No OTHER treatment this encounter; preserve this explicit statement.",
+        "facts": {},
+        "reviewer": "А. Балжинням",
+        "review_date": "2026-10-04",
+        "review_status": "approved within stated scope; clarification facts apply only to a confirmed added source"
+      }
+    ],
+    "excluded_scope": [
+      "Unlisted facts and labels remain unreviewed",
+      "No approval of all facts in mixed units"
+    ],
+    "contract_version": "source-linked-medfacts-1",
+    "scope": [
+      {
+        "units": [
+          "U11",
+          "U12",
+          "U13",
+          "U21",
+          "U23"
+        ],
+        "topics": [
+          "medication",
+          "medication_response",
+          "chronic_history",
+          "drug_allergy",
+          "food_allergy",
+          "allergy_unspecified",
+          "symptom_followup",
+          "investigation",
+          "treatment"
+        ]
+      }
+    ],
+    "target": {
+      "facts": [
+        {
+          "topic": "medication",
+          "attributes": [
+            "regular_use"
+          ],
+          "evidence": [
+            {
+              "unit_id": "U11",
+              "quote": "Амлодипин 5 мг өдөрт 1 удаа уудаг гэсэн."
+            }
+          ],
+          "context": [
+            "U12"
+          ]
+        },
+        {
+          "topic": "medication",
+          "attributes": [
+            "not_asked"
+          ],
+          "evidence": [
+            {
+              "unit_id": "U12",
+              "quote": "Өнөөдрийн тунгаа уусан эсэхийг асуугаагүй."
+            }
+          ],
+          "context": [
+            "U11"
+          ]
+        },
+        {
+          "topic": "drug_allergy",
+          "attributes": [
+            "explicit_absence",
+            "patient_reported"
+          ],
+          "evidence": [
+            {
+              "unit_id": "U13",
+              "quote": "Эмийн харшилгүй гэж хэлэв."
+            }
+          ],
+          "context": []
+        },
+        {
+          "topic": "medication",
+          "attributes": [
+            "encounter_administered"
+          ],
+          "evidence": [
+            {
+              "unit_id": "U21",
+              "quote": "10:15-д парацетамол 500 мг амаар нэг удаа өгсөн."
+            }
+          ],
+          "context": []
+        },
+        {
+          "topic": "treatment",
+          "attributes": [
+            "not_administered"
+          ],
+          "evidence": [
+            {
+              "unit_id": "U23",
+              "quote": "Энэ үзлэгээр өөр эмчилгээ хийгээгүй."
+            }
+          ],
+          "context": []
+        }
+      ]
+    },
+    "target_scope": "Only listed approved facts in requested unit/topic scope; full original note retained as context",
+    "unrequested_units": [
+      "U1",
+      "U2",
+      "U3",
+      "U4",
+      "U5",
+      "U6",
+      "U7",
+      "U8",
+      "U9",
+      "U10",
+      "U14",
+      "U15",
+      "U16",
+      "U17",
+      "U18",
+      "U19",
+      "U20",
+      "U22",
+      "U24",
+      "U25",
+      "U26",
+      "U27",
+      "U28",
+      "U29",
+      "U30",
+      "U31",
+      "U32",
+      "U33"
+    ],
+    "whole_target_loss_available": false,
+    "training_eligible": false,
+    "evaluation_only_reviewed_scope": true,
+    "excluded_reviewed_facts": "Other approved classifications outside compact contract; unconfirmed clarified home-use source not used"
+  },
+  {
+    "case_id": "dev-003",
+    "underlying_case_id": "fictional-003",
+    "source_note": "Ханиалгагүй. Халуураагүй. Амьсгаадаагүй.\nУушгинд шуугиан сонсогдоогүй.\nЭмийн харшилгүй.\nЭмчилгээ хийгээгүй.\nШинжилгээ хийгдээгүй.",
+    "synthetic_origin": "AI-authored fictional development fixture; no real patient",
+    "clinician_review_status": "partial",
+    "split": "development",
+    "label_kind": "provisional expected facts; not clinician-reviewed labels",
+    "source_version": "original-immutable; evaluation/medication-v1/cases.json",
+    "source_sha256": "d0344ccd9edd442935bce4c4129e952954c60632c51172b26a651d6907182a8c",
+    "source_mapping": {
+      "U1": {
+        "id": 1,
+        "start": 0,
+        "end": 12,
+        "text": "Ханиалгагүй.",
+        "model_text": "Ханиалгагүй.",
+        "original_s_id": null
+      },
+      "U2": {
+        "id": 2,
+        "start": 13,
+        "end": 25,
+        "text": "Халуураагүй.",
+        "model_text": "Халуураагүй.",
+        "original_s_id": null
+      },
+      "U3": {
+        "id": 3,
+        "start": 26,
+        "end": 40,
+        "text": "Амьсгаадаагүй.",
+        "model_text": "Амьсгаадаагүй.",
+        "original_s_id": null
+      },
+      "U4": {
+        "id": 4,
+        "start": 41,
+        "end": 70,
+        "text": "Уушгинд шуугиан сонсогдоогүй.",
+        "model_text": "Уушгинд шуугиан сонсогдоогүй.",
+        "original_s_id": null
+      },
+      "U5": {
+        "id": 5,
+        "start": 71,
+        "end": 87,
+        "text": "Эмийн харшилгүй.",
+        "model_text": "Эмийн харшилгүй.",
+        "original_s_id": null
+      },
+      "U6": {
+        "id": 6,
+        "start": 88,
+        "end": 107,
+        "text": "Эмчилгээ хийгээгүй.",
+        "model_text": "Эмчилгээ хийгээгүй.",
+        "original_s_id": null
+      },
+      "U7": {
+        "id": 7,
+        "start": 108,
+        "end": 129,
+        "text": "Шинжилгээ хийгдээгүй.",
+        "model_text": "Шинжилгээ хийгдээгүй.",
+        "original_s_id": null
+      }
+    },
+    "review_status": "partial",
+    "unreviewed_remainder": true,
+    "whole_note_training_eligible": false,
+    "reviewed_A_v2_labels": {
+      "U1": "other",
+      "U2": "other",
+      "U3": "other",
+      "U4": "other",
+      "U7": "other",
+      "U5": "allergy_statement",
+      "U6": "explicitly_not_administered"
+    },
+    "reviewed_form_categories": {
+      "history": [
+        "U1",
+        "U2",
+        "U3"
+      ],
+      "examination": [
+        "U4"
+      ],
+      "allergies": [
+        "U5"
+      ],
+      "treatment_source": [
+        "U6"
+      ],
+      "investigations": [
+        "U7"
+      ]
+    },
+    "decisions": [
+      {
+        "units": [
+          "U1",
+          "U2",
+          "U3"
+        ],
+        "scope": "classification",
+        "clinical_decision": "Complaints/history; symptom negation is not medication negation.",
+        "facts": {},
+        "reviewer": "А. Балжинням",
+        "review_date": "2026-10-04",
+        "review_status": "approved within stated scope; clarification facts apply only to a confirmed added source"
+      },
+      {
+        "units": [
+          "U4"
+        ],
+        "scope": "classification",
+        "clinical_decision": "Physical examination; already present in source, annotation correction only. A-v2 other.",
+        "facts": {},
+        "reviewer": "А. Балжинням",
+        "review_date": "2026-10-04",
+        "review_status": "approved within stated scope; clarification facts apply only to a confirmed added source"
+      },
+      {
+        "units": [
+          "U5"
+        ],
+        "scope": "classification",
+        "clinical_decision": "Allergy information; explicit absence.",
+        "facts": {},
+        "reviewer": "А. Балжинням",
+        "review_date": "2026-10-04",
+        "review_status": "approved within stated scope; clarification facts apply only to a confirmed added source"
+      },
+      {
+        "units": [
+          "U6"
+        ],
+        "scope": "classification",
+        "clinical_decision": "Treatment section; explicit no treatment.",
+        "facts": {},
+        "reviewer": "А. Балжинням",
+        "review_date": "2026-10-04",
+        "review_status": "approved within stated scope; clarification facts apply only to a confirmed added source"
+      },
+      {
+        "units": [
+          "U7"
+        ],
+        "scope": "classification",
+        "clinical_decision": "Investigations; explicitly not performed.",
+        "facts": {},
+        "reviewer": "А. Балжинням",
+        "review_date": "2026-10-04",
+        "review_status": "approved within stated scope; clarification facts apply only to a confirmed added source"
+      },
+      {
+        "units": [
+          "U1",
+          "U2",
+          "U3",
+          "U4",
+          "U5",
+          "U6",
+          "U7"
+        ],
+        "scope": "absence of documentation",
+        "clinical_decision": "Regular medication undocumented: do not invent no regular medication or unnamed rows.",
+        "facts": {},
+        "reviewer": "А. Балжинням",
+        "review_date": "2026-10-04",
+        "review_status": "approved within stated scope; clarification facts apply only to a confirmed added source"
+      }
+    ],
+    "excluded_scope": [
+      "Unlisted facts and labels remain unreviewed",
+      "No approval of all facts in mixed units"
+    ],
+    "contract_version": "source-linked-medfacts-1",
+    "scope": [
+      {
+        "units": [
+          "U5",
+          "U6",
+          "U7"
+        ],
+        "topics": [
+          "medication",
+          "medication_response",
+          "chronic_history",
+          "drug_allergy",
+          "food_allergy",
+          "allergy_unspecified",
+          "symptom_followup",
+          "investigation",
+          "treatment"
+        ]
+      }
+    ],
+    "target": {
+      "facts": [
+        {
+          "topic": "drug_allergy",
+          "attributes": [
+            "explicit_absence"
+          ],
+          "evidence": [
+            {
+              "unit_id": "U5",
+              "quote": "Эмийн харшилгүй."
+            }
+          ],
+          "context": []
+        },
+        {
+          "topic": "treatment",
+          "attributes": [
+            "not_administered"
+          ],
+          "evidence": [
+            {
+              "unit_id": "U6",
+              "quote": "Эмчилгээ хийгээгүй."
+            }
+          ],
+          "context": []
+        },
+        {
+          "topic": "investigation",
+          "attributes": [
+            "explicit_absence"
+          ],
+          "evidence": [
+            {
+              "unit_id": "U7",
+              "quote": "Шинжилгээ хийгдээгүй."
+            }
+          ],
+          "context": []
+        }
+      ]
+    },
+    "target_scope": "Only listed approved facts in requested unit/topic scope; full original note retained as context",
+    "unrequested_units": [
+      "U1",
+      "U2",
+      "U3",
+      "U4"
+    ],
+    "whole_target_loss_available": false,
+    "training_eligible": false,
+    "evaluation_only_reviewed_scope": true,
+    "excluded_reviewed_facts": "Other approved classifications outside compact contract; unconfirmed clarified home-use source not used"
+  },
+  {
+    "case_id": "dev-004",
+    "underlying_case_id": "fictional-004",
+    "source_note": "Өнөөдөр 09:00 цагт парацетамол 500 мг 1 шахмал уусан.\nӨмнөх тэмдэглэлд амоксициллин 250 мг өдөрт 3 удаа, 5 хоног хэрэглэсэн гэж бичсэн.\nХалуун 37.2 °C, АД 120/80 мм.муб, жин 62.5 кг.\nГлюкоз 5.6 ммоль/л.\nПенициллинд тууралт гардаг гэж тэмдэглэсэн.",
+    "synthetic_origin": "AI-authored fictional development fixture; no real patient",
+    "clinician_review_status": "partial",
+    "split": "development",
+    "label_kind": "provisional expected facts; not clinician-reviewed labels",
+    "source_version": "original-immutable; evaluation/medication-v1/cases.json",
+    "source_sha256": "b1620b52ebfed2a10f136acc4e37ab5b2bb85752ff898462e6b878d58571b561",
+    "source_mapping": {
+      "U1": {
+        "id": 1,
+        "start": 0,
+        "end": 53,
+        "text": "Өнөөдөр 09:00 цагт парацетамол 500 мг 1 шахмал уусан.",
+        "model_text": "Өнөөдөр 09:00 цагт парацетамол 500 мг 1 шахмал уусан.",
+        "original_s_id": null
+      },
+      "U2": {
+        "id": 2,
+        "start": 54,
+        "end": 135,
+        "text": "Өмнөх тэмдэглэлд амоксициллин 250 мг өдөрт 3 удаа, 5 хоног хэрэглэсэн гэж бичсэн.",
+        "model_text": "Өмнөх тэмдэглэлд амоксициллин 250 мг өдөрт 3 удаа, 5 хоног хэрэглэсэн гэж бичсэн.",
+        "original_s_id": null
+      },
+      "U3": {
+        "id": 3,
+        "start": 136,
+        "end": 182,
+        "text": "Халуун 37.2 °C, АД 120/80 мм.муб, жин 62.5 кг.",
+        "model_text": "Халуун 37.2 °C, АД 120/80 мм.муб, жин 62.5 кг.",
+        "original_s_id": null
+      },
+      "U4": {
+        "id": 4,
+        "start": 183,
+        "end": 202,
+        "text": "Глюкоз 5.6 ммоль/л.",
+        "model_text": "Глюкоз 5.6 ммоль/л.",
+        "original_s_id": null
+      },
+      "U5": {
+        "id": 5,
+        "start": 203,
+        "end": 246,
+        "text": "Пенициллинд тууралт гардаг гэж тэмдэглэсэн.",
+        "model_text": "Пенициллинд тууралт гардаг гэж тэмдэглэсэн.",
+        "original_s_id": null
+      }
+    },
+    "review_status": "partial",
+    "unreviewed_remainder": true,
+    "whole_note_training_eligible": false,
+    "reviewed_A_v2_labels": {
+      "U3": "other",
+      "U4": "other"
+    },
+    "reviewed_form_categories": {
+      "investigations": [
+        "U4"
+      ],
+      "vital_measurements_phase_unspecified": [
+        "U3"
+      ]
+    },
+    "decisions": [
+      {
+        "units": [
+          "U1",
+          "U2"
+        ],
+        "scope": "clarification requires new source",
+        "clinical_decision": "Clinician intended home use, explicitly acknowledges original was unclear. Do NOT score original predictions using this added information.",
+        "facts": {},
+        "reviewer": "А. Балжинням",
+        "review_date": "2026-10-04",
+        "review_status": "approved within stated scope; clarification facts apply only to a confirmed added source"
+      },
+      {
+        "units": [
+          "U3"
+        ],
+        "scope": "classification",
+        "clinical_decision": "Temperature 37.2 C, BP 120/80 mmHg, weight 62.5 kg are vital signs/measurements; no observation phase is approved.",
+        "facts": {},
+        "reviewer": "А. Балжинням",
+        "review_date": "2026-10-04",
+        "review_status": "approved within stated scope; clarification facts apply only to a confirmed added source"
+      },
+      {
+        "units": [
+          "U4"
+        ],
+        "scope": "classification",
+        "clinical_decision": "Glucose 5.6 mmol/L is an investigation.",
+        "facts": {},
+        "reviewer": "А. Балжинням",
+        "review_date": "2026-10-04",
+        "review_status": "approved within stated scope; clarification facts apply only to a confirmed added source"
+      }
+    ],
+    "excluded_scope": [
+      "Unlisted facts and labels remain unreviewed",
+      "No approval of all facts in mixed units"
+    ],
+    "contract_version": "source-linked-medfacts-1",
+    "scope": [
+      {
+        "units": [
+          "U4"
+        ],
+        "topics": [
+          "medication",
+          "medication_response",
+          "chronic_history",
+          "drug_allergy",
+          "food_allergy",
+          "allergy_unspecified",
+          "symptom_followup",
+          "investigation",
+          "treatment"
+        ]
+      }
+    ],
+    "target": {
+      "facts": [
+        {
+          "topic": "investigation",
+          "attributes": [],
+          "evidence": [
+            {
+              "unit_id": "U4",
+              "quote": "Глюкоз 5.6 ммоль/л."
+            }
+          ],
+          "context": []
+        }
+      ]
+    },
+    "target_scope": "Only listed approved facts in requested unit/topic scope; full original note retained as context",
+    "unrequested_units": [
+      "U1",
+      "U2",
+      "U3",
+      "U5"
+    ],
+    "whole_target_loss_available": false,
+    "training_eligible": false,
+    "evaluation_only_reviewed_scope": true,
+    "excluded_reviewed_facts": "Other approved classifications outside compact contract; unconfirmed clarified home-use source not used"
+  }
+]

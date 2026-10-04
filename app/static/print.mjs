@@ -48,7 +48,7 @@ export function printSections(state, config) {
           meaning,
           manual: value.status === 'manual',
           rows: rowTexts,
-          compact: f.manual && !['treatment_rows', 'review_notes', 'transport', 'agreement', 'chronic_history'].includes(f.id),
+          compact: f.manual && !['treatment_rows', 'review_notes', 'transport', 'agreement', 'medical_history', 'chronic_history'].includes(f.id),
         }];
       }),
   }));

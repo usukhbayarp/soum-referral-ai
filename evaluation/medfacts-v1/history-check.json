@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "isolated_url": "http://127.0.0.1:8001",
+  "form": "experimental-0.8",
+  "legacy_proposal_separate": true,
+  "manual_histories_preserved": true,
+  "print_attribution": true,
+  "source_reconciliation": true,
+  "example_reset": true,
+  "model_inference": false
+}

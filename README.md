@@ -1,6 +1,6 @@
 # Soum Referral AI / Сум
 
-Latest milestone: [v0.8 partial clinician review and export recovery](docs/clinician-partial-v08.md). Production model/prompt remain unchanged; partial reviews are evaluation-only.
+Latest milestone: [reviewed training preparation, frozen compact contract and measured baseline](docs/reviewed-medfacts-v1.md). Two fictional training families are staged; quality training has not started. Production model/prompt remain unchanged. The isolated v0.8 history fix is verified; the existing live process still reports v0.7.
 
 A local Mongolian referral-documentation prototype for the World Bank Small AI for Development hackathon.
 

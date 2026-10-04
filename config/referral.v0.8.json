@@ -184,14 +184,25 @@
       "instruction": "Main complaint, duration, course and relevant negatives."
     },
     {
-      "id": "medical_history",
-      "label": "Одоогийн өвчний түүх",
+      "id": "past_history_source",
+      "label": "Өмнөх түүх — ангилаагүй эхийн санал",
       "section": 3,
       "manual": false,
       "required": false,
+      "kind": "source_suggestion",
+      "instruction": "Review-only legacy past-history proposal. Never automatically populate current or chronic history.",
+      "display_group": "Түүх ба тогтмол эм"
+    },
+    {
+      "id": "medical_history",
+      "label": "Одоогийн өвчний түүх",
+      "section": 3,
+      "manual": true,
+      "required": false,
       "instruction": "Current illness history. Existing past-history proposals require category review; no automatic chronic-history migration.",
       "display_group": "Түүх ба тогтмол эм",
-      "help": "Гэртээ / үзлэгээс өмнө хэрэглэсэн, төлөвлөсөн болон өгөөгүй эмийн тухай мэдээллийг үгүйсгэл, цаг хугацаатай нь хадгална. Эдгээрийг энэ үзлэгээр хийсэн эмчилгээ гэж үзэхгүй. Өмнөх ангиллын эхийн саналыг эмч дахин хянана."
+      "help": "Одоогийн өвчний түүхийг эмч гараар оруулна. Өмнөх түүхийн саналыг энд автоматаар оруулахгүй. Гэрээр хэрэглэсэн, төлөвлөсөн болон өгөөгүй эмийн тухай баримтыг хугацаа, үгүйсгэлтэй нь хадгална.",
+      "source_group": "past_history_source"
     },
     {
       "id": "chronic_history",
@@ -201,7 +212,8 @@
       "required": false,
       "instruction": "",
       "display_group": "Түүх ба тогтмол эм",
-      "help": "Эмч гараар оруулна. Эмийн нэрээс архаг онош дүгнэхгүй; өмнөх түүхийг автоматаар шилжүүлэхгүй."
+      "help": "Эмч гараар оруулна. Эмийн нэрээс архаг онош дүгнэхгүй; өмнөх түүхийг автоматаар шилжүүлэхгүй.",
+      "source_group": "past_history_source"
     },
     {
       "id": "regular_medication",
@@ -723,7 +735,7 @@
     "requested_action": "requested_action",
     "referral_type_source": "referral_type_source",
     "history": "history",
-    "medical_history": "medical_history",
+    "medical_history": "past_history_source",
     "regular_medication": "regular_medication",
     "diagnosis": "diagnosis",
     "comorbid": "comorbid",
@@ -739,7 +751,6 @@
     "plan": "plan"
   },
   "partial_review_version": "clinician-partial-20261004-1",
-  "proposal_review_required": [
-    "medical_history"
-  ]
+  "proposal_review_required": [],
+  "revision": "history-destination-2"
 }

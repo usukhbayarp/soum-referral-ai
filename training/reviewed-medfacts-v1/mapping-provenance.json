@@ -1,0 +1,11 @@
+{
+  "engineering_mapping": "Exact spans/topics/independent attributes faithfully mapped from approved listed answers; not blanket source fact approval",
+  "reviewer": "\u0410. \u0411\u0430\u043b\u0436\u0438\u043d\u043d\u044f\u043c",
+  "review_date": "2026-10-04",
+  "contract_hashes": {
+    "experiments/medfacts-v1/contract.json": "123f595bbd90da4577735e28b5b7e5892c61fc885124fd50607c1b01962ab3aa",
+    "experiments/medfacts-v1/prompt.txt": "a7508ea96d19b401118bcb6eb08ae4db07aa5998fa29a63d1bd9ba7bcb99d4c8"
+  },
+  "TRAIN-002_revision": "approved-revised-20261004-2; final approval supersedes draft",
+  "normalization": "Targets quote original text; oral normalization is optional linked display-only. No unit conversion/rate/time inference."
+}

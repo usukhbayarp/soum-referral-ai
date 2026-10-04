@@ -1,0 +1,11 @@
+{
+  "scope": "Engineering mapping of listed approved facts only; not a new clinician approval of unlisted facts",
+  "sha256": {
+    "training/reviewed-medfacts-v1/cases.json": "a839cd00152274c6bc9e65e1e9586fe999b6717b3490819649b73dbce195d0fa",
+    "training/reviewed-medfacts-v1/mapped-cases.json": "87a914b2cb7cf91d8b2ed16027af1f42e57fc33115837280f223141071d1b50b",
+    "training/reviewed-medfacts-v1/families.json": "77ff37d4d0bdea1a40c26da5ed6c56bfc37902080cd1ef47dce710a7d9933f5d",
+    "evaluation/medfacts-v1/development.json": "8d4ccf4d993353a1883113121de2a038b3c96ef7b9d2274f797ae73272e7c4db",
+    "experiments/medfacts-v1/contract.json": "123f595bbd90da4577735e28b5b7e5892c61fc885124fd50607c1b01962ab3aa",
+    "experiments/medfacts-v1/prompt.txt": "a7508ea96d19b401118bcb6eb08ae4db07aa5998fa29a63d1bd9ba7bcb99d4c8"
+  }
+}

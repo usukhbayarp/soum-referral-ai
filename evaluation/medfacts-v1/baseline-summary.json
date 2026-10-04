@@ -1,0 +1,17 @@
+{
+  "reports": [
+    {
+      "model": "soum-qwen3-4b-control:mlx128-52a5ab34",
+      "digest": "a7949c7fd19f24caf6f062c16c5733fa72c5c8049a53ec34681ccc426b6eb5f6",
+      "correct": 1,
+      "incorrect": 4,
+      "unscorable": 4,
+      "invalid_outputs": 2,
+      "wall_seconds": 26.92851362505462
+    }
+  ],
+  "diagnostic_preference": "soum-qwen3-4b-control:mlx128-52a5ab34",
+  "selection_rule": "Highest exact reviewed correct count; ties retain baseline then earlier checkpoint. Human review of all errors/extras required; never auto-promote.",
+  "development_loss_available": false,
+  "clinical_candidate_eligible": false
+}

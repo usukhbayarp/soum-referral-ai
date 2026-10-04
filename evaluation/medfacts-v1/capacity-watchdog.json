@@ -1,0 +1,92 @@
+{
+  "command": [
+    "/opt/anaconda3/bin/python",
+    "-m",
+    "scripts.mlx_python",
+    "scripts.medfacts_capacity",
+    "--probe"
+  ],
+  "samples": [
+    {
+      "seconds": 2.0430560420500115,
+      "rss_kib": 66864,
+      "pressure_level": "1",
+      "system_free_percent": 64
+    },
+    {
+      "seconds": 4.06217095896136,
+      "rss_kib": 70480,
+      "pressure_level": "1",
+      "system_free_percent": 61
+    },
+    {
+      "seconds": 6.077993500046432,
+      "rss_kib": 223232,
+      "pressure_level": "1",
+      "system_free_percent": 60
+    },
+    {
+      "seconds": 8.093828417011537,
+      "rss_kib": 329840,
+      "pressure_level": "1",
+      "system_free_percent": 59
+    },
+    {
+      "seconds": 10.122945750015788,
+      "rss_kib": 1919968,
+      "pressure_level": "1",
+      "system_free_percent": 51
+    },
+    {
+      "seconds": 12.14898199995514,
+      "rss_kib": 807760,
+      "pressure_level": "2",
+      "system_free_percent": 29
+    },
+    {
+      "seconds": 14.177267750026658,
+      "rss_kib": 807904,
+      "pressure_level": "2",
+      "system_free_percent": 34
+    },
+    {
+      "seconds": 16.212664999999106,
+      "rss_kib": 807936,
+      "pressure_level": "2",
+      "system_free_percent": 36
+    },
+    {
+      "seconds": 18.24097420903854,
+      "rss_kib": 791536,
+      "pressure_level": "2",
+      "system_free_percent": 38
+    },
+    {
+      "seconds": 20.270997083978727,
+      "rss_kib": 791472,
+      "pressure_level": "2",
+      "system_free_percent": 37
+    },
+    {
+      "seconds": 22.295623625046574,
+      "rss_kib": 792576,
+      "pressure_level": "1",
+      "system_free_percent": 40
+    },
+    {
+      "seconds": 24.30963516701013,
+      "rss_kib": 293232,
+      "pressure_level": "2",
+      "system_free_percent": 32
+    },
+    {
+      "seconds": 26.331942791934125,
+      "rss_kib": 384880,
+      "pressure_level": "1",
+      "system_free_percent": 51
+    }
+  ],
+  "stop_reason": null,
+  "exit_code": 0,
+  "elapsed_seconds": 28.338581125019118
+}

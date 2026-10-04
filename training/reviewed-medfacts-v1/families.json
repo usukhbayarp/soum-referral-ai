@@ -1,0 +1,31 @@
+{
+  "memberships": [
+    {
+      "underlying_case_id": "train-001-independent-family",
+      "split": "train"
+    },
+    {
+      "underlying_case_id": "train-002-independent-family",
+      "split": "train"
+    },
+    {
+      "underlying_case_id": "DEV-002",
+      "split": "development"
+    },
+    {
+      "underlying_case_id": "fictional-003",
+      "split": "development"
+    },
+    {
+      "underlying_case_id": "fictional-004",
+      "split": "development"
+    },
+    {
+      "underlying_case_id": "probe-med-family-001",
+      "split": "development"
+    }
+  ],
+  "reserved_test_contents_opened": false,
+  "reserved_test_registry_supplied": false,
+  "final_test_registration": "required before final evaluation; no fabricated test families"
+}
